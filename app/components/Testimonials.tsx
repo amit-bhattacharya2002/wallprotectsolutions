@@ -42,9 +42,9 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section id="testimonials" className="bg-[#0f172a] py-20 lg:py-28">
+    <section id="testimonials" className="bg-[#0f172a] py-14 lg:py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Left Column */}
           <div>
             <span className="text-sm font-medium text-[#f97316] tracking-wider uppercase mb-4 block">
@@ -53,7 +53,7 @@ export default function Testimonials() {
             <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight leading-[1.1] mb-6">
               What our clients say
             </h2>
-            <p className="text-lg text-white/70 leading-relaxed font-normal mb-12">
+            <p className="text-lg text-white/70 leading-relaxed font-normal mb-8">
               Don't just take our word for it. Here's what our satisfied clients 
               across British Columbia have to say about our work.
             </p>

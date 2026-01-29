@@ -1,8 +1,52 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const services = [
+  { 
+    title: "Premium Panel Supply",
+    description: "Top-quality FRP panels from industry-leading manufacturers",
+    icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z",
+    href: "/services/frp-sales"
+  },
+  { 
+    title: "Expert Installation",
+    description: "Precision installation by certified professionals",
+    icon: "M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437",
+    href: "/services/frp-installation"
+  },
+  { 
+    title: "Ongoing Maintenance",
+    description: "Comprehensive service and repair solutions",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z",
+    href: "/services/frp-service"
+  },
+  { 
+    title: "Complete Protection",
+    description: "End-to-end wall protection for commercial spaces",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+    href: "/wall-protection"
+  },
+];
 
 export default function Hero() {
+  const [activeIndex, setActiveIndex] = useState(-1);
+
+  useEffect(() => {
+    // Start animation immediately on mount
+    const timeout = setTimeout(() => setActiveIndex(0), 100);
+    
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % services.length);
+    }, 3000);
+    
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <section
       id="home"
@@ -25,7 +69,8 @@ export default function Hero() {
         {/* Main content - centered vertically, takes remaining space */}
         <div className="flex-1 flex items-center">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-            <div className="max-w-4xl">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            <div className="max-w-2xl">
               {/* Trust Badge */}
               <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 md:px-4 md:py-2 mb-5 md:mb-6">
                 <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#f97316] flex items-center justify-center">
@@ -84,6 +129,60 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
+              </div>
+            </div>
+
+              {/* Right side - Single rotating service with icon */}
+              <div className="hidden lg:flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-md z-10">
+                  {/* Main animated content */}
+                  <div className="relative h-[320px]">
+                    {services.map((service, index) => (
+                      <Link
+                        key={index}
+                        href={service.href}
+                        className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-700 group ${
+                          index === activeIndex
+                            ? "opacity-100 translate-y-0 z-10"
+                            : "opacity-0 translate-y-8 pointer-events-none z-0"
+                        }`}
+                      >
+                        {/* Icon */}
+                        <div className="w-24 h-24 flex items-center justify-center mb-6">
+                          <svg
+                            className="w-14 h-14 text-[#f97316]"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={1.5}
+                              d={service.icon}
+                            />
+                          </svg>
+                        </div>
+                        {/* Text */}
+                        <div className="text-center">
+                          <h3 className="text-2xl md:text-3xl font-semibold text-white mb-3 group-hover:text-[#f97316] transition-colors">
+                            {service.title}
+                          </h3>
+                          <p className="text-lg text-white/70 max-w-sm">
+                            {service.description}
+                          </p>
+                        </div>
+                        {/* Learn more hint */}
+                        <div className="mt-4 flex items-center gap-2 text-white/50 group-hover:text-[#f97316] transition-colors">
+                          <span className="text-sm">Learn more</span>
+                          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

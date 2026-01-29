@@ -72,10 +72,10 @@ export default function Projects() {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <section id="projects" className="bg-[#f8fafc] py-20 lg:py-28">
+    <section id="projects" className="bg-white py-10 lg:py-10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12 lg:mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8 lg:mb-10">
           <div className="max-w-2xl">
             <span className="text-sm font-medium text-[#f97316] tracking-wider uppercase mb-4 block">
               Our Work
@@ -99,7 +99,7 @@ export default function Projects() {
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap gap-3 mb-12">
+        <div className="flex flex-wrap gap-3 mb-8">
           {categories.map((category) => (
             <button
               key={category}
@@ -116,7 +116,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredProjects.map((project) => (
             <Link
               key={project.slug}
@@ -141,20 +141,20 @@ export default function Projects() {
               </div>
 
               {/* Content */}
-              <div className="p-6 lg:p-8">
-                <div className="flex items-start justify-between gap-4">
+              <div className="p-5 lg:p-6">
+                <div className="flex items-start justify-between gap-3">
                   <div>
                     <span className="text-sm text-[#f97316] font-medium mb-2 block">
                       {project.category}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-semibold text-[#0f172a] mb-3 tracking-tight group-hover:text-[#f97316] transition-colors">
+                    <h3 className="text-lg lg:text-xl font-semibold text-[#0f172a] mb-2 tracking-tight group-hover:text-[#f97316] transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 font-normal leading-relaxed">
+                    <p className="text-sm lg:text-base text-gray-600 font-normal leading-relaxed line-clamp-2">
                       {project.description}
                     </p>
                   </div>
-                  <div className="shrink-0 w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#0f172a] group-hover:border-[#0f172a] transition-all duration-300">
+                  <div className="shrink-0 w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#0f172a] group-hover:border-[#0f172a] transition-all duration-300">
                     <svg 
                       className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" 
                       fill="none" 

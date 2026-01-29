@@ -38,10 +38,10 @@ const benefits = [
 
 export default function WhyFRP() {
   return (
-    <section id="why-frp" className="bg-[#f8fafc] py-20 lg:py-28">
+    <section id="why-frp" className="bg-[#f8fafc] py-14 lg:py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 lg:mb-20">
+        <div className="max-w-3xl mb-12 lg:mb-14">
           <span className="text-sm font-medium text-[#f97316] tracking-wider uppercase mb-4 block">
             Why FRP?
           </span>
@@ -55,7 +55,7 @@ export default function WhyFRP() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 rounded-2xl overflow-hidden mb-20 lg:mb-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 rounded-2xl overflow-hidden mb-14 lg:mb-16">
           {stats.map((stat) => (
             <div
               key={stat.label}
@@ -75,7 +75,7 @@ export default function WhyFRP() {
         </div>
 
         {/* Benefits */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <span className="text-sm font-medium text-[#f97316] tracking-wider uppercase mb-4 block">
               Benefits
@@ -83,7 +83,7 @@ export default function WhyFRP() {
             <h3 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6 leading-tight">
               Built for durability, designed for performance
             </h3>
-            <p className="text-gray-600 leading-relaxed font-normal mb-10 text-lg">
+            <p className="text-gray-600 leading-relaxed font-normal mb-6 text-lg">
               FRP panels check all the boxes where durability, strength, impact resistance, 
               and sanitation are key requirements. A cost-effective wall covering solution 
               compared to other systems.

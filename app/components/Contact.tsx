@@ -22,9 +22,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-white py-20 lg:py-28">
+    <section id="contact" className="bg-white py-14 lg:py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column */}
           <div>
             <span className="text-sm font-medium text-[#f97316] tracking-wider uppercase mb-4 block">
@@ -33,13 +33,13 @@ export default function Contact() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#0f172a] tracking-tight leading-[1.1] mb-6">
               Let's talk
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed font-normal mb-12 max-w-md">
+            <p className="text-lg text-gray-600 leading-relaxed font-normal mb-8 max-w-md">
               Ready to start your project? Get a free quote today. Our team will attend 
               your site for measurements at no additional cost.
             </p>
 
             {/* Contact Details */}
-            <div className="space-y-8 mb-12">
+            <div className="space-y-6 mb-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-[#f8fafc] flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-[#0f172a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

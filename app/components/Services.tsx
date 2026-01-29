@@ -28,10 +28,10 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-white py-20 lg:py-28">
+    <section id="services" className="bg-white py-14 lg:py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 mb-16 lg:mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 mb-12 lg:mb-14">
           <div>
             <span className="text-sm font-medium text-[#f97316] tracking-wider uppercase mb-4 block">
               Our Services
@@ -102,7 +102,7 @@ export default function Services() {
         </div>
 
         {/* Trusted Partners */}
-        <div className="mt-16 lg:mt-20 pt-12 border-t border-gray-200">
+        <div className="mt-12 lg:mt-14 pt-10  border-gray-200">
           <p className="text-sm text-gray-500 uppercase tracking-wider mb-8 text-center">
             Trusted Manufacturer Partners
           </p>
