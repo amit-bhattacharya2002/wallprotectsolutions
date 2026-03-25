@@ -66,23 +66,25 @@ export default function CraneCompositesPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative bg-[#0f172a] pt-32 pb-20">
+        <section className="relative min-h-dvh bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28 flex items-center">
           <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex items-center gap-2 text-white/70 text-sm mb-6">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span>/</span>
-              <Link href="/wall-protection" className="hover:text-white transition-colors">Wall Protection</Link>
-              <span>/</span>
-              <span className="text-white">Crane Composites</span>
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-left">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-2 text-white/70 text-sm mb-6">
+                <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                <span>/</span>
+                <Link href="/wall-protection" className="hover:text-white transition-colors">Wall Protection</Link>
+                <span>/</span>
+                <span className="text-white">Crane Composites</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 max-w-3xl">
+                Crane Composites FRP
+              </h1>
+              <p className="text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
+                Industry-leading Glasbord and Sequentia panels trusted by commercial kitchens,
+                healthcare facilities, and food processing plants across North America.
+              </p>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6">
-              Crane Composites FRP
-            </h1>
-            <p className="text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
-              Industry-leading Glasbord and Sequentia panels trusted by commercial kitchens, 
-              healthcare facilities, and food processing plants across North America.
-            </p>
           </div>
         </section>
 

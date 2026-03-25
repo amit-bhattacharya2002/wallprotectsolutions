@@ -40,13 +40,21 @@ export default function ContactPage() {
     <>
       <Header />
       <main>
-        <PageHero 
+        <PageHero
           title="Contact Us"
-          subtitle="Get in touch with our team for any questions, quotes, or inquiries."
+          subtitle="Get in touch with our team for any questions, quotes, or project inquiries."
           breadcrumb="Contact"
+          quickLinksTitle="Reach us directly"
+          fullHeight={false}
+          quickLinks={[
+            { label: "604-715-9469", href: "tel:604-715-9469" },
+            { label: "info@frpinstallations.com", href: "mailto:info@frpinstallations.com" },
+            { label: "Get a Quote", href: "/quote" },
+            { label: "Schedule a Site Measurement", href: "/schedule-on-site-measurement" },
+          ]}
         />
 
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
               {/* Contact Info */}
@@ -56,7 +64,7 @@ export default function ContactPage() {
                 </h2>
                 <p className="text-gray-600 leading-relaxed font-normal mb-12">
                   Have a question about our services? Want to discuss your project? 
-                  We'd love to hear from you. Reach out using any of the methods below, 
+                  We&apos;d love to hear from you. Reach out using any of the methods below, 
                   or fill out the contact form.
                 </p>
 
@@ -69,7 +77,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Phone</div>
-                      <a href="tel:604-715-9469" className="text-2xl font-semibold text-[#0f172a] hover:text-[#f97316] transition-colors">
+                      <a href="tel:604-715-9469" className="text-2xl font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
                         604-715-9469
                       </a>
                       <p className="text-gray-600 text-sm mt-1">Mon-Fri 8am-5pm PST</p>
@@ -84,7 +92,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Email</div>
-                      <a href="mailto:info@frpinstallations.com" className="text-2xl font-semibold text-[#0f172a] hover:text-[#f97316] transition-colors">
+                      <a href="mailto:info@frpinstallations.com" className="text-2xl font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
                         info@frpinstallations.com
                       </a>
                       <p className="text-gray-600 text-sm mt-1">We respond within 24 hours</p>
@@ -107,25 +115,25 @@ export default function ContactPage() {
                         145-1685 Pinetree Way<br />
                         Coquitlam, BC V3E 3A1
                       </p>
-                      <p className="text-[#f97316] text-sm mt-2 font-medium">(By Appointment Only)</p>
+                      <p className="text-[#0d9488] text-sm mt-2 font-medium">(By Appointment Only)</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Quick Links */}
-                <div className="p-6 bg-[#f8fafc] rounded-xl">
+                <div className="surface-card-muted p-6">
                   <h3 className="font-semibold text-[#0f172a] mb-4">Quick Links</h3>
                   <div className="grid grid-cols-2 gap-3">
-                    <Link href="/quote" className="text-gray-600 hover:text-[#f97316] transition-colors text-sm">
+                    <Link href="/quote" className="text-gray-600 hover:text-[#0d9488] transition-colors text-sm">
                       → Get a Quote
                     </Link>
-                    <Link href="/projects" className="text-gray-600 hover:text-[#f97316] transition-colors text-sm">
+                    <Link href="/projects" className="text-gray-600 hover:text-[#0d9488] transition-colors text-sm">
                       → View Projects
                     </Link>
-                    <Link href="/services/frp-sales" className="text-gray-600 hover:text-[#f97316] transition-colors text-sm">
+                    <Link href="/services/frp-sales" className="text-gray-600 hover:text-[#0d9488] transition-colors text-sm">
                       → FRP Sales
                     </Link>
-                    <Link href="/services/frp-installation" className="text-gray-600 hover:text-[#f97316] transition-colors text-sm">
+                    <Link href="/services/frp-installation" className="text-gray-600 hover:text-[#0d9488] transition-colors text-sm">
                       → FRP Installation
                     </Link>
                   </div>
@@ -134,7 +142,7 @@ export default function ContactPage() {
 
               {/* Contact Form */}
               <div>
-                <div className="bg-[#f8fafc] rounded-2xl p-8 lg:p-10">
+                <div className="surface-card-muted p-8 lg:p-10">
                   <h3 className="text-xl font-semibold text-[#0f172a] mb-6">Send us a Message</h3>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
@@ -147,7 +155,7 @@ export default function ContactPage() {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="Your name"
                         />
                       </div>
@@ -159,7 +167,7 @@ export default function ContactPage() {
                           name="company"
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="Company name"
                         />
                       </div>
@@ -175,7 +183,7 @@ export default function ContactPage() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="you@company.com"
                         />
                       </div>
@@ -187,7 +195,7 @@ export default function ContactPage() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="604-XXX-XXXX"
                         />
                       </div>
@@ -200,7 +208,7 @@ export default function ContactPage() {
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                        className="field-input"
                       >
                         <option value="">Select a subject</option>
                         <option value="quote">Request a Quote</option>
@@ -220,14 +228,14 @@ export default function ContactPage() {
                         rows={5}
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors resize-none"
+                        className="field-input resize-none"
                         placeholder="How can we help you?"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#f97316]"
+                      className="w-full bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#0d9488]"
                     >
                       Send Message
                     </button>
@@ -239,7 +247,7 @@ export default function ContactPage() {
         </section>
 
         {/* Service Areas Section */}
-        <section className="py-20 lg:py-28 bg-[#f8fafc]">
+        <section className="section-shell bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">
@@ -261,27 +269,26 @@ export default function ContactPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 lg:py-28 bg-[#0f172a]">
+        <section className="section-shell bg-[#eaf6f5] border-t border-[#d5ece8]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
-              Ready to get started?
+            <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
+              Prefer to speak with our team directly?
             </h2>
-            <p className="text-white/80 font-normal mb-10 max-w-xl mx-auto">
-              Request a free quote or schedule a site visit. Our team is ready to help 
-              with your wall protection needs.
+            <p className="text-slate-600 font-normal mb-10 max-w-2xl mx-auto leading-relaxed">
+              Call or email us for project questions, coordination details, or next steps. If you need pricing, the quotation request in the footer right below is the best place to send project specifications.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/quote"
-                className="inline-flex items-center justify-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#f97316] hover:text-white transition-all"
-              >
-                Get a Free Quote
-              </Link>
               <a
                 href="tel:604-715-9469"
-                className="inline-flex items-center justify-center gap-3 border border-white/30 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all"
+                className="inline-flex items-center justify-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium hover:bg-[#0d9488] transition-all"
               >
                 Call 604-715-9469
+              </a>
+              <a
+                href="mailto:info@frpinstallations.com"
+                className="inline-flex items-center justify-center gap-3 border border-slate-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#0d9488] hover:text-[#0d9488] hover:bg-white/70 transition-all"
+              >
+                Email Our Team
               </a>
             </div>
           </div>

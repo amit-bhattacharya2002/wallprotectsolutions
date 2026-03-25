@@ -34,7 +34,7 @@ export default function ScheduleMeasurementPage() {
           breadcrumb="Schedule Measurement"
         />
 
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-16">
               {/* Info Column */}
@@ -55,35 +55,35 @@ export default function ScheduleMeasurementPage() {
                     </p>
                   </div>
 
-                  <div className="bg-[#f8fafc] rounded-xl p-6 mb-8">
+                  <div className="surface-card-muted p-6 mb-8">
                     <h3 className="font-semibold text-[#0f172a] mb-4">During the Visit</h3>
                     <ul className="space-y-3 text-sm text-gray-600">
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-[#f97316] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-[#0d9488] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Accurate wall measurements
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-[#f97316] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-[#0d9488] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         FRP finish samples to review
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-[#f97316] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-[#0d9488] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Trim & moulding options
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-[#f97316] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-[#0d9488] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Expert recommendations
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-[#f97316] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-[#0d9488] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Detailed quote to follow
@@ -91,14 +91,14 @@ export default function ScheduleMeasurementPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-[#0f172a] rounded-xl p-6 text-white">
+                  <div className="surface-card-dark p-6 text-white">
                     <h3 className="font-semibold mb-3">Prefer to Call?</h3>
                     <p className="text-white/70 text-sm mb-4">
                       Reach us directly to schedule your measurement or ask questions.
                     </p>
                     <a 
                       href="tel:604-715-9469" 
-                      className="inline-flex items-center gap-2 text-[#f97316] hover:text-[#fb923c] font-medium transition-colors"
+                      className="inline-flex items-center gap-2 text-[#0d9488] hover:text-[#14b8a6] font-medium transition-colors"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -111,7 +111,7 @@ export default function ScheduleMeasurementPage() {
 
               {/* Form Column */}
               <div className="lg:col-span-2">
-                <form onSubmit={handleSubmit} className="bg-[#f8fafc] rounded-2xl p-8 lg:p-10">
+                <form onSubmit={handleSubmit} className="surface-card-muted p-8 lg:p-10">
                   <h3 className="text-xl font-semibold text-[#0f172a] mb-6">Schedule Your Free Site Visit</h3>
                   
                   <div className="space-y-6">
@@ -125,7 +125,7 @@ export default function ScheduleMeasurementPage() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                        className="field-input"
                         placeholder="Your full name"
                       />
                     </div>
@@ -140,7 +140,7 @@ export default function ScheduleMeasurementPage() {
                           name="telephone"
                           value={formData.telephone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="604-XXX-XXXX"
                         />
                       </div>
@@ -153,7 +153,7 @@ export default function ScheduleMeasurementPage() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="you@company.com"
                         />
                       </div>
@@ -169,7 +169,7 @@ export default function ScheduleMeasurementPage() {
                         required
                         value={formData.projectAddress}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                        className="field-input"
                         placeholder="Street address"
                       />
                     </div>
@@ -185,7 +185,7 @@ export default function ScheduleMeasurementPage() {
                           required
                           value={formData.projectCity}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="e.g., Vancouver, BC"
                         />
                       </div>
@@ -197,7 +197,7 @@ export default function ScheduleMeasurementPage() {
                           name="preferredDate"
                           value={formData.preferredDate}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                         />
                       </div>
                     </div>
@@ -211,7 +211,7 @@ export default function ScheduleMeasurementPage() {
                         rows={5}
                         value={formData.comments}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors resize-none"
+                        className="field-input resize-none"
                         placeholder="Tell us about your project, preferred time slots, or any questions you have..."
                       />
                     </div>
@@ -219,7 +219,7 @@ export default function ScheduleMeasurementPage() {
 
                   <button
                     type="submit"
-                    className="w-full bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#f97316] mt-8"
+                    className="w-full bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#0d9488] mt-8"
                   >
                     Schedule My Site Visit
                   </button>
@@ -234,9 +234,9 @@ export default function ScheduleMeasurementPage() {
         </section>
 
         {/* Service Area Note */}
-        <section className="py-16 bg-[#f8fafc] border-t border-gray-100">
+        <section className="section-shell bg-[#f8fafc] border-t border-gray-100">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <div className="flex items-center justify-center gap-2 text-[#f97316] mb-4">
+            <div className="flex items-center justify-center gap-2 text-[#0d9488] mb-4">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />

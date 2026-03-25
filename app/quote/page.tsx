@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { PageHero, Footer, Header } from "@/app/components";
-import Link from "next/link";
 
 const projectTypes = [
   "New Installation",
@@ -68,13 +67,20 @@ export default function QuotePage() {
     <>
       <Header />
       <main>
-        <PageHero 
+        <PageHero
           title="Get a Quote"
-          subtitle="Submit your project specifications for a free, no-obligation quote."
+          subtitle="Submit your project specifications for a free, no-obligation quote. We respond quickly with accurate pricing."
           breadcrumb="Quote"
+          quickLinksTitle="Other options"
+          quickLinks={[
+            { label: "Contact Us Directly", href: "/contact" },
+            { label: "Pre-Construction Support", href: "/pre-construction" },
+            { label: "Healthcare Experience", href: "/healthcare" },
+            { label: "View All Systems", href: "/systems" },
+          ]}
         />
 
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-16">
               {/* Info Column */}
@@ -98,35 +104,35 @@ export default function QuotePage() {
                     </p>
                   </div>
 
-                  <div className="bg-[#f8fafc] rounded-xl p-6 mb-8">
+                  <div className="surface-card-muted p-6 mb-8">
                     <h3 className="font-semibold text-[#0f172a] mb-4">What to Include</h3>
                     <ul className="space-y-2 text-sm text-gray-600">
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#f97316] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#0d9488] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Approximate square footage
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#f97316] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#0d9488] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Type of space / application
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#f97316] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#0d9488] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Project location
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#f97316] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#0d9488] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Desired timeline
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#f97316] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#0d9488] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Any drawings or specifications
@@ -137,13 +143,13 @@ export default function QuotePage() {
                   <div className="space-y-4 pt-6 border-t border-gray-200">
                     <div>
                       <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Phone</div>
-                      <a href="tel:604-715-9469" className="text-lg font-semibold text-[#0f172a] hover:text-[#f97316] transition-colors">
+                      <a href="tel:604-715-9469" className="text-lg font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
                         604-715-9469
                       </a>
                     </div>
                     <div>
                       <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Email</div>
-                      <a href="mailto:info@frpinstallations.com" className="text-lg font-semibold text-[#0f172a] hover:text-[#f97316] transition-colors">
+                      <a href="mailto:info@frpinstallations.com" className="text-lg font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
                         info@frpinstallations.com
                       </a>
                     </div>
@@ -153,7 +159,7 @@ export default function QuotePage() {
 
               {/* Form Column */}
               <div className="lg:col-span-2">
-                <form onSubmit={handleSubmit} className="bg-[#f8fafc] rounded-2xl p-8 lg:p-10">
+                <form onSubmit={handleSubmit} className="surface-card-muted p-8 lg:p-10">
                   {/* Contact Information */}
                   <div className="mb-10">
                     <h3 className="text-xl font-semibold text-[#0f172a] mb-6">Contact Information</h3>
@@ -167,7 +173,7 @@ export default function QuotePage() {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="Your name"
                         />
                       </div>
@@ -179,7 +185,7 @@ export default function QuotePage() {
                           name="company"
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="Company name"
                         />
                       </div>
@@ -192,7 +198,7 @@ export default function QuotePage() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="you@company.com"
                         />
                       </div>
@@ -205,7 +211,7 @@ export default function QuotePage() {
                           required
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="604-XXX-XXXX"
                         />
                       </div>
@@ -224,7 +230,7 @@ export default function QuotePage() {
                           required
                           value={formData.projectType}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                         >
                           <option value="">Select type</option>
                           {projectTypes.map((type) => (
@@ -239,7 +245,7 @@ export default function QuotePage() {
                           name="industry"
                           value={formData.industry}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                         >
                           <option value="">Select industry</option>
                           {industryTypes.map((type) => (
@@ -256,7 +262,7 @@ export default function QuotePage() {
                           required
                           value={formData.squareFootage}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="e.g., 5,000 SF"
                         />
                       </div>
@@ -269,7 +275,7 @@ export default function QuotePage() {
                           required
                           value={formData.location}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                           placeholder="e.g., Vancouver, BC"
                         />
                       </div>
@@ -324,7 +330,7 @@ export default function QuotePage() {
                           rows={5}
                           value={formData.description}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors resize-none"
+                          className="field-input resize-none"
                           placeholder="Please describe your project, including the areas to be covered, any special requirements, and any other relevant details..."
                         />
                       </div>
@@ -336,7 +342,7 @@ export default function QuotePage() {
                             name="hasDrawings"
                             value={formData.hasDrawings}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                            className="field-input"
                           >
                             <option value="">Select option</option>
                             <option value="yes">Yes, I can provide drawings</option>
@@ -351,7 +357,7 @@ export default function QuotePage() {
                             name="siteVisit"
                             value={formData.siteVisit}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                            className="field-input"
                           >
                             <option value="">Select option</option>
                             <option value="yes">Yes, please schedule a visit</option>
@@ -367,7 +373,7 @@ export default function QuotePage() {
                           name="howHeard"
                           value={formData.howHeard}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#0f172a] focus:ring-0 transition-colors"
+                          className="field-input"
                         >
                           <option value="">Select option</option>
                           {howDidYouHear.map((option) => (
@@ -380,7 +386,7 @@ export default function QuotePage() {
 
                   <button
                     type="submit"
-                    className="w-full bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#f97316]"
+                    className="w-full bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#0d9488]"
                   >
                     Submit Quote Request
                   </button>
@@ -395,7 +401,7 @@ export default function QuotePage() {
         </section>
 
         {/* Trust Indicators */}
-        <section className="py-20 lg:py-28 bg-[#1e293b]">
+        <section className="section-shell section-shell-dark bg-[#1e293b]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>

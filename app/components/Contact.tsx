@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,32 +9,78 @@ export default function Contact() {
     phone: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<{
+    type: "idle" | "success" | "error";
+    message: string;
+  }>({
+    type: "idle",
+    message: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your inquiry! We'll get back to you within 24 hours.");
+    setIsSubmitting(true);
+    setSubmitState({ type: "idle", message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const payload = (await response.json()) as { message?: string; error?: string };
+
+      if (!response.ok) {
+        setSubmitState({
+          type: "error",
+          message: payload.error ?? "We could not send your message. Please try again.",
+        });
+        return;
+      }
+
+      setSubmitState({
+        type: "success",
+        message: payload.message ?? "Thanks for reaching out. Our team will follow up shortly.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch {
+      setSubmitState({
+        type: "error",
+        message: "Something went wrong while sending your message. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    if (submitState.type !== "idle") {
+      setSubmitState({ type: "idle", message: "" });
+    }
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <section id="contact" className="bg-white py-14 lg:py-20">
+    <section id="contact" className="section-shell-lg bg-[#f3f6f8] border-t border-slate-200/70">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column */}
           <div>
-            <span className="text-sm font-medium text-[#f97316] tracking-wider uppercase mb-4 block">
-              Contact Us
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#0f172a] tracking-tight leading-[1.1] mb-6">
-              Let's talk
+            <span className="eyebrow">Contact Us</span>
+            <h2 className="section-title mb-4">
+              Let&apos;s talk about your project
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed font-normal mb-8 max-w-md">
-              Ready to start your project? Get a free quote today. Our team will attend 
-              your site for measurements at no additional cost.
+            <p className="section-lead mb-8 max-w-md">
+              Ready to discuss your project scope? We work directly with GCs, project managers, and design teams — from pre-construction through to closeout documentation.
             </p>
 
             {/* Contact Details */}
@@ -48,7 +93,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Phone</div>
-                  <a href="tel:604-715-9469" className="text-xl font-semibold text-[#0f172a] hover:text-[#f97316] transition-colors">
+                  <a href="tel:604-715-9469" className="text-xl font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
                     604-715-9469
                   </a>
                 </div>
@@ -61,7 +106,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Email</div>
-                  <a href="mailto:info@frpinstallations.com" className="text-xl font-semibold text-[#0f172a] hover:text-[#f97316] transition-colors">
+                  <a href="mailto:info@frpinstallations.com" className="text-xl font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
                     info@frpinstallations.com
                   </a>
                 </div>
@@ -86,29 +131,29 @@ export default function Contact() {
 
             {/* Trust indicators */}
             <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 px-4 py-2 bg-[#f8fafc] rounded-full">
-                <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <div className="pill-tag">
+                <svg className="w-4 h-4 text-[#0d9488]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600">Free Site Visits</span>
+                <span>Free Site Visits</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-[#f8fafc] rounded-full">
-                <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <div className="pill-tag">
+                <svg className="w-4 h-4 text-[#0d9488]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600">24hr Response</span>
+                <span>24hr Response</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-[#f8fafc] rounded-full">
-                <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <div className="pill-tag">
+                <svg className="w-4 h-4 text-[#0d9488]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600">No Obligation</span>
+                <span>No Obligation</span>
               </div>
             </div>
           </div>
 
           {/* Right Column - Form */}
-          <div className="bg-[#f8fafc] rounded-2xl p-8 lg:p-10">
+          <div className="surface-card-muted p-8 lg:p-10">
             <h3 className="text-2xl font-semibold text-[#0f172a] mb-6">Send us a message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -122,7 +167,7 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] placeholder:text-gray-500 focus:border-[#0f172a] focus:ring-1 focus:ring-[#0f172a] transition-colors"
+                  className="field-input"
                   placeholder="Your name"
                 />
               </div>
@@ -138,7 +183,7 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] placeholder:text-gray-500 focus:border-[#0f172a] focus:ring-1 focus:ring-[#0f172a] transition-colors"
+                  className="field-input"
                   placeholder="you@company.com"
                 />
               </div>
@@ -153,7 +198,7 @@ export default function Contact() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] placeholder:text-gray-500 focus:border-[#0f172a] focus:ring-1 focus:ring-[#0f172a] transition-colors"
+                  className="field-input"
                   placeholder="604-XXX-XXXX"
                 />
               </div>
@@ -169,20 +214,33 @@ export default function Contact() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] placeholder:text-gray-500 focus:border-[#0f172a] focus:ring-1 focus:ring-[#0f172a] transition-colors resize-none"
+                  className="field-input resize-none"
                   placeholder="Tell us about your project"
                 />
               </div>
 
               <button
                 type="submit"
-                className="group w-full inline-flex items-center justify-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#f97316]"
+                disabled={isSubmitting}
+                className="group w-full inline-flex items-center justify-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#0d9488]"
               >
-                Send message
+                {isSubmitting ? "Sending message..." : "Send message"}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </button>
+
+              {submitState.type !== "idle" && (
+                <div
+                  className={`rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                    submitState.type === "success"
+                      ? "bg-[#ecfeff] text-[#0f766e] border border-[#99f6e4]"
+                      : "bg-[#fff1f2] text-[#be123c] border border-[#fecdd3]"
+                  }`}
+                >
+                  {submitState.message}
+                </div>
+              )}
             </form>
           </div>
         </div>

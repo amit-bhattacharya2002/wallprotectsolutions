@@ -52,16 +52,6 @@ const frpManufacturers = [
   { name: "Panolam", type: "FRP", href: "/wall-protection/manufacturers/panolam" },
 ];
 
-const otherManufacturers = [
-  { name: "Pionite", type: "FRL" },
-  { name: "Nevamar", type: "FRL" },
-  { name: "Panolam", type: "FRL" },
-  { name: "Muralex", type: "PVC Liner" },
-  { name: "DelPro", type: "PVC Liner" },
-  { name: "Octaform", type: "PVC Liner" },
-  { name: "Acrovyn", type: "Wall Protection" },
-  { name: "Korogard", type: "Wall Protection" },
-];
 
 const otherProducts = [
   {
@@ -119,10 +109,18 @@ export default function WallProtectionPage() {
     <>
       <Header />
       <main>
-        <PageHero 
+        <PageHero
           title="Wall Protection Panels"
-          subtitle="Premium FRP panels and wall protection solutions for commercial, industrial, and healthcare applications."
+          subtitle="FRP panels and wall protection solutions for commercial, industrial, and healthcare applications across BC."
           breadcrumb="Products"
+          quickLinksTitle="Systems"
+          quickLinks={[
+            { label: "Wall Protection Systems", href: "/systems/wall-protection" },
+            { label: "Hygienic Wall Cladding", href: "/systems/hygienic-wall-cladding" },
+            { label: "FRP Wall Systems", href: "/systems/frp-wall-systems" },
+            { label: "All Systems", href: "/systems" },
+            { label: "Get a Quote", href: "/quote" },
+          ]}
         />
 
         {/* FRP Panels Overview */}

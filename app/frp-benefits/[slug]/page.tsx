@@ -82,27 +82,29 @@ export default async function BenefitPage({ params }: { params: Promise<{ slug: 
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <section className="relative min-h-dvh bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28 flex items-center">
           <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-            <Link 
-              href="/wall-protection" 
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Wall Protection
-            </Link>
-            <span className="text-[#f97316] text-sm font-medium uppercase tracking-wider block mb-4">
-              FRP Benefits
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6">
-              {benefit.title}
-            </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
-              {benefit.description}
-            </p>
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-left">
+            <div className="max-w-3xl">
+              <Link 
+                href="/wall-protection" 
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to Wall Protection
+              </Link>
+              <span className="text-[#f97316] text-sm font-medium uppercase tracking-wider block mb-4">
+                FRP Benefits
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 max-w-3xl">
+                {benefit.title}
+              </h1>
+              <p className="text-lg md:text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
+                {benefit.description}
+              </p>
+            </div>
           </div>
         </section>
 

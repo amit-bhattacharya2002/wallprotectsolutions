@@ -1,67 +1,49 @@
-import { PageHero, Footer, Header } from "@/app/components";
-import Link from "next/link";
-import { projects } from "@/app/data/projects";
+import { Footer, Header, PageHero } from "@/app/components";
+import ProjectsGrid from "@/app/components/ProjectsGrid";
+
+export const metadata = {
+  title: "Projects | FRP Installations Inc. | Wall Protection Solutions",
+  description: "700+ wall protection and hygienic cladding projects across British Columbia — hospitals, UPCC clinics, educational facilities, food service, and industrial environments.",
+};
+
+const stats = [
+  { value: "700+", label: "Projects completed" },
+  { value: "16+", label: "UPCC clinics" },
+  { value: "75%+", label: "Healthcare portfolio" },
+  { value: "20+", label: "Years in construction" },
+];
 
 export default function ProjectsPage() {
   return (
     <>
       <Header />
       <main>
-        <PageHero 
-          title="Our Projects"
-          subtitle="Explore our recent wall protection installations across British Columbia."
-          breadcrumb="Projects"
-        />
-
-        {/* Projects Grid */}
-        <section className="py-20 lg:py-28 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            {/* Filter Note */}
-            <div className="mb-12">
-              <p className="text-gray-600 font-normal">
-                The below projects showcase our recent wall protection installations across British Columbia. 
-                Click on any project to view full details.
-              </p>
-            </div>
-
-            {/* Projects Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project) => (
-                <Link
-                  key={project.slug}
-                  href={`/projects/${project.slug}`}
-                  className="group"
-                >
-                  <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-xl bg-gray-100">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-[#0f172a]/0 group-hover:bg-[#0f172a]/20 transition-colors duration-300" />
-                    
-                    {/* View Project Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="bg-white text-[#0f172a] px-6 py-2 rounded-full text-sm font-medium">
-                        View Project
-                      </span>
-                    </div>
-                  </div>
-                  <span className="text-sm text-[#f97316] font-medium mb-2 block">
-                    {project.category}
-                  </span>
-                  <h3 className="text-xl font-semibold text-[#0f172a] mb-2 tracking-tight group-hover:text-[#f97316] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 font-normal leading-relaxed">
-                    {project.description}
-                  </p>
-                </Link>
+        <PageHero
+          title="700+ projects across British Columbia"
+          subtitle="Healthcare is the core of our portfolio: hospitals, UPCC clinics, and long-term care facilities across BC. We also work in education, food service, agriculture, and commercial environments."
+          breadcrumb="Our Work"
+          quickLinksTitle="Browse by sector"
+          quickLinks={[
+            { label: "Healthcare Projects", href: "/projects#healthcare" },
+            { label: "Education", href: "/projects#education" },
+            { label: "Food & Beverage", href: "/projects#food-beverage" },
+            { label: "Agriculture", href: "/projects#agriculture" },
+            { label: "View All Projects", href: "/projects#all" },
+          ]}
+          supportingContent={
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden max-w-2xl">
+              {stats.map((s) => (
+                <div key={s.label} className="bg-white/5 px-6 py-5">
+                  <div className="text-2xl font-semibold text-white tracking-tight">{s.value}</div>
+                  <div className="text-xs text-white/60 mt-0.5">{s.label}</div>
+                </div>
               ))}
             </div>
-          </div>
-        </section>
+          }
+        />
 
+        {/* Projects grid with filter */}
+        <ProjectsGrid />
       </main>
       <Footer />
     </>

@@ -1,12 +1,17 @@
 import {
   Header,
   Hero,
+  HeroTrustLine,
   Services,
   WhyFRP,
   Projects,
-  Testimonials,
+  ContractorConfidence,
   Contact,
   Footer,
+  FeaturedHealthcareProject,
+  ManufacturerStrip,
+  PreConstructionCTA,
+  ResourcesPreview,
 } from "./components";
 
 export default function Home() {
@@ -15,10 +20,15 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <HeroTrustLine />
         <Services />
+        <FeaturedHealthcareProject />
         <WhyFRP />
+        <ManufacturerStrip />
+        <PreConstructionCTA />
         <Projects />
-        <Testimonials />
+        <ContractorConfidence />
+        <ResourcesPreview />
         <Contact />
       </main>
       <Footer />

@@ -57,21 +57,23 @@ export default function FRPBenefitsPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <section className="relative min-h-dvh bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28 flex items-center">
           <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex items-center gap-2 text-white/70 text-sm mb-6">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span>/</span>
-              <span className="text-white">Why FRP?</span>
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-left">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-2 text-white/70 text-sm mb-6">
+                <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                <span>/</span>
+                <span className="text-white">Why FRP?</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 max-w-3xl">
+                Why FRP?
+              </h1>
+              <p className="text-lg md:text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
+                Discover why FRP (Fiberglass Reinforced Plastic) panels are the preferred choice
+                for wall protection in commercial, industrial, and healthcare applications.
+              </p>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6">
-              Why FRP?
-            </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
-              Discover why FRP (Fiberglass Reinforced Plastic) panels are the preferred choice 
-              for wall protection in commercial, industrial, and healthcare applications.
-            </p>
           </div>
         </section>
 
@@ -79,7 +81,7 @@ export default function FRPBenefitsPage() {
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {frpBenefits.map((benefit, index) => (
+              {frpBenefits.map((benefit) => (
                 <Link
                   key={benefit.slug}
                   href={`/frp-benefits/${benefit.slug}`}

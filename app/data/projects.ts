@@ -6,6 +6,7 @@ export interface Project {
   fullDescription: string;
   image: string;
   gallery?: string[];
+  signature?: boolean;
   details: {
     location?: string;
     squareFootage?: string;
@@ -15,6 +16,25 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "lilys-dtes-community-health-centre",
+    title: "Lily's Community Health Centre / VCH DTES",
+    category: "Healthcare",
+    signature: true,
+    description: "Signature healthcare project and largest completed interior protection package at approximately $550K.",
+    fullDescription: "Lily's Community Health Centre / VCH DTES represents our largest completed healthcare interior protection package to date at approximately $550,000. The scope included wall protection systems, hygienic cladding, FRP and FRL wall systems, wet wall solutions, and architectural specialties coordinated across a full health-centre build-out in Vancouver's Downtown Eastside. This project reflects the level of pre-construction coordination, submittal management, product selection, and installation execution required on major healthcare work.",
+    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&h=600&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop",
+    ],
+    details: {
+      location: "Vancouver, BC",
+      squareFootage: "Largest healthcare interior protection package",
+      duration: "Multi-phase healthcare build-out",
+      products: ["Wall Protection Systems", "Altro Whiterock", "FRP / FRL Panels", "Architectural Specialties"],
+    },
+  },
   {
     slug: "crunch-fitness",
     title: "Crunch Fitness",

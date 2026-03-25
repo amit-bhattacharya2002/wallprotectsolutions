@@ -40,27 +40,36 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <section className="relative min-h-dvh bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28 flex items-center">
           <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-            <Link 
-              href="/projects" 
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Projects
-            </Link>
-            <span className="text-[#f97316] text-sm font-medium uppercase tracking-wider block mb-4">
-              {project.category}
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6">
-              {project.title}
-            </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
-              {project.description}
-            </p>
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-left">
+            <div className="max-w-3xl">
+              <Link 
+                href="/projects" 
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to Projects
+              </Link>
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="text-[#0d9488] text-sm font-medium uppercase tracking-wider block">
+                  {project.category}
+                </span>
+                {project.signature && (
+                  <span className="inline-flex items-center rounded-full bg-[#0d9488]/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#5eead4]">
+                    Signature Project
+                  </span>
+                )}
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 max-w-3xl">
+                {project.title}
+              </h1>
+              <p className="text-lg md:text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
+                {project.description}
+              </p>
+            </div>
           </div>
         </section>
 
