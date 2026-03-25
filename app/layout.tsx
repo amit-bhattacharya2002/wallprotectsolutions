@@ -1,14 +1,6 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import "./globals.css";
 import StickyContactBar from "./components/StickyContactBar";
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://frpinstallations.com"),
@@ -187,7 +179,7 @@ export default function RootLayout({
         <meta name="geo.position" content="49.2827;-122.7931" />
         <meta name="ICBM" content="49.2827, -122.7931" />
       </head>
-      <body className={`${montserrat.variable} antialiased`}>
+      <body className="antialiased">
         {children}
         <StickyContactBar />
       </body>

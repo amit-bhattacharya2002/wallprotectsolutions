@@ -17,7 +17,7 @@ export default function ServiceAreasPage() {
       <main>
         <PageHero
           title="Serving British Columbia"
-          description="Wall protection, hygienic cladding, FRP, FRL, and interior protection systems delivered across Metro Vancouver, the Fraser Valley, Vancouver Island, the Interior, and beyond."
+          subtitle="Wall protection, hygienic cladding, FRP, FRL, and interior protection systems delivered across Metro Vancouver, the Fraser Valley, Vancouver Island, the Interior, and beyond."
           breadcrumb="Service Areas"
           quickLinksTitle="Explore"
           quickLinks={[

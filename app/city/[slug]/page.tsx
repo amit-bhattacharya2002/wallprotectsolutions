@@ -124,10 +124,9 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
       <Header />
       <main>
         <PageHero
-          eyebrow={city.region}
+          breadcrumb={`Service Area · ${city.region}`}
           title={`${city.name} FRP Panels & Wall Protection`}
-          description={`We supply and install wall protection, FRP, FRL, and hygienic systems throughout ${city.name} and the surrounding ${city.region} region.`}
-          breadcrumb={city.name}
+          subtitle={`We supply and install wall protection, FRP, FRL, and hygienic systems throughout ${city.name} and the surrounding ${city.region} region.`}
           quickLinksTitle={heroQuickLinks.length > 0 ? `Nearby in ${city.region}` : "Explore"}
           quickLinks={heroQuickLinks.length > 0 ? heroQuickLinks : [
             { label: "Wall Protection", href: "/systems/wall-protection" },

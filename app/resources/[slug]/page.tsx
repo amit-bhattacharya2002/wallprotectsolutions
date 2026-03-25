@@ -10,8 +10,9 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const article = getResourceArticle(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = getResourceArticle(slug);
 
   if (!article) {
     return {
@@ -25,8 +26,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function ResourceArticlePage({ params }: { params: { slug: string } }) {
-  const article = getResourceArticle(params.slug);
+export default async function ResourceArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = getResourceArticle(slug);
 
   if (!article) {
     notFound();
@@ -37,9 +39,9 @@ export default function ResourceArticlePage({ params }: { params: { slug: string
       <Header />
       <main>
         <PageHero
-          eyebrow="Resources"
+          breadcrumb="Resources"
           title={article.title}
-          description={article.description}
+          subtitle={article.description}
           fullHeight={false}
           quickLinks={[
             { label: "All Resources", href: "/resources" },

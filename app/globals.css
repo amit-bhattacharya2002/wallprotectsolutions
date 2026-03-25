@@ -21,6 +21,7 @@
   --muted: #f8fafc;
   --muted-foreground: #64748b;
   --border: #e2e8f0;
+  --font-montserrat: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @theme inline {
