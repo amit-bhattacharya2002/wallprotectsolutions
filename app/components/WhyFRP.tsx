@@ -86,12 +86,12 @@ export default function WhyFRP() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group surface-card-muted flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:border-[#0d9488] hover:bg-[#0d9488] hover:text-white transition-all duration-300"
+                  className="group surface-card-muted flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:border-[#0d9488] hover:shadow-[0_16px_35px_-28px_rgba(13,148,136,0.55)] transition-all duration-300"
                 >
-                  <span className="w-6 h-6 rounded-full bg-[#0d9488]/10 group-hover:bg-white/20 flex items-center justify-center text-xs text-[#0d9488] group-hover:text-white font-medium transition-colors">
+                  <span className="w-6 h-6 rounded-full bg-[#0d9488]/10 group-hover:bg-[#0d9488]/14 flex items-center justify-center text-xs text-[#0d9488] font-medium transition-colors">
                     {index + 1}
                   </span>
-                  <span className="font-medium">{item.label}</span>
+                  <span className="font-medium text-[#475569] group-hover:text-[#0f172a] transition-colors">{item.label}</span>
                 </Link>
               ))}
             </div>

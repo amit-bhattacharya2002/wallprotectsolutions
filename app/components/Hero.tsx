@@ -256,6 +256,7 @@ export default function Hero() {
                     { label: "Healthcare", href: "/healthcare" },
                     { label: "Projects", href: "#projects" },
                     { label: "Contact", href: "#contact" },
+                    { label: "Search Site", href: "/search" },
                   ].map((item) => (
                     <Link
                       key={item.label}
@@ -307,6 +308,7 @@ export default function Hero() {
                     { label: "Healthcare", href: "/healthcare" },
                     { label: "Projects", href: "#projects" },
                     { label: "Contact", href: "#contact" },
+                    { label: "Search Site", href: "/search" },
                   ].map((item) => (
                     <Link
                       key={item.label}
