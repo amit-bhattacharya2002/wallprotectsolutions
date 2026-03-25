@@ -91,9 +91,9 @@ export default function ScheduleMeasurementPage() {
                     </ul>
                   </div>
 
-                  <div className="surface-card-dark p-6 text-white">
-                    <h3 className="font-semibold mb-3">Prefer to Call?</h3>
-                    <p className="text-white/70 text-sm mb-4">
+                  <div className="surface-card-muted p-6">
+                    <h3 className="font-semibold text-[#0f172a] mb-3">Prefer to Call?</h3>
+                    <p className="text-slate-600 text-sm mb-4">
                       Reach us directly to schedule your measurement or ask questions.
                     </p>
                     <a 
