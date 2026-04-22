@@ -93,7 +93,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Phone</div>
-                  <a href="tel:604-715-9469" className="text-xl font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
+                  <a href="tel:604-715-9469" className="text-xl font-semibold text-[#0d9488] hover:text-[#0d9488] transition-colors">
                     604-715-9469
                   </a>
                 </div>
@@ -106,7 +106,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Email</div>
-                  <a href="mailto:info@frpinstallations.com" className="text-xl font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
+                  <a href="mailto:info@frpinstallations.com" className="text-xl font-semibold text-[#0d9488] hover:text-[#0d9488] transition-colors">
                     info@frpinstallations.com
                   </a>
                 </div>

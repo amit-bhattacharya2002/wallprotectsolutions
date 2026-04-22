@@ -6,10 +6,11 @@ import PlaceholderBadge from "./PlaceholderBadge";
 
 /**
  * Core system rows with product imagery. Each row is a clickable card that
- * lifts 4px on hover with a navy-tinted soft shadow, reveals a small teal
- * "View system →" link in its action column, and runs a gentle sliding
- * cover to preview the selected state. Image dimensions are locked via an
- * aspect ratio wrapper so swapping the URLs later is layout-stable.
+ * lifts on hover with a navy-tinted soft shadow; the action column uses a
+ * single circular arrow control (the whole row is still one link). Image
+ * dimensions are locked via an aspect ratio wrapper so swapping the URLs
+ * later is layout-stable. On small screens the photo stacks above the title
+ * and body copy; from `md` up it sits in a fixed-width left column.
  *
  * NOTE: Imagery below is Unsplash placeholder photography. Swap with real
  * project photography before production launch (see `isPlaceholder`).
@@ -76,13 +77,10 @@ export default function Services() {
             <Link
               key={service.title}
               href={service.href}
-              className="system-card group relative grid items-stretch overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-[#0d9488]/40 hover:shadow-[0_22px_50px_-28px_rgba(42,70,99,0.45)] md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr]"
+              className="system-card group relative flex flex-col items-stretch overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-[#0d9488]/40 hover:shadow-[0_22px_50px_-28px_rgba(42,70,99,0.45)] md:grid md:grid-cols-[280px_1fr] md:items-stretch lg:grid-cols-[320px_1fr]"
             >
-              {/* Left: product image */}
-              <div
-                className="relative isolate overflow-hidden bg-slate-100"
-                style={{ aspectRatio: "4/3" }}
-              >
+              {/* Photo first on mobile (stacked), left column from md up */}
+              <div className="relative isolate order-1 aspect-4/3 w-full min-h-46 shrink-0 overflow-hidden bg-slate-100 sm:min-h-50 md:order-0 md:min-h-0">
                 <Image
                   src={service.image}
                   alt={service.imageAlt}
@@ -94,8 +92,8 @@ export default function Services() {
                 {service.isPlaceholder ? <PlaceholderBadge /> : null}
               </div>
 
-              {/* Right: copy + action */}
-              <div className="relative flex flex-col gap-4 px-6 py-7 md:px-8 md:py-8 lg:flex-row lg:items-center lg:gap-10 lg:px-10">
+              {/* Title + description (+ arrow) below the image on mobile */}
+              <div className="relative order-2 flex min-h-0 flex-1 flex-col gap-4 px-6 py-7 md:order-0 md:px-8 md:py-8 lg:flex-row lg:items-center lg:gap-10 lg:px-10">
                 <div className="flex-1">
                   <h3 className="mb-2 text-2xl font-semibold tracking-tight text-[#0f172a] transition-colors duration-300 group-hover:text-[#0d9488] md:text-3xl">
                     {service.title}
@@ -105,24 +103,17 @@ export default function Services() {
                   </p>
                 </div>
 
-                <div className="flex shrink-0 items-center gap-3 lg:flex-col lg:items-end lg:gap-2">
-                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    View system
-                    <svg
-                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 transition-all duration-300 group-hover:border-[#0d9488] group-hover:bg-[#0d9488] md:h-12 md:w-12">
+                <div className="flex shrink-0 items-center lg:items-end">
+                  <div
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 transition-all duration-300 group-hover:border-[#0d9488] group-hover:bg-[#0d9488] md:h-12 md:w-12"
+                    aria-hidden="true"
+                  >
                     <svg
                       className="h-5 w-5 text-gray-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

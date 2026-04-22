@@ -203,7 +203,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
 
       {/* ── Foreground layer ── */}
-      <div className="pointer-events-none absolute inset-0 z-10">
+      <div className="pointer-events-none max-w-7xl mx-auto absolute inset-0 z-10">
         {/* Heading — one slot, each slide supplies its own eyebrow + headline.
              All variants stack in a single grid cell and crossfade in sync
              with the background slideshow. */}

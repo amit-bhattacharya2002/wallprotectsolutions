@@ -23,6 +23,7 @@ export default function Home() {
         <Hero />
         <HeroTrustLine />
         <Services />
+        <Projects />
         <FeaturedHealthcareProject />
         <WhyFRP />
         {/* TODO: replace with real testimonial */}
@@ -34,7 +35,6 @@ export default function Home() {
         />
         <ManufacturerStrip />
         <PreConstructionCTA />
-        <Projects />
         <ContractorConfidence />
         <ResourcesPreview />
         <Contact />
