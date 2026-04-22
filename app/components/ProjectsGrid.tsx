@@ -43,7 +43,7 @@ export default function ProjectsGrid() {
     <section id="all" className="section-shell bg-white scroll-mt-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-3xl mb-8 md:mb-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#0d9488] mb-3">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#134e4a] mb-3">
             Selected Project Work
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#0f172a] mb-4">
@@ -68,7 +68,7 @@ export default function ProjectsGrid() {
               }}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                 active === cat
-                  ? "bg-[#0f172a] text-white"
+                  ? "bg-[#2a4663] text-white"
                   : "bg-[#f8fafc] text-gray-500 hover:text-[#0f172a] hover:bg-gray-100 border border-gray-200"
               }`}
             >
@@ -92,14 +92,14 @@ export default function ProjectsGrid() {
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2a4663]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute top-3 left-3">
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-2.5 py-1 bg-[#0f172a]/80 backdrop-blur-sm text-white text-xs font-medium rounded-full">
+                    <span className="px-2.5 py-1 bg-[#2a4663]/80 backdrop-blur-sm text-white text-xs font-medium rounded-full">
                       {project.category}
                     </span>
                     {project.signature && (
-                      <span className="px-2.5 py-1 bg-[#0d9488] text-white text-xs font-semibold rounded-full">
+                      <span className="px-2.5 py-1 bg-[#134e4a] text-white text-xs font-semibold rounded-full">
                         Signature Project
                       </span>
                     )}

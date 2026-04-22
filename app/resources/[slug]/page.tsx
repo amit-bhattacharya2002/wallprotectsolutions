@@ -57,7 +57,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 rounded-full bg-[#f0fdfa] text-[#0d9488] text-xs font-semibold tracking-wide uppercase"
+                  className="px-3 py-1.5 rounded-full bg-[#f0fdfa] text-[#134e4a] text-xs font-semibold tracking-wide uppercase"
                 >
                   {tag}
                 </span>
@@ -76,13 +76,13 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
             </div>
 
             <div className="surface-card-muted p-8 lg:p-10">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0d9488] mb-4">
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#134e4a] mb-4">
                 Key Takeaways
               </div>
               <ul className="space-y-4">
                 {article.takeaways.map((takeaway) => (
                   <li key={takeaway} className="flex items-start gap-3 text-gray-600">
-                    <svg className="w-5 h-5 text-[#0d9488] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span className="leading-relaxed">{takeaway}</span>
@@ -94,7 +94,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
             <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <Link
                 href="/resources"
-                className="inline-flex items-center gap-2 text-[#0d9488] font-medium hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-[#134e4a] font-medium hover:gap-3 transition-all"
               >
                 Back to all resources
                 <svg className="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#0f172a] text-white px-6 py-3 rounded-full font-medium hover:bg-[#0d9488] transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-[#2a4663] text-white px-6 py-3 rounded-full font-medium hover:bg-[#0d9488] transition-colors"
               >
                 Discuss your project
               </Link>

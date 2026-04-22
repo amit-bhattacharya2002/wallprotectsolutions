@@ -101,7 +101,7 @@ export default function SystemsPage() {
                   href={system.href}
                   className="group relative block px-4 py-10 md:py-12 border-b border-gray-200 overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-[#0f172a] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out" />
+                  <div className="absolute inset-0 bg-[#2a4663] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out" />
                   <div className="relative z-10 grid gap-4 md:grid-cols-12 md:gap-8 items-start md:items-center">
                     <div className="md:col-span-1">
                       <span className="text-sm text-gray-400 group-hover:text-white/60 font-medium transition-colors duration-300">

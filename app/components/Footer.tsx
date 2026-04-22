@@ -39,14 +39,27 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0f172a]">
-      {/* Get a Quotation CTA */}
-      <div className="border-b border-white/10">
+    <footer className="bg-[#2a4663] relative grain-overlay">
+      {/* Get a Quote CTA — now a full-bleed dark-overlaid placeholder image so
+          the final call-to-action has more visual weight than a flat navy fill.
+          The overlay is a double-stop navy gradient that keeps copy legible at
+          any viewport. Replace the Unsplash URL with real project photography
+          before launch. */}
+      <div
+        className="relative isolate border-b border-white/10 grain-overlay"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(12,24,48,0.85), rgba(12,24,48,0.85)), url(https://images.unsplash.com/photo-1711873316332-acb6930211e1?auto=format&fit=crop&w=2400&q=80)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        data-placeholder="true"
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="w-14 h-0.5 bg-[#0d9488] mx-auto mb-8" />
+            <div className="w-14 h-0.5 bg-[#5eead4] mx-auto mb-8" />
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-5">
-              Get a quotation
+              Get a Quote
             </h3>
             <p className="text-white/78 text-lg md:text-xl leading-relaxed mb-10 max-w-3xl mx-auto">
               We work directly with GCs, project managers, and design teams. Fast response, accurate pricing, and full pre-construction support included.
@@ -54,7 +67,7 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <Link
                 href="/quote"
-                className="inline-flex items-center justify-center gap-2 bg-[#0d9488] text-white px-8 py-4 rounded-full text-base md:text-lg font-medium transition-colors hover:bg-[#0f766e] min-w-[240px]"
+                className="inline-flex items-center justify-center gap-2 bg-[#0d9488] text-white px-8 py-4 rounded-full text-base md:text-lg font-medium transition-colors hover:bg-[#0d9488] min-w-[240px]"
               >
                 Submit Project Specifications
               </Link>
@@ -72,7 +85,7 @@ export default function Footer() {
               <span>·</span>
               <span>75%+ Healthcare</span>
               <span>·</span>
-              <span>20 Yrs Construction Experience</span>
+              <span>20+ Years Construction Experience</span>
             </div>
           </div>
         </div>
@@ -88,7 +101,7 @@ export default function Footer() {
                 <span className="text-lg font-semibold tracking-tight text-white leading-tight">
                   FRP Installations Inc.
                 </span>
-                <span className="text-xs font-semibold text-[#0d9488] leading-tight tracking-[0.18em] uppercase mt-1">
+                <span className="text-xs font-semibold text-[#5eead4] leading-tight tracking-[0.18em] uppercase mt-1">
                   Wall Protection Solutions
                 </span>
               </div>
@@ -98,13 +111,13 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <a href="tel:604-715-9469" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group text-[0.9375rem]">
-                <svg className="w-5 h-5 group-hover:text-[#0d9488] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 group-hover:text-[#5eead4] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 604-715-9469
               </a>
               <a href="mailto:info@frpinstallations.com" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group text-[0.9375rem]">
-                <svg className="w-5 h-5 group-hover:text-[#0d9488] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 group-hover:text-[#5eead4] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 info@frpinstallations.com

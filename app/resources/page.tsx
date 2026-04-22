@@ -1,4 +1,4 @@
-import { Header, Footer } from "@/app/components";
+import { Header, Footer, PageHero } from "@/app/components";
 import { resourceArticles } from "@/app/data/resources";
 import Link from "next/link";
 
@@ -12,55 +12,18 @@ export default function ResourcesPage() {
     <>
       <Header />
       <main>
-        <section className="relative min-h-dvh bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28 flex items-center">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: "40px 40px" }} />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-left">
-            <div className="grid lg:grid-cols-[1fr_260px] gap-12 lg:gap-16 items-center">
-              <div>
-                <p className="text-[#0d9488] text-sm font-medium uppercase tracking-wider mb-4">Resources</p>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 max-w-3xl">
-                  Technical resources
-                </h1>
-                <p className="text-lg text-white/80 max-w-2xl font-normal leading-relaxed">
-                  Practical technical articles for GCs, project managers, architects, and specification writers. Written for real project environments — not homeowners.
-                </p>
-              </div>
-              {/* Right: quick links */}
-              <div className="hidden lg:block">
-                <p className="text-xs font-medium text-white/30 uppercase tracking-wider mb-3">
-                  Quick links
-                </p>
-                <div className="space-y-0.5">
-                  <Link href="/healthcare" className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/55 hover:text-white hover:bg-white/5 transition-all group">
-                    Healthcare Experience
-                    <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                  <Link href="/pre-construction" className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/55 hover:text-white hover:bg-white/5 transition-all group">
-                    Pre-Construction Support
-                    <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                  <Link href="/faq" className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/55 hover:text-white hover:bg-white/5 transition-all group">
-                    FAQ
-                    <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                  <Link href="/contact" className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/55 hover:text-white hover:bg-white/5 transition-all group">
-                    Contact Us
-                    <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Resources"
+          title="Technical resources"
+          subtitle="Practical technical articles for GCs, project managers, architects, and specification writers. Written for real project environments — not homeowners."
+          quickLinksTitle="Quick links"
+          quickLinks={[
+            { label: "Healthcare Experience", href: "/healthcare" },
+            { label: "Pre-Construction Support", href: "/pre-construction" },
+            { label: "FAQ", href: "/faq" },
+            { label: "Contact Us", href: "/contact" },
+          ]}
+        />
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -80,7 +43,7 @@ export default function ResourcesPage() {
                     {article.title}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed font-normal mb-4">{article.description}</p>
-                  <div className="flex items-center gap-2 text-[#0d9488] text-sm font-medium">
+                  <div className="flex items-center gap-2 text-[#134e4a] text-sm font-medium">
                     Read article
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

@@ -154,7 +154,7 @@ export default function FRPSalesPage() {
 
                 <Link
                   href="/quote"
-                  className="inline-flex items-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                  className="inline-flex items-center gap-3 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
                 >
                   Request a Quote
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -237,7 +237,7 @@ export default function FRPSalesPage() {
         </section>
 
         {/* Accessories Section */}
-        <section className="py-20 lg:py-28 bg-[#0f172a]">
+        <section className="py-20 lg:py-28 bg-[#2a4663]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-4">
@@ -272,13 +272,13 @@ export default function FRPSalesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/quote"
-                  className="inline-flex items-center justify-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                  className="inline-flex items-center justify-center gap-3 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
                 >
                   Get a Quote
                 </Link>
                 <Link
                   href="/services/frp-installation"
-                  className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#0f172a] transition-all"
+                  className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#2a4663] transition-all"
                 >
                   Learn About Installation
                 </Link>

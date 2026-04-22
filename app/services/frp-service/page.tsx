@@ -177,13 +177,13 @@ export default function FRPServicePage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/quote"
-                    className="inline-flex items-center justify-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                    className="inline-flex items-center justify-center gap-3 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
                   >
                     Schedule Site Visit
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#0f172a] transition-all"
+                    className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#2a4663] transition-all"
                   >
                     Contact Us
                   </Link>
@@ -205,7 +205,7 @@ export default function FRPServicePage() {
         </section>
 
         {/* Warranty Section */}
-        <section className="py-20 lg:py-28 bg-[#0f172a]">
+        <section className="py-20 lg:py-28 bg-[#2a4663]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-block bg-[#f97316] text-white px-6 py-2 rounded-full text-sm font-medium mb-6">
@@ -273,13 +273,13 @@ export default function FRPServicePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                className="inline-flex items-center justify-center gap-3 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
               >
                 Contact Us
               </Link>
               <a
                 href="tel:604-715-9469"
-                className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#0f172a] transition-all"
+                className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#2a4663] transition-all"
               >
                 Call 604-715-9469
               </a>

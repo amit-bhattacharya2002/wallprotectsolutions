@@ -10,7 +10,7 @@ const proofBlocks = [
   { number: "700+", label: "Projects Completed" },
   { number: "16+", label: "UPCC Clinics Completed" },
   { number: "75%+", label: "Healthcare Work" },
-  { number: "~$550K", label: "Largest Single Healthcare Package" },
+  { number: "5M+", label: "Sq Ft Installed" },
 ];
 
 const upccClinics = [
@@ -130,7 +130,7 @@ export default function HealthcarePage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span className="text-sm font-medium text-[#0d9488] tracking-wider uppercase mb-4 block">
+                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
                   Featured Project
                 </span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
@@ -145,7 +145,7 @@ export default function HealthcarePage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/quote"
-                    className="inline-flex items-center gap-2 bg-[#0f172a] text-white px-6 py-3 rounded-full font-medium hover:bg-[#1e293b] transition-colors"
+                    className="inline-flex items-center gap-2 bg-[#2a4663] text-white px-6 py-3 rounded-full font-medium hover:bg-[#3a597b] transition-colors"
                   >
                     Discuss a similar project
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,7 +179,7 @@ export default function HealthcarePage() {
         <section id="upcc" className="section-shell-lg bg-[#f8fafc] scroll-mt-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mb-14">
-              <span className="text-sm font-medium text-[#0d9488] tracking-wider uppercase mb-4 block">
+              <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
                 UPCC Portfolio
               </span>
               <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
@@ -192,7 +192,7 @@ export default function HealthcarePage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {upccClinics.map((clinic) => (
                 <div key={clinic.name} className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-5 py-4">
-                  <div className="w-2 h-2 rounded-full bg-[#0d9488] flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-[#134e4a] flex-shrink-0" />
                   <div>
                     <div className="font-medium text-[#0f172a] text-sm">{clinic.name}</div>
                     {clinic.gc && <div className="text-xs text-gray-500 mt-0.5">GC: {clinic.gc}</div>}
@@ -204,7 +204,7 @@ export default function HealthcarePage() {
         </section>
 
         {/* Hospital Experience */}
-        <section id="hospitals" className="section-shell-lg section-shell-dark bg-[#0f172a] scroll-mt-32">
+        <section id="hospitals" className="section-shell-lg section-shell-dark bg-[#2a4663] scroll-mt-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
@@ -219,7 +219,7 @@ export default function HealthcarePage() {
                 </p>
                 <Link
                   href="/quote"
-                  className="inline-flex items-center gap-2 bg-[#0d9488] text-white px-6 py-3 rounded-full font-medium hover:bg-[#0f766e] transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#134e4a] text-white px-6 py-3 rounded-full font-medium hover:bg-[#0d9488] transition-colors"
                 >
                   Discuss a healthcare project
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -230,7 +230,7 @@ export default function HealthcarePage() {
               <div className="grid sm:grid-cols-2 gap-3">
                 {hospitals.map((hospital) => (
                   <div key={hospital} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#0d9488] flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5eead4] flex-shrink-0" />
                     <span className="text-white/80 text-sm">{hospital}</span>
                   </div>
                 ))}
@@ -243,7 +243,7 @@ export default function HealthcarePage() {
         <section id="systems" className="section-shell-lg bg-white scroll-mt-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mb-14">
-              <span className="text-sm font-medium text-[#0d9488] tracking-wider uppercase mb-4 block">
+              <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
                 Systems We Install
               </span>
               <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
@@ -264,7 +264,7 @@ export default function HealthcarePage() {
                     {system.name}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed font-normal mb-4">{system.detail}</p>
-                  <div className="flex items-center gap-2 text-[#0d9488] text-sm font-medium">
+                  <div className="flex items-center gap-2 text-[#134e4a] text-sm font-medium">
                     Learn more
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -281,7 +281,7 @@ export default function HealthcarePage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span className="text-sm font-medium text-[#0d9488] tracking-wider uppercase mb-4 block">
+                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
                   Why Healthcare Contractors Trust Us
                 </span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
@@ -293,7 +293,7 @@ export default function HealthcarePage() {
                 <ul className="space-y-4">
                   {credibilityPoints.map((point) => (
                     <li key={point} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 text-[#134e4a] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
                       <span className="text-gray-600">{point}</span>
@@ -314,7 +314,7 @@ export default function HealthcarePage() {
                 </p>
                 <Link
                   href="/pre-construction"
-                  className="inline-flex items-center gap-2 text-[#0d9488] font-medium hover:gap-3 transition-all"
+                  className="inline-flex items-center gap-2 text-[#134e4a] font-medium hover:gap-3 transition-all"
                 >
                   Pre-construction & specification support
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

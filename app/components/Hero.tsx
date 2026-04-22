@@ -1,327 +1,333 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import PlaceholderBadge from "./PlaceholderBadge";
 
-const systems = [
+/**
+ * Five curated Unsplash placeholders. Alts are meaningful enough to survive
+ * until real project photography replaces them. Search for `isPlaceholder` or
+ * `TODO:` to find every swap point before production launch.
+ *
+ * NOTE: All hero imagery is currently Unsplash placeholder photography.
+ */
+const heroImages = [
   {
-    title: "Wall Protection Systems",
-    description: "Acrovyn, Inpro, crash rails, corner guards, and wall guards for healthcare corridors and high-traffic environments",
-    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-    href: "/systems/wall-protection",
+    src: "https://images.unsplash.com/photo-1586534738560-438efdf1d205?auto=format&fit=crop&w=2400&q=80",
+    alt: "Healthcare corridor with installed wall protection",
+    isPlaceholder: true,
   },
   {
-    title: "Hygienic Wall Cladding",
-    description: "Altro Whiterock welded seamless systems, Puraguard, True North, and AM-Clad for infection-sensitive healthcare environments",
-    icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
-    href: "/systems/hygienic-wall-cladding",
+    src: "https://images.unsplash.com/photo-1530299297082-0846efbd2cdd?auto=format&fit=crop&w=2400&q=80",
+    alt: "Clean institutional hallway",
+    isPlaceholder: true,
   },
   {
-    title: "Healthcare Specialist",
-    description: "16+ UPCC clinics, major BC hospitals, 75%+ healthcare work — deep experience in active healthcare renovation environments",
-    icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
-    href: "/healthcare",
+    src: "https://images.unsplash.com/photo-1664036362129-ca6c57599633?auto=format&fit=crop&w=2400&q=80",
+    alt: "Healthcare corridor with glass door",
+    isPlaceholder: true,
   },
   {
-    title: "Supply & Install Partner",
-    description: "We supply and install complete systems — controlling product, coordination, and warranty alignment for GC peace of mind",
-    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
-    href: "/about",
+    src: "https://images.unsplash.com/photo-1628372095387-017d1099fc19?auto=format&fit=crop&w=2400&q=80",
+    alt: "Hospital interior with wall protection systems",
+    isPlaceholder: true,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1728209120161-98ba323862ea?auto=format&fit=crop&w=2400&q=80",
+    alt: "Bright white institutional corridor",
+    isPlaceholder: true,
   },
 ];
 
+/**
+ * Copy that rotates in sync with the background carousel. Length must match
+ * `heroImages` — we index both with the same `activeIndex`.
+ */
+const slideCopy = [
+  {
+    eyebrow: "Healthcare Corridors",
+    headline: "Wall protection, installed where it matters most.",
+    ctaLabel: "See our healthcare work",
+    ctaHref: "/healthcare",
+  },
+  {
+    eyebrow: "Institutional Scope",
+    headline: "Hygienic corridor systems for live hospital work.",
+    ctaLabel: "Browse interior systems",
+    ctaHref: "/systems",
+  },
+  {
+    eyebrow: "Wall Protection Specialists",
+    headline: "Surfaces built to outlast the traffic they carry.",
+    ctaLabel: "Explore wall protection systems",
+    ctaHref: "/systems/wall-protection",
+  },
+  {
+    eyebrow: "FRP Wall Panels",
+    headline: "FRP systems installed to spec, on schedule.",
+    ctaLabel: "Explore FRP wall systems",
+    ctaHref: "/systems/frp-wall-systems",
+  },
+  {
+    eyebrow: "Hygienic Cladding",
+    headline: "A dedicated wall protection partner for BC.",
+    ctaLabel: "Why work with FRP?",
+    ctaHref: "/frp-benefits",
+  },
+];
+
+const SLIDE_DURATION_MS = 7000;
+
+/**
+ * Hero layout notes
+ *
+ * Background is a cross-fading carousel of 5 Unsplash placeholders with a
+ * slow Ken Burns zoom (1.05 → 1.00) that re-triggers on each cycle so the
+ * background never feels static. A left-to-right navy ink gradient (~40%
+ * opacity at the left edge, transparent on the right) keeps white type
+ * legible regardless of which image is currently showing.
+ *
+ * Eyebrow + headline rotate in lockstep with the background via a shared
+ * `activeIndex`. Arrow keys advance/reverse the carousel when focus is inside
+ * the hero region (a11y). Interval auto-advances every 7s; hovering or
+ * focusing the region pauses rotation so users can read.
+ */
 export default function Hero() {
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef<number | null>(null);
+  const regionRef = useRef<HTMLElement | null>(null);
+
+  const advance = useCallback((step = 1) => {
+    setActiveIndex((prev) => (prev + step + heroImages.length) % heroImages.length);
+  }, []);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setActiveIndex(0), 100);
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % systems.length);
-    }, 3000);
+    if (isPaused) return;
+    timerRef.current = window.setInterval(() => {
+      advance(1);
+    }, SLIDE_DURATION_MS);
     return () => {
-      clearTimeout(timeout);
-      clearInterval(interval);
+      if (timerRef.current !== null) window.clearInterval(timerRef.current);
     };
-  }, []);
+  }, [advance, isPaused]);
+
+  // Keyboard navigation — only hijack arrow keys when focus is within the hero
+  // region, so we don't break page-level scroll elsewhere.
+  useEffect(() => {
+    const handleKey = (event: KeyboardEvent) => {
+      const region = regionRef.current;
+      if (!region) return;
+      const active = document.activeElement;
+      if (!(active instanceof Node) || !region.contains(active)) return;
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        advance(1);
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        advance(-1);
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [advance]);
 
   return (
     <section
       id="home"
-      className="relative h-dvh bg-[#0f172a] overflow-hidden flex flex-col"
+      ref={regionRef}
+      className="relative h-dvh overflow-hidden"
+      aria-roledescription="carousel"
+      aria-label="Featured wall protection project imagery"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
     >
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-linear-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
+      {/* ── Background layer: cross-fading slides with Ken Burns ── */}
+      {heroImages.map((slide, index) => {
+        const isActive = index === activeIndex;
+        return (
+          <div
+            key={index}
+            aria-hidden={!isActive}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              isActive ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div
+              // `key={activeIndex}` re-mounts this inner div on each rotation
+              // so the Ken Burns animation restarts from 1.05× every time
+              // this slide becomes active. Only the active slide runs the
+              // animation; others stay neutral to avoid wasted GPU work.
+              key={isActive ? activeIndex : `idle-${index}`}
+              className="absolute inset-0"
+              style={
+                isActive
+                  ? {
+                      animation: `kenburns ${SLIDE_DURATION_MS + 1000}ms ease-out forwards`,
+                    }
+                  : undefined
+              }
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                // Slide 0 gets `priority` (preload + fetchpriority=high) for
+                // LCP. Slides 1–4 still need to load eagerly — they sit at
+                // opacity:0 inside fixed-position parents, where native
+                // `loading="lazy"` heuristics can defer the fetch and leave
+                // a blank slot when the carousel rotates onto them.
+                priority={index === 0}
+                loading={index === 0 ? undefined : "eager"}
+                className="object-cover filter-[saturate(0.85)_brightness(0.97)]"
+                sizes="100vw"
+              />
+            </div>
+            {slide.isPlaceholder ? <PlaceholderBadge /> : null}
+          </div>
+        );
+      })}
+
+      {/* Left-side navy ink gradient (~40% opacity) keeps the headline legible
+           regardless of which image is currently visible. */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: "40px 40px",
+          background:
+            "linear-gradient(to right, rgba(12,24,48,0.72) 0%, rgba(12,24,48,0.4) 35%, rgba(12,24,48,0.05) 65%, rgba(12,24,48,0) 100%)",
         }}
       />
-      {/* Teal glow accent */}
-      <div className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-[#0d9488]/8 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 -left-1/4 w-[400px] h-[400px] bg-[#0891b2]/5 rounded-full blur-[100px]" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
 
-      {/* Content wrapper */}
-      <div className="relative z-10 flex-1 flex flex-col">
-        {/* Main content */}
-        <div className="flex-1 flex items-center pt-4 md:pt-5">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-              <div className="max-w-2xl">
-                {/* Trust Badge */}
-                <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 md:px-4 md:py-2 mb-5 md:mb-6">
-                  <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#0d9488] flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <span className="text-white/80 text-xs md:text-sm font-medium">16+ UPCC Clinics · 700+ Projects Across British Columbia</span>
-                </div>
-
-                <h1 className="leading-[0.96] tracking-tight text-white font-semibold">
-                  <span className="block text-[clamp(2rem,4.1vw,4.6rem)]">Wall Protection</span>
-                  <span className="block text-[clamp(2rem,4.1vw,4.6rem)] text-[#0d9488]">
-                    Construction
-                  </span>
-                  <span className="block text-[clamp(2rem,4.1vw,4.6rem)]">
-                    Partner
-                  </span>
-                </h1>
-
-                <p className="max-w-xl text-base md:text-lg text-white/78 leading-relaxed mt-4 md:mt-5">
-                  Specializing in healthcare and institutional interior protection systems across British Columbia.
+      {/* ── Foreground layer ── */}
+      <div className="pointer-events-none absolute inset-0 z-10">
+        {/* Heading — one slot, each slide supplies its own eyebrow + headline.
+             All variants stack in a single grid cell and crossfade in sync
+             with the background slideshow. */}
+        <div className="pointer-events-auto absolute inset-x-0 top-[26dvh] px-6 md:top-[30dvh] md:pl-10 lg:pl-14 lg:pr-8">
+          <div className="grid" aria-live="polite">
+            {slideCopy.map((slide, idx) => (
+              <div
+                key={idx}
+                className={`col-start-1 row-start-1 transition-opacity duration-1000 ease-in-out ${
+                  idx === activeIndex ? "opacity-100" : "pointer-events-none opacity-0"
+                }`}
+                aria-hidden={idx !== activeIndex}
+              >
+                <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#5eead4] md:mb-5">
+                  {slide.eyebrow}
                 </p>
-
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 mt-6 md:mt-8">
-                  <Link
-                    href="/quote"
-                    className="group inline-flex items-center justify-center gap-3 bg-white text-[#0f172a] px-6 py-3 md:px-8 md:py-4 rounded-full font-medium transition-all hover:bg-[#0d9488] hover:text-white shadow-lg shadow-white/10"
+                <h2 className="max-w-[14ch] text-left text-4xl font-semibold leading-[1.02] tracking-tight text-white md:text-6xl lg:text-7xl">
+                  {slide.headline}
+                </h2>
+                <Link
+                  href={slide.ctaHref}
+                  tabIndex={idx === activeIndex ? 0 : -1}
+                  className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-[#5eead4] md:mt-9 md:text-base"
+                >
+                  <span className="border-b border-white/40 pb-0.5 transition-colors group-hover:border-[#5eead4]">
+                    {slide.ctaLabel}
+                  </span>
+                  <svg
+                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    Get a Quote
-                    <svg
-                      className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-
-                  <Link
-                    href="/healthcare"
-                    className="inline-flex items-center justify-center gap-3 text-white/80 hover:text-white font-medium transition-colors py-3 sm:py-0"
-                  >
-                    Healthcare Experience
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.75}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
               </div>
+            ))}
+          </div>
+        </div>
 
-              {/* Right side - Rotating system cards */}
-              <div className="hidden lg:flex flex-col items-center justify-center">
-                <div className="relative w-full max-w-md z-10">
-                  <div className="relative h-[280px] xl:h-[300px]">
-                    {systems.map((system, index) => (
-                      <Link
-                        key={index}
-                        href={system.href}
-                        className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-700 group ${
-                          index === activeIndex
-                            ? "opacity-100 translate-y-0 z-10"
-                            : "opacity-0 translate-y-8 pointer-events-none z-0"
-                        }`}
-                      >
-                        {/* Icon */}
-                        <div className="w-24 h-24 flex items-center justify-center mb-6">
-                          <svg
-                            className="w-14 h-14 text-[#0d9488]"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={1.5}
-                              d={system.icon}
-                            />
-                          </svg>
-                        </div>
-                        {/* Text */}
-                        <div className="text-center">
-                          <h3 className="text-[1.7rem] xl:text-[1.95rem] font-semibold text-white mb-3 group-hover:text-[#0d9488] transition-colors">
-                            {system.title}
-                          </h3>
-                          <p className="text-[15px] text-white/70 max-w-sm leading-relaxed">
-                            {system.description}
-                          </p>
-                        </div>
-                        {/* Learn more hint */}
-                        <div className="mt-4 flex items-center gap-2 text-white/50 group-hover:text-[#0d9488] transition-colors">
-                          <span className="text-sm">Learn more</span>
-                          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
+        {/* Homepage support line — pinned bottom-left on md+, hidden on mobile */}
+        <div className="pointer-events-auto absolute bottom-8 left-8 hidden max-w-full flex-col gap-3 md:flex lg:left-10">
+          <div className="h-0.5 w-[300px] bg-[#0d9488]" />
+          <p className="text-base font-semibold tracking-tight text-white md:text-lg">
+            Wall Protection Construction Partner.
+          </p>
+          <p className="text-sm leading-relaxed text-white/75">
+            Specializing in healthcare and institutional interior protection systems across British Columbia.
+          </p>
+        </div>
 
-                  {/* Dot indicators */}
-                  <div className="flex items-center justify-center gap-2 mt-4">
-                    {systems.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setActiveIndex(index)}
-                        className={`transition-all duration-300 rounded-full ${
-                          index === activeIndex
-                            ? "w-6 h-1.5 bg-[#0d9488]"
-                            : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
-                        }`}
-                        aria-label={`View ${systems[index].title}`}
-                      />
-                    ))}
-                  </div>
-                </div>
+        {/* Bottom row: logo card centered on mobile, pinned bottom-right on md+ */}
+        <div className="absolute inset-x-0 bottom-3 flex items-end justify-center px-3 md:bottom-8 md:justify-end md:px-8 lg:px-10">
+          <div className="pointer-events-auto w-full md:w-[clamp(460px,38vw,600px)]">
+            <div className="flex w-full flex-col bg-white px-5 py-5 shadow-xl shadow-black/10 md:px-8 md:py-7">
+              <div className="mb-3 h-0.5 w-7 bg-[#134e4a] md:mb-4 md:w-9" />
+
+              <h1 className="mb-1 text-2xl font-extrabold leading-[1.05] tracking-tight text-[#0f172a] md:mb-1.5 md:text-[clamp(1.6rem,2.4vw,2.4rem)]">
+                FRP Installations Inc.
+              </h1>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#134e4a] md:mb-5 md:text-[0.78rem]">
+                Wall Protection Solutions
+              </p>
+
+              <p className="mb-5 text-sm leading-relaxed text-slate-500 md:mb-6 md:text-base">
+                Healthcare and institutional interior protection systems across
+                British Columbia.
+              </p>
+
+              <div className="flex flex-row items-stretch gap-2 md:flex-col md:gap-3 lg:flex-row">
+                <Link
+                  href="/quote"
+                  className="group inline-flex items-center justify-center gap-2 bg-[#2a4663] px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                >
+                  Get a Quote
+                  <svg
+                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
+                <Link
+                  href="/healthcare"
+                  className="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                >
+                  Healthcare Work
+                </Link>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom section with proof blocks and navigation */}
-        <div className="border-t mt-8 pt-4 border-white/10">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 p-4">
-            {/* Mobile: Stats row */}
-            <div className="flex md:hidden items-center justify-center gap-6 pb-3 mb-3 border-b border-white/10">
-              <div className="text-center">
-                <div className="text-lg font-semibold text-white">700+</div>
-                <div className="text-xs text-white/40">Projects</div>
-              </div>
-              <div className="w-px h-8 bg-white/10" />
-              <div className="text-center">
-                <div className="text-lg font-semibold text-white">16+</div>
-                <div className="text-xs text-white/40">UPCC Clinics</div>
-              </div>
-              <div className="w-px h-8 bg-white/10" />
-              <div className="text-center">
-                <div className="text-lg font-semibold text-[#0d9488]">75%+</div>
-                <div className="text-xs text-white/40">Healthcare</div>
-              </div>
-            </div>
-
-            <div className="hidden xl:flex items-end justify-between gap-10">
-              <div className="grid gap-y-5">
-                <div className="flex items-center justify-start gap-4 2xl:gap-5">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg 2xl:text-xl font-semibold text-white">700+</span>
-                    <span className="text-xs 2xl:text-sm text-white/40 whitespace-nowrap">Projects</span>
-                  </div>
-                  <div className="w-px h-4 bg-white/20" />
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg 2xl:text-xl font-semibold text-white">16+</span>
-                    <span className="text-xs 2xl:text-sm text-white/40 whitespace-nowrap">UPCC Clinics</span>
-                  </div>
-                  <div className="w-px h-4 bg-white/20" />
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg 2xl:text-xl font-semibold text-[#0d9488]">75%+</span>
-                    <span className="text-xs 2xl:text-sm text-white/40 whitespace-nowrap">Healthcare Work</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-start gap-4 2xl:gap-5">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg 2xl:text-xl font-semibold text-white">20</span>
-                    <span className="text-xs 2xl:text-sm text-white/40 whitespace-nowrap">Yrs Experience</span>
-                  </div>
-                  <div className="w-px h-4 bg-white/20" />
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg 2xl:text-xl font-semibold text-white">~$550K</span>
-                    <span className="text-xs 2xl:text-sm text-white/40 whitespace-nowrap">Largest Healthcare Package</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Navigation */}
-              <div className="flex flex-col items-end min-w-[26rem] shrink-0">
-                <span className="text-[11px] uppercase tracking-[0.2em] text-white/30 mb-3">
-                  Quick Links
-                </span>
-                <nav className="flex items-center justify-end gap-8 2xl:gap-10">
-                  {[
-                    { label: "Systems", href: "#services" },
-                    { label: "Healthcare", href: "/healthcare" },
-                    { label: "Projects", href: "#projects" },
-                    { label: "Contact", href: "#contact" },
-                    { label: "Search Site", href: "/search" },
-                  ].map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className="text-sm 2xl:text-[15px] text-white/40 hover:text-white/80 transition-colors duration-200"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            </div>
-
-            <div className="hidden md:grid xl:hidden grid-cols-2 gap-x-10 gap-y-4 pt-1">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg font-semibold text-white">700+</span>
-                  <span className="text-xs text-white/40 whitespace-nowrap">Projects</span>
-                </div>
-                <div className="w-px h-4 bg-white/20" />
-                <div className="flex items-center gap-2">
-                  <span className="text-lg font-semibold text-white">16+</span>
-                  <span className="text-xs text-white/40 whitespace-nowrap">UPCC Clinics</span>
-                </div>
-                <div className="w-px h-4 bg-white/20" />
-                <div className="flex items-center gap-2">
-                  <span className="text-lg font-semibold text-[#0d9488]">75%+</span>
-                  <span className="text-xs text-white/40 whitespace-nowrap">Healthcare Work</span>
-                </div>
-                <div className="w-px h-4 bg-white/20" />
-                <div className="flex items-center gap-2">
-                  <span className="text-lg font-semibold text-white">20</span>
-                  <span className="text-xs text-white/40 whitespace-nowrap">Yrs Experience</span>
-                </div>
-                <div className="w-px h-4 bg-white/20" />
-                <div className="flex items-center gap-2">
-                  <span className="text-lg font-semibold text-white">~$550K</span>
-                  <span className="text-xs text-white/40 whitespace-nowrap">Largest Healthcare Package</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-end">
-                <span className="text-[11px] uppercase tracking-[0.2em] text-white/30 mb-3">
-                  Quick Links
-                </span>
-                <nav className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
-                  {[
-                    { label: "Systems", href: "#services" },
-                    { label: "Healthcare", href: "/healthcare" },
-                    { label: "Projects", href: "#projects" },
-                    { label: "Contact", href: "#contact" },
-                    { label: "Search Site", href: "/search" },
-                  ].map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className="text-lg text-white/60 hover:text-white/40 transition-colors duration-200 whitespace-nowrap"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            </div>
-          </div>
+        {/* Slide indicators / keyboard-accessible carousel controls.
+             Bottom-center on mobile, bottom-right edge on desktop where they
+             hand off to the FRP card gracefully. */}
+        <div className="pointer-events-auto absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 md:left-auto md:right-8 md:top-8 md:translate-x-0 lg:right-10">
+          {heroImages.map((slide, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setActiveIndex(idx)}
+              aria-label={`Show slide ${idx + 1}: ${slide.alt}`}
+              aria-current={idx === activeIndex}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                idx === activeIndex
+                  ? "w-8 bg-white"
+                  : "w-4 bg-white/40 hover:bg-white/70"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

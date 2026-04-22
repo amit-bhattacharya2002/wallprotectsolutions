@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Header, Footer } from "@/app/components";
+import { Header, Footer, PageHero } from "@/app/components";
 
 export const metadata = {
   title: "Graham FRP Panels | FRP Installations",
@@ -65,28 +65,20 @@ export default function GrahamPage() {
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-dvh bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28 flex items-center">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-left">
-            <div className="max-w-3xl">
-              <div className="flex items-center gap-2 text-white/70 text-sm mb-6">
-                <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                <span>/</span>
-                <Link href="/wall-protection" className="hover:text-white transition-colors">Wall Protection</Link>
-                <span>/</span>
-                <span className="text-white">Graham</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 max-w-3xl">
-                Graham FRP Panels
-              </h1>
-              <p className="text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
-                Quality FRP wall panels for commercial applications. Trusted durability and
-                moisture resistance for food service, healthcare, and industrial environments.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Manufacturer Partner"
+          title="Graham FRP Panels"
+          subtitle="Quality FRP wall panels for commercial applications. Trusted durability and moisture resistance for food service, healthcare, and industrial environments."
+          subtitleClassName="text-lg md:text-xl"
+          quickLinksTitle="Other manufacturers"
+          quickLinks={[
+            { label: "Crane Composites FRP", href: "/wall-protection/manufacturers/crane-composites" },
+            { label: "Marlite FRP", href: "/wall-protection/manufacturers/marlite" },
+            { label: "Nudo FRP", href: "/wall-protection/manufacturers/nudo" },
+            { label: "Panolam FRP", href: "/wall-protection/manufacturers/panolam" },
+            { label: "All Manufacturers", href: "/manufacturers" },
+          ]}
+        />
 
         {/* Products Section */}
         <section className="py-20 lg:py-28 bg-white">
@@ -193,7 +185,7 @@ export default function GrahamPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-[#0f172a]">
+        <section className="py-20 bg-[#2a4663]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
               Ready to discuss your Graham FRP project?

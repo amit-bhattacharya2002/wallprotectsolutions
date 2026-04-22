@@ -74,7 +74,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column */}
-          <div>
+          <div className="reveal">
             <span className="eyebrow">Contact Us</span>
             <h2 className="section-title mb-4">
               Let&apos;s talk about your project
@@ -132,19 +132,19 @@ export default function Contact() {
             {/* Trust indicators */}
             <div className="flex flex-wrap gap-4">
               <div className="pill-tag">
-                <svg className="w-4 h-4 text-[#0d9488]" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span>Free Site Visits</span>
               </div>
               <div className="pill-tag">
-                <svg className="w-4 h-4 text-[#0d9488]" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span>24hr Response</span>
               </div>
               <div className="pill-tag">
-                <svg className="w-4 h-4 text-[#0d9488]" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span>No Obligation</span>
@@ -222,7 +222,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group w-full inline-flex items-center justify-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#0d9488]"
+                className="group w-full inline-flex items-center justify-center gap-3 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#0d9488]"
               >
                 {isSubmitting ? "Sending message..." : "Send message"}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -234,7 +234,7 @@ export default function Contact() {
                 <div
                   className={`rounded-2xl px-4 py-3 text-sm leading-relaxed ${
                     submitState.type === "success"
-                      ? "bg-[#ecfeff] text-[#0f766e] border border-[#99f6e4]"
+                      ? "bg-[#ecfeff] text-[#0f3a36] border border-[#99f6e4]"
                       : "bg-[#fff1f2] text-[#be123c] border border-[#fecdd3]"
                   }`}
                 >

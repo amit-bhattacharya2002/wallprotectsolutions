@@ -154,7 +154,7 @@ export default function WallProtectionPage() {
                 <div className="mt-8">
                   <Link
                     href="/quote"
-                    className="inline-flex items-center gap-3 bg-[#0f172a] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                    className="inline-flex items-center gap-3 bg-[#2a4663] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-all"
                   >
                     Get FRP Quote
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,7 +199,7 @@ export default function WallProtectionPage() {
         </section>
 
         {/* Why FRP Section */}
-        <section className="py-20 lg:py-28 bg-[#0f172a]">
+        <section className="py-20 lg:py-28 bg-[#2a4663]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
               <div>
@@ -304,7 +304,7 @@ export default function WallProtectionPage() {
         {/* FRP Options CTA */}
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="bg-[#0f172a] rounded-3xl p-10 lg:p-16">
+            <div className="bg-[#2a4663] rounded-3xl p-10 lg:p-16">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">

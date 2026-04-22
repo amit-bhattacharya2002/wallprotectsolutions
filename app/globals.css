@@ -2,14 +2,14 @@
 
 :root {
   /* Primary Colors - Dark sophisticated palette */
-  --primary: #0f172a;
-  --primary-light: #1e293b;
-  --primary-dark: #020617;
+  --primary: #2a4663;
+  --primary-light: #3a597b;
+  --primary-dark: #1e3348;
 
   /* Accent - Soft teal for healthcare/institutional feel */
   --accent: #0d9488;
   --accent-light: #14b8a6;
-  --accent-dark: #0f766e;
+  --accent-dark: #0f3a36;
 
   /* Warm accent - used sparingly */
   --accent-warm: #f97316;
@@ -97,6 +97,34 @@ h1, h2, h3, h4, h5, h6 {
   to { transform: scaleX(1); }
 }
 
+/* Ken Burns: slow zoom-out from 1.05x to 1.00x over a slide's dwell time. */
+@keyframes kenburns {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.00); }
+}
+
+/* Gentle scroll fade-up for headings/blocks when they enter the viewport. */
+@keyframes scroll-fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.reveal.is-visible {
+  animation: scroll-fade-up 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
 .animate-fade-up {
   animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -176,14 +204,20 @@ section {
   outline-offset: 2px;
 }
 
-/* Smooth image loading */
+/*
+ * Smooth image loading.
+ *
+ * The previous rule paired `img { opacity: 1 }` with `img[loading] { opacity: 0 }`
+ * intending to fade images in once loaded. That broke the entire site:
+ * `loading` is a static HTML attribute (`lazy`/`eager`) the browser never
+ * removes, and there was no companion rule (e.g. `.loaded`) to ever raise the
+ * opacity back to 1 — so every `next/image` (which always emits a `loading`
+ * attr) rendered with opacity:0 forever. Just keep a simple opacity transition
+ * so future fade-on-load logic can hook in via a class without breaking the
+ * default rendering. */
 img {
   opacity: 1;
   transition: opacity 0.3s ease;
-}
-
-img[loading] {
-  opacity: 0;
 }
 
 /* Card hover lift effect */
@@ -277,6 +311,32 @@ img[loading] {
   pointer-events: none;
 }
 
+/*
+ * Very subtle grain/noise overlay for dark navy surfaces. SVG feTurbulence
+ * produces organic film-grain texture that adds depth without reading as an
+ * obvious pattern. Opacity sits ~2.5% so it's almost imperceptible — just
+ * enough to kill the flatness of large navy blocks.
+ */
+.grain-overlay {
+  position: relative;
+}
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .grain-overlay::after {
+    animation: none;
+  }
+}
+
 .section-header {
   max-width: 42rem;
 }
@@ -318,7 +378,7 @@ img[loading] {
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 1.25rem;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
-  box-shadow: 0 18px 40px -28px rgba(15, 23, 42, 0.26);
+  box-shadow: 0 18px 40px -28px rgba(42, 70, 99, 0.26);
 }
 
 .surface-card-muted {
@@ -331,7 +391,7 @@ img[loading] {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.25rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-  box-shadow: 0 20px 50px -32px rgba(2, 6, 23, 0.72);
+  box-shadow: 0 20px 50px -32px rgba(30, 51, 72, 0.72);
   backdrop-filter: blur(10px);
   color: white;
 }

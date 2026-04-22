@@ -57,16 +57,16 @@ export default function SiteSearch({ isOpen, onClose }: SiteSearchProps) {
     <div className="fixed inset-0 z-[70]">
       <button
         type="button"
-        className="absolute inset-0 bg-[#020617]/70 backdrop-blur-sm"
+        className="absolute inset-0 bg-[#1e3348]/70 backdrop-blur-sm"
         onClick={handleClose}
         aria-label="Close search"
       />
       <div className="relative flex min-h-full items-start justify-center px-4 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
-        <div className="flex max-h-[calc(100dvh-2rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0f172a] shadow-[0_40px_120px_-48px_rgba(2,6,23,0.95)] sm:max-h-[calc(100dvh-4rem)]">
+        <div className="flex max-h-[calc(100dvh-2rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#2a4663] shadow-[0_40px_120px_-48px_rgba(2,6,23,0.95)] sm:max-h-[calc(100dvh-4rem)]">
           <div className="border-b border-white/10 px-5 py-5 sm:px-7 sm:py-6">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#5eead4]">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0d9488]">
                   Search
                 </p>
                 <h2 className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-3xl">
@@ -106,7 +106,7 @@ export default function SiteSearch({ isOpen, onClose }: SiteSearchProps) {
                 <Link
                   href={trimmedQuery ? `/search?q=${encodeURIComponent(trimmedQuery)}` : "/search"}
                   onClick={handleClose}
-                  className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#0f172a] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#1e293b] sm:px-5"
+                  className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#2a4663] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#3a597b] sm:px-5"
                 >
                   Full results
                 </Link>

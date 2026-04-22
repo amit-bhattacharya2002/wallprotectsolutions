@@ -51,7 +51,7 @@ export default function CareersPage() {
         <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mb-14">
-              <span className="text-sm font-medium text-[#0d9488] tracking-wider uppercase mb-4 block">Roles</span>
+              <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Roles</span>
               <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">Who we are looking for</h2>
               <p className="text-gray-600 leading-relaxed font-normal">We are always interested in hearing from experienced people in the wall protection, specialty interiors, and construction trade space — whether or not we have an active posting.</p>
             </div>
@@ -62,7 +62,7 @@ export default function CareersPage() {
                   id={role.title.toLowerCase().replace(/\s+/g, "-")}
                   className="surface-card scroll-mt-32 p-8 hover:border-[#0d9488] transition-colors"
                 >
-                  <div className="text-sm text-[#0d9488] font-medium mb-4">0{index + 1}</div>
+                  <div className="text-sm text-[#134e4a] font-medium mb-4">0{index + 1}</div>
                   <h3 className="text-xl font-semibold text-[#0f172a] mb-4">{role.title}</h3>
                   <p className="text-gray-600 font-normal leading-relaxed text-sm">{role.description}</p>
                 </div>
@@ -76,7 +76,7 @@ export default function CareersPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span className="text-sm font-medium text-[#0d9488] tracking-wider uppercase mb-4 block">Why Join Us</span>
+                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Why Join Us</span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">Serious work. Long-term growth.</h2>
                 <p className="text-gray-600 leading-relaxed font-normal mb-8">
                   We are not a generalist contractor that does some wall panels on the side. Wall protection and hygienic systems are all we do — and healthcare is the core of our business. That means the work is consistent, the projects are significant, and the people we hire have a real opportunity to grow with the business.
@@ -84,7 +84,7 @@ export default function CareersPage() {
                 <ul className="space-y-4">
                   {whyUs.map((point) => (
                     <li key={point} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 text-[#134e4a] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
                       <span className="text-gray-600">{point}</span>
@@ -99,7 +99,7 @@ export default function CareersPage() {
                 </p>
                 <a
                   href="mailto:info@frpinstallations.com?subject=Career Inquiry"
-                  className="inline-flex items-center gap-2 bg-[#0d9488] text-white px-6 py-3 rounded-full font-medium hover:bg-[#0f766e] transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#134e4a] text-white px-6 py-3 rounded-full font-medium hover:bg-[#0d9488] transition-colors"
                 >
                   Send Your Resume
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,5 +1,4 @@
-import { Header, Footer } from "@/app/components";
-import Link from "next/link";
+import { Header, Footer, PageHero } from "@/app/components";
 
 export const metadata = {
   title: "Hygienic Wall Cladding | FRP Installations Inc. | Wall Protection Solutions",
@@ -62,68 +61,24 @@ export default function HygienicWallCladdingPage() {
     <>
       <Header />
       <main>
-        {/* Hero */}
-        <section className="relative min-h-dvh bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28 flex items-center">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-left">
-            <div className="grid lg:grid-cols-[1fr_260px] gap-12 lg:gap-16 items-center">
-              <div>
-                <div className="flex items-center gap-2 text-white/60 text-sm mb-6">
-                  <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                  <span>/</span>
-                  <Link href="/systems" className="hover:text-white transition-colors">Systems</Link>
-                  <span>/</span>
-                  <span className="text-white">Hygienic Wall Cladding</span>
-                </div>
-                <p className="text-[#0d9488] text-sm font-medium uppercase tracking-wider mb-4">Hygienic Wall Cladding</p>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 max-w-3xl">
-                  Hygienic wall cladding for healthcare environments
-                </h1>
-                <p className="text-lg text-white/80 max-w-2xl font-normal leading-relaxed">
-                  Altro-trained and approved installer for Whiterock and Puraguard. Also supply and install True North and AM-Clad weldable systems. We help specify the right level of system for each clinical space.
-                </p>
-              </div>
-              {/* Right: quick links */}
-              <div className="hidden lg:block">
-                <p className="text-xs font-medium text-white/30 uppercase tracking-wider mb-3">
-                  Related systems
-                </p>
-                <div className="space-y-0.5">
-                  <Link href="/systems/wall-protection" className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/55 hover:text-white hover:bg-white/5 transition-all group">
-                    Wall Protection Systems
-                    <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                  <Link href="/systems/frp-wall-systems" className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/55 hover:text-white hover:bg-white/5 transition-all group">
-                    FRP Wall Systems
-                    <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                  <Link href="/systems/wet-wall" className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/55 hover:text-white hover:bg-white/5 transition-all group">
-                    Wet Wall Systems
-                    <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                  <Link href="/systems" className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/55 hover:text-white hover:bg-white/5 transition-all group">
-                    All Systems
-                    <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Hygienic Wall Cladding"
+          title="Hygienic wall cladding for healthcare environments"
+          subtitle="Altro-trained and approved installer for Whiterock and Puraguard. Also supply and install True North and AM-Clad weldable systems. We help specify the right level of system for each clinical space."
+          quickLinksTitle="Related systems"
+          quickLinks={[
+            { label: "Wall Protection Systems", href: "/systems/wall-protection" },
+            { label: "FRP Wall Systems", href: "/systems/frp-wall-systems" },
+            { label: "Wet Wall Systems", href: "/systems/wet-wall" },
+            { label: "All Systems", href: "/systems" },
+          ]}
+        />
 
         {/* Systems */}
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mb-14">
-              <span className="text-sm font-medium text-[#0d9488] tracking-wider uppercase mb-4 block">Systems We Install</span>
+              <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Systems We Install</span>
               <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">Four hygienic cladding systems — matched to the requirement</h2>
               <p className="text-gray-500 leading-relaxed font-normal text-base md:text-lg">
                 Not every healthcare space needs a fully welded seamless system. We help match the right hygienic level to each space, avoiding both overspecification and underspecification.
@@ -135,7 +90,7 @@ export default function HygienicWallCladdingPage() {
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <h3 className="text-2xl font-semibold text-[#0f172a]">{system.name}</h3>
-                      <span className="px-3 py-1 bg-[#0d9488]/10 text-[#0d9488] text-xs font-medium rounded-full">{system.relationship}</span>
+                      <span className="px-3 py-1 bg-[#134e4a]/10 text-[#134e4a] text-xs font-medium rounded-full">{system.relationship}</span>
                     </div>
                     <p className="text-gray-500 text-sm font-medium mb-3">{system.type}</p>
                     <p className="text-gray-600 leading-relaxed font-normal mb-6">{system.description}</p>
@@ -150,7 +105,7 @@ export default function HygienicWallCladdingPage() {
                     <ul className="space-y-3">
                       {system.usedWhen.map((use) => (
                         <li key={use} className="flex items-start gap-3">
-                          <svg className="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <svg className="w-5 h-5 text-[#134e4a] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
                           <span className="text-gray-600 text-sm">{use}</span>

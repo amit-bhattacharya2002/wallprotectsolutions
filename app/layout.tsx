@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import StickyContactBar from "./components/StickyContactBar";
+import PageBreadcrumb from "./components/PageBreadcrumb";
+import ScrollRevealManager from "./components/ScrollRevealManager";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://frpinstallations.com"),
@@ -173,15 +175,17 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#0f172a" />
+        <meta name="theme-color" content="#2a4663" />
         <meta name="geo.region" content="CA-BC" />
         <meta name="geo.placename" content="Coquitlam" />
         <meta name="geo.position" content="49.2827;-122.7931" />
         <meta name="ICBM" content="49.2827, -122.7931" />
       </head>
       <body className="antialiased">
+        <PageBreadcrumb />
         {children}
         <StickyContactBar />
+        <ScrollRevealManager />
       </body>
     </html>
   );

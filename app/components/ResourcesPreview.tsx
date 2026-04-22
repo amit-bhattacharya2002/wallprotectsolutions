@@ -17,7 +17,7 @@ export default function ResourcesPreview() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16">
           <div>
-            <div className="section-header mb-10">
+            <div className="section-header reveal mb-10">
               <span className="eyebrow">Resources & FAQ</span>
               <h2 className="section-title mb-4">
                 Technical guidance for specs, pricing, and product selection
@@ -38,7 +38,7 @@ export default function ResourcesPreview() {
                     {article.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-full bg-[#f0fdfa] text-[#0d9488] text-[11px] font-semibold tracking-wide uppercase"
+                        className="px-2.5 py-1 rounded-full bg-[#f0fdfa] text-[#134e4a] text-[11px] font-semibold tracking-wide uppercase"
                       >
                         {tag}
                       </span>
@@ -56,7 +56,7 @@ export default function ResourcesPreview() {
 
             <Link
               href="/resources"
-              className="inline-flex items-center gap-2 mt-8 text-[#0d9488] font-medium hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 mt-8 text-[#134e4a] font-medium hover:gap-3 transition-all"
             >
               Explore all technical resources
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +66,9 @@ export default function ResourcesPreview() {
           </div>
 
           <div className="surface-card-muted p-8 lg:p-10">
-            <div className="flex items-center justify-between gap-4 mb-8">
+            {/* Below lg, "View all FAQ" drops to its own row below the heading so
+                the two don't wrap side-by-side awkwardly at tablet widths. */}
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between mb-8">
               <div>
                 <span className="eyebrow mb-3">Popular Questions</span>
                 <h3 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight">
@@ -75,7 +77,7 @@ export default function ResourcesPreview() {
               </div>
               <Link
                 href="/faq"
-                className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[#0d9488] hover:gap-3 transition-all"
+                className="hidden lg:inline-flex items-center gap-2 text-sm font-medium text-[#134e4a] hover:gap-3 transition-all"
               >
                 View all FAQ
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +92,7 @@ export default function ResourcesPreview() {
                   key={item.question}
                   className="rounded-[1.15rem] border border-slate-200 bg-white px-5 py-5"
                 >
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0d9488] mb-2">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#134e4a] mb-2">
                     {item.category}
                   </div>
                   <p className="text-base text-[#0f172a] font-medium leading-relaxed">
@@ -102,7 +104,7 @@ export default function ResourcesPreview() {
 
             <Link
               href="/faq"
-              className="md:hidden inline-flex items-center gap-2 mt-6 text-sm font-medium text-[#0d9488] hover:gap-3 transition-all"
+              className="lg:hidden inline-flex items-center gap-2 mt-6 text-sm font-medium text-[#134e4a] hover:gap-3 transition-all"
             >
               View all FAQ
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

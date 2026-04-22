@@ -39,7 +39,7 @@ export default function ManufacturersPage() {
         />
 
         {/* Philosophy strip */}
-        <section className="py-8 bg-linear-to-r from-[#0d9488] via-[#0f766e] to-[#0d9488]">
+        <section className="py-8 bg-linear-to-r from-[#134e4a] via-[#0f3a36] to-[#134e4a]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <p className="text-white text-center font-medium text-sm">
               Over the years we have developed particularly strong relationships with Construction Specialties and Altro — whose products are widely used in healthcare and institutional environments. We remain product-neutral and application-focused.
@@ -58,22 +58,22 @@ export default function ManufacturersPage() {
                   <div key={cat}>
                     <div className="flex items-center gap-4 mb-8">
                       <h2 className="text-2xl font-semibold text-[#0f172a] tracking-tight">{categoryLabels[cat]}</h2>
-                      <Link href={`/systems/${cat === "frp" ? "frp-wall-systems" : cat === "frl-decorative" ? "frl-decorative" : cat === "pvc-liner" ? "pvc-liner" : cat === "wet-wall" ? "wet-wall" : cat === "hygienic-cladding" ? "hygienic-wall-cladding" : "wall-protection"}`} className="text-sm text-[#0d9488] hover:underline">
+                      <Link href={`/systems/${cat === "frp" ? "frp-wall-systems" : cat === "frl-decorative" ? "frl-decorative" : cat === "pvc-liner" ? "pvc-liner" : cat === "wet-wall" ? "wet-wall" : cat === "hygienic-cladding" ? "hygienic-wall-cladding" : "wall-protection"}`} className="text-sm text-[#134e4a] hover:underline">
                         View system →
                       </Link>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {catManufacturers.map((mfr) => (
-                        <div key={mfr.slug} className={`surface-card p-6 ${mfr.featured ? "border-[#0d9488]" : ""}`}>
+                        <div key={mfr.slug} className={`surface-card p-6 ${mfr.featured ? "border-[#134e4a]" : ""}`}>
                           <div className="flex items-start justify-between mb-3">
                             <h3 className="text-base font-semibold text-[#0f172a]">{mfr.name}</h3>
-                            {mfr.featured && <span className="px-2 py-0.5 bg-[#0d9488]/10 text-[#0d9488] text-xs font-medium rounded-full ml-2 flex-shrink-0">Key Partner</span>}
+                            {mfr.featured && <span className="px-2 py-0.5 bg-[#134e4a]/10 text-[#134e4a] text-xs font-medium rounded-full ml-2 flex-shrink-0">Key Partner</span>}
                           </div>
                           <p className="text-xs text-gray-500 font-medium mb-3">{mfr.relationship}</p>
                           <ul className="space-y-1">
                             {mfr.products.slice(0, 4).map((p) => (
                               <li key={p} className="text-gray-600 text-xs flex items-start gap-2">
-                                <span className="text-[#0d9488] mt-0.5 flex-shrink-0">—</span>
+                                <span className="text-[#134e4a] mt-0.5 flex-shrink-0">—</span>
                                 {p}
                               </li>
                             ))}

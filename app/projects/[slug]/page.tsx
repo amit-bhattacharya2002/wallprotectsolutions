@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Header, Footer } from "@/app/components";
+import { Header, Footer, PageHero } from "@/app/components";
 import { projects, getProjectBySlug, getAllProjectSlugs } from "@/app/data/projects";
 
 // Generate static params for all projects
@@ -39,39 +39,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-dvh bg-[#0f172a] pt-32 pb-20 lg:pt-40 lg:pb-28 flex items-center">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-left">
-            <div className="max-w-3xl">
-              <Link 
-                href="/projects" 
-                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to Projects
-              </Link>
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="text-[#0d9488] text-sm font-medium uppercase tracking-wider block">
-                  {project.category}
-                </span>
-                {project.signature && (
-                  <span className="inline-flex items-center rounded-full bg-[#0d9488]/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#5eead4]">
-                    Signature Project
-                  </span>
-                )}
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 max-w-3xl">
-                {project.title}
-              </h1>
-              <p className="text-lg md:text-xl text-white/80 max-w-2xl font-normal leading-relaxed">
-                {project.description}
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          backLink={{ href: "/projects", label: "Back to Projects" }}
+          eyebrow={project.category}
+          badge={project.signature ? (
+            <span className="inline-flex items-center rounded-full bg-[#134e4a]/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#0d9488]">
+              Signature Project
+            </span>
+          ) : undefined}
+          title={project.title}
+          subtitle={project.description}
+          subtitleClassName="text-lg md:text-xl"
+        />
 
         {/* Project Details */}
         <section className="py-16 lg:py-24 bg-white">
@@ -152,7 +131,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <div className="mt-8 pt-6 border-t border-gray-200">
                     <Link
                       href="/quote"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#0f172a] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-colors"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#2a4663] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-colors"
                     >
                       Start Similar Project
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

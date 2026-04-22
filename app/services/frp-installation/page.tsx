@@ -152,7 +152,7 @@ export default function FRPInstallationPage() {
 
                 <Link
                   href="/quote"
-                  className="inline-flex items-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                  className="inline-flex items-center gap-3 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
                 >
                   Schedule Installation
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,7 +162,7 @@ export default function FRPInstallationPage() {
               </div>
 
               <div className="relative">
-                <div className="aspect-[4/3] bg-[#0f172a] rounded-2xl overflow-hidden">
+                <div className="aspect-[4/3] bg-[#2a4663] rounded-2xl overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop"
                     alt="FRP Installation"
@@ -192,7 +192,7 @@ export default function FRPInstallationPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {benefits.map((benefit) => (
                 <div key={benefit.title} className="p-8 bg-white rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
-                  <div className="w-12 h-12 bg-[#0f172a] rounded-lg flex items-center justify-center text-white mb-6">
+                  <div className="w-12 h-12 bg-[#2a4663] rounded-lg flex items-center justify-center text-white mb-6">
                     {benefit.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-[#0f172a] mb-2">{benefit.title}</h3>
@@ -233,7 +233,7 @@ export default function FRPInstallationPage() {
         </section>
 
         {/* Process Section */}
-        <section className="py-20 lg:py-28 bg-[#0f172a]">
+        <section className="py-20 lg:py-28 bg-[#2a4663]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-4">
@@ -271,13 +271,13 @@ export default function FRPInstallationPage() {
                   </p>
                   <Link
                     href="/quote"
-                    className="inline-flex items-center gap-3 bg-[#0f172a] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                    className="inline-flex items-center gap-3 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
                   >
                     Request Installation Quote
                   </Link>
                 </div>
                 <div className="text-center">
-                  <div className="inline-block bg-[#0f172a] rounded-2xl p-10">
+                  <div className="inline-block bg-[#2a4663] rounded-2xl p-10">
                     <div className="text-6xl font-bold text-white mb-2">12</div>
                     <div className="text-white/80 text-lg">Month Warranty</div>
                   </div>

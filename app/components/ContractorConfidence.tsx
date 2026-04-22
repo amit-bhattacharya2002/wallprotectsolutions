@@ -28,10 +28,10 @@ const workflow = [
 
 export default function ContractorConfidence() {
   return (
-    <section className="section-shell-lg section-shell-dark bg-[#0f172a] border-t border-white/5">
+    <section className="section-shell-lg section-shell-dark grain-overlay bg-[#2a4663] border-t border-white/5">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-start">
-          <div>
+          <div className="reveal">
             <span className="eyebrow">Why Contractors Choose Us</span>
             <h2 className="section-title section-title-dark mb-5">
               A specialist subcontractor, not a generic panel installer
@@ -46,7 +46,7 @@ export default function ContractorConfidence() {
                   key={item}
                   className="surface-card-dark flex items-start gap-4 px-5 py-4"
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0d9488]/20 text-sm font-semibold text-[#5eead4]">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#134e4a]/20 text-sm font-semibold text-[#5eead4]">
                     {index + 1}
                   </span>
                   <p className="text-sm text-white/76 leading-relaxed">
@@ -70,7 +70,7 @@ export default function ContractorConfidence() {
           <div className="grid sm:grid-cols-2 gap-4">
             {deliveryPoints.map((item) => (
               <div key={item.title} className="surface-card-dark p-6 lg:p-7">
-                <div className="w-10 h-10 rounded-2xl bg-[#0d9488]/18 text-[#5eead4] flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-2xl bg-[#134e4a]/18 text-[#5eead4] flex items-center justify-center mb-4">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 13l4 4L19 7" />
                   </svg>

@@ -18,7 +18,7 @@ export default function StickyContactBar() {
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <div className="bg-[#0f172a] border-t border-white/10 px-4 py-3 flex items-center gap-3">
+      <div className="bg-[#2a4663] border-t border-white/10 px-4 py-3 flex items-center gap-3">
         <a
           href="tel:604-715-9469"
           className="flex-1 inline-flex items-center justify-center gap-2 border border-white/20 text-white text-sm font-medium py-3 rounded-full hover:border-white/40 transition-colors"
@@ -30,7 +30,7 @@ export default function StickyContactBar() {
         </a>
         <Link
           href="/contact"
-          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0d9488] text-white text-sm font-medium py-3 rounded-full hover:bg-[#0f766e] transition-colors"
+          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0d9488] text-white text-sm font-medium py-3 rounded-full hover:bg-[#0d9488] transition-colors"
         >
           Get a quote
         </Link>

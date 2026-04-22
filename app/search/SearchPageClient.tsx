@@ -31,17 +31,17 @@ export default function SearchPageClient({ initialQuery }: SearchPageClientProps
 
   return (
     <main>
-      <section className="relative overflow-hidden bg-[#0f172a] pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="absolute inset-0 bg-linear-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
+      <section className="relative overflow-hidden bg-[#2a4663] pt-10 pb-16 lg:pt-16 lg:pb-20">
+        <div className="absolute inset-0 bg-linear-to-br from-[#2a4663] via-[#3a597b] to-[#2a4663]" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }}
         />
-        <div className="absolute top-1/4 right-0 h-[360px] w-[360px] rounded-full bg-[#0d9488]/10 blur-[120px]" />
+        <div className="absolute top-1/4 right-0 h-[360px] w-[360px] rounded-full bg-[#134e4a]/10 blur-[120px]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-4xl">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#5eead4]">Search</p>
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#0d9488]">Search</p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-6xl">
               Find the right system, product, or service faster
             </h1>
@@ -65,7 +65,7 @@ export default function SearchPageClient({ initialQuery }: SearchPageClientProps
                 />
               </div>
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center rounded-full bg-[#0d9488]/10 px-3 py-1.5 text-xs font-medium text-[#0d9488]">
+                <span className="inline-flex items-center rounded-full bg-[#134e4a]/10 px-3 py-1.5 text-xs font-medium text-[#5eead4]">
                   Acrovyn
                 </span>
                 <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">

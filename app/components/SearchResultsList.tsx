@@ -10,8 +10,8 @@ interface SearchResultsListProps {
 }
 
 const badgeStyles: Record<string, string> = {
-  Systems: "bg-[#0d9488]/10 text-[#0d9488]",
-  Services: "bg-[#0f172a]/8 text-[#0f172a]",
+  Systems: "bg-[#134e4a]/10 text-[#134e4a]",
+  Services: "bg-[#2a4663]/8 text-[#0f172a]",
   Manufacturers: "bg-slate-100 text-slate-700",
   Projects: "bg-amber-50 text-amber-700",
   Pages: "bg-slate-100 text-slate-600",
@@ -32,7 +32,7 @@ export default function SearchResultsList({
         return (
           <div key={section.group} className={compact ? "space-y-2.5" : "space-y-3"}>
             <div className="flex items-center gap-3">
-              <div className="h-px w-8 bg-[#0d9488]" />
+              <div className="h-px w-8 bg-[#134e4a]" />
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
                 {getSearchGroupLabel(section.group)}
               </p>
