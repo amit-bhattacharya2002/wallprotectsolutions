@@ -79,6 +79,41 @@ const slideCopy = [
 
 const SLIDE_DURATION_MS = 7000;
 
+function HeroCarouselDots({
+  activeIndex,
+  onSelect,
+  variant,
+  className,
+}: {
+  activeIndex: number;
+  onSelect: (index: number) => void;
+  /** `onDark` = over photography; `onLight` = on white FRP card (mobile). */
+  variant: "onDark" | "onLight";
+  className?: string;
+}) {
+  const active = variant === "onDark" ? "w-8 bg-white" : "w-8 bg-[#0d9488]";
+  const inactive =
+    variant === "onDark"
+      ? "w-4 bg-white/40 hover:bg-white/70"
+      : "w-4 bg-slate-300 hover:bg-slate-400";
+  return (
+    <div className={className}>
+      {heroImages.map((slide, idx) => (
+        <button
+          key={idx}
+          type="button"
+          onClick={() => onSelect(idx)}
+          aria-label={`Show slide ${idx + 1}: ${slide.alt}`}
+          aria-current={idx === activeIndex}
+          className={`h-1.5 rounded-full transition-all duration-500 ${
+            idx === activeIndex ? active : inactive
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
+
 /**
  * Hero layout notes
  *
@@ -88,10 +123,15 @@ const SLIDE_DURATION_MS = 7000;
  * opacity at the left edge, transparent on the right) keeps white type
  * legible regardless of which image is currently showing.
  *
- * Eyebrow + headline rotate in lockstep with the background via a shared
- * `activeIndex`. Arrow keys advance/reverse the carousel when focus is inside
+ * Eyebrow + headline track the same `activeIndex` as the background (copy
+ * snaps off / fades in so two headlines never sit half-visible on top of each
+ * other). Arrow keys advance/reverse the carousel when focus is inside
  * the hero region (a11y). Interval auto-advances every 7s; hovering or
  * focusing the region pauses rotation so users can read.
+ *
+ * Carousel dots: on small screens they sit at the top of the white FRP card
+ * so the tall card never covers them; from md up they stay top-right over the
+ * photography as before.
  */
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -208,12 +248,20 @@ export default function Hero() {
              All variants stack in a single grid cell and crossfade in sync
              with the background slideshow. */}
         <div className="pointer-events-auto absolute inset-x-0 top-[26dvh] px-6 md:top-[30dvh] md:pl-10 lg:pl-14 lg:pr-8">
-          <div className="grid" aria-live="polite">
+          {/*
+            Stacked in one grid cell. Do NOT crossfade outgoing + incoming copy
+            with the same long opacity transition — both sit at ~50% opacity in
+            the middle of the tween and the headlines read as jumbled (worse
+            on narrow widths). Outgoing snaps off; only the active line fades in.
+          */}
+          <div className="isolate grid" aria-live="polite">
             {slideCopy.map((slide, idx) => (
               <div
                 key={idx}
-                className={`col-start-1 row-start-1 transition-opacity duration-1000 ease-in-out ${
-                  idx === activeIndex ? "opacity-100" : "pointer-events-none opacity-0"
+                className={`col-start-1 row-start-1 ${
+                  idx === activeIndex
+                    ? "relative z-10 opacity-100 transition-opacity duration-500 ease-out motion-reduce:transition-none"
+                    : "pointer-events-none relative z-0 opacity-0 transition-none motion-reduce:transition-none"
                 }`}
                 aria-hidden={idx !== activeIndex}
               >
@@ -265,6 +313,13 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-3 flex items-end justify-center px-3 md:bottom-8 md:justify-end md:px-8 lg:px-10">
           <div className="pointer-events-auto w-full md:w-[clamp(460px,38vw,600px)]">
             <div className="flex w-full flex-col bg-white px-5 py-5 shadow-xl shadow-black/10 md:px-8 md:py-7">
+              {/* Mobile: dots live inside the card so they are never covered by it */}
+              <HeroCarouselDots
+                activeIndex={activeIndex}
+                onSelect={setActiveIndex}
+                variant="onLight"
+                className="mb-4 flex justify-center gap-2 md:hidden"
+              />
               <div className="mb-3 h-0.5 w-7 bg-[#134e4a] md:mb-4 md:w-9" />
 
               <h1 className="mb-1 text-2xl font-extrabold leading-[1.05] tracking-tight text-[#0f172a] md:mb-1.5 md:text-[clamp(1.6rem,2.4vw,2.4rem)]">
@@ -310,25 +365,14 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Slide indicators / keyboard-accessible carousel controls.
-             Bottom-center on mobile, bottom-right edge on desktop where they
-             hand off to the FRP card gracefully. */}
-        <div className="pointer-events-auto absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 md:left-auto md:right-8 md:top-8 md:translate-x-0 lg:right-10">
-          {heroImages.map((slide, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={() => setActiveIndex(idx)}
-              aria-label={`Show slide ${idx + 1}: ${slide.alt}`}
-              aria-current={idx === activeIndex}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                idx === activeIndex
-                  ? "w-8 bg-white"
-                  : "w-4 bg-white/40 hover:bg-white/70"
-              }`}
-            />
-          ))}
-        </div>
+        {/* Slide indicators: md+ only over the photo (hidden on mobile — dots
+            render inside the white card so they are never covered). */}
+        <HeroCarouselDots
+          activeIndex={activeIndex}
+          onSelect={setActiveIndex}
+          variant="onDark"
+          className="pointer-events-auto absolute right-8 top-8 z-20 hidden items-center gap-2 md:flex lg:right-10"
+        />
       </div>
     </section>
   );
