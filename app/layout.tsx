@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     locale: "en_CA",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image-v2.png",
         width: 1200,
         height: 630,
         alt: "FRP Installations Inc. | Wall Protection Solutions — Healthcare Interior Protection BC",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FRP Installations Inc. | Wall Protection Solutions",
     description: "Specialist healthcare and institutional interior protection subcontractor across British Columbia.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image-v2.png"],
   },
   robots: {
     index: true,
@@ -91,7 +91,7 @@ const jsonLd = {
       "@id": "https://frpinstallations.com/#business",
       name: "FRP Installations Inc. | Wall Protection Solutions",
       alternateName: "Wall Protection Solutions",
-      image: "https://frpinstallations.com/og-image.jpg",
+      image: "https://frpinstallations.com/og-image-v2.png",
       description: "Specialist healthcare and institutional interior protection subcontractor across British Columbia. Supply and installation of wall protection systems, hygienic wall cladding, FRP/FRL panels, wet wall systems, stainless protection, and architectural specialties.",
       url: "https://frpinstallations.com",
       telephone: "+1-604-715-9469",
