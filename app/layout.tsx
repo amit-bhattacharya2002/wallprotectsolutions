@@ -3,6 +3,7 @@ import "./globals.css";
 import StickyContactBar from "./components/StickyContactBar";
 import PageBreadcrumb from "./components/PageBreadcrumb";
 import ScrollRevealManager from "./components/ScrollRevealManager";
+import BackToTopButton from "./components/BackToTopButton";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://frpinstallations.com"),
@@ -184,6 +185,7 @@ export default function RootLayout({
       <body className="antialiased">
         <PageBreadcrumb />
         {children}
+        <BackToTopButton />
         <StickyContactBar />
         <ScrollRevealManager />
       </body>

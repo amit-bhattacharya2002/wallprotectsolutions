@@ -15,6 +15,7 @@ type Stat = {
   prefix?: string;
   value: number;
   suffix: string;
+  unit?: string;
   label: string;
   teal?: boolean;
 };
@@ -24,7 +25,7 @@ const stats: Stat[] = [
   { value: 16, suffix: "+", label: "UPCC Clinics" },
   { value: 75, suffix: "%+", label: "Healthcare Work", teal: true },
   { value: 20, suffix: "+", label: "Years Experience" },
-  { value: 5, suffix: "M+", label: "Sq Ft Installed" },
+  { value: 5, suffix: "M+", unit: "(Million)", label: "Sq Ft Installed" },
 ];
 
 /**
@@ -70,6 +71,11 @@ function CountUpStat({ stat, start }: { stat: Stat; start: boolean }) {
         {current}
         {stat.suffix}
       </span>
+      {stat.unit ? (
+        <span className="mt-1 block text-[0.65rem] font-medium uppercase tracking-[0.06em] text-white/50 md:text-[0.7rem]">
+          {stat.unit}
+        </span>
+      ) : null}
       <span className="mt-2 block text-xs md:text-sm text-white/70 leading-snug">
         {stat.label}
       </span>

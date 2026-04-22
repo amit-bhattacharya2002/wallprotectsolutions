@@ -46,7 +46,7 @@ export default function ServiceAreasPage() {
                 <div className="text-slate-500 text-sm">Projects Completed</div>
               </div>
               <div className="surface-card p-6">
-                <div className="text-4xl font-semibold text-[#0f172a] mb-2">1M+</div>
+                <div className="text-4xl font-semibold text-[#0f172a] mb-2">5M+</div>
                 <div className="text-slate-500 text-sm">Sq Ft Installed</div>
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function ServiceAreasPage() {
               and we&apos;ll be happy to provide a quote.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
+              {/* <Link
                 href="/quote"
                 className="inline-flex items-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#0d9488] hover:text-white transition-all"
               >
@@ -101,10 +101,10 @@ export default function ServiceAreasPage() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </Link>
+              </Link> */}
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 border border-white/25 text-white/85 px-8 py-4 rounded-full font-medium hover:bg-white/10 hover:text-white transition-all"
+                className="inline-flex items-center  gap-3 border border-white/25 text-white/85 px-8 py-4 rounded-full font-medium hover:bg-white/10 hover:text-white transition-all"
               >
                 Contact Us
               </Link>

@@ -10,7 +10,7 @@ const proofBlocks = [
   { number: "700+", label: "Projects Completed" },
   { number: "16+", label: "UPCC Clinics Completed" },
   { number: "75%+", label: "Healthcare Work" },
-  { number: "5M+", label: "Sq Ft Installed" },
+  { number: "5M+", unit: "(Million)", label: "Sq Ft Installed" },
 ];
 
 const upccClinics = [
@@ -118,6 +118,11 @@ export default function HealthcarePage() {
               {proofBlocks.map((block) => (
                 <div key={block.label} className="bg-white/5 border border-white/10 rounded-xl p-5">
                   <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-1">{block.number}</div>
+                  {block.unit ? (
+                    <div className="text-[0.65rem] md:text-[0.7rem] font-medium uppercase tracking-[0.06em] text-white/45 mb-2">
+                      {block.unit}
+                    </div>
+                  ) : null}
                   <div className="text-white/65 text-sm">{block.label}</div>
                 </div>
               ))}

@@ -108,7 +108,7 @@ export default function Testimonials() {
 
         <div className="grid min-h-0 flex-1 grid-cols-1 gap-10 pb-2 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14 lg:items-stretch">
           <div className="reveal flex flex-col gap-5 lg:h-full lg:min-h-0">
-            <div className="surface-card-dark flex w-full max-w-full flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
+            <div className="surface-card-dark hidden w-full max-w-full flex-col gap-4 px-5 py-5 md:flex md:flex-row md:items-center md:justify-between">
               <div>
                 <div className="mb-2 flex shrink-0 gap-0.5" aria-hidden="true">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -135,7 +135,7 @@ export default function Testimonials() {
               </div>
             </div>
 
-            <div className="surface-card-dark p-4 sm:p-5">
+            <div className="surface-card-dark hidden p-4 sm:p-5 md:block">
               <div className="mb-3 text-xs uppercase tracking-[0.15em] text-white/55">Recent Client Voices</div>
               <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
                 {testimonials.map((item, index) => (
@@ -166,7 +166,7 @@ export default function Testimonials() {
               </div>
             </div>
 
-            <div className="surface-card-dark p-4 sm:p-5">
+            <div className="surface-card-dark hidden p-4 sm:p-5 md:block">
               <p className="mb-4 text-sm leading-relaxed text-white/65">
                 From remote hospitality to commercial kitchens and fast-track interiors, teams call out our communication, cleanliness, and schedule discipline.
               </p>
