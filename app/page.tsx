@@ -12,7 +12,7 @@ import {
   ManufacturerStrip,
   PreConstructionCTA,
   ResourcesPreview,
-  Testimonial,
+  Testimonials,
 } from "./components";
 
 export default function Home() {
@@ -26,13 +26,7 @@ export default function Home() {
         <Projects />
         <FeaturedHealthcareProject />
         <WhyFRP />
-        {/* TODO: replace with real testimonial */}
-        <Testimonial
-          quote="[Placeholder quote — replace with real GC or architect testimonial.]"
-          attribution="Project Manager"
-          firm="[Client Firm — placeholder]"
-          headshotSrc="/placeholders/avatar-neutral.svg"
-        />
+        <Testimonials />
         <ManufacturerStrip />
         <PreConstructionCTA />
         <ContractorConfidence />

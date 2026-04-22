@@ -159,10 +159,10 @@ export default function HealthcarePage() {
                 <div className="space-y-5">
                   {[
                     { label: "Client", value: "Vancouver Coastal Health" },
-                    { label: "Facility", value: "Lily&apos;s Community Health Centre, DTES Vancouver" },
+                    { label: "Facility", value: "Lily's Community Health Centre, DTES Vancouver" },
                     { label: "Contract Value", value: "Approx. $550,000" },
                     { label: "Scope", value: "Complete interior protection package — wall protection, hygienic cladding, FRL panels, wet walls, arch. specialties" },
-                    { label: "Note", value: "Company&apos;s largest single healthcare interior protection package to date" },
+                    { label: "Note", value: "Company's largest single healthcare interior protection package to date" },
                   ].map((item) => (
                     <div key={item.label} className="border-b border-gray-100 pb-5 last:border-0 last:pb-0">
                       <div className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">{item.label}</div>

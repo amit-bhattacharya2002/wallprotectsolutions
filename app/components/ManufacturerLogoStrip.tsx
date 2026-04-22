@@ -7,15 +7,6 @@ interface ManufacturerLogoStripProps {
   className?: string;
 }
 
-/**
- * Horizontal row of manufacturer "logos." Until real SVG marks are licensed
- * from each vendor we render them as muted neutral pill placeholders so the
- * layout is already wired up — the drop-in swap later is name-tile → <svg>.
- *
- * Style: subtle `text-slate-400` on a divider row, evenly spaced, wraps on
- * small screens. No background color so it blends into whichever surface the
- * parent section uses.
- */
 export default function ManufacturerLogoStrip({
   items,
   className,
@@ -26,7 +17,6 @@ export default function ManufacturerLogoStrip({
       role="list"
       aria-label="Manufacturer partners"
     >
-      {/* TODO: swap name tiles for official logos once licensed */}
       {items.map((item) => (
         <div
           key={item.name}

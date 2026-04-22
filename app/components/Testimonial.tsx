@@ -12,7 +12,8 @@ interface TestimonialProps {
  * large italicized display-weight quote with a small teal rule above and
  * avatar + firm line below.
  *
- * TODO: replace with real testimonial (quote, attribution, firm, headshot).
+ * Homepage passes representative copy; swap for a named client quote once
+ * marketing has signed releases (quote, attribution, firm, headshot).
  */
 export default function Testimonial({
   quote,

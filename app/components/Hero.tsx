@@ -82,20 +82,12 @@ const SLIDE_DURATION_MS = 7000;
 function HeroCarouselDots({
   activeIndex,
   onSelect,
-  variant,
   className,
 }: {
   activeIndex: number;
   onSelect: (index: number) => void;
-  /** `onDark` = over photography; `onLight` = on white FRP card (mobile). */
-  variant: "onDark" | "onLight";
   className?: string;
 }) {
-  const active = variant === "onDark" ? "w-8 bg-white" : "w-8 bg-[#0d9488]";
-  const inactive =
-    variant === "onDark"
-      ? "w-4 bg-white/40 hover:bg-white/70"
-      : "w-4 bg-slate-300 hover:bg-slate-400";
   return (
     <div className={className}>
       {heroImages.map((slide, idx) => (
@@ -105,8 +97,10 @@ function HeroCarouselDots({
           onClick={() => onSelect(idx)}
           aria-label={`Show slide ${idx + 1}: ${slide.alt}`}
           aria-current={idx === activeIndex}
-          className={`h-1.5 rounded-full transition-all duration-500 ${
-            idx === activeIndex ? active : inactive
+          className={`h-1 rounded-full transition-[width,background-color,opacity] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 md:h-1.5 ${
+            idx === activeIndex
+              ? "w-5 bg-white/55 shadow-[0_0_12px_rgba(255,255,255,0.12)] md:w-7 md:bg-white/90 md:shadow-[0_0_14px_rgba(0,0,0,0.35)]"
+              : "w-2 bg-white/18 hover:bg-white/32 md:w-3.5 md:bg-white/45 md:hover:bg-white/65"
           }`}
         />
       ))}
@@ -129,9 +123,9 @@ function HeroCarouselDots({
  * the hero region (a11y). Interval auto-advances every 7s; hovering or
  * focusing the region pauses rotation so users can read.
  *
- * Carousel dots: on small screens they sit at the top of the white FRP card
- * so the tall card never covers them; from md up they stay top-right over the
- * photography as before.
+ * Carousel dots: subtle on mobile (row above the FRP card). From md up they
+ * sit in a tight stack with the card — just above it, both right-aligned in the
+ * hero content area (no longer pinned to the viewport top under the header).
  */
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -309,70 +303,63 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Bottom row: logo card centered on mobile, pinned bottom-right on md+ */}
-        <div className="absolute inset-x-0 bottom-3 flex items-end justify-center px-3 md:bottom-8 md:justify-end md:px-8 lg:px-10">
-          <div className="pointer-events-auto w-full md:w-[clamp(460px,38vw,600px)]">
-            <div className="flex w-full flex-col bg-white px-5 py-5 shadow-xl shadow-black/10 md:px-8 md:py-7">
-              {/* Mobile: dots live inside the card so they are never covered by it */}
-              <HeroCarouselDots
-                activeIndex={activeIndex}
-                onSelect={setActiveIndex}
-                variant="onLight"
-                className="mb-4 flex justify-center gap-2 md:hidden"
-              />
-              <div className="mb-3 h-0.5 w-7 bg-[#134e4a] md:mb-4 md:w-9" />
+        {/* Bottom: mobile = centered dots above card; md+ = dots + card stacked at
+            bottom-right (`justify-end` + `items-end`) so dots sit directly above the
+            white FRP block, right edges aligned. */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-3 z-30 flex max-w-full flex-col items-center gap-2 px-3 md:inset-0 md:z-20 md:flex md:flex-col md:items-end md:justify-end md:gap-2 md:px-8 md:pb-8 md:pt-0 lg:px-10">
+          <HeroCarouselDots
+            activeIndex={activeIndex}
+            onSelect={setActiveIndex}
+            className="pointer-events-auto flex w-full shrink-0 items-center justify-center gap-1.5 opacity-90 max-md:justify-center md:w-auto md:shrink-0 md:justify-end md:opacity-100 md:drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
+          />
+          <div className="pointer-events-auto flex w-full max-w-full items-end justify-center md:w-full md:max-w-none md:justify-end md:px-0 md:pb-0">
+            <div className="w-full md:w-[clamp(460px,38vw,600px)]">
+              <div className="flex w-full flex-col bg-white px-5 py-5 shadow-xl shadow-black/10 md:px-8 md:py-7">
+                <div className="mb-3 h-0.5 w-7 bg-[#134e4a] md:mb-4 md:w-9" />
 
-              <h1 className="mb-1 text-2xl font-extrabold leading-[1.05] tracking-tight text-[#0f172a] md:mb-1.5 md:text-[clamp(1.6rem,2.4vw,2.4rem)]">
-                FRP Installations Inc.
-              </h1>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#134e4a] md:mb-5 md:text-[0.78rem]">
-                Wall Protection Solutions
-              </p>
+                <h1 className="mb-1 text-2xl font-extrabold leading-[1.05] tracking-tight text-[#0f172a] md:mb-1.5 md:text-[clamp(1.6rem,2.4vw,2.4rem)]">
+                  FRP Installations Inc.
+                </h1>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#134e4a] md:mb-5 md:text-[0.78rem]">
+                  Wall Protection Solutions
+                </p>
 
-              <p className="mb-5 text-sm leading-relaxed text-slate-500 md:mb-6 md:text-base">
-                Healthcare and institutional interior protection systems across
-                British Columbia.
-              </p>
+                <p className="mb-5 text-sm leading-relaxed text-slate-500 md:mb-6 md:text-base">
+                  Healthcare and institutional interior protection systems across
+                  British Columbia.
+                </p>
 
-              <div className="flex flex-row items-stretch gap-2 md:flex-col md:gap-3 lg:flex-row">
-                <Link
-                  href="/quote"
-                  className="group inline-flex items-center justify-center gap-2 bg-[#2a4663] px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#0d9488] md:px-5 md:py-3 md:text-sm"
-                >
-                  Get a Quote
-                  <svg
-                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <div className="flex flex-row items-stretch gap-2 md:flex-col md:gap-3 lg:flex-row">
+                  <Link
+                    href="/quote"
+                    className="group inline-flex items-center justify-center gap-2 bg-[#2a4663] px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#0d9488] md:px-5 md:py-3 md:text-sm"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Link>
-                <Link
-                  href="/healthcare"
-                  className="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] md:px-5 md:py-3 md:text-sm"
-                >
-                  Healthcare Work
-                </Link>
+                    Get a Quote
+                    <svg
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
+                  <Link
+                    href="/healthcare"
+                    className="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                  >
+                    Healthcare Work
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Slide indicators: md+ only over the photo (hidden on mobile — dots
-            render inside the white card so they are never covered). */}
-        <HeroCarouselDots
-          activeIndex={activeIndex}
-          onSelect={setActiveIndex}
-          variant="onDark"
-          className="pointer-events-auto absolute right-8 top-8 z-20 hidden items-center gap-2 md:flex lg:right-10"
-        />
       </div>
     </section>
   );

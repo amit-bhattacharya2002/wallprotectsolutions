@@ -1,13 +1,38 @@
+import Image from "next/image";
 import Link from "next/link";
 import ManufacturerLogoStrip from "./ManufacturerLogoStrip";
 
 const manufacturers = [
-  { name: "Construction Specialties", note: "Acrovyn sheets, crash rails, corner guards, handrails, door protection" },
-  { name: "Altro", note: "Whiterock welded hygienic systems and Puraguard panel systems" },
-  { name: "Inpro", note: "Wall protection, door protection, corridor systems, and Aspex graphics" },
-  { name: "Panolam", note: "FRL decorative wall systems and healthcare corridor finishes" },
-  { name: "Marlite", note: "Traditional FRP, Induro, Symmetrix, and decorative hybrid panels" },
-  { name: "Valto", note: "Glasbord FRP and Varietex decorative wall systems" },
+  {
+    name: "Construction Specialties",
+    logoSrc: "/cs.png",
+    note: "Acrovyn sheets, crash rails, corner guards, handrails, door protection",
+  },
+  {
+    name: "Altro",
+    logoSrc: "/altro.webp",
+    note: "Whiterock welded hygienic systems and Puraguard panel systems",
+  },
+  {
+    name: "Inpro",
+    logoSrc: "/inpro.jpg",
+    note: "Wall protection, door protection, corridor systems, and Aspex graphics",
+  },
+  {
+    name: "Panolam",
+    logoSrc: "/panolam.png",
+    note: "FRL decorative wall systems and healthcare corridor finishes",
+  },
+  {
+    name: "Marlite",
+    logoSrc: "/marlite.png",
+    note: "Traditional FRP, Induro, Symmetrix, and decorative hybrid panels",
+  },
+  {
+    name: "Valto",
+    logoSrc: "/valto.png",
+    note: "Glasbord FRP and Varietex decorative wall systems",
+  },
 ];
 
 export default function ManufacturerStrip() {
@@ -67,6 +92,17 @@ export default function ManufacturerStrip() {
           <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
             {manufacturers.map((m) => (
               <div key={m.name} className="surface-card p-5 lg:p-6">
+                <div className="mb-4 flex h-12 items-center rounded-lg bg-white px-3 sm:h-14">
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={m.logoSrc}
+                      alt={`${m.name} logo`}
+                      fill
+                      sizes="(min-width: 1280px) 180px, (min-width: 640px) 40vw, 90vw"
+                      className="object-contain object-center saturate-[0.92] contrast-[1.02]"
+                    />
+                  </div>
+                </div>
                 <div className="text-base font-semibold text-[#0f172a] leading-tight mb-2">{m.name}</div>
                 <div className="text-sm text-gray-500 leading-relaxed">{m.note}</div>
               </div>
