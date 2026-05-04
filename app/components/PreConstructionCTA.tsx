@@ -1,18 +1,31 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function PreConstructionCTA() {
   return (
-    <section className="section-shell bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="section-shell relative isolate overflow-hidden bg-white border-t border-gray-100">
+      <Image
+        src="/actualphotos/4.jpg"
+        alt=""
+        aria-hidden="true"
+        fill
+        sizes="100vw"
+        className="pointer-events-none -z-10 object-cover object-center opacity-45"
+      />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-white/86" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="reveal">
-            <span className="eyebrow">Pre-Construction Support</span>
-            <h2 className="section-title mb-4">
-              We work best when we&apos;re involved early
-            </h2>
-            <p className="section-lead text-sm md:text-base mb-6">
-              Wall protection and hygienic cladding scopes are frequently value-engineered — and often incorrectly. Getting us involved during design development or tender means you get accurate budget numbers, correct product specifications, and a scope that survives VE without compromising performance.
-            </p>
+          <div className="reveal rounded-xl bg-white p-6 shadow-[0_22px_60px_-42px_rgba(15,23,42,0.38)] ring-1 ring-slate-200 md:p-8 lg:p-10">
+            <div className="mb-6 text-center">
+              <span className="eyebrow">Pre-Construction Support</span>
+              <h2 className="section-title mb-4">
+                We work best when we&apos;re involved early
+              </h2>
+              <p className="section-lead mx-auto text-sm md:text-base">
+                Wall protection and hygienic cladding scopes are frequently value-engineered — and often incorrectly. Getting us involved during design development or tender means you get accurate budget numbers, correct product specifications, and a scope that survives VE without compromising performance.
+              </p>
+            </div>
             <ul className="space-y-3 mb-8">
               {[
                 "Product selection and specification writing",
@@ -22,7 +35,7 @@ export default function PreConstructionCTA() {
                 "Value engineering review — what to cut and what not to",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-gray-600 text-sm">
-                  <svg className="w-4 h-4 text-[#134e4a] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   {item}
@@ -43,8 +56,9 @@ export default function PreConstructionCTA() {
           </div>
 
           {/* Right: who this is for */}
-          <div className="space-y-4">
-            <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-4">Who we work with at pre-construction</p>
+          <div>
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-[0.18em] mb-5">Who we work with at pre-construction</p>
+            <div className="grid gap-4">
             {[
               {
                 role: "General Contractors",
@@ -59,11 +73,12 @@ export default function PreConstructionCTA() {
                 description: "Value engineering review that protects infection-control performance. We tell you what can be changed and what can\u2019t.",
               },
             ].map((item) => (
-              <div key={item.role} className="surface-card p-6 hover:border-[#0d9488] transition-colors">
-                <h3 className="text-base font-semibold text-[#0f172a] mb-2">{item.role}</h3>
+              <div key={item.role} className="rounded-xl border border-slate-200 bg-white p-5 shadow-[0_16px_40px_-34px_rgba(15,23,42,0.28)]">
+                <h3 className="text-base font-semibold tracking-tight text-[#0f172a] mb-2">{item.role}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </div>

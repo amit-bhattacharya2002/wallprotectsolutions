@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -70,91 +71,107 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-shell-lg bg-[#f3f6f8] border-t border-slate-200/70">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="contact" className="section-shell-lg relative isolate overflow-hidden border-t border-slate-200/70 bg-slate-200">
+      <Image
+        src="/actualphotos/usedforcontact.jpg"
+        alt=""
+        aria-hidden="true"
+        fill
+        quality={100}
+        sizes="100vw"
+        className="pointer-events-none -z-10 object-cover object-center"
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left Column */}
+          {/* Left Column — white panel with heading, intro + contact details */}
           <div className="reveal">
-            <span className="eyebrow">Contact Us</span>
-            <h2 className="section-title mb-4">
-              Let&apos;s talk about your project
-            </h2>
-            <p className="section-lead mb-8 max-w-md">
-              Ready to discuss your project scope? We work directly with GCs, project managers, and design teams — from pre-construction through to closeout documentation.
-            </p>
+            <div className="mx-auto max-w-xl rounded-2xl border border-slate-200/90 bg-white px-6 py-10 shadow-[0_22px_55px_-32px_rgba(15,23,42,0.35)] ring-1 ring-white/90 sm:px-8 lg:mx-0 lg:max-w-none">
+              <div className="mb-8 border-b border-slate-100 pb-8 text-left">
+                <span className="eyebrow">Contact Us</span>
+                <h2 className="section-title mt-3 mb-0 text-balance text-[#0f172a]">
+                  Let&apos;s talk about your project
+                </h2>
+              </div>
+              <p className="section-lead mt-0 mb-8 border-b border-slate-100 pb-8 text-left text-gray-600">
+                Ready to discuss your project scope? We work directly with GCs, project managers, and design teams — from pre-construction through to closeout documentation.
+              </p>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-100 ring-1 ring-slate-200/80">
+                    <svg className="h-5 w-5 text-[#0f172a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div className="min-w-0 pt-0.5 text-left">
+                    <div className="mb-1 text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Phone</div>
+                    <a href="tel:604-715-9469" className="text-xl font-bold tracking-tight text-[#0f766e] hover:text-[#0d9488] transition-colors">
+                      604-715-9469
+                    </a>
+                  </div>
+                </div>
 
-            {/* Contact Details */}
-            <div className="space-y-6 mb-8">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#f8fafc] flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#0f172a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+                <div className="flex items-start gap-4 border-t border-slate-100 pt-6">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-100 ring-1 ring-slate-200/80">
+                    <svg className="h-5 w-5 text-[#0f172a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div className="min-w-0 pt-0.5 text-left">
+                    <div className="mb-1 text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Email</div>
+                    <a href="mailto:info@frpinstallations.com" className="wrap-break-word text-lg font-bold tracking-tight text-[#0f766e] hover:text-[#0d9488] transition-colors">
+                      info@frpinstallations.com
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Phone</div>
-                  <a href="tel:604-715-9469" className="text-xl font-semibold text-[#0d9488] hover:text-[#0d9488] transition-colors">
-                    604-715-9469
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#f8fafc] flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#0f172a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Email</div>
-                  <a href="mailto:info@frpinstallations.com" className="text-xl font-semibold text-[#0d9488] hover:text-[#0d9488] transition-colors">
-                    info@frpinstallations.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#f8fafc] flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#0f172a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Address</div>
-                  <p className="text-lg text-[#0f172a] font-medium">
-                    145-1685 Pinetree Way<br />
-                    Coquitlam, BC V3E 3A1
-                  </p>
-                  <p className="text-sm text-gray-500 mt-1">(By Appointment Only)</p>
-                </div>
-              </div>
-            </div>
 
-            {/* Trust indicators */}
-            <div className="flex flex-wrap gap-4">
-              <div className="pill-tag">
-                <svg className="w-4 h-4 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>Free Site Visits</span>
+                <div className="flex items-start gap-4 border-t border-slate-100 pt-6">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-100 ring-1 ring-slate-200/80">
+                    <svg className="h-5 w-5 text-[#0f172a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div className="min-w-0 pt-0.5 text-left">
+                    <div className="mb-1 text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Address</div>
+                    <p className="text-lg font-semibold leading-snug text-[#0f172a]">
+                      145-1685 Pinetree Way<br />
+                      Coquitlam, BC V3E 3A1
+                    </p>
+                    <p className="mt-2 text-sm font-medium text-gray-600">(By Appointment Only)</p>
+                  </div>
+                </div>
               </div>
-              <div className="pill-tag">
-                <svg className="w-4 h-4 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>24hr Response</span>
-              </div>
-              <div className="pill-tag">
-                <svg className="w-4 h-4 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>No Obligation</span>
+
+              <div className="mt-10 flex flex-wrap gap-3 border-t border-slate-100 pt-8">
+                <div className="pill-tag">
+                  <svg className="h-4 w-4 shrink-0 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-medium text-[#0f172a]">Free Site Visits</span>
+                </div>
+                <div className="pill-tag">
+                  <svg className="h-4 w-4 shrink-0 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-medium text-[#0f172a]">24hr Response</span>
+                </div>
+                <div className="pill-tag">
+                  <svg className="h-4 w-4 shrink-0 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-medium text-[#0f172a]">No Obligation</span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right Column - Form */}
           <div className="surface-card-muted p-8 lg:p-10">
-            <h3 className="text-2xl font-semibold text-[#0f172a] mb-6">Send us a message</h3>
+            <h3 className="eyebrow mb-2">Send us a message</h3>
+            <p className="mb-6 text-left  text-2xl leading-relaxed text-gray-600">
+              Our team will reach out to you shortly — usually within one business day.
+            </p>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm text-gray-600 mb-2">

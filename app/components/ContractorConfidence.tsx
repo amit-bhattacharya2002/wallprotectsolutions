@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const deliveryPoints = [
@@ -28,26 +29,37 @@ const workflow = [
 
 export default function ContractorConfidence() {
   return (
-    <section className="section-shell-lg section-shell-dark grain-overlay bg-[#2a4663] border-t border-white/5">
+    <section className="section-shell-lg section-shell-dark grain-overlay relative isolate overflow-hidden border-t border-white/5 bg-[#2a4663]">
+      <Image
+        src="/actualphotos/5.jpg"
+        alt=""
+        aria-hidden="true"
+        fill
+        sizes="100vw"
+        className="pointer-events-none absolute inset-0 z-0 object-cover object-center filter-[saturate(0.88)_brightness(0.82)]"
+      />
+      <div className="pointer-events-none absolute inset-0 z-1 bg-[#2a4663]/90" />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="reveal mx-auto mb-12 max-w-3xl text-center lg:mb-14">
+          <span className="eyebrow">Why Contractors Choose Us</span>
+          <h2 className="section-title section-title-dark mb-5">
+            A specialist subcontractor, not a generic panel installer
+          </h2>
+          <p className="section-lead section-lead-dark mx-auto">
+            The website brief calls for construction-partner credibility, and that is where we are strongest. We help teams select the right system, coordinate documentation, and deliver installation scopes that hold up in healthcare and institutional environments.
+          </p>
+        </div>
+
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-start">
           <div className="reveal">
-            <span className="eyebrow">Why Contractors Choose Us</span>
-            <h2 className="section-title section-title-dark mb-5">
-              A specialist subcontractor, not a generic panel installer
-            </h2>
-            <p className="section-lead section-lead-dark mb-8">
-              The website brief calls for construction-partner credibility, and that is where we are strongest. We help teams select the right system, coordinate documentation, and deliver installation scopes that hold up in healthcare and institutional environments.
-            </p>
-
-            <div className="space-y-3 mb-8">
+            <div className="mb-8 border-y border-white/10">
               {workflow.map((item, index) => (
                 <div
                   key={item}
-                  className="surface-card-dark flex items-start gap-4 px-5 py-4"
+                  className="flex items-start gap-4 border-b border-white/10 py-4 last:border-b-0"
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#134e4a]/20 text-sm font-semibold text-[#5eead4]">
-                    {index + 1}
+                  <span className="mt-0.5 shrink-0 text-xs font-semibold tracking-[0.16em] text-[#5eead4] tabular-nums">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
                   <p className="text-sm text-white/76 leading-relaxed">
                     {item}
@@ -67,10 +79,10 @@ export default function ContractorConfidence() {
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
             {deliveryPoints.map((item) => (
-              <div key={item.title} className="surface-card-dark p-6 lg:p-7">
-                <div className="w-10 h-10 rounded-2xl bg-[#134e4a]/18 text-[#5eead4] flex items-center justify-center mb-4">
+              <div key={item.title} className="border-t border-white/12 pt-5">
+                <div className="text-[#5eead4] mb-4">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 13l4 4L19 7" />
                   </svg>

@@ -164,8 +164,8 @@ export default function FRPInstallationPage() {
               <div className="relative">
                 <div className="aspect-[4/3] bg-[#2a4663] rounded-2xl overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop"
-                    alt="FRP Installation"
+                    src="/actualphotos/5.jpg"
+                    alt="Healthcare corridor with installed wall protection panels"
                     className="w-full h-full object-cover opacity-80"
                   />
                 </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -80,108 +81,97 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="section-shell-lg section-shell-dark grain-overlay bg-[#2a4663] flex min-h-[min(92vh,56rem)] flex-col lg:min-h-[min(88vh,52rem)]"
+      className="section-shell-lg section-shell-dark grain-overlay relative isolate flex min-h-[min(92vh,56rem)] flex-col overflow-hidden bg-[#2a4663] lg:min-h-[min(88vh,52rem)]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
+      <Image
+        src="/actualphotos/7.jpg"
+        alt=""
+        aria-hidden="true"
+        fill
+        sizes="100vw"
+        className="pointer-events-none absolute inset-0 z-0 object-cover object-center filter-[saturate(0.88)_brightness(0.82)]"
+      />
+      <div className="pointer-events-none absolute inset-0 z-1 bg-[#2a4663]/90" />
       <div
-        className="pointer-events-none absolute -top-24 -left-20 h-72 w-72 rounded-full blur-3xl"
+        className="pointer-events-none absolute -top-24 -left-20 z-2 h-72 w-72 rounded-full blur-3xl"
         style={{ background: "radial-gradient(circle, rgba(94,234,212,0.2) 0%, rgba(94,234,212,0) 70%)" }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -bottom-24 -right-20 h-80 w-80 rounded-full blur-3xl"
+        className="pointer-events-none absolute -bottom-24 -right-20 z-2 h-80 w-80 rounded-full blur-3xl"
         style={{ background: "radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 72%)" }}
         aria-hidden="true"
       />
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-6 lg:px-8">
-        <div className="section-header reveal mb-10 shrink-0 lg:mb-12">
+        <div className="section-header reveal mx-auto mb-10 max-w-3xl shrink-0 text-center lg:mb-12">
           <span className="eyebrow">Testimonials</span>
           <h2 className="section-title section-title-dark mb-4">What our clients say</h2>
-          <p className="section-lead section-lead-dark">
+          <p className="section-lead section-lead-dark mx-auto">
             Don&apos;t just take our word for it. Here is feedback from owners, GCs, and operators across British Columbia.
           </p>
         </div>
 
-        <div className="grid min-h-0 flex-1 grid-cols-1 gap-10 pb-2 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14 lg:items-stretch">
-          <div className="reveal flex flex-col gap-5 lg:h-full lg:min-h-0">
-            <div className="surface-card-dark hidden w-full max-w-full flex-col gap-4 px-5 py-5 md:flex md:flex-row md:items-center md:justify-between">
-              <div>
-                <div className="mb-2 flex shrink-0 gap-0.5" aria-hidden="true">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <svg key={star} className="h-4 w-4 text-[#5eead4]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <div className="leading-tight">
-                  <div className="text-sm font-semibold tracking-tight text-white">5.0 rating</div>
-                  <div className="text-xs text-white/55">Google Reviews</div>
-                </div>
+        <div className="grid min-h-0 flex-1 grid-cols-1 gap-10 pb-2 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center lg:gap-16">
+          <div className="reveal flex flex-col justify-center gap-8 lg:min-h-[min(52vh,28rem)]">
+            <div className="hidden border-y border-white/10 py-6 md:block">
+              <div className="mb-5 flex shrink-0 gap-0.5" aria-hidden="true">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <svg key={star} className="h-4 w-4 text-[#5eead4]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
               </div>
 
-              <div className="grid grid-cols-2 gap-3 text-left sm:text-right">
+              <div className="grid grid-cols-3 gap-6">
                 <div>
-                  <div className="text-lg font-semibold tracking-tight text-white">100+</div>
-                  <div className="text-xs text-white/60">Completed installs</div>
+                  <div className="text-2xl font-semibold tracking-tight text-white">5.0</div>
+                  <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Google rating</div>
                 </div>
                 <div>
-                  <div className="text-lg font-semibold tracking-tight text-white">24hr</div>
-                  <div className="text-xs text-white/60">Response cadence</div>
+                  <div className="text-2xl font-semibold tracking-tight text-white">100+</div>
+                  <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Completed installs</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-semibold tracking-tight text-white">24hr</div>
+                  <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Response cadence</div>
                 </div>
               </div>
             </div>
 
-            <div className="surface-card-dark hidden p-4 sm:p-5 md:block">
-              <div className="mb-3 text-xs uppercase tracking-[0.15em] text-white/55">Recent Client Voices</div>
-              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+            <div className="hidden md:block">
+              <div className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/45">Recent client voices</div>
+              <div className="border-y border-white/10">
                 {testimonials.map((item, index) => (
                   <button
                     key={item.name}
                     type="button"
                     onClick={() => setActiveIndex(index)}
                     aria-pressed={index === activeIndex}
-                    className={`group flex items-center gap-3 rounded-xl border px-3 py-3 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663] ${
-                      index === activeIndex
-                        ? "border-[#5eead4]/55 bg-[#5eead4]/10"
-                        : "border-white/10 bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.07]"
+                    className={`group flex w-full items-center justify-between gap-4 border-b border-white/10 px-4 py-4 text-left transition-colors last:border-b-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663] ${
+                      index === activeIndex ? "bg-[#243f5a] text-white" : "bg-transparent text-white/62 hover:bg-white/5 hover:text-white"
                     }`}
                   >
-                    <div
-                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition-colors ${
-                        index === activeIndex ? "bg-[#134e4a] text-white" : "bg-white/10 text-white/80 group-hover:bg-white/15"
-                      }`}
-                    >
-                      {item.name.charAt(0)}
-                    </div>
                     <div className="min-w-0">
-                      <div className="truncate text-sm font-medium text-white">{item.name}</div>
-                      <div className="truncate text-xs text-white/55">{item.role}</div>
+                      <div className="truncate text-sm font-semibold">{item.name}</div>
+                      <div className="truncate text-xs text-white/45">{item.role}</div>
                     </div>
+                    <span className={`text-xs font-semibold tabular-nums ${index === activeIndex ? "text-[#5eead4]" : "text-white/28"}`}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="surface-card-dark hidden p-4 sm:p-5 md:block">
-              <p className="mb-4 text-sm leading-relaxed text-white/65">
-                From remote hospitality to commercial kitchens and fast-track interiors, teams call out our communication, cleanliness, and schedule discipline.
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                {["On budget", "Tidy installs", "Short-notice capable", "Clear communication"].map((tag) => (
-                  <span key={tag} className="rounded-full border border-white/14 bg-white/[0.04] px-3 py-1.5 text-xs text-white/75">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
-          <div className="reveal flex min-h-0 flex-1 flex-col lg:h-full lg:min-h-[min(52vh,28rem)]">
-            <div className="surface-card-dark relative flex min-h-[min(48vh,26rem)] flex-1 flex-col overflow-hidden p-8 lg:min-h-0 lg:p-12 xl:p-14">
+          <div className="reveal flex min-h-0 flex-1 flex-col justify-center lg:min-h-[min(52vh,28rem)]">
+            <div className="relative flex h-136 flex-none flex-col overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#243f5a] p-8 text-white shadow-[0_24px_70px_-36px_rgba(2,6,23,0.72)] md:h-128 lg:h-120 lg:p-12 xl:p-14">
               <div
                 className="pointer-events-none absolute -top-20 right-4 h-52 w-52 rounded-full blur-3xl"
                 style={{ background: "radial-gradient(circle, rgba(94,234,212,0.13) 0%, rgba(94,234,212,0) 72%)" }}
@@ -191,7 +181,7 @@ export default function Testimonials() {
 
               <div className="mb-5 ml-2 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full border border-white/16 bg-white/[0.06] px-2.5 py-1 text-xs text-white/70">{active.location}</span>
+                  <span className="rounded-full border border-white/16 bg-white/6 px-2.5 py-1 text-xs text-white/70">{active.location}</span>
                   <span className="rounded-full border border-[#5eead4]/35 bg-[#5eead4]/10 px-2.5 py-1 text-xs text-[#99f6e4]">
                     {active.scope}
                   </span>
@@ -213,15 +203,15 @@ export default function Testimonials() {
               <blockquote className="ml-2 flex min-h-0 flex-1 flex-col border-none p-0" aria-live="polite">
                 <p
                   key={activeIndex}
-                  className="mb-0 flex-1 text-base font-normal leading-relaxed text-white/90 md:text-lg lg:text-xl lg:leading-relaxed xl:text-2xl xl:leading-snug"
+                  className="mb-0 flex-1 text-sm font-normal leading-7 text-white/90 md:text-base md:leading-8 lg:text-lg xl:text-xl xl:leading-9"
                   id="testimonial-quote"
                 >
                   <span className="font-medium text-[#5eead4]">&ldquo;</span>
                   {active.content}
                   <span className="font-medium text-[#5eead4]">&rdquo;</span>
                 </p>
-                <footer className="mt-10 ml-2 flex shrink-0 items-center gap-4 border-t border-white/10 pt-8 lg:mt-12 lg:pt-10">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#134e4a] text-lg font-semibold text-white ring-2 ring-white/20 shadow-sm lg:h-16 lg:w-16 lg:text-xl">
+                <footer className="mt-7 ml-2 flex shrink-0 items-center gap-4 border-t border-white/10 pt-6 lg:mt-8 lg:pt-7">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#134e4a] text-base font-semibold text-white ring-2 ring-white/20 shadow-sm lg:h-14 lg:w-14 lg:text-lg">
                     {active.name.charAt(0)}
                   </div>
                   <div>
@@ -271,6 +261,19 @@ export default function Testimonials() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="reveal mt-10 hidden border-t border-white/10 pt-7 md:flex md:items-center md:justify-between md:gap-8 lg:mt-12">
+          <p className="max-w-2xl text-sm leading-relaxed text-white/62">
+            From remote hospitality to commercial kitchens and fast-track interiors, teams call out our communication, cleanliness, and schedule discipline.
+          </p>
+          <div className="flex flex-wrap justify-end gap-x-6 gap-y-2">
+            {["On budget", "Tidy installs", "Short-notice capable", "Clear communication"].map((tag) => (
+              <span key={tag} className="text-xs font-semibold uppercase tracking-[0.14em] text-white/46">
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </div>

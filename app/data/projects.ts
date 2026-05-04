@@ -23,10 +23,14 @@ export const projects: Project[] = [
     signature: true,
     description: "Signature healthcare project and largest completed interior protection package at approximately $550K.",
     fullDescription: "Lily's Community Health Centre / VCH DTES represents our largest completed healthcare interior protection package to date at approximately $550,000. The scope included wall protection systems, hygienic cladding, FRP and FRL wall systems, wet wall solutions, and architectural specialties coordinated across a full health-centre build-out in Vancouver's Downtown Eastside. This project reflects the level of pre-construction coordination, submittal management, product selection, and installation execution required on major healthcare work.",
-    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&h=600&fit=crop",
+    image: "/actualphotos/8.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop",
+      "/actualphotos/8.jpg",
+      "/actualphotos/7.jpg",
+      "/actualphotos/1.jpg",
+      "/actualphotos/2.jpg",
+      "/actualphotos/5.jpg",
+      "/actualphotos/6.jpg",
     ],
     details: {
       location: "Vancouver, BC",
@@ -59,10 +63,12 @@ export const projects: Project[] = [
     category: "Healthcare",
     description: "Medical-grade FRP installation meeting strict health authority requirements.",
     fullDescription: "This medical manufacturing facility required wall protection that meets the strictest health authority requirements. We installed medical-grade FRP panels throughout the production areas, ensuring complete compliance with sanitation standards. The seamless installation provides easy cleaning and maintenance while protecting walls from daily wear.",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&h=600&fit=crop",
+    image: "/actualphotos/10.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
+      "/actualphotos/10.jpg",
+      "/actualphotos/11.jpg",
+      "/actualphotos/12.jpg",
+      "/actualphotos/9.jpg",
     ],
     details: {
       location: "Lower Mainland, BC",
@@ -77,10 +83,11 @@ export const projects: Project[] = [
     category: "Agriculture",
     description: "Climate-controlled cultivation facility with 13,000 SF wall coverage.",
     fullDescription: "One of our largest agricultural projects, this cannabis cultivation facility required extensive wall protection across multiple grow rooms and processing areas. The FRP installation provides moisture resistance essential for the humid growing environment while meeting all Health Canada requirements for licensed producers.",
-    image: "https://images.unsplash.com/photo-1589244159943-460088ed5c92?w=800&h=600&fit=crop",
+    image: "/actualphotos/11.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1589244159943-460088ed5c92?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&h=600&fit=crop",
+      "/actualphotos/11.jpg",
+      "/actualphotos/10.jpg",
+      "/actualphotos/12.jpg",
     ],
     details: {
       location: "Langley, BC",
@@ -95,10 +102,11 @@ export const projects: Project[] = [
     category: "Healthcare",
     description: "Urgent and Primary Care Center with sanitary wall systems.",
     fullDescription: "We were selected to provide wall protection for this new Urgent and Primary Care Center operated by Fraser Health Authority. The installation includes examination rooms, treatment areas, and high-traffic corridors. All materials meet healthcare facility standards and provide long-lasting, easy-to-clean surfaces.",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop",
+    image: "/actualphotos/2.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&h=600&fit=crop",
+      "/actualphotos/2.jpg",
+      "/actualphotos/1.jpg",
+      "/actualphotos/5.jpg",
     ],
     details: {
       location: "Fraser Valley, BC",
@@ -113,10 +121,9 @@ export const projects: Project[] = [
     category: "Food & Beverage",
     description: "Commercial kitchen and prep area wall protection.",
     fullDescription: "This popular restaurant and craft beer establishment required durable wall protection for their commercial kitchen and food preparation areas. Our FRP installation provides the sanitary, easy-to-clean surfaces required by health inspectors while withstanding the heat and moisture of a busy commercial kitchen.",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
+    image: "/actualphotos/14.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop",
+      "/actualphotos/14.jpg",
     ],
     details: {
       location: "Kelowna, BC",
@@ -131,10 +138,10 @@ export const projects: Project[] = [
     category: "Education",
     description: "Laboratory wall protection for research facility.",
     fullDescription: "The Centre for Applied Research and Innovation at BCIT required specialized wall protection for their laboratory spaces. Our installation provides chemical-resistant surfaces that can withstand the rigors of a research environment while maintaining a clean, professional appearance.",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop",
+    image: "/actualphotos/9.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1581093458791-9d42e3c2fd45?w=800&h=600&fit=crop",
+      "/actualphotos/9.jpg",
+      "/actualphotos/13.jpg",
     ],
     details: {
       location: "Burnaby, BC",
@@ -149,10 +156,9 @@ export const projects: Project[] = [
     category: "Food & Beverage",
     description: "Commercial food service wall protection installation.",
     fullDescription: "This Starbucks location required wall protection for their back-of-house areas including food prep, storage, and dishwashing stations. Our installation provides the sanitary surfaces required for food service while maintaining the clean aesthetic expected of the brand.",
-    image: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&h=600&fit=crop",
+    image: "/actualphotos/14.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop",
+      "/actualphotos/14.jpg",
     ],
     details: {
       location: "Surrey, BC",

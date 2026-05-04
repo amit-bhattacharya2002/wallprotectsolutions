@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="home-page">
         <Hero />
         <HeroTrustLine />
         <Services />

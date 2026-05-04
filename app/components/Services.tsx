@@ -56,19 +56,14 @@ export default function Services() {
   return (
     <section id="services" className="section-shell-lg bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-12 grid gap-8 lg:mb-14 lg:grid-cols-2 lg:gap-14">
-          <div className="section-header reveal">
+        <div className="section-header reveal mx-auto mb-12 max-w-3xl text-center lg:mb-14">
             <span className="eyebrow">Core Systems</span>
-            <h2 className="section-title">
+            <h2 className="section-title mb-4">
               Supply &amp; install wall protection systems
             </h2>
-          </div>
-
-          <div className="flex lg:items-end">
-            <p className="section-lead max-w-xl">
+            <p className="section-lead mx-auto">
               We are not labour-only. We supply and install complete wall protection and hygienic systems, taking responsibility for product selection, quality, coordination, and warranty alignment on every project.
             </p>
-          </div>
         </div>
 
         {/* Services list */}

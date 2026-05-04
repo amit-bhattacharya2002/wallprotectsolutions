@@ -1,4 +1,5 @@
 import { Footer, Header, PageHero } from "@/app/components";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -160,6 +161,15 @@ export default function HealthcarePage() {
                 </div>
               </div>
               <div className="surface-card-muted p-8 lg:p-10">
+                <div className="aspect-4/3 overflow-hidden rounded-xl bg-slate-100 mb-8">
+                  <Image
+                    src="/actualphotos/8.jpg"
+                    alt="Completed healthcare clinic interior with wall protection and glazing"
+                    width={900}
+                    height={675}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="text-xs text-gray-500 uppercase tracking-widest mb-6">Project Details</div>
                 <div className="space-y-5">
                   {[

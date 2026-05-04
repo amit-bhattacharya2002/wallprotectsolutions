@@ -3,40 +3,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import PlaceholderBadge from "./PlaceholderBadge";
 
 /**
- * Five curated Unsplash placeholders. Alts are meaningful enough to survive
- * until real project photography replaces them. Search for `isPlaceholder` or
- * `TODO:` to find every swap point before production launch.
- *
- * NOTE: All hero imagery is currently Unsplash placeholder photography.
+ * Real project photography used by the homepage carousel.
  */
 const heroImages = [
   {
-    src: "https://images.unsplash.com/photo-1586534738560-438efdf1d205?auto=format&fit=crop&w=2400&q=80",
-    alt: "Healthcare corridor with installed wall protection",
-    isPlaceholder: true,
+    src: "/actualphotos/hero-clinic-glazing.jpg",
+    alt: "Healthcare clinic glazing and wood-look wall protection installation",
+  },
+  
+  {
+    src: "/actualphotos/hero-healthcare-corridor.jpg",
+    alt: "Bright healthcare corridor with installed wall protection panels",
   },
   {
-    src: "https://images.unsplash.com/photo-1530299297082-0846efbd2cdd?auto=format&fit=crop&w=2400&q=80",
-    alt: "Clean institutional hallway",
-    isPlaceholder: true,
+    src: "/actualphotos/14.jpg",
+    alt: "Restaurant interior with finished wall protection behind service area",
   },
   {
-    src: "https://images.unsplash.com/photo-1664036362129-ca6c57599633?auto=format&fit=crop&w=2400&q=80",
-    alt: "Healthcare corridor with glass door",
-    isPlaceholder: true,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1628372095387-017d1099fc19?auto=format&fit=crop&w=2400&q=80",
-    alt: "Hospital interior with wall protection systems",
-    isPlaceholder: true,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1728209120161-98ba323862ea?auto=format&fit=crop&w=2400&q=80",
-    alt: "Bright white institutional corridor",
-    isPlaceholder: true,
+    src: "/actualphotos/hero-hygienic-production-room-v2.jpg",
+    alt: "Hygienic production room with FRP wall panel installation",
   },
 ];
 
@@ -68,12 +55,6 @@ const slideCopy = [
     headline: "FRP systems installed to spec, on schedule.",
     ctaLabel: "Explore FRP wall systems",
     ctaHref: "/systems/frp-wall-systems",
-  },
-  {
-    eyebrow: "Hygienic Cladding",
-    headline: "A dedicated wall protection partner for BC.",
-    ctaLabel: "Why work with FRP?",
-    ctaHref: "/frp-benefits",
   },
 ];
 
@@ -111,7 +92,7 @@ function HeroCarouselDots({
 /**
  * Hero layout notes
  *
- * Background is a cross-fading carousel of 5 Unsplash placeholders with a
+ * Background is a cross-fading carousel of real project photos with a
  * slow Ken Burns zoom (1.05 → 1.00) that re-triggers on each cycle so the
  * background never feels static. A left-to-right navy ink gradient (~40%
  * opacity at the left edge, transparent on the right) keeps white type
@@ -210,7 +191,7 @@ export default function Hero() {
                 alt={slide.alt}
                 fill
                 // Slide 0 gets `priority` (preload + fetchpriority=high) for
-                // LCP. Slides 1–4 still need to load eagerly — they sit at
+                // LCP. The remaining slides still need to load eagerly — they sit at
                 // opacity:0 inside fixed-position parents, where native
                 // `loading="lazy"` heuristics can defer the fetch and leave
                 // a blank slot when the carousel rotates onto them.
@@ -220,7 +201,6 @@ export default function Hero() {
                 sizes="100vw"
               />
             </div>
-            {slide.isPlaceholder ? <PlaceholderBadge /> : null}
           </div>
         );
       })}

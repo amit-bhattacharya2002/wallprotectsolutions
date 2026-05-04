@@ -15,30 +15,30 @@ export default function ResourcesPreview() {
   return (
     <section className="section-shell bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="section-header reveal mx-auto mb-12 max-w-3xl text-center">
+          <span className="eyebrow">Resources & FAQ</span>
+          <h2 className="section-title mb-4">
+            Technical guidance for specs, pricing, and product selection
+          </h2>
+          <p className="section-lead mx-auto">
+            Practical content for general contractors, project managers, architects, and specification writers. Built to support real pre-construction conversations, not filler blog traffic.
+          </p>
+        </div>
+
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16">
           <div>
-            <div className="section-header reveal mb-10">
-              <span className="eyebrow">Resources & FAQ</span>
-              <h2 className="section-title mb-4">
-                Technical guidance for specs, pricing, and product selection
-              </h2>
-              <p className="section-lead">
-                Practical content for general contractors, project managers, architects, and specification writers. Built to support real pre-construction conversations, not filler blog traffic.
-              </p>
-            </div>
-
-            <div className="grid gap-4">
+            <div className="grid border-y border-slate-200">
               {featuredArticles.map((article) => (
                 <Link
                   key={article.slug}
                   href={`/resources/${article.slug}`}
-                  className="group surface-card p-6 hover:border-[#0d9488] transition-colors"
+                  className="group border-b border-slate-200 py-6 transition-colors last:border-b-0"
                 >
                   <div className="flex flex-wrap gap-2 mb-4">
                     {article.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-full bg-[#f0fdfa] text-[#134e4a] text-[11px] font-semibold tracking-wide uppercase"
+                        className="text-[11px] font-semibold tracking-[0.16em] uppercase text-[#134e4a]"
                       >
                         {tag}
                       </span>
@@ -65,7 +65,7 @@ export default function ResourcesPreview() {
             </Link>
           </div>
 
-          <div className="surface-card-muted p-8 lg:p-10">
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-8 shadow-[0_18px_45px_-36px_rgba(15,23,42,0.3)] lg:p-10">
             {/* Below lg, "View all FAQ" drops to its own row below the heading so
                 the two don't wrap side-by-side awkwardly at tablet widths. */}
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between mb-8">
@@ -86,11 +86,11 @@ export default function ResourcesPreview() {
               </Link>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {featuredFaqs.map((item) => (
                 <div
                   key={item.question}
-                  className="rounded-[1.15rem] border border-slate-200 bg-white px-5 py-5"
+                  className="rounded-lg border border-slate-200 bg-white px-5 py-5"
                 >
                   <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#134e4a] mb-2">
                     {item.category}

@@ -338,7 +338,7 @@ img {
 }
 
 .section-header {
-  max-width: 42rem;
+  max-width: 60rem;
 }
 
 .eyebrow {
@@ -446,5 +446,24 @@ img {
 
   .section-shell-lg {
     padding: 7.5rem 0;
+  }
+}
+
+.home-page > .section-shell,
+.home-page > .section-shell-lg {
+  padding-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .home-page > .section-shell,
+  .home-page > .section-shell-lg {
+    padding-top: 3.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-page > .section-shell,
+  .home-page > .section-shell-lg {
+    padding-top: 4.5rem;
   }
 }

@@ -43,30 +43,30 @@ export default function WhyFRP() {
     <section id="why-frp" className="section-shell-lg bg-[#f8fafc]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div className="section-header reveal mb-12 lg:mb-14">
+        <div className="section-header reveal mx-auto mb-12 max-w-3xl text-center lg:mb-14">
           <span className="eyebrow">Why Choose Us</span>
           <h2 className="section-title mb-4">
             Healthcare&apos;s trusted wall protection partner
           </h2>
-          <p className="section-lead">
+          <p className="section-lead mx-auto">
             We are a specialist healthcare and institutional interior protection subcontractor — not a generalist installer. We supply and install complete systems and take responsibility for product selection, quality, and warranty alignment.
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 rounded-[1.4rem] overflow-hidden mb-12 lg:mb-14 shadow-[0_20px_50px_-38px_rgba(15,23,42,0.35)] reveal">
+        <div className="grid gap-x-8 gap-y-7 md:grid-cols-2 lg:grid-cols-4 mb-12 lg:mb-14 reveal">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="bg-white p-6 lg:p-8 group hover:bg-[#2a4663] transition-all duration-500"
+              className="border-t border-slate-200 pt-5"
             >
-              <div className="text-4xl md:text-5xl font-semibold text-[#0f172a] group-hover:text-white mb-3 tracking-tight transition-colors duration-500">
+              <div className="text-4xl md:text-5xl font-semibold text-[#0f172a] mb-3 tracking-tight">
                 {stat.number}
               </div>
-              <div className="text-sm text-[#0f172a] font-semibold mb-2 group-hover:text-[#5eead4] transition-colors duration-500">
+              <div className="text-xs text-[#134e4a] font-semibold uppercase tracking-[0.14em] mb-2">
                 {stat.label}
               </div>
-              <p className="text-gray-500 text-xs leading-relaxed font-normal group-hover:text-white/70 transition-colors duration-500">
+              <p className="text-gray-500 text-sm leading-relaxed font-normal">
                 {stat.description}
               </p>
             </div>
@@ -102,17 +102,17 @@ export default function WhyFRP() {
             <p className="text-gray-600 leading-relaxed font-normal mb-6 text-base">
               We focus on selecting the right system for the environment rather than promoting a single manufacturer or product. Different wall protection and hygienic systems perform best in different applications, budgets, and maintenance conditions.
             </p>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4">
               {differentiators.map((item, index) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group surface-card-muted flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:border-[#0d9488] hover:shadow-[0_16px_35px_-28px_rgba(13,148,136,0.55)] transition-all duration-300"
+                  className="group flex items-start gap-3 border-t border-slate-200 pt-4 text-sm text-gray-600 transition-colors hover:text-[#0f172a]"
                 >
-                  <span className="w-6 h-6 rounded-full bg-[#134e4a]/10 group-hover:bg-[#0d9488]/14 flex items-center justify-center text-xs text-[#134e4a] font-medium transition-colors">
-                    {index + 1}
+                  <span className="mt-0.5 text-xs font-semibold text-[#134e4a] tabular-nums">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-medium text-[#475569] group-hover:text-[#0f172a] transition-colors">{item.label}</span>
+                  <span className="font-medium leading-snug">{item.label}</span>
                 </Link>
               ))}
             </div>
@@ -131,7 +131,7 @@ export default function WhyFRP() {
                mobile (the photo renders inline with the copy above). */}
           <div className="relative hidden lg:block lg:sticky lg:top-24">
             <div
-              className="relative isolate overflow-hidden rounded-[1.5rem] shadow-[0_28px_80px_-38px_rgba(15,23,42,0.55)]"
+              className="relative isolate overflow-hidden rounded-3xl shadow-[0_28px_80px_-38px_rgba(15,23,42,0.55)]"
               style={{ aspectRatio: "4/3" }}
             >
               <Image

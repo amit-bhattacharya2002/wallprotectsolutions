@@ -102,8 +102,8 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="aspect-4/3 bg-[#2a4663] rounded-2xl overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop"
-                    alt="Wall protection installation team at work"
+                    src="/actualphotos/7.jpg"
+                    alt="Finished healthcare facility interior with wall protection systems"
                     className="w-full h-full object-cover opacity-80"
                   />
                 </div>
