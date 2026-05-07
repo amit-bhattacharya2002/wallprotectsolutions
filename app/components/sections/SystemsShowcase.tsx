@@ -379,7 +379,7 @@ export default function SystemsShowcase() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
-    <section className="bg-[#FAFAFA]" aria-label="Three systems, one unified installation">
+    <section className="py-0" aria-label="Three systems, one unified installation">
       {isDesktop ? <SystemsShowcaseDesktop /> : <SystemsShowcaseMobile />}
     </section>
   );
