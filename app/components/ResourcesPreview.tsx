@@ -54,21 +54,23 @@ export default function ResourcesPreview() {
               ))}
             </div>
 
-            <Link
-              href="/resources"
-              className="inline-flex items-center gap-2 mt-8 text-[#134e4a] font-medium hover:gap-3 transition-all"
-            >
-              Explore all technical resources
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <div className="mt-8 max-md:flex max-md:justify-center md:block">
+              <Link
+                href="/resources"
+                className="inline-flex items-center gap-2 font-medium text-[#134e4a] transition-all hover:gap-3"
+              >
+                Explore all technical resources
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
 
           <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-8 shadow-[0_18px_45px_-36px_rgba(15,23,42,0.3)] lg:p-10">
             {/* Below lg, "View all FAQ" drops to its own row below the heading so
                 the two don't wrap side-by-side awkwardly at tablet widths. */}
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between mb-8">
+            <div className="mb-8 flex flex-col gap-4 max-lg:items-center max-lg:text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
               <div>
                 <span className="eyebrow mb-3">Popular Questions</span>
                 <h3 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight">
@@ -102,15 +104,17 @@ export default function ResourcesPreview() {
               ))}
             </div>
 
-            <Link
-              href="/faq"
-              className="lg:hidden inline-flex items-center gap-2 mt-6 text-sm font-medium text-[#134e4a] hover:gap-3 transition-all"
-            >
-              View all FAQ
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <div className="mt-6 flex justify-center lg:hidden">
+              <Link
+                href="/faq"
+                className="inline-flex items-center gap-2 text-sm font-medium text-[#134e4a] transition-all hover:gap-3"
+              >
+                View all FAQ
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

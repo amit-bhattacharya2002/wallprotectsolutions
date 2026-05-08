@@ -9,8 +9,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
  */
 const heroImages = [
   {
-    src: "/actualphotos/hero-clinic-glazing.jpg",
-    alt: "Healthcare clinic glazing and wood-look wall protection installation",
+    src: "/actualphotos/hero-wall-protection-matters.jpg",
+    alt: "Hygienic production environment with white wall cladding and stainless process line",
   },
   
   {
@@ -59,6 +59,57 @@ const slideCopy = [
 ];
 
 const SLIDE_DURATION_MS = 7000;
+
+const PROCORE_PROFILE_HREF = "https://network.procore.com/p/frp-installations-coquitlam";
+const PROCORE_BADGE_SRC = "https://network.procore.com/assets/static/procore-white-badge.svg";
+
+function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
+  const mobile = layout === "mobile";
+  return (
+    <div
+      className={
+        mobile
+          ? "flex w-full flex-col items-end gap-1.5 text-right"
+          : "flex max-w-full flex-col gap-3 text-left"
+      }
+    >
+      <a
+        href={PROCORE_PROFILE_HREF}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block w-fit shrink-0 cursor-pointer rounded-md opacity-95 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element -- third-party Procore badge asset */}
+        <img
+          src={PROCORE_BADGE_SRC}
+          alt="Find us on Procore — FRP Installations on the Procore Construction Network"
+          width={176}
+          height={64}
+          className={mobile ? "h-10 w-auto" : "h-10 w-auto md:h-12 lg:h-16"}
+        />
+      </a>
+      <div
+        className={
+          mobile
+            ? "h-0.5 w-[min(100%,300px)] shrink-0 bg-[#0d9488]"
+            : "h-0.5 w-full max-w-[300px] bg-[#0d9488]"
+        }
+      />
+      <p
+        className={
+          mobile
+            ? "text-sm font-semibold tracking-tight text-white"
+            : "text-sm font-semibold tracking-tight text-white md:text-lg"
+        }
+      >
+        Wall Protection Construction Partner.
+      </p>
+      <p className={mobile ? "text-xs leading-relaxed text-white/75" : "text-xs leading-relaxed text-white/75 md:text-sm"}>
+        Specializing in healthcare and institutional interior protection systems across British Columbia.
+      </p>
+    </div>
+  );
+}
 
 function HeroCarouselDots({
   activeIndex,
@@ -221,7 +272,7 @@ export default function Hero() {
         {/* Heading — one slot, each slide supplies its own eyebrow + headline.
              All variants stack in a single grid cell and crossfade in sync
              with the background slideshow. */}
-        <div className="pointer-events-auto absolute inset-x-0 top-[26dvh] px-6 md:top-[30dvh] md:pl-10 lg:pl-14 lg:pr-8">
+        <div className="pointer-events-auto absolute inset-x-0 top-[26dvh] px-6 md:top-[30dvh] md:pl-8 lg:pl-10 lg:pr-8">
           {/*
             Stacked in one grid cell. Do NOT crossfade outgoing + incoming copy
             with the same long opacity transition — both sit at ~50% opacity in
@@ -272,26 +323,23 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Homepage support line — pinned bottom-left on md+, hidden on mobile */}
-        <div className="pointer-events-auto absolute bottom-8 left-8 hidden max-w-full flex-col gap-3 md:flex lg:left-10">
-          <div className="h-0.5 w-[300px] bg-[#0d9488]" />
-          <p className="text-base font-semibold tracking-tight text-white md:text-lg">
-            Wall Protection Construction Partner.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            Specializing in healthcare and institutional interior protection systems across British Columbia.
-          </p>
+        {/* Homepage support line — desktop only: absolute bottom-left */}
+        <div className="pointer-events-auto absolute bottom-8 left-8 z-30 hidden flex-col md:flex lg:left-10">
+          <HeroPartnerStack layout="desktop" />
         </div>
 
         {/* Bottom: mobile = centered dots above card; md+ = dots + card stacked at
             bottom-right (`justify-end` + `items-end`) so dots sit directly above the
             white FRP block, right edges aligned. */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-3 z-30 flex max-w-full flex-col items-center gap-2 px-3 md:inset-0 md:z-20 md:flex md:flex-col md:items-end md:justify-end md:gap-2 md:px-8 md:pb-8 md:pt-0 lg:px-10">
+        <div className="pointer-events-none absolute inset-x-0 bottom-3 z-30 flex max-w-full flex-col items-center gap-2 px-3 max-md:gap-1.5 md:inset-0 md:z-20 md:gap-2 md:flex md:flex-col md:items-end md:justify-end md:px-8 md:pb-8 md:pt-0 lg:px-10">
           <HeroCarouselDots
             activeIndex={activeIndex}
             onSelect={setActiveIndex}
             className="pointer-events-auto flex w-full shrink-0 items-center justify-center gap-1.5 opacity-90 max-md:justify-center md:w-auto md:shrink-0 md:justify-end md:opacity-100 md:drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
           />
+          <div className="pointer-events-auto z-35 w-full shrink-0 md:hidden">
+            <HeroPartnerStack layout="mobile" />
+          </div>
           <div className="pointer-events-auto flex w-full max-w-full items-end justify-center md:w-full md:max-w-none md:justify-end md:px-0 md:pb-0">
             <div className="w-full md:w-[clamp(460px,38vw,600px)]">
               <div className="flex w-full flex-col bg-white px-5 py-5 shadow-xl shadow-black/10 md:px-8 md:py-7">

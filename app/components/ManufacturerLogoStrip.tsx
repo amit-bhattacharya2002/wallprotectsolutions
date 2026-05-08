@@ -13,7 +13,7 @@ export default function ManufacturerLogoStrip({
 }: ManufacturerLogoStripProps) {
   return (
     <div
-      className={`flex flex-wrap items-center justify-start gap-x-8 gap-y-4 border-y border-slate-200/80 py-6 md:gap-x-10 md:py-8 ${className ?? ""}`}
+      className={`flex flex-wrap items-center justify-center gap-x-8 gap-y-4 border-y border-slate-200/80 py-6 md:justify-start md:gap-x-10 md:py-8 ${className ?? ""}`}
       role="list"
       aria-label="Manufacturer partners"
     >

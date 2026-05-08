@@ -56,34 +56,36 @@ export default function ContractorConfidence() {
               {workflow.map((item, index) => (
                 <div
                   key={item}
-                  className="flex items-start gap-4 border-b border-white/10 py-4 last:border-b-0"
+                  className="flex flex-col items-center gap-2 border-b border-white/10 py-4 text-center last:border-b-0 md:flex-row md:items-start md:gap-4 md:text-left"
                 >
-                  <span className="mt-0.5 shrink-0 text-xs font-semibold tracking-[0.16em] text-[#5eead4] tabular-nums">
+                  <span className="shrink-0 text-xs font-semibold tracking-[0.16em] text-[#5eead4] tabular-nums md:mt-0.5">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-sm text-white/76 leading-relaxed">
+                  <p className="text-sm leading-relaxed text-white/76">
                     {item}
                   </p>
                 </div>
               ))}
             </div>
 
-            <Link
-              href="/pre-construction"
-              className="inline-flex items-center gap-2 text-[#5eead4] font-medium hover:gap-3 transition-all"
-            >
-              See how we support projects early
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <div className="max-md:flex max-md:justify-center md:block">
+              <Link
+                href="/pre-construction"
+                className="inline-flex items-center gap-2 font-medium text-[#5eead4] transition-all hover:gap-3"
+              >
+                See how we support projects early
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
 
           <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
             {deliveryPoints.map((item) => (
-              <div key={item.title} className="border-t border-white/12 pt-5">
-                <div className="text-[#5eead4] mb-4">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div key={item.title} className="border-t border-white/12 pt-5 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:text-center sm:text-left">
+                <div className="mb-4 text-[#5eead4] max-sm:flex max-sm:justify-center">
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>

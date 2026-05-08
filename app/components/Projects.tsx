@@ -86,8 +86,8 @@ export default function Projects() {
                 </div>
               </div>
               {/* Content */}
-              <div className="p-8 lg:p-12 flex flex-col justify-center bg-linear-to-br from-white to-slate-50">
-                <div className="flex items-center gap-2 mb-4">
+              <div className="flex flex-col items-center justify-center bg-linear-to-br from-white to-slate-50 p-8 text-center md:items-start md:text-left lg:p-12">
+                <div className="mb-4 flex items-center justify-center gap-2 md:justify-start">
                   <span className="px-3 py-1 bg-[#134e4a]/10 text-[#134e4a] text-xs font-semibold rounded-full">{featuredProject.category}</span>
                   <span className="text-gray-400 text-xs">{featuredProject.scope}</span>
                 </div>
@@ -96,9 +96,9 @@ export default function Projects() {
                 </h3>
                 <p className="text-sm text-gray-500 mb-4">{featuredProject.location}</p>
                 <p className="text-gray-600 leading-relaxed mb-6">{featuredProject.description}</p>
-                <ul className="grid grid-cols-2 gap-2 mb-6">
+                <ul className="mb-6 grid grid-cols-2 gap-2 max-md:mx-auto max-md:max-w-sm max-md:grid-cols-1">
                   {featuredProject.highlights.map((h) => (
-                    <li key={h} className="flex items-center gap-2 text-sm text-gray-600">
+                    <li key={h} className="flex items-center justify-center gap-2 text-sm text-gray-600 md:justify-start">
                       <svg className="w-4 h-4 text-[#134e4a] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
@@ -106,7 +106,7 @@ export default function Projects() {
                     </li>
                   ))}
                 </ul>
-                <div className="flex items-center gap-2 text-[#134e4a] text-sm font-medium group-hover:gap-3 transition-all">
+                <div className="flex w-full items-center justify-center gap-2 text-sm font-medium text-[#134e4a] transition-all group-hover:gap-3 md:justify-start">
                   View project details
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -119,7 +119,7 @@ export default function Projects() {
 
         {/* Other project sectors */}
         <div>
-          <p className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-6">
+          <p className="mb-6 text-center text-sm font-medium uppercase tracking-wider text-gray-500 md:text-left">
             We also work across other sectors
           </p>
           <div className="grid md:grid-cols-3 gap-6">
