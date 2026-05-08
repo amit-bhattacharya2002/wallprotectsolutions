@@ -12,10 +12,10 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-white pt-6 pb-14 md:pt-8 md:pb-20 lg:pt-10 lg:pb-24"
+      className="bg-white pt-4 pb-10 md:pt-6 md:pb-14 lg:pt-8 lg:pb-20"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="section-header reveal mx-auto mb-6 max-w-3xl text-center md:mb-8">
+        <div className="section-header reveal mx-auto mb-4 max-w-3xl text-center md:mb-5">
           <span className="eyebrow">Core Systems</span>
           <h2 className="section-title mb-4">Supply &amp; install wall protection systems</h2>
           <p className="section-lead mx-auto">
@@ -28,7 +28,7 @@ export default function Services() {
       <SystemsShowcase />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mt-10 overflow-hidden rounded-[1.35rem] bg-[#f8fafc]">
+        <div className="mt-6 overflow-hidden rounded-[1.35rem] bg-[#f8fafc] md:mt-8">
           <div className="grid items-stretch gap-0 md:grid-cols-[220px_1fr]">
             <div className="relative isolate hidden overflow-hidden md:block" style={{ aspectRatio: "4/3" }}>
               <Image
@@ -41,9 +41,9 @@ export default function Services() {
               />
               <PlaceholderBadge />
             </div>
-            <div className="px-5 py-6 md:px-8 md:py-7">
+            <div className="px-5 py-6 text-center md:px-8 md:py-7 md:text-left">
               <div className="mb-3 text-sm uppercase tracking-[0.16em] text-slate-400">Also supply &amp; install</div>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:justify-start">
                 {["PVC liner systems", "Wet wall", "Stainless protection", "Architectural specialties"].map(
                   (item) => (
                     <span key={item} className="whitespace-nowrap text-base font-medium text-[#0f172a] md:text-lg">

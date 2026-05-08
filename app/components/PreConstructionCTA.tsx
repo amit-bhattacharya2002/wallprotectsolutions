@@ -42,11 +42,11 @@ export default function PreConstructionCTA() {
                 </li>
               ))}
             </ul>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/pre-construction" className="inline-flex items-center gap-2 bg-[#2a4663] text-white px-6 py-3 rounded-full font-medium hover:bg-[#3a597b] transition-colors">
+            <div className="flex flex-col gap-4 max-sm:items-center sm:flex-row sm:items-start">
+              <Link href="/pre-construction" className="inline-flex items-center gap-2 rounded-full bg-[#2a4663] px-6 py-3 font-medium text-white transition-colors hover:bg-[#3a597b]">
                 Pre-construction services
               </Link>
-              <Link href="/contact" className="inline-flex items-center gap-2 text-[#134e4a] font-medium hover:gap-3 transition-all text-sm">
+              <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-[#134e4a] transition-all hover:gap-3">
                 Discuss a project
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

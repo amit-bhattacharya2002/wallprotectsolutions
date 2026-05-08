@@ -53,8 +53,8 @@ const SYSTEMS: ShowcaseSystem[] = [
 
 export default function SystemsShowcaseMobile() {
   return (
-    <div className="border-t border-slate-200/80 px-4 pb-16 pt-2">
-      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 border-b border-slate-200/90 pb-6">
+    <div className="border-t border-slate-200/80 px-4 pb-12 pt-1">
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 border-b border-slate-200/90 pb-4">
         {SYSTEMS.map((sys) => (
           <span key={sys.id} className="text-center text-sm font-medium text-[#0B1D3A]">
             <span className="mr-1.5 text-xs font-semibold text-[#9CA3AF]">{sys.number}</span>
@@ -63,7 +63,7 @@ export default function SystemsShowcaseMobile() {
         ))}
       </div>
 
-      <div className="mx-auto mt-10 max-w-3xl space-y-16">
+      <div className="mx-auto mt-6 max-w-3xl space-y-14">
         {SYSTEMS.map((sys) => (
           <article key={sys.id} className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm">
             <div className="relative aspect-4/5 w-full sm:aspect-3/4">

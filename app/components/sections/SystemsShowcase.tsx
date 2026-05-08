@@ -5,8 +5,9 @@
 import Link from "next/link";
 import { useLayoutEffect, useRef, useState, type RefObject } from "react";
 import type { MotionValue } from "framer-motion";
-import { motion, useMotionTemplate, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionTemplate, useScroll, useSpring, useTransform } from "framer-motion";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import { usePrefersReducedMotion } from "../../../hooks/usePrefersReducedMotion";
 import SystemsShowcaseMobile from "./SystemsShowcase.mobile";
 
 export interface ShowcaseSystem {
@@ -61,7 +62,8 @@ const SYSTEMS: ShowcaseSystem[] = [
 ];
 
 const N = SYSTEMS.length;
-const FADE = 0.07;
+/** Wider overlap between slides = softer crossfade when scrubbing or flick-scrolling */
+const FADE = 0.11;
 
 function smoothstep01(t: number): number {
   const s = Math.min(1, Math.max(0, t));
@@ -161,7 +163,7 @@ function useConnectorGeometry(
   useLayoutEffect(() => {
     const sticky = stickyRef.current;
     if (!sticky || !cardAnchorEl) {
-      setGeom(null);
+      queueMicrotask(() => setGeom(null));
       return;
     }
 
@@ -317,18 +319,29 @@ function SystemsShowcaseDesktop() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const [cardAnchorEl, setCardAnchorEl] = useState<HTMLSpanElement | null>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
   const { scrollYProgress } = useScroll({
     target: scrollRef,
     offset: ["start start", "end end"],
   });
 
+  /** Eases velocity spikes from fast scroll / trackpad flicks without feeling mushy */
+  const smoothScrollYProgress = useSpring(scrollYProgress, {
+    stiffness: 110,
+    damping: 36,
+    mass: 0.22,
+    restDelta: 0.0008,
+  });
+
+  const showcaseProgress = prefersReducedMotion ? scrollYProgress : smoothScrollYProgress;
+
   const connectorGeom = useConnectorGeometry(stickyRef, cardAnchorEl);
 
   return (
-    <div ref={scrollRef} className="relative h-[300vh] w-full">
+    <div ref={scrollRef} className="relative h-[260vh] w-full">
       <div ref={stickyRef} className="sticky top-0 h-screen w-full overflow-hidden bg-black">
         {SYSTEMS.map((sys, i) => (
-          <FullBleedImage key={sys.id} sys={sys} index={i} scrollYProgress={scrollYProgress} />
+          <FullBleedImage key={sys.id} sys={sys} index={i} scrollYProgress={showcaseProgress} />
         ))}
 
         <div className="pointer-events-none absolute inset-0 z-15 bg-linear-to-r from-black/50 via-black/12 to-transparent" />
@@ -343,7 +356,7 @@ function SystemsShowcaseDesktop() {
                 key={`conn-${sys.id}`}
                 sys={sys}
                 index={i}
-                scrollYProgress={scrollYProgress}
+                scrollYProgress={showcaseProgress}
                 ax={connectorGeom.ax}
                 ay={connectorGeom.ay}
                 w={connectorGeom.w}
@@ -359,7 +372,7 @@ function SystemsShowcaseDesktop() {
               key={sys.id}
               sys={sys}
               index={i}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={showcaseProgress}
               onCardAnchorMount={i === 0 ? setCardAnchorEl : undefined}
             />
           ))}
@@ -367,7 +380,7 @@ function SystemsShowcaseDesktop() {
 
         <div className="pointer-events-none absolute inset-0 z-30">
           {SYSTEMS.map((sys, i) => (
-            <PinOverlay key={`pin-${sys.id}`} sys={sys} index={i} scrollYProgress={scrollYProgress} />
+            <PinOverlay key={`pin-${sys.id}`} sys={sys} index={i} scrollYProgress={showcaseProgress} />
           ))}
         </div>
       </div>

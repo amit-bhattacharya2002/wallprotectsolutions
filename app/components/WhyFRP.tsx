@@ -58,7 +58,7 @@ export default function WhyFRP() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="border-t border-slate-200 pt-5"
+              className="border-t border-slate-200 pt-5 max-md:text-center md:text-left"
             >
               <div className="text-4xl md:text-5xl font-semibold text-[#0f172a] mb-3 tracking-tight">
                 {stat.number}
@@ -116,15 +116,17 @@ export default function WhyFRP() {
                 </Link>
               ))}
             </div>
-            <Link
-              href="/healthcare"
-              className="inline-flex items-center gap-2 mt-8 text-[#134e4a] font-medium hover:gap-3 transition-all"
-            >
-              View our healthcare experience
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <div className="mt-8 max-md:flex max-md:justify-center md:block">
+              <Link
+                href="/healthcare"
+                className="inline-flex items-center gap-2 text-[#134e4a] font-medium transition-all hover:gap-3"
+              >
+                View our healthcare experience
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
 
           {/* Desktop column: humanizing photo + sector caption card. Hidden on
