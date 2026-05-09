@@ -71,7 +71,7 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
       href={PROCORE_PROFILE_HREF}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-block w-fit shrink-0 cursor-pointer rounded-md opacity-95 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+      className="inline-block w-fit shrink-0 cursor-pointer rounded-md opacity-95 transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
     >
       {/* eslint-disable-next-line @next/next/no-img-element -- third-party Procore badge asset */}
       <img
@@ -85,7 +85,17 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
   );
 
   if (mobile) {
-    return <div className="flex w-full justify-start">{badge}</div>;
+    return (
+      <div className="flex w-full flex-row items-start justify-between gap-3 sm:gap-4">
+        <div className="flex min-w-0 flex-1 flex-col items-start gap-2">
+          <div className="h-0.5 w-12 shrink-0 bg-[#0d9488] sm:w-16" aria-hidden />
+          <p className="min-w-0 text-left text-sm font-semibold leading-snug tracking-tight text-white">
+            Wall Protection Construction Partner.
+          </p>
+        </div>
+        <span className="shrink-0">{badge}</span>
+      </div>
+    );
   }
 
   return (
@@ -145,8 +155,8 @@ function HeroCarouselDots({
  * focusing the region pauses rotation so users can read.
  *
  * Carousel dots: subtle on mobile (row above the FRP card). From md up they
- * sit in a tight stack with the card — just above it, both right-aligned in the
- * hero content area (no longer pinned to the viewport top under the header).
+ * sit above a bottom row: partner stack (left) and white logo card (right),
+ * with `items-end` so the stack’s bottom lines up with the card’s bottom edge.
  */
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -312,22 +322,19 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Homepage support line — desktop only: absolute bottom-left */}
-        <div className="pointer-events-auto absolute bottom-8 left-8 z-30 hidden flex-col md:flex lg:left-10">
-          <HeroPartnerStack layout="desktop" />
-        </div>
-
-        {/* Bottom: mobile = dots → Procore (above card) → logo card. md+ = dots + card;
-            desktop Procore is bottom-left. */}
+        {/* Bottom: mobile = dots → Procore + card column. md+ = dots, then partner + card in one row (items-end aligns bottoms). */}
         <div className="pointer-events-none absolute inset-x-0 bottom-4 z-20 flex max-w-full flex-col items-center gap-3 px-4 pb-[max(0.25rem,env(safe-area-inset-bottom))] max-md:gap-3 md:inset-0 md:bottom-3 md:flex md:flex-col md:items-end md:justify-end md:gap-2 md:px-8 md:pb-8 md:pt-0 lg:px-10">
           <HeroCarouselDots
             activeIndex={activeIndex}
             onSelect={setActiveIndex}
             className="pointer-events-auto flex w-full shrink-0 items-center justify-center gap-1.5 pb-0.5 opacity-90 max-sm:scale-90 md:w-auto md:shrink-0 md:justify-end md:pb-0 md:opacity-100 md:drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)] md:scale-100"
           />
-          <div className="pointer-events-auto flex w-full max-w-full flex-col items-center justify-center md:items-end md:justify-end md:px-0 md:pb-0">
-            <div className="flex w-full max-w-[min(100%,19.5rem)] flex-col items-stretch md:max-w-none md:w-[clamp(460px,38vw,600px)]">
-              <div className="mb-1.5 flex w-full justify-start md:mb-0 md:hidden">
+          <div className="pointer-events-auto flex w-full max-w-full flex-col items-stretch justify-center md:flex-row md:items-end md:justify-between md:gap-10 md:px-0 md:pb-0 lg:gap-14">
+            <div className="hidden min-w-0 flex-1 md:block">
+              <HeroPartnerStack layout="desktop" />
+            </div>
+            <div className="flex w-full flex-col items-stretch md:w-[clamp(460px,38vw,600px)] md:shrink-0">
+              <div className="mb-1.5 w-full md:mb-0 md:hidden">
                 <HeroPartnerStack layout="mobile" />
               </div>
               <div className="flex w-full flex-col bg-white px-4 py-4 shadow-xl shadow-black/10 md:px-8 md:py-7">
