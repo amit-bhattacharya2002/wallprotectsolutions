@@ -65,46 +65,35 @@ const PROCORE_BADGE_SRC = "https://network.procore.com/assets/static/procore-whi
 
 function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
   const mobile = layout === "mobile";
-  return (
-    <div
-      className={
-        mobile
-          ? "flex w-full flex-col items-end gap-1.5 text-right"
-          : "flex max-w-full flex-col gap-3 text-left"
-      }
+
+  const badge = (
+    <a
+      href={PROCORE_PROFILE_HREF}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block w-fit shrink-0 cursor-pointer rounded-md opacity-95 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
     >
-      <a
-        href={PROCORE_PROFILE_HREF}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block w-fit shrink-0 cursor-pointer rounded-md opacity-95 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element -- third-party Procore badge asset */}
-        <img
-          src={PROCORE_BADGE_SRC}
-          alt="Find us on Procore — FRP Installations on the Procore Construction Network"
-          width={176}
-          height={64}
-          className={mobile ? "h-10 w-auto" : "h-10 w-auto md:h-12 lg:h-16"}
-        />
-      </a>
-      <div
-        className={
-          mobile
-            ? "h-0.5 w-[min(100%,300px)] shrink-0 bg-[#0d9488]"
-            : "h-0.5 w-full max-w-[300px] bg-[#0d9488]"
-        }
+      {/* eslint-disable-next-line @next/next/no-img-element -- third-party Procore badge asset */}
+      <img
+        src={PROCORE_BADGE_SRC}
+        alt="Find us on Procore — FRP Installations on the Procore Construction Network"
+        width={176}
+        height={64}
+        className={mobile ? "h-9 w-auto sm:h-10" : "h-10 w-auto md:h-12 lg:h-16"}
       />
-      <p
-        className={
-          mobile
-            ? "text-sm font-semibold tracking-tight text-white"
-            : "text-sm font-semibold tracking-tight text-white md:text-lg"
-        }
-      >
-        Wall Protection Construction Partner.
-      </p>
-      <p className={mobile ? "text-xs leading-relaxed text-white/75" : "text-xs leading-relaxed text-white/75 md:text-sm"}>
+    </a>
+  );
+
+  if (mobile) {
+    return <div className="flex w-full justify-start">{badge}</div>;
+  }
+
+  return (
+    <div className="flex w-full max-w-full flex-col gap-3 text-left">
+      {badge}
+      <div className="h-0.5 w-full max-w-[300px] bg-[#0d9488]" />
+      <p className="text-sm font-semibold tracking-tight text-white md:text-lg">Wall Protection Construction Partner.</p>
+      <p className="text-xs leading-relaxed text-white/75 md:text-sm">
         Specializing in healthcare and institutional interior protection systems across British Columbia.
       </p>
     </div>
@@ -272,7 +261,7 @@ export default function Hero() {
         {/* Heading — one slot, each slide supplies its own eyebrow + headline.
              All variants stack in a single grid cell and crossfade in sync
              with the background slideshow. */}
-        <div className="pointer-events-auto absolute inset-x-0 top-[26dvh] px-6 md:top-[30dvh] md:pl-8 lg:pl-10 lg:pr-8">
+        <div className="pointer-events-auto absolute inset-x-0 top-[22dvh] z-40 px-5 pb-6 max-sm:top-[18dvh] max-sm:px-4 max-sm:pb-8 md:top-[30dvh] md:pb-0 md:pl-8 lg:pl-10 lg:pr-8">
           {/*
             Stacked in one grid cell. Do NOT crossfade outgoing + incoming copy
             with the same long opacity transition — both sit at ~50% opacity in
@@ -290,16 +279,16 @@ export default function Hero() {
                 }`}
                 aria-hidden={idx !== activeIndex}
               >
-                <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#5eead4] md:mb-5">
+                <p className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#5eead4] md:mb-5">
                   {slide.eyebrow}
                 </p>
-                <h2 className="max-w-[14ch] text-left text-4xl font-semibold leading-[1.02] tracking-tight text-white md:text-6xl lg:text-7xl">
+                <h2 className="max-w-[18ch] text-left text-[clamp(1.45rem,6.2vw,2.1rem)] font-semibold leading-[1.06] tracking-tight text-white max-sm:max-w-[19ch] sm:max-w-[20ch] sm:text-4xl md:max-w-[14ch] md:text-6xl lg:text-7xl">
                   {slide.headline}
                 </h2>
                 <Link
                   href={slide.ctaHref}
                   tabIndex={idx === activeIndex ? 0 : -1}
-                  className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-[#5eead4] md:mt-9 md:text-base"
+                  className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-[#5eead4] max-sm:mt-6 md:mt-9 md:text-base"
                 >
                   <span className="border-b border-white/40 pb-0.5 transition-colors group-hover:border-[#5eead4]">
                     {slide.ctaLabel}
@@ -328,43 +317,42 @@ export default function Hero() {
           <HeroPartnerStack layout="desktop" />
         </div>
 
-        {/* Bottom: mobile = centered dots above card; md+ = dots + card stacked at
-            bottom-right (`justify-end` + `items-end`) so dots sit directly above the
-            white FRP block, right edges aligned. */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-3 z-30 flex max-w-full flex-col items-center gap-2 px-3 max-md:gap-1.5 md:inset-0 md:z-20 md:gap-2 md:flex md:flex-col md:items-end md:justify-end md:px-8 md:pb-8 md:pt-0 lg:px-10">
+        {/* Bottom: mobile = dots → Procore (above card) → logo card. md+ = dots + card;
+            desktop Procore is bottom-left. */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-4 z-20 flex max-w-full flex-col items-center gap-3 px-4 pb-[max(0.25rem,env(safe-area-inset-bottom))] max-md:gap-3 md:inset-0 md:bottom-3 md:flex md:flex-col md:items-end md:justify-end md:gap-2 md:px-8 md:pb-8 md:pt-0 lg:px-10">
           <HeroCarouselDots
             activeIndex={activeIndex}
             onSelect={setActiveIndex}
-            className="pointer-events-auto flex w-full shrink-0 items-center justify-center gap-1.5 opacity-90 max-md:justify-center md:w-auto md:shrink-0 md:justify-end md:opacity-100 md:drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
+            className="pointer-events-auto flex w-full shrink-0 items-center justify-center gap-1.5 pb-0.5 opacity-90 max-sm:scale-90 md:w-auto md:shrink-0 md:justify-end md:pb-0 md:opacity-100 md:drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)] md:scale-100"
           />
-          <div className="pointer-events-auto z-35 w-full shrink-0 md:hidden">
-            <HeroPartnerStack layout="mobile" />
-          </div>
-          <div className="pointer-events-auto flex w-full max-w-full items-end justify-center md:w-full md:max-w-none md:justify-end md:px-0 md:pb-0">
-            <div className="w-full md:w-[clamp(460px,38vw,600px)]">
-              <div className="flex w-full flex-col bg-white px-5 py-5 shadow-xl shadow-black/10 md:px-8 md:py-7">
-                <div className="mb-3 h-0.5 w-7 bg-[#134e4a] md:mb-4 md:w-9" />
+          <div className="pointer-events-auto flex w-full max-w-full flex-col items-center justify-center md:items-end md:justify-end md:px-0 md:pb-0">
+            <div className="flex w-full max-w-[min(100%,19.5rem)] flex-col items-stretch md:max-w-none md:w-[clamp(460px,38vw,600px)]">
+              <div className="mb-1.5 flex w-full justify-start md:mb-0 md:hidden">
+                <HeroPartnerStack layout="mobile" />
+              </div>
+              <div className="flex w-full flex-col bg-white px-4 py-4 shadow-xl shadow-black/10 md:px-8 md:py-7">
+                <div className="mb-2 h-0.5 w-6 bg-[#134e4a] md:mb-4 md:w-9" />
 
-                <h1 className="mb-1 text-2xl font-extrabold leading-[1.05] tracking-tight text-[#0f172a] md:mb-1.5 md:text-[clamp(1.6rem,2.4vw,2.4rem)]">
+                <h1 className="mb-0.5 text-xl font-extrabold leading-[1.05] tracking-tight text-[#0f172a] md:mb-1.5 md:text-[clamp(1.6rem,2.4vw,2.4rem)]">
                   FRP Installations Inc.
                 </h1>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#134e4a] md:mb-5 md:text-[0.78rem]">
+                <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#134e4a] md:mb-5 md:text-[0.78rem]">
                   Wall Protection Solutions
                 </p>
 
-                <p className="mb-5 text-sm leading-relaxed text-slate-500 md:mb-6 md:text-base">
+                <p className="mb-4 text-xs leading-relaxed text-slate-500 md:mb-6 md:text-base">
                   Healthcare and institutional interior protection systems across
                   British Columbia.
                 </p>
 
-                <div className="flex flex-row items-stretch gap-2 md:flex-col md:gap-3 lg:flex-row">
+                <div className="flex flex-col items-stretch gap-2 md:flex-col md:gap-3 lg:flex-row">
                   <Link
                     href="/quote"
-                    className="group inline-flex items-center justify-center gap-2 bg-[#2a4663] px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                    className="group inline-flex w-full items-center justify-center gap-2 bg-[#2a4663] px-3 py-2.5 text-xs font-medium text-white transition-all hover:bg-[#0d9488] md:px-5 md:py-3 md:text-sm"
                   >
                     Get a Quote
                     <svg
-                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                      className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 md:h-4 md:w-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -379,7 +367,7 @@ export default function Hero() {
                   </Link>
                   <Link
                     href="/healthcare"
-                    className="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                    className="inline-flex w-full items-center justify-center gap-2 border border-slate-200 px-3 py-2.5 text-xs font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] md:px-5 md:py-3 md:text-sm"
                   >
                     Healthcare Work
                   </Link>
