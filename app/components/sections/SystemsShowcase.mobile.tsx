@@ -53,7 +53,7 @@ const SYSTEMS: ShowcaseSystem[] = [
 
 export default function SystemsShowcaseMobile() {
   return (
-    <div className="border-t border-slate-200/80 px-4 pb-12 pt-1">
+    <div className="m-0 border-t border-slate-200/80 px-4 pb-2 pt-0">
       <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 border-b border-slate-200/90 pb-4">
         {SYSTEMS.map((sys) => (
           <span key={sys.id} className="text-center text-sm font-medium text-[#0B1D3A]">
