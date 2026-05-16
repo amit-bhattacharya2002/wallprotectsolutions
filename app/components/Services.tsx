@@ -10,14 +10,18 @@ const alsoSupplyInstallImage =
 
 export default function Services() {
   return (
-    <section
+    <div
       id="services"
-      className="bg-white pt-4 pb-10 md:pt-6 md:pb-14 lg:pt-8 lg:pb-20"
+      role="region"
+      aria-labelledby="services-heading"
+      className="m-0 bg-white pt-8 pb-4 md:pt-15 md:pb-5 lg:pt-18 lg:pb-6"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="section-header reveal mx-auto mb-4 max-w-3xl text-center md:mb-5">
           <span className="eyebrow">Core Systems</span>
-          <h2 className="section-title mb-4">Supply &amp; install wall protection systems</h2>
+          <h2 id="services-heading" className="section-title mb-4">
+            Supply &amp; install wall protection systems
+          </h2>
           <p className="section-lead mx-auto">
             We are not labour-only. We supply and install complete wall protection and hygienic systems, taking
             responsibility for product selection, quality, coordination, and warranty alignment on every project.
@@ -41,7 +45,7 @@ export default function Services() {
               />
               <PlaceholderBadge />
             </div>
-            <div className="px-5 py-6 text-center md:px-8 md:py-7 md:text-left">
+            <div className="px-5 pt-7 pb-6 text-center md:px-8 md:pt-9 md:pb-7 md:text-left">
               <div className="mb-3 text-sm uppercase tracking-[0.16em] text-slate-400">Also supply &amp; install</div>
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:justify-start">
                 {["PVC liner systems", "Wet wall", "Stainless protection", "Architectural specialties"].map(
@@ -65,6 +69,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -9,10 +9,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
  */
 const heroImages = [
   {
-    src: "/actualphotos/hero-wall-protection-matters.jpg",
-    alt: "Hygienic production environment with white wall cladding and stainless process line",
+    src: "/actualphotos/8.jpg",
+    alt: "Healthcare reception and corridor with wood-grain hygienic wall cladding, glass partitions, and coved flooring",
   },
-  
   {
     src: "/actualphotos/hero-healthcare-corridor.jpg",
     alt: "Bright healthcare corridor with installed wall protection panels",
@@ -375,15 +374,10 @@ export default function Hero() {
                 </div>
 
                 <div className="relative bg-white px-4 pb-5 pt-4 sm:px-5 md:px-6 md:pb-6 md:pt-5">
-                  <p className="mb-4 max-w-prose text-left text-xs leading-relaxed text-slate-600 md:mb-6 md:text-base">
-                    Healthcare and institutional interior protection systems across
-                    British Columbia.
-                  </p>
-
-                  <div className="flex flex-col items-stretch gap-2 md:flex-col md:gap-3 lg:flex-row">
+                  <div className="flex flex-row items-stretch gap-2 md:gap-3">
                     <Link
                       href="/quote"
-                      className="group inline-flex w-full items-center justify-center gap-2 bg-[#2a4663] px-3 py-2.5 text-xs font-medium text-white transition-all hover:bg-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                      className="group inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 bg-[#2a4663] px-2 py-2.5 text-xs font-medium text-white transition-all hover:bg-[#0d9488] sm:gap-2 sm:px-3 md:px-5 md:py-3 md:text-sm"
                     >
                       Get a Quote
                       <svg
@@ -402,7 +396,7 @@ export default function Hero() {
                     </Link>
                     <Link
                       href="/healthcare"
-                      className="inline-flex w-full items-center justify-center gap-2 border border-slate-200 px-3 py-2.5 text-xs font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                      className="inline-flex min-w-0 flex-1 items-center justify-center gap-2 border border-slate-200 px-2 py-2.5 text-xs font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] sm:px-3 md:px-5 md:py-3 md:text-sm"
                     >
                       Healthcare Work
                     </Link>
