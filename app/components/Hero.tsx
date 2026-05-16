@@ -155,8 +155,9 @@ function HeroCarouselDots({
  * focusing the region pauses rotation so users can read.
  *
  * Carousel dots: subtle on mobile (row above the FRP card). From md up they
- * sit above a bottom row: partner stack (left) and white logo card (right),
- * with `items-end` so the stack’s bottom lines up with the card’s bottom edge.
+ * sit above a bottom row: partner stack (left) and brand card (right) with
+ * composite logo image, duotone accents, then CTAs. `items-end` lines the
+ * stack’s bottom up with the card’s bottom edge.
  */
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -333,51 +334,79 @@ export default function Hero() {
             <div className="hidden min-w-0 flex-1 md:block">
               <HeroPartnerStack layout="desktop" />
             </div>
-            <div className="flex w-full flex-col items-stretch md:w-[clamp(460px,38vw,600px)] md:shrink-0">
+            <div className="flex w-full flex-col items-stretch md:ml-auto md:w-[clamp(420px,36vw,560px)] md:shrink-0">
               <div className="mb-1.5 w-full md:mb-0 md:hidden">
                 <HeroPartnerStack layout="mobile" />
               </div>
-              <div className="flex w-full flex-col bg-white px-4 py-4 shadow-xl shadow-black/10 md:px-8 md:py-7">
-                <div className="mb-2 h-0.5 w-6 bg-[#134e4a] md:mb-4 md:w-9" />
-
-                <h1 className="mb-0.5 text-xl font-extrabold leading-[1.05] tracking-tight text-[#0f172a] md:mb-1.5 md:text-[clamp(1.6rem,2.4vw,2.4rem)]">
-                  FRP Installations Inc.
-                </h1>
-                <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#134e4a] md:mb-5 md:text-[0.78rem]">
-                  Wall Protection Solutions
-                </p>
-
-                <p className="mb-4 text-xs leading-relaxed text-slate-500 md:mb-6 md:text-base">
-                  Healthcare and institutional interior protection systems across
-                  British Columbia.
-                </p>
-
-                <div className="flex flex-col items-stretch gap-2 md:flex-col md:gap-3 lg:flex-row">
-                  <Link
-                    href="/quote"
-                    className="group inline-flex w-full items-center justify-center gap-2 bg-[#2a4663] px-3 py-2.5 text-xs font-medium text-white transition-all hover:bg-[#0d9488] md:px-5 md:py-3 md:text-sm"
-                  >
-                    Get a Quote
-                    <svg
-                      className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 md:h-4 md:w-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+              <div className="flex w-full flex-col overflow-hidden bg-white shadow-2xl shadow-black/20 ring-1 ring-slate-900/[0.06]">
+                {/* Brand strip — full composite logo (`public/logos/logo with normal font wps.png`, 1940×611). */}
+                <div className="bg-[#ffffff] px-4 py-5 sm:px-5 sm:py-6 md:px-6 md:py-6">
+                  <h1 className="m-0">
+                    <div className="relative mx-auto aspect-[1940/611] w-full max-w-[min(100%,520px)] md:mx-0">
+                      <Image
+                        src="/logos/logo%20with%20normal%20font%20wps.png"
+                        alt="FRP Installations Inc. — Wall Protection Solutions"
+                        fill
+                        className="object-contain object-left"
+                        sizes="(max-width: 768px) 100vw, 520px"
                       />
-                    </svg>
-                  </Link>
-                  <Link
-                    href="/healthcare"
-                    className="inline-flex w-full items-center justify-center gap-2 border border-slate-200 px-3 py-2.5 text-xs font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] md:px-5 md:py-3 md:text-sm"
-                  >
-                    Healthcare Work
-                  </Link>
+                    </div>
+                  </h1>
+
+                  {/* <div
+                    className="mt-6 h-px w-full max-w-xl bg-[linear-gradient(90deg,#1a3673_0_58%,#699e43_58%_100%)] sm:mt-7"
+                    aria-hidden
+                  /> */}
+                </div>
+
+                <div className="relative h-2.5 w-full shrink-0 overflow-hidden" aria-hidden>
+                  <div
+                    className="absolute inset-y-0 left-0 w-[56%] bg-[#1a3673]"
+                    style={{
+                      clipPath: "polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%)",
+                    }}
+                  />
+                  <div
+                    className="absolute inset-y-0 right-0 w-[56%] bg-[#699e43]"
+                    style={{
+                      clipPath: "polygon(14px 0, 100% 0, 100% 100%, 0 100%)",
+                    }}
+                  />
+                </div>
+
+                <div className="relative bg-white px-4 pb-5 pt-4 sm:px-5 md:px-6 md:pb-6 md:pt-5">
+                  <p className="mb-4 max-w-prose text-left text-xs leading-relaxed text-slate-600 md:mb-6 md:text-base">
+                    Healthcare and institutional interior protection systems across
+                    British Columbia.
+                  </p>
+
+                  <div className="flex flex-col items-stretch gap-2 md:flex-col md:gap-3 lg:flex-row">
+                    <Link
+                      href="/quote"
+                      className="group inline-flex w-full items-center justify-center gap-2 bg-[#2a4663] px-3 py-2.5 text-xs font-medium text-white transition-all hover:bg-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                    >
+                      Get a Quote
+                      <svg
+                        className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 md:h-4 md:w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </Link>
+                    <Link
+                      href="/healthcare"
+                      className="inline-flex w-full items-center justify-center gap-2 border border-slate-200 px-3 py-2.5 text-xs font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                    >
+                      Healthcare Work
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
