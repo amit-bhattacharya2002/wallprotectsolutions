@@ -1,6 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+
+/** Same asset as homepage hero; rendered in a padded white “card” like the hero brand strip. */
+const FOOTER_LOGO_SRC = "/logos/logo%20with%20normal%20font%20wps.png";
 
 const footerLinks = {
   systems: [
@@ -94,21 +98,39 @@ export default function Footer() {
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1fr] gap-x-10 gap-y-12">
-          {/* Logo & Description */}
+          {/* Logo, office, contact */}
           <div className="min-w-0">
-            <Link href="/" className="inline-block mb-6">
-              <div className="flex flex-col leading-none">
-                <span className="text-lg font-semibold tracking-tight text-white leading-tight">
-                  FRP Installations Inc.
-                </span>
-                <span className="text-xs font-semibold text-[#5eead4] leading-tight tracking-[0.18em] uppercase mt-1">
-                  Wall Protection Solutions
-                </span>
+            <Link
+              href="/"
+              className="group mb-5 block max-w-[min(100%,600px)] rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4]/90 focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663]"
+            >
+              <div className="overflow-hidden bg-white  ring-1 ring-slate-900/[0.08] transition-shadow duration-300 group-hover:shadow-[0_22px_48px_-14px_rgba(0,0,0,0.38)]">
+                <div className="bg-[#ffffff] px-5 py-5 sm:px-3 sm:py-3 md:px-3   md:py-3">
+                  <div className="relative aspect-[1940/611] w-full">
+                    <Image
+                      src={FOOTER_LOGO_SRC}
+                      alt="FRP Installations Inc. — Wall Protection Solutions"
+                      fill
+                      className="object-contain object-left"
+                      sizes="(max-width: 768px) 100vw, 600px"
+                    />
+                  </div>
+                </div>
               </div>
             </Link>
-            <p className="text-white/50 text-[0.9375rem] leading-relaxed font-normal max-w-sm mb-8">
-              Specialist healthcare and institutional interior protection subcontractor across British Columbia. Supply and installation of wall protection systems, hygienic cladding, FRP/FRL, and architectural specialties.
-            </p>
+            <div className="mb-8 max-w-[min(100%,600px)]">
+              <div className="text-[11px] text-white/62 uppercase tracking-[0.18em] mb-2">Office</div>
+              <p className="text-white/50 font-normal leading-relaxed text-[0.9375rem]">
+                145-1685 Pinetree Way
+                <br />
+                Coquitlam, BC
+                <br />
+                V3E 3A1
+              </p>
+              <p className="mt-3 text-[11px] font-normal uppercase tracking-[0.16em] text-white/62">
+                By Appointment Only
+              </p>
+            </div>
             <div className="space-y-3">
               <a href="tel:604-715-9469" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group text-[0.9375rem]">
                 <svg className="w-5 h-5 group-hover:text-[#5eead4] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,23 +194,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Address */}
+          {/* Proof points */}
           <div className="min-w-0">
-            <div className="text-[11px] text-white/62 uppercase tracking-[0.18em] mb-6">Office</div>
-            <p className="text-white/50 font-normal leading-relaxed text-[0.9375rem]">
-              145-1685 Pinetree Way<br />
-              Coquitlam, BC<br />
-              V3E 3A1
-            </p>
-            <p className="text-white/62 text-[11px] mt-4 uppercase tracking-[0.16em]">By Appointment Only</p>
-            <div className="mt-6 pt-6 border-t border-white/10">
-              <div className="text-[11px] text-white/62 uppercase tracking-[0.18em] mb-3">Proof Points</div>
-              <div className="space-y-1.5 text-[0.9375rem] text-white/50">
-                <div>700+ Projects Completed</div>
-                <div>16+ UPCC Clinics</div>
-                <div>75%+ Healthcare Work</div>
-                <div>20 Yrs Construction Experience</div>
-              </div>
+            <div className="text-[11px] text-white/62 uppercase tracking-[0.18em] mb-6">Proof Points</div>
+            <div className="space-y-1.5 text-[0.9375rem] text-white/50">
+              <div>700+ Projects Completed</div>
+              <div>16+ UPCC Clinics</div>
+              <div>75%+ Healthcare Work</div>
+              <div>20 Yrs Construction Experience</div>
             </div>
           </div>
         </div>

@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SiteSearch from "./SiteSearch";
+
+const BRAND_LOGO_SRC = "/logos/FRP%20%283%29.png";
 
 const navigation = [
   {
@@ -223,30 +226,26 @@ export default function Header() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div
             className={`relative flex items-center gap-3 transition-all duration-300 ease-out md:gap-6 ${
-              isScrolled ? "py-2.5" : "py-3 md:py-4"
+              isScrolled ? "py-3" : "py-3 md:py-4"
             }`}
           >
             {/* Logo */}
             <Link
               href="/"
-              className="group flex min-w-0 flex-col leading-none lg:shrink-0"
+              className={`group relative shrink-0 transition-[width,height] duration-300 ease-out ${
+                isScrolled
+                  ? "h-9 w-[11rem] sm:h-10 sm:w-[12.75rem] md:h-10 md:w-[14rem]"
+                  : "h-10 w-[12.5rem] sm:h-11 sm:w-[14.5rem] md:h-12 md:w-[16.5rem]"
+              }`}
             >
-              <span
-                className={`font-semibold leading-tight tracking-tight text-[#0f172a] transition-all duration-300 ${
-                  isScrolled ? "text-sm md:text-base" : "text-sm md:text-lg"
-                }`}
-              >
-                FRP Installations Inc.
-              </span>
-              <span
-                className={`font-semibold uppercase leading-tight tracking-[0.18em] text-[#134e4a] transition-all duration-300 ${
-                  isScrolled
-                    ? "text-[0.6rem] md:text-[0.68rem]"
-                    : "text-[0.62rem] md:text-[0.72rem]"
-                }`}
-              >
-                Wall Protection Solutions
-              </span>
+              <Image
+                src={BRAND_LOGO_SRC}
+                alt="FRP Installations Inc. — Wall Protection Solutions"
+                fill
+                className="object-contain object-left"
+                sizes="(max-width: 768px) 260px, 300px"
+                priority
+              />
             </Link>
 
             {/* Desktop nav — absolutely centered on this row ONLY when scrolled */}
@@ -402,13 +401,18 @@ export default function Header() {
       >
         {/* Mobile Menu Header */}
         <div className="flex shrink-0 items-center justify-between border-b border-slate-100 p-5">
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex flex-col leading-none">
-            <span className="text-base font-semibold leading-tight tracking-tight text-[#0f172a]">
-              FRP Installations Inc.
-            </span>
-            <span className="text-xs font-medium leading-tight tracking-wide text-[#134e4a]">
-              Wall Protection Solutions
-            </span>
+          <Link
+            href="/"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="relative h-12 w-[16rem] shrink-0 min-w-0 sm:h-[3.25rem] sm:w-[17.5rem]"
+          >
+            <Image
+              src={BRAND_LOGO_SRC}
+              alt="FRP Installations Inc. — Wall Protection Solutions"
+              fill
+              className="object-contain object-left"
+              sizes="280px"
+            />
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
