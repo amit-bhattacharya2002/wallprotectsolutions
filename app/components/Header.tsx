@@ -6,7 +6,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SiteSearch from "./SiteSearch";
 
-const BRAND_LOGO_SRC = "/logos/FRP%20%283%29.png";
+/**
+ * Header logo (`public/logos/FRP (4).png`). Bump `BRAND_LOGO_REVISION` whenever
+ * you replace or re-crop the file — same path is otherwise cached by `next/image`
+ * and the browser.
+ */
+const BRAND_LOGO_REVISION = "2";
+const BRAND_LOGO_SRC = `/logos/FRP%20%284%29.png?rev=${BRAND_LOGO_REVISION}`;
 
 const navigation = [
   {
