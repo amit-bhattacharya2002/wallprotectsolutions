@@ -88,7 +88,7 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
       <div className="flex w-full flex-row items-start justify-between gap-3 sm:gap-4">
         <div className="flex min-w-0 flex-1 flex-col items-start gap-2">
           <div className="h-0.5 w-12 shrink-0 bg-[#0d9488] sm:w-16" aria-hidden />
-          <p className="min-w-0 text-left text-sm font-semibold leading-snug tracking-tight text-white">
+          <p className="min-w-0 text-left text-sm font-semibold leading-snug tracking-tight text-slate-100">
             Wall Protection Construction Partner.
           </p>
         </div>
@@ -101,8 +101,8 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
     <div className="flex w-full max-w-full flex-col gap-3 text-left">
       {badge}
       <div className="h-0.5 w-full max-w-[300px] bg-[#0d9488]" />
-      <p className="text-sm font-semibold tracking-tight text-white md:text-lg">Wall Protection Construction Partner.</p>
-      <p className="text-xs leading-relaxed text-white/75 md:text-sm">
+      <p className="text-sm font-semibold tracking-tight text-slate-100 md:text-lg">Wall Protection Construction Partner.</p>
+      <p className="text-xs leading-relaxed text-slate-300 md:text-sm">
         Specializing in healthcare and institutional interior protection systems across British Columbia.
       </p>
     </div>
@@ -144,7 +144,7 @@ function HeroCarouselDots({
  * Background is a cross-fading carousel of real project photos with a
  * slow Ken Burns zoom (1.05 → 1.00) that re-triggers on each cycle so the
  * background never feels static. A left-to-right navy ink gradient (~40%
- * opacity at the left edge, transparent on the right) keeps white type
+ * opacity at the left edge, transparent on the right) keeps light slate type
  * legible regardless of which image is currently showing.
  *
  * Eyebrow + headline track the same `activeIndex` as the background (copy
@@ -292,15 +292,15 @@ export default function Hero() {
                 <p className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#5eead4] md:mb-5">
                   {slide.eyebrow}
                 </p>
-                <h2 className="max-w-[18ch] text-left text-[clamp(1.45rem,6.2vw,2.1rem)] font-semibold leading-[1.06] tracking-tight text-white max-sm:max-w-[19ch] sm:max-w-[20ch] sm:text-4xl md:max-w-[14ch] md:text-6xl lg:text-7xl">
+                <h2 className="max-w-[18ch] text-left text-[clamp(1.45rem,6.2vw,2.1rem)] font-semibold leading-[1.06] tracking-tight text-slate-50 max-sm:max-w-[19ch] sm:max-w-[20ch] sm:text-4xl md:max-w-[14ch] md:text-6xl lg:text-7xl">
                   {slide.headline}
                 </h2>
                 <Link
                   href={slide.ctaHref}
                   tabIndex={idx === activeIndex ? 0 : -1}
-                  className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-[#5eead4] max-sm:mt-6 md:mt-9 md:text-base"
+                  className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-slate-200 transition-colors hover:text-slate-50 max-sm:mt-6 md:mt-9 md:text-base"
                 >
-                  <span className="border-b border-white/40 pb-0.5 transition-colors group-hover:border-[#5eead4]">
+                  <span className="border-b border-slate-400/50 pb-0.5 transition-colors group-hover:border-slate-200">
                     {slide.ctaLabel}
                   </span>
                   <svg
@@ -338,12 +338,12 @@ export default function Hero() {
                 <HeroPartnerStack layout="mobile" />
               </div>
               <div className="flex w-full flex-col overflow-hidden bg-white shadow-2xl shadow-black/20 ring-1 ring-slate-900/[0.06]">
-                {/* Brand strip — full composite logo (`public/logos/logo with normal font wps.png`, 1940×611). */}
+                {/* Brand strip — composite logo + corridor (`public/logos/frp_logo1.png`, 1976×603). */}
                 <div className="bg-[#ffffff] px-4 py-5 sm:px-5 sm:py-6 md:px-6 md:py-6">
                   <h1 className="m-0">
-                    <div className="relative mx-auto aspect-[1940/611] w-full max-w-[min(100%,520px)] md:mx-0">
+                    <div className="relative mx-auto aspect-1976/603 w-full max-w-[min(100%,520px)] md:mx-0">
                       <Image
-                        src="/logos/logo%20with%20normal%20font%20wps.png"
+                        src="/logos/frp_logo1.png"
                         alt="FRP Installations Inc. — Wall Protection Solutions"
                         fill
                         className="object-contain object-left"
