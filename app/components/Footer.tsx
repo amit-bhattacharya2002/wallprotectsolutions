@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 /** Same asset as homepage hero; rendered in a padded white “card” like the hero brand strip. */
-const FOOTER_LOGO_SRC = "/logos/logo%20with%20normal%20font%20wps.png";
+const FOOTER_LOGO_SRC = "/logos/frp_logo1.png";
 
 const footerLinks = {
   systems: [
@@ -106,7 +106,7 @@ export default function Footer() {
             >
               <div className="overflow-hidden bg-white  ring-1 ring-slate-900/[0.08] transition-shadow duration-300 group-hover:shadow-[0_22px_48px_-14px_rgba(0,0,0,0.38)]">
                 <div className="bg-[#ffffff] px-5 py-5 sm:px-3 sm:py-3 md:px-3   md:py-3">
-                  <div className="relative aspect-[1940/611] w-full">
+                  <div className="relative aspect-1976/603 w-full">
                     <Image
                       src={FOOTER_LOGO_SRC}
                       alt="FRP Installations Inc. — Wall Protection Solutions"

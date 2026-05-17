@@ -7,12 +7,11 @@ import { usePathname } from "next/navigation";
 import SiteSearch from "./SiteSearch";
 
 /**
- * Header logo (`public/logos/FRP (4).png`). Bump `BRAND_LOGO_REVISION` whenever
- * you replace or re-crop the file — same path is otherwise cached by `next/image`
- * and the browser.
+ * Header logo (`public/logos/frp_logo_transbg.png`). Bump `BRAND_LOGO_REVISION`
+ * when you replace the file — same path is cached by `next/image` and browsers.
  */
-const BRAND_LOGO_REVISION = "2";
-const BRAND_LOGO_SRC = `/logos/FRP%20%284%29.png?rev=${BRAND_LOGO_REVISION}`;
+const BRAND_LOGO_REVISION = "3";
+const BRAND_LOGO_SRC = `/logos/frp_logo_transbg.png?rev=${BRAND_LOGO_REVISION}`;
 
 const navigation = [
   {
