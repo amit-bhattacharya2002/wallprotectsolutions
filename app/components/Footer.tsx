@@ -1,10 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-
-/** Same asset as homepage hero; rendered in a padded white “card” like the hero brand strip. */
-const FOOTER_LOGO_SRC = "/logos/frp_logo1.png";
 
 const footerLinks = {
   systems: [
@@ -100,22 +96,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1fr] gap-x-10 gap-y-12">
           {/* Logo, office, contact */}
           <div className="min-w-0">
-            <Link
-              href="/"
-              className="group mb-5 block max-w-[min(100%,600px)] rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4]/90 focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663]"
-            >
-              <div className="overflow-hidden bg-white  ring-1 ring-slate-900/[0.08] transition-shadow duration-300 group-hover:shadow-[0_22px_48px_-14px_rgba(0,0,0,0.38)]">
-                <div className="bg-[#ffffff] px-5 py-5 sm:px-3 sm:py-3 md:px-3   md:py-3">
-                  <div className="relative aspect-1976/603 w-full">
-                    <Image
-                      src={FOOTER_LOGO_SRC}
-                      alt="FRP Installations Inc. — Wall Protection Solutions"
-                      fill
-                      className="object-contain object-left"
-                      sizes="(max-width: 768px) 100vw, 600px"
-                    />
-                  </div>
-                </div>
+            <Link href="/" className="inline-block mb-6">
+              <div className="flex flex-col leading-none">
+                <span className="text-lg font-semibold tracking-tight text-white leading-tight">
+                  FRP Installations Inc.
+                </span>
+                <span className="text-xs font-semibold text-[#5eead4] leading-tight tracking-[0.18em] uppercase mt-1">
+                  Wall Protection Solutions
+                </span>
               </div>
             </Link>
             <div className="mb-8 max-w-[min(100%,600px)]">
