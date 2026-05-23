@@ -99,8 +99,8 @@ export default function ProjectGalleryLightbox({
           </span>
         </button>
 
-        {/* Image */}
-        <div className="relative h-full w-full max-h-[calc(100vh-11rem)] max-w-[calc(100vw-8rem)] px-[min(18vw,5rem)] sm:max-w-[calc(100vw-12rem)] sm:px-[min(14vw,6rem)]">
+        {/* Image — edge-to-edge; nav buttons overlay the sides */}
+        <div className="relative h-full w-full max-h-[calc(100dvh-10rem)]">
           <div className="relative h-full w-full">
             <Image
               key={activeImage.src}
@@ -143,7 +143,7 @@ export default function ProjectGalleryLightbox({
                 type="button"
                 data-index={index}
                 onClick={() => onChange(index)}
-                className={`relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border-2 transition-all sm:h-16 sm:w-24 ${
+                className={`relative h-16 w-[5.5rem] shrink-0 overflow-hidden rounded-lg border-2 transition-all sm:h-[4.5rem] sm:w-28 ${
                   isActive
                     ? "border-[#5eead4] ring-2 ring-[#5eead4]/40 opacity-100"
                     : "border-transparent opacity-55 hover:border-white/30 hover:opacity-90"

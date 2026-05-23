@@ -5,7 +5,7 @@ export type ProjectImageVariant = "card" | "hero" | "gallery" | "related";
 const SIZES: Record<ProjectImageVariant, string> = {
   card: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw",
   hero: "(max-width: 1024px) 100vw, 66vw",
-  gallery: "(max-width: 768px) 50vw, 33vw",
+  gallery: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
   related: "(max-width: 768px) 100vw, 50vw",
 };
 
