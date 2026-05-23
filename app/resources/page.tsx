@@ -1,6 +1,7 @@
-import { Header, Footer, PageHero } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
 import { resourceArticles } from "@/app/data/resources";
 import Link from "next/link";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Resources & Technical Articles | FRP Installations Inc. | Wall Protection Solutions",
@@ -24,6 +25,31 @@ export default function ResourcesPage() {
             { label: "Contact Us", href: "/contact" },
           ]}
         />
+
+        <section className="border-b border-slate-200/80 bg-[#f8fafc] py-12 lg:py-16">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <SitePhoto
+                photo={sitePhotos.pages.resources}
+                overlay="gradient"
+                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
+              />
+              <div>
+                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#134e4a]">
+                  From the field
+                </span>
+                <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
+                  Spec guidance grounded in installed work
+                </h2>
+                <p className="text-base leading-relaxed text-gray-600">
+                  Our articles draw on real healthcare and institutional projects — including full wall protection
+                  and hygienic cladding scopes at UPCC facilities like Chilliwack, pharmaceutical environments
+                  like CSN Pharma, and medical manufacturing at Breathe Medical.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">

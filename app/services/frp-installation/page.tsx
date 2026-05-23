@@ -1,5 +1,6 @@
-import { PageHero, Footer, Header } from "@/app/components";
+import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import { sitePhotos } from "@/app/data/site-photos";
 
 const benefits = [
   {
@@ -162,15 +163,9 @@ export default function FRPInstallationPage() {
               </div>
 
               <div className="relative">
-                <div className="aspect-[4/3] bg-[#2a4663] rounded-2xl overflow-hidden">
-                  <img
-                    src="/actualphotos/5.jpg"
-                    alt="Healthcare corridor with installed wall protection panels"
-                    className="w-full h-full object-cover opacity-80"
-                  />
-                </div>
+                <SitePhoto photo={sitePhotos.services.installation} overlay="gradient" className="shadow-[0_24px_60px_-34px_rgba(15,23,42,0.45)]" />
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">
-                  <div className="text-4xl font-bold text-[#0f172a]">500+</div>
+                  <div className="text-4xl font-bold text-[#0f172a]">700+</div>
                   <div className="text-gray-600">Projects Completed</div>
                 </div>
               </div>

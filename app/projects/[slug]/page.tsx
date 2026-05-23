@@ -1,21 +1,22 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header, Footer, PageHero } from "@/app/components";
+import ProjectImage from "@/app/components/ProjectImage";
+import ProjectDetailMedia from "@/app/components/ProjectDetailMedia";
 import { projects, getProjectBySlug, getAllProjectSlugs } from "@/app/data/projects";
+import { getProjectCoverImage, resolveProjectGallery } from "@/app/lib/project-gallery";
 
-// Generate static params for all projects
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({
     slug: slug,
   }));
 }
 
-// Generate metadata for each project
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project Not Found" };
-  
+
   return {
     title: `${project.title} | FRP Installations`,
     description: project.description,
@@ -25,14 +26,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  
+
   if (!project) {
     notFound();
   }
 
-  // Get related projects (same category, excluding current)
+  const gallery = resolveProjectGallery(project);
+  const coverImage = getProjectCoverImage(project);
+
   const relatedProjects = projects
-    .filter(p => p.category === project.category && p.slug !== project.slug)
+    .filter((p) => p.category === project.category && p.slug !== project.slug)
     .slice(0, 2);
 
   return (
@@ -42,56 +45,35 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <PageHero
           backLink={{ href: "/projects", label: "Back to Projects" }}
           eyebrow={project.category}
-          badge={project.signature ? (
-            <span className="inline-flex items-center rounded-full bg-[#134e4a]/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#0d9488]">
-              Signature Project
-            </span>
-          ) : undefined}
+          badge={
+            project.signature ? (
+              <span className="inline-flex items-center rounded-full bg-[#134e4a]/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#0d9488]">
+                Signature Project
+              </span>
+            ) : undefined
+          }
           title={project.title}
           subtitle={project.description}
           subtitleClassName="text-lg md:text-xl"
         />
 
-        {/* Project Details */}
         <section className="py-16 lg:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
-              {/* Main Content */}
               <div className="lg:col-span-2">
-                {/* Main Image */}
-                <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-xl mb-10">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <h2 className="text-2xl font-semibold text-[#0f172a] mb-6">Project Overview</h2>
-                <p className="text-gray-600 leading-relaxed font-normal text-lg mb-8">
-                  {project.fullDescription}
-                </p>
-
-                {/* Gallery */}
-                {project.gallery && project.gallery.length > 1 && (
-                  <div className="mt-10">
-                    <h3 className="text-xl font-semibold text-[#0f172a] mb-6">Project Gallery</h3>
-                    <div className="grid grid-cols-2 gap-4">
-                      {project.gallery.map((img, index) => (
-                        <div key={index} className="aspect-[4/3] rounded-xl overflow-hidden">
-                          <img
-                            src={img}
-                            alt={`${project.title} - Image ${index + 1}`}
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <ProjectDetailMedia
+                  title={project.title}
+                  coverImage={coverImage}
+                  coverAlt={project.title}
+                  images={gallery.images}
+                >
+                  <h2 className="text-2xl font-semibold text-[#0f172a] mb-6">Project Overview</h2>
+                  <p className="text-gray-600 leading-relaxed font-normal text-lg mb-8">
+                    {project.fullDescription}
+                  </p>
+                </ProjectDetailMedia>
               </div>
 
-              {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="bg-[#f8fafc] rounded-2xl p-8 sticky top-32">
                   <h3 className="text-lg font-semibold text-[#0f172a] mb-6">Project Details</h3>
@@ -119,7 +101,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <div className="text-xs text-gray-600 uppercase tracking-wider mb-2">Products Used</div>
                         <div className="flex flex-wrap gap-2">
                           {project.details.products.map((product) => (
-                            <span key={product} className="text-sm bg-white px-3 py-1.5 rounded-full text-gray-600 border border-gray-200">
+                            <span
+                              key={product}
+                              className="text-sm bg-white px-3 py-1.5 rounded-full text-gray-600 border border-gray-200"
+                            >
                               {product}
                             </span>
                           ))}
@@ -145,7 +130,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        {/* Related Projects */}
         {relatedProjects.length > 0 && (
           <section className="py-20 lg:py-28 bg-[#f8fafc]">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -158,10 +142,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     className="group"
                   >
                     <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-xl bg-gray-100">
-                      <img
-                        src={relatedProject.image}
+                      <ProjectImage
+                        src={getProjectCoverImage(relatedProject)}
                         alt={relatedProject.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        variant="related"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
                     <span className="text-sm text-[#f97316] font-medium mb-2 block">
@@ -170,16 +155,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     <h3 className="text-xl font-semibold text-[#0f172a] mb-2 tracking-tight group-hover:text-[#f97316] transition-colors">
                       {relatedProject.title}
                     </h3>
-                    <p className="text-gray-600 font-normal">
-                      {relatedProject.description}
-                    </p>
+                    <p className="text-gray-600 font-normal">{relatedProject.description}</p>
                   </Link>
                 ))}
               </div>
             </div>
           </section>
         )}
-
       </main>
       <Footer />
     </>

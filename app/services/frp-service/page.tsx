@@ -1,5 +1,6 @@
-import { PageHero, Footer, Header } from "@/app/components";
+import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import { sitePhotos } from "@/app/data/site-photos";
 
 const services = [
   {
@@ -189,7 +190,9 @@ export default function FRPServicePage() {
                   </Link>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-4">
+              <div>
+                <SitePhoto photo={sitePhotos.services.service} overlay="gradient" className="mb-6 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
+                <div className="grid grid-cols-3 gap-4">
                 {supportOptions.map((option) => (
                   <div key={option.title} className="bg-white p-6 rounded-xl text-center border border-gray-200">
                     <div className="w-12 h-12 bg-[#f8fafc] rounded-lg flex items-center justify-center text-[#0f172a] mx-auto mb-4">
@@ -199,6 +202,7 @@ export default function FRPServicePage() {
                     <p className="text-gray-600 text-xs">{option.description}</p>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           </div>

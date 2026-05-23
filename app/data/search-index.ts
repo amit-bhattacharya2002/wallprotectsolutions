@@ -222,10 +222,10 @@ const manufacturerEntries: SearchEntry[] = manufacturers.map((manufacturer) => (
 }));
 
 const featuredProjectSlugs = new Set([
-  "lilys-dtes-community-health-centre",
-  "fraser-health-authority",
-  "bcit-cari-lab",
-  "craft-beer-market-kelowna",
+  "dtes",
+  "chilliwack-urgent-and-primary-care-center",
+  "katsuya",
+  "langley-urgent-and-primary-care-center",
   "breathe-medical-manufacturing",
 ]);
 

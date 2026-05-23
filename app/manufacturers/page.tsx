@@ -1,6 +1,7 @@
-import { Footer, Header, PageHero } from "@/app/components";
+import { Footer, Header, PageHero, SitePhoto } from "@/app/components";
 import Link from "next/link";
 import { manufacturers } from "@/app/data/manufacturers";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Manufacturer Partners | FRP Installations Inc. | Wall Protection Solutions",
@@ -44,6 +45,24 @@ export default function ManufacturersPage() {
             <p className="text-white text-center font-medium text-sm">
               Over the years we have developed particularly strong relationships with Construction Specialties and Altro — whose products are widely used in healthcare and institutional environments. We remain product-neutral and application-focused.
             </p>
+          </div>
+        </section>
+
+        {/* Featured project */}
+        <section className="py-12 lg:py-16 bg-[#f8fafc] border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <SitePhoto photo={sitePhotos.manufacturers} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
+              <div>
+                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Real project work</span>
+                <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight mb-4">
+                  Manufacturer depth on live healthcare projects
+                </h2>
+                <p className="text-gray-600 leading-relaxed font-normal">
+                  Our manufacturer relationships are built on installed project experience — not catalogue preference. We specify and install Construction Specialties, Altro, Inpro, Panolam, Marlite, and others based on what each space actually requires.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

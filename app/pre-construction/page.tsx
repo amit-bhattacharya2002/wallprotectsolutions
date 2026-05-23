@@ -1,4 +1,5 @@
-import { Header, Footer, PageHero } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Pre-Construction & Specification Support | FRP Installations Inc. | Wall Protection Solutions",
@@ -62,10 +63,13 @@ export default function PreConstructionPage() {
         {/* Services */}
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-2xl mb-14">
-              <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">What We Provide</span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">Pre-construction services</h2>
-              <p className="text-gray-600 leading-relaxed font-normal">Our GC-level construction background means we understand the full project context — not just the wall protection scope. We engage as a construction partner, not just a subcontractor responding to a tender.</p>
+            <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-14">
+              <div className="max-w-2xl">
+                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">What We Provide</span>
+                <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">Pre-construction services</h2>
+                <p className="text-gray-600 leading-relaxed font-normal">Our GC-level construction background means we understand the full project context — not just the wall protection scope. We engage as a construction partner, not just a subcontractor responding to a tender.</p>
+              </div>
+              <SitePhoto photo={sitePhotos.preConstruction} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.3)]" />
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {services.map((service, index) => (

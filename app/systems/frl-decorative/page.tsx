@@ -1,4 +1,5 @@
-import { Header, Footer, PageHero } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "FRL & Decorative Wall Systems | FRP Installations Inc. | Wall Protection Solutions",
@@ -52,10 +53,11 @@ export default function FRLDecorativePage() {
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-3xl mb-14">
-              <p className="text-gray-500 leading-relaxed font-normal text-base md:text-lg">
+            <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-14">
+              <p className="text-gray-500 leading-relaxed font-normal text-base md:text-lg max-w-3xl">
                 FRL offers 400+ colour options and a significantly more finished appearance, while still retaining the durability of a fibre-reinforced core.
               </p>
+              <SitePhoto photo={sitePhotos.systems.frl} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
             </div>
             <div className="space-y-12">
               {systems.map((system, index) => (

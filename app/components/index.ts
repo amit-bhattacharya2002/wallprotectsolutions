@@ -21,3 +21,4 @@ export { default as PlaceholderBadge } from './PlaceholderBadge';
 export { default as ManufacturerLogoStrip } from './ManufacturerLogoStrip';
 export { default as Testimonial } from './Testimonial';
 export { default as ScrollRevealManager } from './ScrollRevealManager';
+export { default as SitePhoto } from './SitePhoto';
