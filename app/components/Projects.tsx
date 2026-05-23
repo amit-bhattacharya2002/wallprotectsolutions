@@ -54,8 +54,8 @@ export default function Projects() {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-col items-center justify-center bg-linear-to-br from-white to-slate-50 p-8 text-center md:items-start md:text-left lg:p-12">
-                <div className="mb-4 flex items-center justify-center gap-2 md:justify-start">
+              <div className="flex flex-col items-start justify-center bg-linear-to-br from-white to-slate-50 p-8 text-left lg:p-12">
+                <div className="mb-4 flex items-center justify-start gap-2">
                   <span className="px-3 py-1 bg-[#134e4a]/10 text-[#134e4a] text-xs font-semibold rounded-full">
                     {featuredProject.category}
                   </span>
@@ -71,11 +71,11 @@ export default function Projects() {
                 )}
                 <p className="text-gray-600 leading-relaxed mb-6">{featuredProject.description}</p>
                 {featuredProject.details.products && (
-                  <ul className="mb-6 grid grid-cols-2 gap-2 max-md:mx-auto max-md:max-w-sm max-md:grid-cols-1">
+                  <ul className="mb-6 grid max-w-sm grid-cols-1 gap-2 sm:max-w-none sm:grid-cols-2">
                     {featuredProject.details.products.slice(0, 4).map((item) => (
                       <li
                         key={item}
-                        className="flex items-center justify-center gap-2 text-sm text-gray-600 md:justify-start"
+                        className="flex items-center justify-start gap-2 text-sm text-gray-600"
                       >
                         <svg className="w-4 h-4 text-[#134e4a] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path
@@ -89,7 +89,7 @@ export default function Projects() {
                     ))}
                   </ul>
                 )}
-                <div className="flex w-full items-center justify-center gap-2 text-sm font-medium text-[#134e4a] transition-all group-hover:gap-3 md:justify-start">
+                <div className="flex w-full items-center justify-start gap-2 text-sm font-medium text-[#134e4a] transition-all group-hover:gap-3">
                   View project details
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
