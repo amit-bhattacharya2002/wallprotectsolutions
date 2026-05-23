@@ -1,9 +1,10 @@
 "use client";
 
-import { Header, Footer, PageHero } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
 import Link from "next/link";
 import { useState } from "react";
 import { faqCategories } from "@/app/data/faq";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export default function FAQPage() {
   const [openItem, setOpenItem] = useState<string | null>(null);
@@ -33,7 +34,21 @@ export default function FAQPage() {
 
         {/* Category filter + FAQ */}
         <section className="py-20 lg:py-28 bg-white">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="grid lg:grid-cols-[340px_1fr] gap-12 lg:gap-16 items-start">
+              <div className="lg:sticky lg:top-24">
+                <SitePhoto
+                  photo={sitePhotos.pages.faq}
+                  overlay="gradient"
+                  className="mb-6 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
+                />
+                <p className="text-sm leading-relaxed text-gray-500">
+                  Answers grounded in installed healthcare and pharmaceutical work — including CSN Pharma,
+                  Chilliwack UPCC, Breathe Medical Manufacturing, and 101-6470 201 Street.
+                </p>
+              </div>
+
+              <div className="max-w-3xl">
             {/* Category tabs */}
             <div className="flex flex-wrap gap-2 mb-14">
               <button
@@ -91,6 +106,8 @@ export default function FAQPage() {
                   </div>
                 </div>
               ))}
+            </div>
+              </div>
             </div>
           </div>
         </section>

@@ -1,5 +1,6 @@
-import { Header, Footer, PageHero } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Wall Protection Systems | FRP Installations Inc. | Wall Protection Solutions",
@@ -72,15 +73,57 @@ export default function WallProtectionSystemsPage() {
           ]}
         />
 
+        {/* Featured project */}
+        <section className="border-b border-slate-200/80 bg-[#f8fafc] py-12 lg:py-16">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <SitePhoto
+                photo={sitePhotos.systems.wallProtection}
+                overlay="gradient"
+                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
+              />
+              <div>
+                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#134e4a]">
+                  Project reference
+                </span>
+                <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
+                  Full wall protection scope at Chilliwack UPCC
+                </h2>
+                <p className="mb-6 text-base leading-relaxed text-gray-600">
+                  At the Chilliwack Urgent and Primary Care Centre we supplied and installed wall protection
+                  systems, hygienic cladding, and FRP across examination rooms, corridors, and high-traffic
+                  clinical areas — coordinated with Fraser Health requirements and phased construction.
+                </p>
+                <Link
+                  href="/projects/chilliwack-urgent-and-primary-care-center"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#134e4a] transition-all hover:gap-3"
+                >
+                  View project gallery
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Products */}
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-2xl mb-14">
-              <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Manufacturer Partners</span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">Products we supply and install</h2>
-              <p className="text-gray-600 leading-relaxed font-normal">
-                We work with both Construction Specialties and Inpro — which means we can recommend the best fit for your specification, budget, and availability requirements without being locked into a single brand.
-              </p>
+            <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-14">
+              <div className="max-w-2xl">
+                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Manufacturer Partners</span>
+                <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">Products we supply and install</h2>
+                <p className="text-gray-600 leading-relaxed font-normal">
+                  We work with both Construction Specialties and Inpro — which means we can recommend the best fit for your specification, budget, and availability requirements without being locked into a single brand.
+                </p>
+              </div>
+              <SitePhoto
+                photo={sitePhotos.systems.wallProtectionProducts}
+                overlay="gradient"
+                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
+              />
             </div>
             <div className="space-y-10">
               {products.map((product, index) => (
@@ -113,7 +156,7 @@ export default function WallProtectionSystemsPage() {
         {/* Applications */}
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Applications</span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">Where wall protection systems are specified</h2>
@@ -126,20 +169,22 @@ export default function WallProtectionSystemsPage() {
                   ))}
                 </div>
               </div>
-              <div className="bg-[#2a4663] rounded-2xl p-10">
-                <h3 className="text-xl font-semibold text-white mb-4">Acrovyn vs Inpro: Which is right for your project?</h3>
-                <p className="text-white/70 leading-relaxed text-sm mb-4">
-                  Both systems cover the same product categories. C/S Acrovyn has a longer heritage in Canadian healthcare and is widely specified by health authorities. Inpro offers competitive pricing and availability.
-                </p>
-                <p className="text-white/60 leading-relaxed text-sm mb-6">
-                  We work with both and can recommend the best fit based on your specification, budget, and schedule. Where the spec names one product, we can often propose the other as an approved equal.
-                </p>
-                <Link href="/faq#wall-protection-systems" className="inline-flex items-center gap-2 text-[#5eead4] text-sm font-medium hover:gap-3 transition-all">
-                  See the full FAQ on wall protection systems
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
+              <div className="space-y-6">
+                <div className="bg-[#2a4663] rounded-2xl p-10">
+                  <h3 className="text-xl font-semibold text-white mb-4">Acrovyn vs Inpro: Which is right for your project?</h3>
+                  <p className="text-white/70 leading-relaxed text-sm mb-4">
+                    Both systems cover the same product categories. C/S Acrovyn has a longer heritage in Canadian healthcare and is widely specified by health authorities. Inpro offers competitive pricing and availability.
+                  </p>
+                  <p className="text-white/60 leading-relaxed text-sm mb-6">
+                    We work with both and can recommend the best fit based on your specification, budget, and schedule. Where the spec names one product, we can often propose the other as an approved equal.
+                  </p>
+                  <Link href="/faq#wall-protection-systems" className="inline-flex items-center gap-2 text-[#5eead4] text-sm font-medium hover:gap-3 transition-all">
+                    See the full FAQ on wall protection systems
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

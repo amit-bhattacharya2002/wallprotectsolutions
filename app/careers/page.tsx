@@ -1,4 +1,5 @@
-import { Footer, Header, PageHero } from "@/app/components";
+import { Footer, Header, PageHero, SitePhoto } from "@/app/components";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Careers | FRP Installations Inc. | Wall Protection Solutions",
@@ -92,7 +93,9 @@ export default function CareersPage() {
                   ))}
                 </ul>
               </div>
-              <div className="surface-card-muted p-10">
+              <div className="space-y-6">
+                <SitePhoto photo={sitePhotos.careers} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
+                <div className="surface-card-muted p-10">
                 <h3 className="text-xl font-semibold text-[#0f172a] mb-4">Get in touch</h3>
                 <p className="text-slate-600 leading-relaxed mb-6">
                   Send us your resume and a brief note about your background. We respond to every application and are always open to conversations with the right people — whether or not we have an active posting that matches.
@@ -106,6 +109,7 @@ export default function CareersPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>
+                </div>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
-import { PageHero, Footer, Header } from "@/app/components";
+import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import { sitePhotos } from "@/app/data/site-photos";
 
 const frpBenefits = [
   {
@@ -186,13 +187,7 @@ export default function WallProtectionPage() {
                   </div>
                 </div>
                 
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop"
-                    alt="FRP Panel Installation"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <SitePhoto photo={sitePhotos.wallProtection} className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
               </div>
             </div>
           </div>

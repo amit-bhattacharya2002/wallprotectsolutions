@@ -1,6 +1,6 @@
-import { Footer, Header, PageHero } from "@/app/components";
-import Image from "next/image";
+import { Footer, Header, PageHero, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Healthcare Experience | FRP Installations Inc. | Wall Protection Solutions",
@@ -161,15 +161,7 @@ export default function HealthcarePage() {
                 </div>
               </div>
               <div className="surface-card-muted p-8 lg:p-10">
-                <div className="aspect-4/3 overflow-hidden rounded-xl bg-slate-100 mb-8">
-                  <Image
-                    src="/actualphotos/8.jpg"
-                    alt="Completed healthcare clinic interior with wall protection and glazing"
-                    width={900}
-                    height={675}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <SitePhoto photo={sitePhotos.healthcare.featured} rounded="xl" className="mb-8 shadow-[0_16px_40px_-28px_rgba(15,23,42,0.25)]" />
                 <div className="text-xs text-gray-500 uppercase tracking-widest mb-6">Project Details</div>
                 <div className="space-y-5">
                   {[
@@ -193,16 +185,19 @@ export default function HealthcarePage() {
         {/* UPCC Portfolio */}
         <section id="upcc" className="section-shell-lg bg-[#f8fafc] scroll-mt-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-2xl mb-14">
-              <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
-                UPCC Portfolio
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
-                16+ Urgent Primary Care Centres completed across BC
-              </h2>
-              <p className="text-gray-600 leading-relaxed font-normal">
-                The Province of British Columbia&apos;s Urgent and Primary Care Centre program has been one of our most significant areas of healthcare work. We have completed interior protection scopes for 16+ UPCC facilities across the province, working with multiple general contractors.
-              </p>
+            <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-14">
+              <div className="max-w-2xl">
+                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
+                  UPCC Portfolio
+                </span>
+                <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
+                  16+ Urgent Primary Care Centres completed across BC
+                </h2>
+                <p className="text-gray-600 leading-relaxed font-normal">
+                  The Province of British Columbia&apos;s Urgent and Primary Care Centre program has been one of our most significant areas of healthcare work. We have completed interior protection scopes for 16+ UPCC facilities across the province, working with multiple general contractors.
+                </p>
+              </div>
+              <SitePhoto photo={sitePhotos.healthcare.upcc} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.3)]" />
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {upccClinics.map((clinic) => (
@@ -221,9 +216,9 @@ export default function HealthcarePage() {
         {/* Hospital Experience */}
         <section id="hospitals" className="section-shell-lg section-shell-dark bg-[#2a4663] scroll-mt-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span className="text-sm font-medium text-[#0d9488] tracking-wider uppercase mb-4 block">
+                <span className="text-sm font-medium text-[#5eead4] tracking-wider uppercase mb-4 block">
                   Hospital Experience
                 </span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
@@ -242,13 +237,16 @@ export default function HealthcarePage() {
                   </svg>
                 </Link>
               </div>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {hospitals.map((hospital) => (
-                  <div key={hospital} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#5eead4] flex-shrink-0" />
-                    <span className="text-white/80 text-sm">{hospital}</span>
-                  </div>
-                ))}
+              <div className="space-y-6">
+                <SitePhoto photo={sitePhotos.healthcare.hospital} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.45)]" />
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {hospitals.map((hospital) => (
+                    <div key={hospital} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#5eead4] flex-shrink-0" />
+                      <span className="text-white/80 text-sm">{hospital}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -316,7 +314,9 @@ export default function HealthcarePage() {
                   ))}
                 </ul>
               </div>
-              <div className="surface-card-muted p-10 lg:p-12">
+              <div className="space-y-6">
+                <SitePhoto photo={sitePhotos.healthcare.trust} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.25)]" />
+                <div className="surface-card-muted p-10 lg:p-12">
                 <div className="text-slate-400 text-xs uppercase tracking-widest mb-6">Pre-Construction Support</div>
                 <h3 className="text-2xl font-semibold text-[#0f172a] mb-4">
                   Involved early. Engaged throughout.
@@ -336,6 +336,7 @@ export default function HealthcarePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
+                </div>
               </div>
             </div>
           </div>

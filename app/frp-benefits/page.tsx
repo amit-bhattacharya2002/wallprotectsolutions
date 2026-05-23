@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Header, Footer, PageHero, BenefitIcon } from "@/app/components";
+import { Header, Footer, PageHero, BenefitIcon, SitePhoto } from "@/app/components";
 import { frpBenefits } from "@/app/data/frp-benefits";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Why FRP? Benefits of FRP Panels | FRP Installations",
@@ -31,6 +32,31 @@ export default function FRPBenefitsPage() {
           quickLinks={heroQuickLinks}
           quickLinksTitle="Jump to a benefit"
         />
+
+        <section className="border-b border-slate-200/80 bg-[#f8fafc] py-12 lg:py-16">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <SitePhoto
+                photo={sitePhotos.pages.frpBenefits}
+                overlay="gradient"
+                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
+              />
+              <div>
+                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#134e4a]">
+                  Real installations
+                </span>
+                <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
+                  Benefits you can see in the field
+                </h2>
+                <p className="text-base leading-relaxed text-gray-600">
+                  FRP panels deliver durability, hygiene, and long-term value in demanding environments —
+                  from medical manufacturing at Breathe Medical to pharmaceutical facilities like CSN Pharma
+                  and healthcare corridors at Chilliwack UPCC.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -113,7 +139,13 @@ export default function FRPBenefitsPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-6">
+                <SitePhoto
+                  photo={sitePhotos.pages.frpBenefitsCta}
+                  overlay="gradient"
+                  className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.35)]"
+                />
+                <div className="grid grid-cols-2 gap-4">
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
@@ -125,6 +157,7 @@ export default function FRPBenefitsPage() {
                     <div className="text-sm text-white/70">{stat.label}</div>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
-import { PageHero, Footer, Header } from "@/app/components";
+import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import { sitePhotos } from "@/app/data/site-photos";
 
 const manufacturers = [
   {
@@ -163,7 +164,9 @@ export default function FRPSalesPage() {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div>
+                <SitePhoto photo={sitePhotos.services.sales} overlay="gradient" className="mb-6 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
+                <div className="grid grid-cols-2 gap-4">
                 {features.map((feature) => (
                   <div key={feature.title} className="p-6 border border-gray-200 rounded-xl hover:border-[#f97316] transition-colors">
                     <div className="w-12 h-12 bg-[#f8fafc] rounded-lg flex items-center justify-center text-[#0f172a] mb-4">
@@ -173,6 +176,7 @@ export default function FRPSalesPage() {
                     <p className="text-gray-600 text-sm font-normal leading-relaxed">{feature.description}</p>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           </div>

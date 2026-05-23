@@ -1,5 +1,6 @@
-import { PageHero, Footer, Header } from "@/app/components";
+import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "About FRP Installations Inc. | Wall Protection Solutions",
@@ -100,13 +101,11 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="aspect-4/3 bg-[#2a4663] rounded-2xl overflow-hidden">
-                  <img
-                    src="/actualphotos/7.jpg"
-                    alt="Finished healthcare facility interior with wall protection systems"
-                    className="w-full h-full object-cover opacity-80"
-                  />
-                </div>
+                <SitePhoto
+                  photo={sitePhotos.about.story}
+                  overlay="gradient"
+                  className="shadow-[0_24px_60px_-34px_rgba(15,23,42,0.45)]"
+                />
                 <div className="absolute -bottom-6 -left-6 bg-[#134e4a] text-white p-6 rounded-xl">
                   <div className="text-4xl font-bold">20+</div>
                   <div className="text-white/80 text-sm mt-1">Years Commercial Construction</div>
@@ -195,7 +194,13 @@ export default function AboutPage() {
                   ))}
                 </ul>
               </div>
-              <div className="bg-[#2a4663] rounded-2xl p-10 lg:p-12">
+              <div>
+                <SitePhoto
+                  photo={sitePhotos.about.philosophy}
+                  overlay="gradient"
+                  className="mb-8 shadow-[0_24px_60px_-34px_rgba(15,23,42,0.35)]"
+                />
+                <div className="bg-[#2a4663] rounded-2xl p-10 lg:p-12">
                 <p className="text-white/40 text-xs uppercase tracking-widest mb-4">Manufacturer Partners</p>
                 <p className="text-white/80 leading-relaxed mb-6">
                   Over the years we have developed particularly strong relationships with manufacturers such as Construction Specialties and Altro, whose products are widely used in healthcare and institutional environments.
@@ -213,6 +218,7 @@ export default function AboutPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
+                </div>
                 </div>
               </div>
             </div>

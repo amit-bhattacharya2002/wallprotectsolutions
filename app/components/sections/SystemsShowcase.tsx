@@ -3,63 +3,17 @@
 /* eslint-disable @next/next/no-img-element -- parallax requires plain img per spec */
 
 import Link from "next/link";
-import { useLayoutEffect, useRef, useState, type RefObject } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type RefObject } from "react";
 import type { MotionValue } from "framer-motion";
 import { motion, useMotionTemplate, useScroll, useSpring, useTransform } from "framer-motion";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { usePrefersReducedMotion } from "../../../hooks/usePrefersReducedMotion";
 import SystemsShowcaseMobile from "./SystemsShowcase.mobile";
+import SystemsShowcaseGrid from "./SystemsShowcase.grid";
+import { SYSTEMS, type ShowcaseSystem } from "./SystemsShowcase.data";
 
-export interface ShowcaseSystem {
-  id: string;
-  number: string;
-  name: string;
-  manufacturer: string;
-  description: string;
-  href: string;
-  imageSrc: string;
-  imageAlt: string;
-  pinPosition: { x: number; y: number };
-}
-
-const SYSTEMS: ShowcaseSystem[] = [
-  {
-    id: "wall-protection",
-    number: "01",
-    name: "Wall Protection Systems",
-    manufacturer: "Construction Specialties · Inpro · Ricochet",
-    description:
-      "Supply and installation of Acrovyn wall protection sheets, crash rails, corner guards, wall guards, handrails, and door and frame protection. BC distributor for Construction Specialties; full access to Inpro and Ricochet product lines.",
-    href: "/systems/wall-protection",
-    imageSrc: "/images/showcase/wall-protection.jpg",
-    imageAlt: "Healthcare corridor with Acrovyn wall protection wainscot",
-    pinPosition: { x: 72, y: 55 },
-  },
-  {
-    id: "hygienic-wall-cladding",
-    number: "02",
-    name: "Hygienic Wall Cladding",
-    manufacturer: "Altro Whiterock · Puraguard · True North · AM-Clad",
-    description:
-      "Altro-trained and approved installer for Whiterock seamless welded systems and Puraguard. Also supply and install True North and AM-Clad hygienic wall systems — helping specify the right system for the infection-control requirement and budget.",
-    href: "/systems/hygienic-wall-cladding",
-    imageSrc: "/images/showcase/hygienic-cladding.jpg",
-    imageAlt: "Food processing facility with seamless hygienic wall cladding",
-    pinPosition: { x: 65, y: 25 },
-  },
-  {
-    id: "frp-wall-systems",
-    number: "03",
-    name: "FRP & FRL Wall Systems",
-    manufacturer: "Valto · Stabilit/Graham · Marlite · Panolam",
-    description:
-      "Traditional and decorative FRP wall panels from Valto (Glasbord, Varietex), Stabilit/Graham (Exceliner, Glasliner), and Marlite. Panolam FRL distributor relationship for 400+ colour decorative wall panel options in healthcare and institutional interiors.",
-    href: "/systems/frp-wall-systems",
-    imageSrc: "/images/showcase/frp-systems.jpg",
-    imageAlt: "Healthcare facility with decorative wood-grain FRP wall panels",
-    pinPosition: { x: 75, y: 55 },
-  },
-];
+type ShowcaseViewMode = "interactive" | "grid";
+const VIEW_STORAGE_KEY = "systems-showcase-view";
 
 const N = SYSTEMS.length;
 /** Wider overlap between slides = softer crossfade when scrubbing or flick-scrolling */
@@ -390,10 +344,103 @@ function SystemsShowcaseDesktop() {
 
 export default function SystemsShowcase() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const [view, setView] = useState<ShowcaseViewMode>("interactive");
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem(VIEW_STORAGE_KEY);
+    if (stored === "interactive" || stored === "grid" || stored === "list") {
+      setView(stored === "list" ? "grid" : stored);
+      return;
+    }
+    if (prefersReducedMotion) {
+      setView("grid");
+    }
+  }, [prefersReducedMotion]);
+
+  const handleViewChange = (nextView: ShowcaseViewMode) => {
+    setView(nextView);
+    window.localStorage.setItem(VIEW_STORAGE_KEY, nextView);
+  };
+
+  const showInteractive = isDesktop && view === "interactive";
+  const showDesktopGrid = isDesktop && view === "grid";
 
   return (
     <div className="m-0 py-0" role="region" aria-label="Three systems, one unified installation">
-      {isDesktop ? <SystemsShowcaseDesktop /> : <SystemsShowcaseMobile />}
+      {isDesktop && (
+        <div className="mx-auto mb-5 flex max-w-7xl justify-end px-6 lg:mb-6 lg:px-8">
+          <SystemsShowcaseViewToggle view={view} onChange={handleViewChange} />
+        </div>
+      )}
+
+      {showInteractive ? (
+        <SystemsShowcaseDesktop />
+      ) : showDesktopGrid ? (
+        <SystemsShowcaseGrid />
+      ) : (
+        <SystemsShowcaseMobile />
+      )}
+    </div>
+  );
+}
+
+function SystemsShowcaseViewToggle({
+  view,
+  onChange,
+}: {
+  view: ShowcaseViewMode;
+  onChange: (view: ShowcaseViewMode) => void;
+}) {
+  return (
+    <div
+      className="inline-flex rounded-full border border-gray-200 bg-[#f8fafc] p-1"
+      role="group"
+      aria-label="Systems showcase view mode"
+    >
+      <button
+        type="button"
+        onClick={() => onChange("interactive")}
+        aria-pressed={view === "interactive"}
+        aria-label="Interactive scroll view"
+        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+          view === "interactive"
+            ? "bg-white text-[#0f172a] shadow-sm"
+            : "text-gray-500 hover:text-[#0f172a]"
+        }`}
+      >
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+          />
+        </svg>
+        Interactive
+      </button>
+      <button
+        type="button"
+        onClick={() => onChange("grid")}
+        aria-pressed={view === "grid"}
+        aria-label="Grid overview"
+        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+          view === "grid"
+            ? "bg-white text-[#0f172a] shadow-sm"
+            : "text-gray-500 hover:text-[#0f172a]"
+        }`}
+      >
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+        </svg>
+        Grid
+      </button>
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import { Header, Footer, PageHero } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Stainless Protection | FRP Installations Inc. | Wall Protection Solutions",
@@ -45,6 +46,7 @@ export default function StainlessProtectionPage() {
                 </div>
               </div>
               <div>
+                <SitePhoto photo={sitePhotos.systems.stainless} overlay="gradient" className="mb-8 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Applications</span>
                 <h2 className="text-3xl font-semibold text-[#0f172a] tracking-tight mb-6">When stainless is the right choice</h2>
                 <div className="space-y-3">

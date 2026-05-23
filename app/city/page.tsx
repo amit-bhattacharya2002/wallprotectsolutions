@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Header, Footer, PageHero } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
 import { cities, getCitiesByRegion } from "@/app/data/cities";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Service Areas | FRP Installations | British Columbia",
@@ -29,6 +30,31 @@ export default function ServiceAreasPage() {
           fullHeight={false}
         />
 
+        <section className="border-b border-slate-200/80 bg-white py-12 lg:py-16">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <SitePhoto
+                photo={sitePhotos.pages.city}
+                overlay="gradient"
+                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
+              />
+              <div>
+                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#134e4a]">
+                  BC-wide coverage
+                </span>
+                <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
+                  Local crews, province-wide reach
+                </h2>
+                <p className="text-base leading-relaxed text-gray-600">
+                  From Fraser Valley healthcare projects like Chilliwack UPCC to commercial builds in Langley
+                  and pharmaceutical facilities across Metro Vancouver — we deliver wall protection and hygienic
+                  cladding wherever your project is located in British Columbia.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Stats */}
         <section className="section-shell bg-[#f8fafc] border-b border-slate-200/70">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -56,6 +82,23 @@ export default function ServiceAreasPage() {
         {/* Cities by Region */}
         <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-16">
+              <div className="max-w-2xl">
+                <span className="eyebrow">Find your city</span>
+                <h2 className="section-title mb-5">
+                  Service areas across British Columbia
+                </h2>
+                <p className="section-lead">
+                  Select your city for local project information, or contact us if your location
+                  is not listed — we serve the entire province.
+                </p>
+              </div>
+              <SitePhoto
+                photo={sitePhotos.pages.citySecondary}
+                overlay="gradient"
+                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
+              />
+            </div>
             <div className="space-y-16">
               {regions.map((region) => (
                 <div key={region}>
