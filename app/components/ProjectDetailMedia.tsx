@@ -69,16 +69,15 @@ export default function ProjectDetailMedia({
             </p>
           </div>
 
-          <div className="-mx-6 sm:mx-0">
-            <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-              {visible.map((image, index) => (
-                <button
-                  key={`${image.src}-${index}`}
-                  type="button"
-                  onClick={() => openLightbox(index)}
-                  className="group relative aspect-[4/3] w-full overflow-hidden rounded-none bg-gray-100 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0d9488] focus-visible:ring-offset-2 sm:rounded-xl"
-                  aria-label={`Open photo ${index + 1} in gallery viewer`}
-                >
+          <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:grid-cols-3">
+            {visible.map((image, index) => (
+              <button
+                key={`${image.src}-${index}`}
+                type="button"
+                onClick={() => openLightbox(index)}
+                className="group relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-100 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0d9488] focus-visible:ring-offset-2 sm:rounded-xl"
+                aria-label={`Open photo ${index + 1} in gallery viewer`}
+              >
                 <ProjectImage
                   src={image.src}
                   alt={image.alt}
@@ -91,7 +90,6 @@ export default function ProjectDetailMedia({
                 </span>
               </button>
             ))}
-            </div>
           </div>
 
           {hasMore && (
