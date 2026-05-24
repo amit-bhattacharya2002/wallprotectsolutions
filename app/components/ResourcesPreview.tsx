@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import PopularQuestionsAccordion from "@/app/components/PopularQuestionsAccordion";
 import { faqCategories } from "@/app/data/faq";
 import { resourceArticles } from "@/app/data/resources";
 
@@ -8,6 +9,7 @@ const featuredFaqs = faqCategories.flatMap((category) =>
   category.items.slice(0, 1).map((item) => ({
     category: category.title,
     question: item.question,
+    answer: item.answer,
   })),
 ).slice(0, 4);
 
@@ -88,21 +90,7 @@ export default function ResourcesPreview() {
               </Link>
             </div>
 
-            <div className="space-y-3">
-              {featuredFaqs.map((item) => (
-                <div
-                  key={item.question}
-                  className="rounded-lg border border-slate-200 bg-white px-5 py-5"
-                >
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#134e4a] mb-2">
-                    {item.category}
-                  </div>
-                  <p className="text-base text-[#0f172a] font-medium leading-relaxed">
-                    {item.question}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <PopularQuestionsAccordion items={featuredFaqs} />
 
             <div className="mt-6 flex justify-center lg:hidden">
               <Link
