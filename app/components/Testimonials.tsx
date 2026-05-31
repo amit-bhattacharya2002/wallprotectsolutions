@@ -116,7 +116,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid min-h-0 flex-1 grid-cols-1 gap-10 pb-2 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center lg:gap-16">
+        <div className="grid min-h-0 flex-1 grid-cols-1 gap-10 pb-2 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16">
           <div className="reveal flex flex-col justify-center gap-8 lg:min-h-[min(52vh,28rem)]">
             <div className="hidden border-y border-white/10 py-6 md:block">
               <div className="mb-5 flex shrink-0 gap-0.5" aria-hidden="true">
@@ -232,10 +232,15 @@ export default function Testimonials() {
                     aria-selected={index === activeIndex}
                     aria-controls="testimonial-quote"
                     onClick={() => setActiveIndex(index)}
-                    className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663] ${
-                      index === activeIndex ? "bg-[#5eead4] w-8" : "bg-white/30 hover:bg-white/50 w-2"
-                    }`}
-                  />
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663]"
+                  >
+                    <span
+                      aria-hidden
+                      className={`block rounded-full transition-all duration-300 ${
+                        index === activeIndex ? "h-2 w-8 bg-[#5eead4]" : "h-2 w-2 bg-white/30 hover:bg-white/50"
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
               <div className="flex gap-2">
@@ -243,7 +248,7 @@ export default function Testimonials() {
                   type="button"
                   onClick={goPrev}
                   aria-label="Previous testimonial"
-                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663]"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/80 transition-all hover:border-white/40 hover:bg-white/5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663]"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
@@ -253,7 +258,7 @@ export default function Testimonials() {
                   type="button"
                   onClick={goNext}
                   aria-label="Next testimonial"
-                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663]"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/80 transition-all hover:border-white/40 hover:bg-white/5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5eead4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a4663]"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />

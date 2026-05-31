@@ -44,7 +44,7 @@ export default function Services() {
                 alt={sitePhotos.alsoSupplyInstall.alt}
                 fill
                 sizes="(min-width: 768px) 280px, 100vw"
-                loading="lazy"
+                loading="eager"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-[#0B1D3A]/55 via-transparent to-transparent md:bg-linear-to-r md:from-transparent md:via-transparent md:to-white/10" />

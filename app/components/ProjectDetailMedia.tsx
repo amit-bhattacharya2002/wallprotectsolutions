@@ -12,6 +12,7 @@ interface ProjectDetailMediaProps {
   coverImage: string;
   coverAlt: string;
   images: ProjectGalleryImage[];
+  hasMedia: boolean;
   children: ReactNode;
 }
 
@@ -25,6 +26,7 @@ export default function ProjectDetailMedia({
   coverImage,
   coverAlt,
   images,
+  hasMedia,
   children,
 }: ProjectDetailMediaProps) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -39,24 +41,32 @@ export default function ProjectDetailMedia({
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => openLightbox(findCoverIndex(images, coverImage))}
-        className="group relative -mx-6 mb-10 block aspect-[16/10] w-[calc(100%+3rem)] overflow-hidden rounded-none bg-gray-100 text-left shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0d9488] focus-visible:ring-offset-2 sm:mx-0 sm:w-full sm:rounded-2xl"
-        aria-label="Open main project photo in gallery viewer"
-      >
-        <ProjectImage
-          src={coverImage}
-          alt={coverAlt}
-          variant="hero"
-          priority
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-        />
-        <span className="absolute inset-0 bg-[#0f172a]/0 transition-colors group-hover:bg-[#0f172a]/10" />
-        <span className="absolute bottom-4 right-4 rounded-full bg-black/55 px-3 py-1.5 text-xs font-medium text-white opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
-          View gallery
-        </span>
-      </button>
+      {hasMedia ? (
+        <button
+          type="button"
+          onClick={() => openLightbox(findCoverIndex(images, coverImage))}
+          className="group relative -mx-6 mb-10 block aspect-[16/10] w-[calc(100%+3rem)] overflow-hidden rounded-none bg-gray-100 text-left shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0d9488] focus-visible:ring-offset-2 sm:mx-0 sm:w-full sm:rounded-2xl"
+          aria-label="Open main project photo in gallery viewer"
+        >
+          <ProjectImage
+            src={coverImage}
+            alt={coverAlt}
+            variant="hero"
+            priority
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+          <span className="absolute inset-0 bg-[#0f172a]/0 transition-colors group-hover:bg-[#0f172a]/10" />
+          <span className="absolute bottom-4 right-4 rounded-full bg-black/55 px-3 py-1.5 text-xs font-medium text-white opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
+            View gallery
+          </span>
+        </button>
+      ) : (
+        <div className="-mx-6 mb-10 flex aspect-[16/10] w-[calc(100%+3rem)] items-center justify-center rounded-none bg-[#f1f5f9] sm:mx-0 sm:w-full sm:rounded-2xl">
+          <p className="px-6 text-center text-sm font-medium uppercase tracking-[0.16em] text-slate-400">
+            Project photos coming soon
+          </p>
+        </div>
+      )}
 
       {children}
 

@@ -1,6 +1,8 @@
-import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
-import Link from "next/link";
+import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemProjects } from "@/app/data/system-projects";
+
+const architecturalProjects = systemProjects["architectural-specialties"];
 
 export const metadata = {
   title: "Architectural Specialties / Division 10 | FRP Installations Inc. | Wall Protection Solutions",
@@ -34,7 +36,7 @@ export default function ArchitecturalSpecialtiesPage() {
 
         <section className="border-b border-slate-200/80 bg-[#f8fafc] py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
               <SitePhoto
                 photo={sitePhotos.systems.architectural}
                 overlay="gradient"
@@ -52,15 +54,10 @@ export default function ArchitecturalSpecialtiesPage() {
                   specialties — door and frame protection, cubicle tracks, expansion joints — are supplied and installed
                   alongside wall protection and hygienic cladding as one coordinated subcontract.
                 </p>
-                <Link
-                  href="/projects/chilliwack-urgent-and-primary-care-center"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#134e4a] transition-all hover:gap-3"
-                >
-                  View Chilliwack UPCC project
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
+                <SystemProjectsList
+                  systemName={architecturalProjects.name}
+                  projectSlugs={architecturalProjects.slugs}
+                />
               </div>
             </div>
           </div>

@@ -1,5 +1,8 @@
-import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemProjects } from "@/app/data/system-projects";
+
+const hygienicProjects = systemProjects["hygienic-wall-cladding"];
 
 export const metadata = {
   title: "Hygienic Wall Cladding | FRP Installations Inc. | Wall Protection Solutions",
@@ -90,7 +93,7 @@ export default function HygienicWallCladdingPage() {
             </div>
             <div className="space-y-12">
               {systems.map((system, index) => (
-                <div key={system.name} className={`grid lg:grid-cols-2 gap-10 ${index > 0 ? "pt-12 border-t border-gray-200" : ""}`}>
+                <div key={system.name} className={`grid lg:grid-cols-2 gap-10 items-start ${index > 0 ? "pt-12 border-t border-gray-200" : ""}`}>
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <h3 className="text-2xl font-semibold text-[#0f172a]">{system.name}</h3>
@@ -120,6 +123,11 @@ export default function HygienicWallCladdingPage() {
                 </div>
               ))}
             </div>
+            <SystemProjectsList
+              systemName={hygienicProjects.name}
+              projectSlugs={hygienicProjects.slugs}
+              className="mt-12"
+            />
           </div>
         </section>
 

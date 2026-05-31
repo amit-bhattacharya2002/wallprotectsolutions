@@ -46,7 +46,8 @@ export default function Footer() {
           any viewport. Replace the Unsplash URL with real project photography
           before launch. */}
       <div
-        className="relative isolate border-b border-white/10 grain-overlay"
+        id="footer-quote"
+        className="relative isolate scroll-mt-28 border-b border-white/10 grain-overlay lg:scroll-mt-24"
         style={{
           backgroundImage:
             "linear-gradient(rgba(12,24,48,0.85), rgba(12,24,48,0.85)), url(https://images.unsplash.com/photo-1711873316332-acb6930211e1?auto=format&fit=crop&w=2400&q=80)",
@@ -55,7 +56,7 @@ export default function Footer() {
         }}
         data-placeholder="true"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 pb-24 lg:py-20 lg:pb-20">
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-14 h-0.5 bg-[#5eead4] mx-auto mb-8" />
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-5">
@@ -196,22 +197,22 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 pb-12 md:pb-0">
+      <div className="border-t border-white/10 pb-[max(3rem,env(safe-area-inset-bottom))] md:pb-0">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-white/68 text-xs md:text-sm">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-center text-xs text-white/68 md:text-left md:text-sm">
               © {currentYear} FRP Installations Inc. | Wall Protection Solutions. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
-              <Link href="/quote" className="text-white/68 hover:text-white text-xs md:text-sm transition-colors">
+            <div className="flex max-w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 md:justify-end">
+              <Link href="/quote" className="text-xs text-white/68 transition-colors hover:text-white md:text-sm">
                 Get a Quote
               </Link>
-              <span className="text-white/20">|</span>
-              <Link href="/healthcare" className="text-white/68 hover:text-white text-xs md:text-sm transition-colors">
+              <span className="hidden text-white/20 sm:inline" aria-hidden="true">|</span>
+              <Link href="/healthcare" className="text-xs text-white/68 transition-colors hover:text-white md:text-sm">
                 Healthcare Experience
               </Link>
-              <span className="text-white/20">|</span>
-              <Link href="/contact" className="text-white/68 hover:text-white text-xs md:text-sm transition-colors">
+              <span className="hidden text-white/20 sm:inline" aria-hidden="true">|</span>
+              <Link href="/contact" className="text-xs text-white/68 transition-colors hover:text-white md:text-sm">
                 Contact
               </Link>
             </div>

@@ -83,10 +83,10 @@ export default function Contact() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 lg:items-stretch">
           {/* Left Column — white panel with heading, intro + contact details */}
-          <div className="reveal">
-            <div className="mx-auto max-w-xl rounded-2xl border border-slate-200/90 bg-white px-6 py-10 shadow-[0_22px_55px_-32px_rgba(15,23,42,0.35)] ring-1 ring-white/90 sm:px-8 lg:mx-0 lg:max-w-none">
+          <div className="reveal flex h-full min-h-0 flex-col">
+            <div className="mx-auto flex h-full min-h-0 max-w-xl flex-1 flex-col rounded-2xl border border-slate-200/90 bg-white px-6 py-10 shadow-[0_22px_55px_-32px_rgba(15,23,42,0.35)] ring-1 ring-white/90 sm:px-8 lg:mx-0 lg:max-w-none">
               <div className="mb-8 border-b border-slate-100 pb-8 text-left">
                 <span className="eyebrow">Contact Us</span>
                 <h2 className="section-title mt-3 mb-0 text-balance text-[#0f172a]">
@@ -143,36 +143,26 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-3 border-t border-slate-100 pt-8">
-                <div className="pill-tag">
-                  <svg className="h-4 w-4 shrink-0 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-medium text-[#0f172a]">Free Site Visits</span>
-                </div>
-                <div className="pill-tag">
-                  <svg className="h-4 w-4 shrink-0 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-medium text-[#0f172a]">24hr Response</span>
-                </div>
-                <div className="pill-tag">
-                  <svg className="h-4 w-4 shrink-0 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-medium text-[#0f172a]">No Obligation</span>
-                </div>
-              </div>
+              <ul className="mt-auto flex flex-wrap gap-x-6 gap-y-3 border-t border-slate-100 pt-8">
+                {["Free Site Visits", "24hr Response", "No Obligation"].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm">
+                    <svg className="h-4 w-4 shrink-0 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-medium text-[#0f172a]">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
           {/* Right Column - Form */}
-          <div className="surface-card-muted p-8 lg:p-10">
+          <div className="surface-card-muted flex h-full min-h-0 flex-col p-8 shadow-[0_22px_55px_-32px_rgba(15,23,42,0.35)] lg:p-10">
             <h3 className="eyebrow mb-2">Send us a message</h3>
-            <p className="mb-6 text-left  text-2xl leading-relaxed text-gray-600">
+            <p className="mb-6 text-left text-2xl leading-relaxed text-gray-600">
               Our team will reach out to you shortly — usually within one business day.
             </p>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="flex flex-1 flex-col gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm text-gray-600 mb-2">
                   Name *
@@ -220,7 +210,7 @@ export default function Contact() {
                 />
               </div>
 
-              <div>
+              <div className="flex min-h-[7rem] flex-1 flex-col">
                 <label htmlFor="message" className="block text-sm text-gray-600 mb-2">
                   Message *
                 </label>
@@ -228,10 +218,10 @@ export default function Contact() {
                   id="message"
                   name="message"
                   required
-                  rows={4}
+                  rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="field-input resize-none"
+                  className="field-input min-h-[7rem] flex-1 resize-none"
                   placeholder="Tell us about your project"
                 />
               </div>

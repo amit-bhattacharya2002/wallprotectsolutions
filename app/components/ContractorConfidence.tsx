@@ -51,17 +51,17 @@ export default function ContractorConfidence() {
         </div>
 
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-start">
-          <div className="reveal">
+          <div className="reveal sticky-side">
             <div className="mb-8 border-y border-white/10">
               {workflow.map((item, index) => (
                 <div
                   key={item}
-                  className="flex flex-col items-center gap-2 border-b border-white/10 py-4 text-center last:border-b-0 md:flex-row md:items-start md:gap-4 md:text-left"
+                  className="flex items-start gap-3 border-b border-white/10 py-4 text-left last:border-b-0"
                 >
-                  <span className="shrink-0 text-xs font-semibold tracking-[0.16em] text-[#5eead4] tabular-nums md:mt-0.5">
+                  <span className="mt-0.5 w-7 shrink-0 text-xs font-semibold tracking-[0.16em] text-[#5eead4] tabular-nums">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-sm leading-relaxed text-white/76">
+                  <p className="min-w-0 text-sm leading-relaxed text-white/76">
                     {item}
                   </p>
                 </div>

@@ -75,7 +75,7 @@ export default function CareersPage() {
         {/* Why work here */}
         <section className="section-shell-lg bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Why Join Us</span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">Serious work. Long-term growth.</h2>
@@ -93,7 +93,7 @@ export default function CareersPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-6">
+              <div className="space-y-6 sticky-side">
                 <SitePhoto photo={sitePhotos.careers} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
                 <div className="surface-card-muted p-10">
                 <h3 className="text-xl font-semibold text-[#0f172a] mb-4">Get in touch</h3>

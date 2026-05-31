@@ -45,6 +45,8 @@ interface PageHeroProps {
   quickLinksTitle?: string;
   supportingContent?: ReactNode;
   subtitleClassName?: string;
+  /** Tighter bottom padding for long hero titles on system pages. */
+  compact?: boolean;
   /**
    * @deprecated The breadcrumb is now rendered by `<PageBreadcrumb>` in
    * `app/layout.tsx`. This prop is accepted for back-compat but ignored.
@@ -74,10 +76,15 @@ export default function PageHero({
   quickLinksTitle,
   supportingContent,
   subtitleClassName,
+  compact = false,
 }: PageHeroProps) {
   const hasEyebrowRow = Boolean(eyebrow || badge);
+  const paddingClass = compact
+    ? "pt-14 pb-10 md:pt-18 md:pb-12 lg:pt-22 lg:pb-16"
+    : "pt-14 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-28";
+
   return (
-    <section className="relative overflow-hidden bg-[#0f212a] pt-14 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-28">
+    <section className={`relative overflow-hidden bg-[#0f212a] ${paddingClass}`}>
       <div className="absolute inset-0 bg-linear-to-br from-[#2a4663] via-[#3a597b] to-[#2a4663]" />
       <div
         className="absolute inset-0 opacity-[0.035]"
@@ -133,13 +140,13 @@ export default function PageHero({
               </div>
             )}
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-6 max-w-3xl">
+            <h1 className="mb-6 max-w-4xl text-4xl font-semibold tracking-tight text-white text-balance md:text-5xl lg:text-6xl">
               {title}
             </h1>
 
             {subtitle && (
               <p
-                className={`max-w-3xl font-normal leading-relaxed text-white/78 ${
+                className={`max-w-3xl text-pretty font-normal leading-relaxed text-white/78 ${
                   subtitleClassName ?? "text-lg"
                 }`}
               >
@@ -169,7 +176,7 @@ export default function PageHero({
 
           {quickLinks && (
             <div className="hidden lg:block text-left">
-              <p className="text-xs font-medium text-white/45 uppercase tracking-[0.14em] mb-3">
+              <p className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-white/70">
                 {quickLinksTitle ?? "Quick links"}
               </p>
               <div className="space-y-0.5">
@@ -178,7 +185,7 @@ export default function PageHero({
                     <a
                       key={`${link.label}-${link.href}`}
                       href={link.href}
-                      className="group flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/65 hover:text-white hover:bg-white/5 transition-all"
+                      className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-100 transition-all hover:bg-white/8 hover:text-[#5eead4] hover:underline hover:underline-offset-4"
                     >
                       {link.label}
                       <svg
@@ -200,7 +207,7 @@ export default function PageHero({
                     <Link
                       key={`${link.label}-${link.href}`}
                       href={link.href}
-                      className="group flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-white/65 hover:text-white hover:bg-white/5 transition-all"
+                      className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-100 transition-all hover:bg-white/8 hover:text-[#5eead4] hover:underline hover:underline-offset-4"
                     >
                       {link.label}
                       <svg

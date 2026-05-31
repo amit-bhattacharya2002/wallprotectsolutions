@@ -40,10 +40,12 @@ export default function ManufacturersPage() {
         />
 
         {/* Philosophy strip */}
-        <section className="py-8 bg-linear-to-r from-[#134e4a] via-[#0f3a36] to-[#134e4a]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <p className="text-white text-center font-medium text-sm">
-              Over the years we have developed particularly strong relationships with Construction Specialties and Altro — whose products are widely used in healthcare and institutional environments. We remain product-neutral and application-focused.
+        <section className="bg-linear-to-r from-[#134e4a] via-[#0f3a36] to-[#134e4a] py-12 lg:py-16">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <p className="mx-auto max-w-4xl text-center text-lg font-semibold leading-relaxed tracking-tight text-white md:text-xl lg:text-[1.375rem] lg:leading-snug">
+              Over the years we have developed particularly strong relationships with{" "}
+              <span className="text-[#99f6e4]">Construction Specialties</span> and{" "}
+              <span className="text-[#99f6e4]">Altro</span> — whose products are widely used in healthcare and institutional environments. We remain product-neutral and application-focused.
             </p>
           </div>
         </section>
@@ -51,9 +53,9 @@ export default function ManufacturersPage() {
         {/* Featured project */}
         <section className="py-12 lg:py-16 bg-[#f8fafc] border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
               <SitePhoto photo={sitePhotos.manufacturers} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
-              <div>
+              <div className="sticky-side">
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Real project work</span>
                 <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight mb-4">
                   Manufacturer depth on live healthcare projects

@@ -165,7 +165,7 @@ export default function WallProtectionPage() {
                 </div>
               </div>
               
-              <div>
+              <div className="sticky-side">
                 <div className="bg-[#f8fafc] rounded-2xl p-8 mb-8">
                   <h3 className="text-lg font-semibold text-[#0f172a] mb-6">FRP Manufacturers</h3>
                   <div className="space-y-4">
@@ -300,7 +300,7 @@ export default function WallProtectionPage() {
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="bg-[#2a4663] rounded-3xl p-10 lg:p-16">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-12 items-start">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
                     Not sure which product is right for you?
@@ -325,7 +325,7 @@ export default function WallProtectionPage() {
                     </Link>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 sticky-side">
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
                     <div className="text-4xl font-bold text-white mb-2">5+</div>
                     <div className="text-white/80 text-sm">FRP Manufacturers</div>

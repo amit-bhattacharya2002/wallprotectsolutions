@@ -21,7 +21,7 @@ export default function ManufacturerLogoStrip({
         <div
           key={item.name}
           role="listitem"
-          className="text-sm font-medium uppercase tracking-[0.14em] text-slate-400 transition-colors hover:text-slate-600 md:text-[0.95rem]"
+          className="text-sm font-medium uppercase tracking-[0.14em] text-slate-600 transition-colors hover:text-slate-800 md:text-[0.95rem]"
         >
           {item.name}
         </div>

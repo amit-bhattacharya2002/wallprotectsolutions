@@ -134,8 +134,8 @@ export default function HealthcarePage() {
         {/* Featured Project */}
         <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <div className="sticky-side">
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
                   Featured Project
                 </span>
@@ -216,8 +216,8 @@ export default function HealthcarePage() {
         {/* Hospital Experience */}
         <section id="hospitals" className="section-shell-lg section-shell-dark bg-[#2a4663] scroll-mt-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <div className="sticky-side">
                 <span className="text-sm font-medium text-[#5eead4] tracking-wider uppercase mb-4 block">
                   Hospital Experience
                 </span>
@@ -292,7 +292,7 @@ export default function HealthcarePage() {
         {/* Why Healthcare Contractors Trust Us */}
         <section className="section-shell-lg bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
                   Why Healthcare Contractors Trust Us
@@ -314,7 +314,7 @@ export default function HealthcarePage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-6">
+              <div className="space-y-6 sticky-side">
                 <SitePhoto photo={sitePhotos.healthcare.trust} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.25)]" />
                 <div className="surface-card-muted p-10 lg:p-12">
                 <div className="text-slate-400 text-xs uppercase tracking-widest mb-6">Pre-Construction Support</div>

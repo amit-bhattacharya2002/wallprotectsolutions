@@ -140,7 +140,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         {/* FRP Panels Section */}
         <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <span className="eyebrow">
                   Wall Protection Panels
@@ -187,7 +187,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 </div>
               </div>
 
-              <div>
+              <div className="sticky-side">
                 <div className="surface-card-muted p-8">
                   <h3 className="text-lg font-semibold text-[#0f172a] mb-6">FRP Manufacturers</h3>
                   <div className="space-y-3">
@@ -254,7 +254,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         {/* City Experts Section */}
         <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
                   {city.name} Wall Protection Experts
@@ -279,7 +279,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 </Link>
               </div>
 
-              <div className="surface-card-muted p-8 lg:p-10">
+              <div className="surface-card-muted p-8 lg:p-10 sticky-side">
                 <div className="flex items-start gap-4 mb-8">
                   <div className="w-12 h-12 rounded-full bg-[#134e4a] flex items-center justify-center shrink-0">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
