@@ -129,7 +129,7 @@ export default function FRPSalesPage() {
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
-              <div>
+              <div className="sticky-side">
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
                   Quality FRP Panels for Every Application
                 </h2>

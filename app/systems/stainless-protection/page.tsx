@@ -1,5 +1,8 @@
-import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemProjects } from "@/app/data/system-projects";
+
+const stainlessProjects = systemProjects["stainless-protection"];
 
 export const metadata = {
   title: "Stainless Protection | FRP Installations Inc. | Wall Protection Solutions",
@@ -29,12 +32,12 @@ export default function StainlessProtectionPage() {
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Products</span>
                 <h2 className="text-3xl font-semibold text-[#0f172a] tracking-tight mb-6">Custom local fabrication</h2>
                 <p className="text-gray-600 leading-relaxed font-normal mb-8">Stainless steel wall protection is fabricated locally to specification. Smaller volume than our plastic wall protection and hygienic cladding work, but an important capability signal — and often part of a larger wall protection scope.</p>
-                <div className="space-y-3">
+                <div className="space-y-3 mb-0">
                   {products.map((p) => (
                     <div key={p} className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-[#134e4a] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -44,6 +47,11 @@ export default function StainlessProtectionPage() {
                     </div>
                   ))}
                 </div>
+                <SystemProjectsList
+                  systemName={stainlessProjects.name}
+                  projectSlugs={stainlessProjects.slugs}
+                  className="mt-8"
+                />
               </div>
               <div>
                 <SitePhoto photo={sitePhotos.systems.stainless} overlay="gradient" className="mb-8 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />

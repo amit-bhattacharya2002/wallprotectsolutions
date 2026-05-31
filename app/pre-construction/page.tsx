@@ -86,19 +86,24 @@ export default function PreConstructionPage() {
         {/* When to involve us */}
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-2xl mb-14">
+            <div className="mx-auto mb-14 max-w-3xl text-center">
               <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Project Stages</span>
               <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">When to involve us — and why</h2>
               <p className="text-gray-600 leading-relaxed font-normal">The earlier we are involved in a healthcare project, the more value we can add. Here is what we contribute at each project stage.</p>
             </div>
             <div className="space-y-4">
-              {whenToInvolveUs.map((stage) => (
-                <div key={stage.stage} className="grid md:grid-cols-4 gap-6 bg-white border border-gray-200 rounded-xl p-6 items-start">
-                  <div>
-                    <span className="inline-block px-3 py-1 bg-[#134e4a]/10 text-[#134e4a] text-sm font-medium rounded-full">{stage.stage}</span>
+              {whenToInvolveUs.map((stage, index) => (
+                <div key={stage.stage} className="grid md:grid-cols-4 gap-6 bg-white border border-gray-200 rounded-xl p-6 md:p-8 items-start">
+                  <div className="border-l-[3px] border-[#134e4a] pl-4">
+                    <span className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-[#134e4a]">
+                      Stage {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-base font-semibold tracking-tight text-[#0f172a] md:text-lg leading-snug">
+                      {stage.stage}
+                    </h3>
                   </div>
                   <div className="md:col-span-3">
-                    <p className="text-gray-600 text-sm leading-relaxed">{stage.value}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed md:text-base">{stage.value}</p>
                   </div>
                 </div>
               ))}

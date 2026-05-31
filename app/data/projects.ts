@@ -1,9 +1,12 @@
+import { legacyProjects } from "./legacy-projects";
+
 export interface Project {
   slug: string;
   title: string;
   category: string;
   description: string;
   fullDescription: string;
+  /** Empty string when project photos are not yet published. */
   image: string;
   gallery?: string[];
   signature?: boolean;
@@ -196,6 +199,7 @@ export const projects: Project[] = [
       products: ["Healthcare-Grade FRP", "Hygienic Wall Cladding", "Sealed Systems"],
     },
   },
+  ...legacyProjects as Project[],
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
@@ -214,4 +218,10 @@ export function getHomepageProjects(): Project[] {
   return HOMEPAGE_PROJECT_SLUGS.map((slug) => getProjectBySlug(slug)).filter(
     (p): p is Project => p !== undefined
   );
+}
+
+export function getProjectsBySlugs(slugs: readonly string[]): Project[] {
+  return slugs
+    .map((slug) => getProjectBySlug(slug))
+    .filter((p): p is Project => p !== undefined);
 }

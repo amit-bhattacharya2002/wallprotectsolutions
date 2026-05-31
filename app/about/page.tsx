@@ -75,9 +75,9 @@ export default function AboutPage() {
         />
 
         {/* Our Story */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="scroll-mt-28 bg-white py-20 lg:py-28">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
                   Our Story
@@ -100,7 +100,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative sticky-side">
                 <SitePhoto
                   photo={sitePhotos.about.story}
                   overlay="gradient"
@@ -142,16 +142,28 @@ export default function AboutPage() {
         {/* Core Differentiators */}
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-2xl mb-16">
-              <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
-                Why Contractors Choose Us
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
-                More than a subcontractor — a construction partner
-              </h2>
-              <p className="text-gray-600 leading-relaxed font-normal">
-                General contractors and design teams choose us because we bring more to the project than installation labour. We bring product knowledge, specification depth, and the project management discipline that comes from a commercial GC background.
-              </p>
+            <div className="mb-16 grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+              <div className="max-w-2xl">
+                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
+                  Why Contractors Choose Us
+                </span>
+                <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
+                  More than a subcontractor — a construction partner
+                </h2>
+                <p className="text-gray-600 leading-relaxed font-normal">
+                  General contractors and design teams choose us because we bring more to the project than installation labour. We bring product knowledge, specification depth, and the project management discipline that comes from a commercial GC background.
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <div className="flex flex-col items-center text-center leading-none" aria-label="FRP Installations Inc. | Wall Protection Solutions">
+                  <span className="text-3xl font-semibold tracking-tight text-[#0f172a] md:text-4xl lg:text-5xl">
+                    FRP Installations Inc.
+                  </span>
+                  <span className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#134e4a] md:text-base lg:text-lg">
+                    Wall Protection Solutions
+                  </span>
+                </div>
+              </div>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {differentiators.map((item, index) => (
@@ -168,7 +180,7 @@ export default function AboutPage() {
         {/* Product Selection Philosophy */}
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
                   Product Selection Philosophy
@@ -226,7 +238,7 @@ export default function AboutPage() {
         </section>
 
         {/* Clients */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="bg-white pt-20 pb-10 lg:pt-28 lg:pb-14">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">
@@ -240,10 +252,12 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              {clients.map((client) => (
+              {clients.map((client, index) => (
                 <span
                   key={client}
-                  className="px-6 py-3 bg-[#f8fafc] border border-gray-200 rounded-full text-gray-700 font-medium"
+                  className={`rounded-full border border-gray-200 bg-[#f8fafc] px-6 py-3 text-center text-sm font-medium text-gray-700 ${
+                    index === clients.length - 1 ? "w-full max-w-3xl sm:w-auto" : ""
+                  }`}
                 >
                   {client}
                 </span>
@@ -263,9 +277,9 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Brand Transition Note */}
-        <section className="py-16 bg-[#f8fafc] border-t border-gray-100">
-          <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+        {/* Brand Transition Note — globals.css sets section{padding:6–10rem}; override here */}
+        <section className="border-t border-gray-100 bg-[#f8fafc] !py-10 md:!py-12">
+          <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
             <p className="text-gray-500 text-sm leading-relaxed">
               <span className="font-medium text-[#0f172a]">Brand transition in progress.</span> FRP Installations Inc. is transitioning over the next 12–18 months toward Wall Protection Solutions Inc. — a name that better reflects the full scope of the systems we supply and install. Our legal entity, contacts, and relationships remain unchanged throughout this transition.
             </p>

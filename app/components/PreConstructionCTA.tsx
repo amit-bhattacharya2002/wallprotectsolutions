@@ -15,7 +15,7 @@ export default function PreConstructionCTA() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-white/86" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="reveal rounded-xl bg-white p-6 shadow-[0_22px_60px_-42px_rgba(15,23,42,0.38)] ring-1 ring-slate-200 md:p-8 lg:p-10">
             <div className="mb-6 text-center">
               <span className="eyebrow">Pre-Construction Support</span>
@@ -42,7 +42,7 @@ export default function PreConstructionCTA() {
                 </li>
               ))}
             </ul>
-            <div className="flex flex-col gap-4 max-sm:items-center sm:flex-row sm:items-start">
+            <div className="flex flex-col gap-4 max-sm:items-center sm:flex-row sm:items-center">
               <Link href="/pre-construction" className="inline-flex items-center gap-2 rounded-full bg-[#2a4663] px-6 py-3 font-medium text-white transition-colors hover:bg-[#3a597b]">
                 Pre-construction services
               </Link>
@@ -56,8 +56,8 @@ export default function PreConstructionCTA() {
           </div>
 
           {/* Right: who this is for */}
-          <div>
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-[0.18em] mb-5">Who we work with at pre-construction</p>
+          <div className="sticky-side">
+            <p className="text-xs font-semibold text-slate-600 uppercase tracking-[0.18em] mb-5">Who we work with at pre-construction</p>
             <div className="grid gap-4">
             {[
               {

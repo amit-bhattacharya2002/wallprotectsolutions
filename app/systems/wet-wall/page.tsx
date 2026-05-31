@@ -1,6 +1,8 @@
-import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
-import Link from "next/link";
+import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemProjects } from "@/app/data/system-projects";
+
+const wetWallProjects = systemProjects["wet-wall"];
 
 export const metadata = {
   title: "Wet Wall Systems | FRP Installations Inc. | Wall Protection Solutions",
@@ -27,7 +29,7 @@ export default function WetWallPage() {
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Avonite Wet Walls</span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">The right wet wall solution for healthcare washrooms</h2>
@@ -47,22 +49,14 @@ export default function WetWallPage() {
                     </div>
                   ))}
                 </div>
+                <SystemProjectsList
+                  systemName={wetWallProjects.name}
+                  projectSlugs={wetWallProjects.slugs}
+                  className="mt-8"
+                />
               </div>
               <div className="space-y-6">
                 <SitePhoto photo={sitePhotos.systems.wetWall} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
-                <div className="bg-[#f8fafc] rounded-2xl p-8 lg:p-10 border border-gray-200">
-                <div className="text-xs text-gray-500 uppercase tracking-widest mb-4">Project Reference</div>
-                <h3 className="text-lg font-semibold text-[#0f172a] mb-3">Chilliwack UPCC</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Wet wall and hygienic finishes installed as part of the complete interior protection scope at the Chilliwack Urgent and Primary Care Centre — one of 16+ Urgent Primary Care Centres we have completed across BC.
-                </p>
-                <Link href="/projects/chilliwack-urgent-and-primary-care-center" className="inline-flex items-center gap-2 text-[#134e4a] text-sm font-medium hover:gap-3 transition-all mr-6">
-                  View project gallery
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                </div>
               </div>
             </div>
           </div>

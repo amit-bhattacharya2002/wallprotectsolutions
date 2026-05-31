@@ -1,6 +1,9 @@
-import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
 import Link from "next/link";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemProjects } from "@/app/data/system-projects";
+
+const frpProjects = systemProjects["frp-wall-systems"];
 
 export const metadata = {
   title: "FRP Wall Systems | FRP Installations Inc. | Wall Protection Solutions",
@@ -40,6 +43,14 @@ const applications = [
   "School cafeterias and food prep areas",
 ];
 
+function CheckBullet() {
+  return (
+    <svg className="h-4 w-4 shrink-0 translate-y-0.5 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+    </svg>
+  );
+}
+
 export default function FRPWallSystemsPage() {
   return (
     <>
@@ -49,6 +60,7 @@ export default function FRPWallSystemsPage() {
           eyebrow="FRP Wall Systems"
           title="Fiberglass Reinforced Plastic wall systems"
           subtitle="Traditional and decorative FRP wall panels for healthcare support spaces, food service, industrial, and utility environments. Multiple manufacturer options across all product types."
+          compact
           quickLinksTitle="Related systems"
           quickLinks={[
             { label: "Wall Protection Systems", href: "/systems/wall-protection" },
@@ -58,51 +70,68 @@ export default function FRPWallSystemsPage() {
           ]}
         />
 
-        <section className="py-20 lg:py-28 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16">
-              <div>
-                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Manufacturers</span>
-                <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-8">FRP manufacturers we work with</h2>
-                <div className="space-y-8">
-                  {manufacturers.map((mfr) => (
-                    <div key={mfr.name} className="border-l-2 border-[#134e4a] pl-6">
-                      <h3 className="text-lg font-semibold text-[#0f172a] mb-3">{mfr.name}</h3>
-                      <ul className="space-y-1.5">
-                        {mfr.products.map((p) => (
-                          <li key={p} className="text-gray-600 text-sm flex items-start gap-2">
-                            <span className="text-[#134e4a] mt-1">—</span>
-                            {p}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+        <section className="scroll-mt-28 bg-white py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-[#134e4a]">Manufacturers</span>
+              <h2 className="mb-8 text-3xl font-semibold tracking-tight text-[#0f172a] text-balance md:text-4xl">
+                FRP manufacturers we work with
+              </h2>
+            </div>
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
+              {manufacturers.map((mfr) => (
+                <div key={mfr.name} className="border-l-2 border-[#134e4a] pl-6">
+                  <h3 className="mb-3 text-lg font-semibold text-[#0f172a]">{mfr.name}</h3>
+                  <ul className="space-y-2">
+                    {mfr.products.map((product) => (
+                      <li key={product} className="flex items-baseline gap-3 text-sm leading-relaxed text-gray-600">
+                        <CheckBullet />
+                        <span className="text-pretty">{product}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="scroll-mt-28 bg-[#f8fafc] py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mb-16 grid items-start gap-16 lg:grid-cols-2">
+              <SitePhoto photo={sitePhotos.systems.frp} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
               <div>
-                <SitePhoto photo={sitePhotos.systems.frp} overlay="gradient" className="mb-8 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
-                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Applications</span>
-                <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-8">Where FRP is commonly installed</h2>
-                <div className="space-y-3">
-                  {applications.map((app) => (
-                    <div key={app} className="flex items-start gap-3 bg-[#f8fafc] border border-gray-100 rounded-xl px-5 py-3">
-                      <div className="w-2 h-2 rounded-full bg-[#134e4a] flex-shrink-0 mt-1.5" />
-                      <span className="text-gray-700 text-sm">{app}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-8 p-6 bg-[#2a4663] rounded-xl">
-                  <p className="text-white/60 text-sm leading-relaxed mb-4">
+                <div className="rounded-xl bg-[#2a4663] p-8 lg:p-10">
+                  <p className="mb-4 text-sm leading-relaxed text-white/70">
                     Need something more decorative? FRL (Fiberglass Reinforced Liner) panels offer 400+ colour options and a significantly more finished appearance — still with the moisture and impact resistance of a fibre-reinforced core.
                   </p>
-                  <Link href="/systems/frl-decorative" className="inline-flex items-center gap-2 text-[#5eead4] text-sm font-medium hover:gap-3 transition-all">
+                  <Link href="/systems/frl-decorative" className="inline-flex items-center gap-2 text-sm font-medium text-[#5eead4] transition-all hover:gap-3">
                     View FRL / Decorative Wall Systems
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
                 </div>
+                <SystemProjectsList
+                  systemName={frpProjects.name}
+                  projectSlugs={frpProjects.slugs}
+                  className="mt-8"
+                />
+              </div>
+            </div>
+
+            <div>
+              <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-[#134e4a]">Applications</span>
+              <h2 className="mb-8 text-3xl font-semibold tracking-tight text-[#0f172a] text-balance md:text-4xl">
+                Where FRP is commonly installed
+              </h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {applications.map((app) => (
+                  <div key={app} className="flex items-start gap-3 rounded-xl border border-gray-100 bg-white px-5 py-3.5">
+                    <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#134e4a]" />
+                    <span className="text-sm leading-snug text-gray-700">{app}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

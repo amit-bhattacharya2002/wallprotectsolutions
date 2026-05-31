@@ -5,7 +5,7 @@
 import Link from "next/link";
 import { SYSTEMS, SYSTEMS_COUNT, type ShowcaseSystem } from "./SystemsShowcase.data";
 
-function SystemListCard({ sys }: { sys: ShowcaseSystem }) {
+function SystemListCard({ sys, eager }: { sys: ShowcaseSystem; eager?: boolean }) {
   return (
     <article className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm">
       <div className="relative aspect-4/5 w-full sm:aspect-3/4">
@@ -13,7 +13,7 @@ function SystemListCard({ sys }: { sys: ShowcaseSystem }) {
           src={sys.imageSrc}
           alt={sys.imageAlt}
           className="absolute inset-0 h-full w-full object-cover"
-          loading="lazy"
+          loading={eager ? "eager" : "lazy"}
           draggable={false}
         />
       </div>
@@ -21,7 +21,7 @@ function SystemListCard({ sys }: { sys: ShowcaseSystem }) {
         <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#6B7280]">
           System {sys.number} / {String(SYSTEMS_COUNT).padStart(2, "0")}
         </p>
-        <h3 className="text-2xl font-semibold tracking-tight text-[#0B1D3A] sm:text-[1.65rem]">
+        <h3 className="min-w-0 text-balance text-2xl font-semibold tracking-tight text-[#0B1D3A] sm:text-[1.65rem]">
           {sys.name}
         </h3>
         <p className="text-[0.9375rem] italic leading-relaxed text-[#6B7280] sm:text-base">{sys.manufacturer}</p>
@@ -53,8 +53,8 @@ export default function SystemsShowcaseMobile() {
       </div>
 
       <div className="mx-auto mt-6 max-w-3xl space-y-14">
-        {SYSTEMS.map((sys) => (
-          <SystemListCard key={sys.id} sys={sys} />
+        {SYSTEMS.map((sys, index) => (
+          <SystemListCard key={sys.id} sys={sys} eager={index === 0} />
         ))}
       </div>
     </div>

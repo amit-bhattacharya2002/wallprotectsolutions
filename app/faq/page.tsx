@@ -36,7 +36,7 @@ export default function FAQPage() {
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-[340px_1fr] gap-12 lg:gap-16 items-start">
-              <div className="lg:sticky lg:top-24">
+              <div className="sticky-side">
                 <SitePhoto
                   photo={sitePhotos.pages.faq}
                   overlay="gradient"

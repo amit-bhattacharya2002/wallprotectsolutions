@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { projects, type Project } from "@/app/data/projects";
-import ProjectImage from "@/app/components/ProjectImage";
-import { getProjectCoverImage } from "@/app/lib/project-gallery";
+import ProjectCover from "@/app/components/ProjectCover";
 
 const categories = ["All", "Healthcare", "Education", "Food & Beverage", "Special Projects"];
 const categoryByHash: Record<string, string> = {
@@ -40,8 +39,8 @@ function GridProjectCard({ project }: { project: Project }) {
       className="group surface-card flex h-full flex-col overflow-hidden bg-white hover:border-[#0d9488] transition-colors"
     >
       <div className="relative aspect-4/3 overflow-hidden">
-        <ProjectImage
-          src={getProjectCoverImage(project)}
+        <ProjectCover
+          project={project}
           alt={project.title}
           variant="card"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -77,8 +76,8 @@ function ListProjectCard({ project }: { project: Project }) {
       className="group surface-card flex overflow-hidden bg-white transition-colors hover:border-[#0d9488]"
     >
       <div className="relative aspect-4/3 w-36 shrink-0 sm:w-44 md:w-52 lg:w-60">
-        <ProjectImage
-          src={getProjectCoverImage(project)}
+        <ProjectCover
+          project={project}
           alt={project.title}
           variant="card"
           className="object-cover transition-transform duration-700 group-hover:scale-105"

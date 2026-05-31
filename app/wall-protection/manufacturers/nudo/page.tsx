@@ -87,7 +87,7 @@ export default function NudoPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="space-y-20">
               {products.map((product, index) => (
-                <div key={product.name} className={`grid lg:grid-cols-2 gap-12 lg:gap-16 ${index !== 0 ? 'pt-20 border-t border-gray-200' : ''}`}>
+                <div key={product.name} className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start ${index !== 0 ? 'pt-20 border-t border-gray-200' : ''}`}>
                   <div>
                     <span className="text-sm font-medium text-[#f97316] tracking-wider uppercase mb-4 block">
                       Product {String(index + 1).padStart(2, '0')}
@@ -112,7 +112,7 @@ export default function NudoPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-[#f8fafc] rounded-2xl p-8 lg:p-10">
+                  <div className="sticky-side bg-[#f8fafc] rounded-2xl p-8 lg:p-10">
                     <h3 className="text-lg font-semibold text-[#0f172a] mb-6">Available Options</h3>
                     
                     {product.options.applications && (

@@ -1,5 +1,8 @@
-import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemProjects } from "@/app/data/system-projects";
+
+const frlProjects = systemProjects["frl-decorative"];
 
 export const metadata = {
   title: "FRL & Decorative Wall Systems | FRP Installations Inc. | Wall Protection Solutions",
@@ -54,14 +57,16 @@ export default function FRLDecorativePage() {
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-14">
-              <p className="text-gray-500 leading-relaxed font-normal text-base md:text-lg max-w-3xl">
+              <div className="max-w-3xl">
+                <p className="text-gray-500 leading-relaxed font-normal text-base md:text-lg">
                 FRL offers 400+ colour options and a significantly more finished appearance, while still retaining the durability of a fibre-reinforced core.
-              </p>
+                </p>
+              </div>
               <SitePhoto photo={sitePhotos.systems.frl} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
             </div>
             <div className="space-y-12">
               {systems.map((system, index) => (
-                <div key={system.name} className={`grid lg:grid-cols-2 gap-10 ${index > 0 ? "pt-12 border-t border-gray-200" : ""}`}>
+                <div key={system.name} className={`grid lg:grid-cols-2 gap-10 items-start ${index > 0 ? "pt-12 border-t border-gray-200" : ""}`}>
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <h3 className="text-xl font-semibold text-[#0f172a]">{system.name}</h3>
@@ -69,7 +74,7 @@ export default function FRLDecorativePage() {
                     </div>
                     <p className="text-gray-600 leading-relaxed font-normal">{system.description}</p>
                   </div>
-                  <div className="bg-[#f8fafc] rounded-xl p-6 border border-gray-100">
+                  <div className="rounded-xl border border-gray-100 bg-[#f8fafc] p-6">
                     <div className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-4">Key Points</div>
                     <ul className="space-y-3">
                       {system.highlights.map((h) => (
@@ -85,6 +90,11 @@ export default function FRLDecorativePage() {
                 </div>
               ))}
             </div>
+            <SystemProjectsList
+              systemName={frlProjects.name}
+              projectSlugs={frlProjects.slugs}
+              className="mt-12"
+            />
           </div>
         </section>
 

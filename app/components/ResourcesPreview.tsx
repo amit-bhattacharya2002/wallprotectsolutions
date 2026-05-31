@@ -27,7 +27,7 @@ export default function ResourcesPreview() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start">
           <div>
             <div className="grid border-y border-slate-200">
               {featuredArticles.map((article) => (
@@ -69,7 +69,7 @@ export default function ResourcesPreview() {
             </div>
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-8 shadow-[0_18px_45px_-36px_rgba(15,23,42,0.3)] lg:p-10">
+          <div className="sticky-side rounded-xl border border-slate-200 bg-[#f8fafc] p-8 shadow-[0_18px_45px_-36px_rgba(15,23,42,0.3)] lg:p-10">
             {/* Below lg, "View all FAQ" drops to its own row below the heading so
                 the two don't wrap side-by-side awkwardly at tablet widths. */}
             <div className="mb-8 flex flex-col gap-4 max-lg:items-center max-lg:text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">

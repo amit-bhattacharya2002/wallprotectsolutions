@@ -32,29 +32,29 @@ export default function FeaturedHealthcareProject() {
         </div>
 
         <div className="mb-10 grid gap-4 lg:grid-cols-[1.45fr_0.55fr]">
-          <div className="overflow-hidden rounded-3xl shadow-[0_34px_90px_-44px_rgba(0,0,0,0.7)]">
+          <div className="relative aspect-video overflow-hidden rounded-3xl shadow-[0_34px_90px_-44px_rgba(0,0,0,0.7)]">
             <Image
               src={lilyDtesImages[0].src}
               alt={lilyDtesImages[0].alt}
-              width={1400}
-              height={900}
-              loading="eager"
-              className="aspect-video w-full object-cover filter-[saturate(0.92)_brightness(0.98)]"
+              fill
+              sizes="(max-width: 1024px) 100vw, 58vw"
+              priority
+              className="object-cover object-center scale-[1.08] filter-[saturate(0.92)_brightness(0.98)]"
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
             {lilyDtesImages.slice(1).map((image) => (
               <div
                 key={image.src}
-                className="overflow-hidden rounded-[1.25rem] shadow-[0_26px_70px_-46px_rgba(0,0,0,0.7)]"
+                className="relative aspect-video overflow-hidden rounded-[1.25rem] shadow-[0_26px_70px_-46px_rgba(0,0,0,0.7)] lg:aspect-[16/10]"
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  width={900}
-                  height={620}
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 22vw"
                   loading="eager"
-                  className="aspect-video w-full object-cover filter-[saturate(0.92)_brightness(0.98)] lg:aspect-16/10"
+                  className="object-cover object-center scale-[1.08] filter-[saturate(0.92)_brightness(0.98)]"
                 />
               </div>
             ))}

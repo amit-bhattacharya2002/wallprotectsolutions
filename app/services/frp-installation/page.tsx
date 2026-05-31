@@ -120,7 +120,7 @@ export default function FRPInstallationPage() {
         {/* Overview Section */}
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
                   Professional Installation Services
@@ -162,7 +162,7 @@ export default function FRPInstallationPage() {
                 </Link>
               </div>
 
-              <div className="relative">
+              <div className="relative sticky-side">
                 <SitePhoto photo={sitePhotos.services.installation} overlay="gradient" className="shadow-[0_24px_60px_-34px_rgba(15,23,42,0.45)]" />
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">
                   <div className="text-4xl font-bold text-[#0f172a]">700+</div>
@@ -254,7 +254,7 @@ export default function FRPInstallationPage() {
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="bg-[#f8fafc] rounded-3xl p-10 lg:p-16">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-12 items-start">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
                     12-Month Installation Warranty
@@ -271,7 +271,7 @@ export default function FRPInstallationPage() {
                     Request Installation Quote
                   </Link>
                 </div>
-                <div className="text-center">
+                <div className="text-center sticky-side">
                   <div className="inline-block bg-[#2a4663] rounded-2xl p-10">
                     <div className="text-6xl font-bold text-white mb-2">12</div>
                     <div className="text-white/80 text-lg">Month Warranty</div>

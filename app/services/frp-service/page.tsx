@@ -160,8 +160,8 @@ export default function FRPServicePage() {
         {/* Free Site Visits Section */}
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <div className="sticky-side">
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
                   Free On-Site Measurements
                 </h2>

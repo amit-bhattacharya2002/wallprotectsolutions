@@ -3,17 +3,94 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+const STAGGER_MAX = 5;
+
+function shouldSkipAutoReveal(el: HTMLElement): boolean {
+  if (el.classList.contains("reveal")) return true;
+  if (el.dataset.revealAuto === "true") return true;
+  if (el.closest(".reveal")) return true;
+  if (el.querySelector(".reveal")) return true;
+  if (el.closest("[data-no-reveal]")) return true;
+  if (el.hasAttribute("data-no-reveal")) return true;
+  if (el.classList.contains("absolute") || el.classList.contains("fixed")) return true;
+  if (el.getAttribute("aria-hidden") === "true") return true;
+  return false;
+}
+
+function tagReveal(el: HTMLElement, staggerIndex: number) {
+  if (shouldSkipAutoReveal(el)) return;
+  el.classList.add("reveal");
+  el.dataset.revealAuto = "true";
+  const delay = Math.min(staggerIndex, STAGGER_MAX);
+  if (delay > 0) {
+    el.classList.add(`reveal-stagger-${delay}`);
+  }
+}
+
+function isLayoutContainer(el: HTMLElement): boolean {
+  return (
+    el.classList.contains("grid") ||
+    el.classList.contains("flex") ||
+    [...el.classList].some((cls) => cls.startsWith("grid") || cls.startsWith("flex"))
+  );
+}
+
+function revealTargetsInContainer(container: HTMLElement) {
+  const children = Array.from(container.children).filter(
+    (child): child is HTMLElement => child instanceof HTMLElement && !shouldSkipAutoReveal(child),
+  );
+
+  if (children.length === 1 && isLayoutContainer(children[0]) && children[0].children.length > 1) {
+    Array.from(children[0].children).forEach((cell, index) => {
+      if (cell instanceof HTMLElement) tagReveal(cell, index);
+    });
+    return;
+  }
+
+  children.forEach((child, index) => tagReveal(child, index));
+}
+
+function isSkippableSection(section: HTMLElement): boolean {
+  if (section.hasAttribute("data-no-reveal") || section.classList.contains("no-reveal")) return true;
+  if (section.querySelector(":scope h1")) return true;
+  if (section.querySelector('[aria-live="polite"]')) return true;
+  return false;
+}
+
+/** Auto-tag section content blocks so interior pages get scroll reveal without per-page edits. */
+function autoApplyReveal() {
+  document.querySelectorAll<HTMLElement>("main section").forEach((section) => {
+    if (isSkippableSection(section)) return;
+    const container = section.querySelector(":scope > div");
+    if (container instanceof HTMLElement) {
+      revealTargetsInContainer(container);
+    }
+  });
+
+  document.querySelectorAll<HTMLElement>("main > div:not([data-no-reveal])").forEach((block) => {
+    if (block.querySelector("section")) return;
+    const container =
+      block.querySelector(":scope > .max-w-7xl") ??
+      block.querySelector(":scope > div.relative");
+    if (!(container instanceof HTMLElement)) return;
+
+    const target =
+      container.children.length === 1 && container.children[0] instanceof HTMLElement
+        ? container.children[0]
+        : container;
+
+    if (target instanceof HTMLElement) {
+      revealTargetsInContainer(target);
+    }
+  });
+}
+
 /**
  * Global scroll-reveal coordinator.
  *
  * Wires an IntersectionObserver that adds `.is-visible` to `.reveal` elements
- * so `globals.css` can run the fade-up animation.
- *
- * Reliability: the first effect tick can run before every `.reveal` exists in
- * the DOM (streaming / hydration order), and App Router navigations mount new
- * pages without remounting this component — so we re-scan after paint, on
- * every pathname change, on subtree mutations (debounced), and use a final
- * fallback timer that force-activates anything still hidden.
+ * so `globals.css` can run the fade-up animation. Also auto-applies `.reveal`
+ * to main section content blocks site-wide.
  */
 export default function ScrollRevealManager() {
   const pathname = usePathname();
@@ -32,6 +109,7 @@ export default function ScrollRevealManager() {
 
     const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced || typeof IntersectionObserver === "undefined") {
+      autoApplyReveal();
       collect().forEach(activate);
       return;
     }
@@ -47,8 +125,6 @@ export default function ScrollRevealManager() {
           }
         }
       },
-      /* Easier to trigger than a single high threshold — avoids “stuck”
-         headings that barely intersect the root margin. */
       { rootMargin: "0px 0px -6% 0px", threshold: [0, 0.05, 0.1] },
     );
 
@@ -60,11 +136,11 @@ export default function ScrollRevealManager() {
     };
 
     const scan = () => {
+      autoApplyReveal();
       collect().forEach((el) => observeIfNeeded(el));
     };
 
     scan();
-    /* Double rAF: run after layout + paint so late-mounted `.reveal` nodes exist. */
     let rafOuter = 0;
     let rafInner = 0;
     rafOuter = requestAnimationFrame(() => {

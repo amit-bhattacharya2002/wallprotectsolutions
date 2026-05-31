@@ -105,23 +105,30 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Gentle scroll fade-up for headings/blocks when they enter the viewport. */
 @keyframes scroll-fade-up {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(18px);
+  will-change: opacity, transform;
 }
 .reveal.is-visible {
-  animation: scroll-fade-up 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scroll-fade-up 560ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+.reveal.is-visible.reveal-stagger-1 { animation-delay: 90ms; }
+.reveal.is-visible.reveal-stagger-2 { animation-delay: 170ms; }
+.reveal.is-visible.reveal-stagger-3 { animation-delay: 250ms; }
+.reveal.is-visible.reveal-stagger-4 { animation-delay: 330ms; }
+.reveal.is-visible.reveal-stagger-5 { animation-delay: 410ms; }
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal.is-visible {
     opacity: 1;
     transform: none;
     animation: none;
+    will-change: auto;
   }
 }
 
@@ -151,6 +158,15 @@ h1, h2, h3, h4, h5, h6 {
 .delay-600 { animation-delay: 0.6s; }
 .delay-700 { animation-delay: 0.7s; }
 .delay-800 { animation-delay: 0.8s; }
+
+/* Shorter column in two-column layouts — sticks while the taller side scrolls */
+@media (min-width: 1024px) {
+  .sticky-side {
+    position: sticky;
+    top: 7rem;
+    align-self: start;
+  }
+}
 
 /* Section spacing */
 section {
@@ -396,19 +412,6 @@ img {
   color: white;
 }
 
-.pill-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  border: 1px solid rgba(148, 163, 184, 0.24);
-  border-radius: 9999px;
-  background: rgba(248, 250, 252, 0.95);
-  color: #475569;
-  font-size: 0.78rem;
-  font-weight: 500;
-  padding: 0.45rem 0.8rem;
-}
-
 .field-input {
   width: 100%;
   border: 1px solid rgba(203, 213, 225, 0.95);
@@ -451,13 +454,15 @@ img {
 
 .home-page > .section-shell,
 .home-page > .section-shell-lg {
-  padding-top: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 @media (min-width: 768px) {
   .home-page > .section-shell,
   .home-page > .section-shell-lg {
     padding-top: 3.75rem;
+    padding-bottom: 4.5rem;
   }
 }
 
@@ -465,5 +470,6 @@ img {
   .home-page > .section-shell,
   .home-page > .section-shell-lg {
     padding-top: 4.5rem;
+    padding-bottom: 5.5rem;
   }
 }

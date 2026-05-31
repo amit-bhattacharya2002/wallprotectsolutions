@@ -191,7 +191,7 @@ export default function Header() {
               <div className="flex items-center gap-6">
                 <a
                   href="tel:604-715-9469"
-                  className="flex items-center gap-2 text-xs tracking-[0.02em] text-slate-500 transition-colors hover:text-[#0f172a]"
+                  className="flex items-center gap-2 text-xs tracking-[0.02em] text-slate-700 transition-colors hover:text-[#0f172a]"
                 >
                   <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -200,7 +200,7 @@ export default function Header() {
                 </a>
                 <a
                   href="mailto:info@frpinstallations.com"
-                  className="flex items-center gap-2 text-xs tracking-[0.02em] text-slate-500 transition-colors hover:text-[#0f172a]"
+                  className="flex items-center gap-2 text-xs tracking-[0.02em] text-slate-700 transition-colors hover:text-[#0f172a]"
                 >
                   <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -208,7 +208,7 @@ export default function Header() {
                   info@frpinstallations.com
                 </a>
               </div>
-              <div className="flex items-center gap-2 text-xs tracking-[0.02em] text-slate-500">
+              <div className="flex items-center gap-2 text-xs tracking-[0.02em] text-slate-700">
                 <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -239,7 +239,7 @@ export default function Header() {
                 FRP Installations Inc.
               </span>
               <span
-                className={`font-semibold uppercase leading-tight tracking-[0.18em] text-[#134e4a] transition-all duration-300 ${
+                className={`hidden font-semibold uppercase leading-tight tracking-[0.18em] text-[#134e4a] transition-all duration-300 sm:block ${
                   isScrolled
                     ? "text-[0.6rem] md:text-[0.68rem]"
                     : "text-[0.62rem] md:text-[0.72rem]"
@@ -269,7 +269,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="group flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-400 transition-colors hover:border-[#0d9488]/40 hover:bg-white hover:text-[#0d9488]"
+                className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:border-[#0d9488]/40 hover:bg-white hover:text-[#0d9488]"
                 aria-label="Open site search"
                 title="Search (⌘K)"
               >
@@ -313,7 +313,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-[#0f172a] transition-colors hover:bg-[#0d9488] hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#0d9488] hover:text-white"
                 aria-label="Search the site"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -322,7 +322,7 @@ export default function Header() {
               </button>
               <a
                 href="tel:604-715-9469"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-[#0f172a] transition-colors hover:bg-[#0d9488] hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#0d9488] hover:text-white"
                 aria-label="Call us"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -331,7 +331,7 @@ export default function Header() {
               </a>
               <a
                 href="mailto:info@frpinstallations.com"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-[#0f172a] transition-colors hover:bg-[#0d9488] hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#0d9488] hover:text-white"
                 aria-label="Email us"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -340,7 +340,7 @@ export default function Header() {
               </a>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-[#0f172a]"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700"
                 aria-label="Menu"
               >
                 <div className="relative flex h-3 w-4 flex-col justify-between">
@@ -441,7 +441,7 @@ export default function Header() {
                 </svg>
               </div>
               <div>
-                <div className="text-sm text-slate-400">Search the site</div>
+                <div className="text-sm text-slate-600">Search the site</div>
                 <div className="font-medium">Products, services, and brands</div>
               </div>
             </button>
@@ -520,7 +520,7 @@ export default function Header() {
 
           {/* Mobile Contact Info */}
           <div className="mx-5 rounded-xl bg-slate-50 p-5">
-            <p className="mb-4 text-xs font-medium uppercase tracking-wider text-slate-400">Contact Us</p>
+            <p className="mb-4 text-xs font-medium uppercase tracking-wider text-slate-600">Contact Us</p>
             <div className="space-y-4">
               <a
                 href="tel:604-715-9469"
@@ -532,7 +532,7 @@ export default function Header() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm text-slate-400">Call us</div>
+                  <div className="text-sm text-slate-600">Call us</div>
                   <div className="font-medium">604-715-9469</div>
                 </div>
               </a>
@@ -546,7 +546,7 @@ export default function Header() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm text-slate-400">Email us</div>
+                  <div className="text-sm text-slate-600">Email us</div>
                   <div className="font-medium">info@frpinstallations.com</div>
                 </div>
               </a>
@@ -554,7 +554,7 @@ export default function Header() {
           </div>
 
           {/* Service Area Badge */}
-          <div className="mx-5 mb-8 mt-5 flex items-center gap-2 text-sm text-slate-400">
+          <div className="mx-5 mb-8 mt-5 flex items-center gap-2 text-sm text-slate-600">
             <svg className="h-4 w-4 text-[#134e4a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />

@@ -74,7 +74,7 @@ export default function ManufacturerStrip() {
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {manufacturers.map((m) => (
+            {manufacturers.map((m, index) => (
               <div key={m.name} className="rounded-xl border border-slate-200 bg-white p-5 shadow-[0_16px_40px_-34px_rgba(15,23,42,0.28)] lg:p-6">
                 <div className="mb-4 flex h-12 items-center border-b border-slate-100 pb-3 sm:h-14">
                   <div className="relative h-full w-full">
@@ -83,6 +83,8 @@ export default function ManufacturerStrip() {
                       alt={`${m.name} logo`}
                       fill
                       sizes="(min-width: 1280px) 180px, (min-width: 640px) 40vw, 90vw"
+                      priority={index < 3}
+                      loading={index < 3 ? "eager" : "lazy"}
                       className="object-contain object-center saturate-[0.92] contrast-[1.02]"
                     />
                   </div>

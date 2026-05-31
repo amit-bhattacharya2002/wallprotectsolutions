@@ -1,5 +1,8 @@
-import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemProjects } from "@/app/data/system-projects";
+
+const pvcProjects = systemProjects["pvc-liner"];
 
 export const metadata = {
   title: "PVC Liner Systems | FRP Installations Inc. | Wall Protection Solutions",
@@ -30,7 +33,7 @@ export default function PVCLinerPage() {
 
         <section className="border-b border-slate-200/80 bg-[#f8fafc] py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
               <SitePhoto
                 photo={sitePhotos.systems.pvcLiner}
                 overlay="gradient"
@@ -55,7 +58,7 @@ export default function PVCLinerPage() {
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Manufacturers</span>
                 <h2 className="text-3xl font-semibold text-[#0f172a] tracking-tight mb-8">PVC liner manufacturers we work with</h2>
@@ -67,6 +70,11 @@ export default function PVCLinerPage() {
                     </div>
                   ))}
                 </div>
+                <SystemProjectsList
+                  systemName={pvcProjects.name}
+                  projectSlugs={pvcProjects.slugs}
+                  className="mt-8"
+                />
               </div>
               <div>
                 <SitePhoto photo={sitePhotos.systems.pvcLinerSecondary} overlay="gradient" className="mb-8 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />

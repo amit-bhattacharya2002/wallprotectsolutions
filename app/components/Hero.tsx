@@ -70,6 +70,7 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
       href={PROCORE_PROFILE_HREF}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Find us on Procore (opens in new tab)"
       className="inline-block w-fit shrink-0 cursor-pointer rounded-md opacity-95 transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
     >
       {/* eslint-disable-next-line @next/next/no-img-element -- third-party Procore badge asset */}
@@ -120,20 +121,28 @@ function HeroCarouselDots({
 }) {
   return (
     <div className={className}>
-      {heroImages.map((slide, idx) => (
-        <button
-          key={idx}
-          type="button"
-          onClick={() => onSelect(idx)}
-          aria-label={`Show slide ${idx + 1}: ${slide.alt}`}
-          aria-current={idx === activeIndex}
-          className={`h-1 rounded-full transition-[width,background-color,opacity] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 md:h-1.5 ${
-            idx === activeIndex
-              ? "w-5 bg-white/55 shadow-[0_0_12px_rgba(255,255,255,0.12)] md:w-7 md:bg-white/90 md:shadow-[0_0_14px_rgba(0,0,0,0.35)]"
-              : "w-2 bg-white/18 hover:bg-white/32 md:w-3.5 md:bg-white/45 md:hover:bg-white/65"
-          }`}
-        />
-      ))}
+      {heroImages.map((slide, idx) => {
+        const isActive = idx === activeIndex;
+        return (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => onSelect(idx)}
+            aria-label={`Show slide ${idx + 1}: ${slide.alt}`}
+            aria-current={isActive}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
+          >
+            <span
+              aria-hidden
+              className={`block rounded-full transition-[width,background-color,opacity] duration-500 ease-out ${
+                isActive
+                  ? "h-1.5 w-7 bg-white/90 shadow-[0_0_14px_rgba(0,0,0,0.35)] md:h-1.5"
+                  : "h-1.5 w-2 bg-white/45 hover:bg-white/65 md:w-3.5"
+              }`}
+            />
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -202,7 +211,7 @@ export default function Hero() {
     <section
       id="home"
       ref={regionRef}
-      className="relative h-dvh overflow-hidden"
+      className="relative min-h-[100svh] h-[100svh] overflow-hidden supports-[height:100dvh]:min-h-[100dvh] supports-[height:100dvh]:h-[100dvh]"
       aria-roledescription="carousel"
       aria-label="Featured wall protection project imagery"
       onMouseEnter={() => setIsPaused(true)}
@@ -271,7 +280,7 @@ export default function Hero() {
         {/* Heading — one slot, each slide supplies its own eyebrow + headline.
              All variants stack in a single grid cell and crossfade in sync
              with the background slideshow. */}
-        <div className="pointer-events-auto absolute inset-x-0 top-[22dvh] z-40 px-5 pb-6 max-sm:top-[18dvh] max-sm:px-4 max-sm:pb-8 md:top-[30dvh] md:pb-0 md:pl-8 lg:pl-10 lg:pr-8">
+        <div className="pointer-events-auto absolute inset-x-0 top-[22dvh] z-40 px-5 pb-6 max-sm:top-[18dvh] max-sm:px-4 max-sm:pb-8 md:top-[28dvh] md:pb-24 md:pl-8 lg:top-[30dvh] lg:pb-0 lg:pl-10 lg:pr-8">
           {/*
             Stacked in one grid cell. Do NOT crossfade outgoing + incoming copy
             with the same long opacity transition — both sit at ~50% opacity in
@@ -330,11 +339,11 @@ export default function Hero() {
             className="pointer-events-auto flex w-full shrink-0 items-center justify-center gap-1.5 pb-0.5 opacity-90 max-sm:scale-90 md:w-auto md:shrink-0 md:justify-end md:pb-0 md:opacity-100 md:drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)] md:scale-100"
           />
           <div className="pointer-events-auto flex w-full max-w-full flex-col items-stretch justify-center md:flex-row md:items-end md:justify-between md:gap-10 md:px-0 md:pb-0 lg:gap-14">
-            <div className="hidden min-w-0 flex-1 md:block">
+            <div className="hidden min-w-0 flex-1 lg:block">
               <HeroPartnerStack layout="desktop" />
             </div>
             <div className="flex w-full flex-col items-stretch md:ml-auto md:w-[clamp(420px,36vw,560px)] md:shrink-0">
-              <div className="mb-1.5 w-full md:mb-0 md:hidden">
+              <div className="mb-1.5 w-full lg:mb-0 lg:hidden">
                 <HeroPartnerStack layout="mobile" />
               </div>
               <div className="flex w-full flex-col bg-white px-4 py-4 shadow-xl shadow-black/10 md:px-8 md:py-7">

@@ -56,9 +56,9 @@ export default function ContactPage() {
 
         <section className="section-shell-lg bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
               {/* Contact Info */}
-              <div>
+              <div className="sticky-side">
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-8">
                   Get in Touch
                 </h2>

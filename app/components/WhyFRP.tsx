@@ -102,17 +102,17 @@ export default function WhyFRP() {
             <p className="text-gray-600 leading-relaxed font-normal mb-6 text-base">
               We focus on selecting the right system for the environment rather than promoting a single manufacturer or product. Different wall protection and hygienic systems perform best in different applications, budgets, and maintenance conditions.
             </p>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+            <div className="grid grid-cols-1 gap-x-6 gap-y-4 min-[420px]:grid-cols-2">
               {differentiators.map((item, index) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group flex items-start gap-3 border-t border-slate-200 pt-4 text-sm text-gray-600 transition-colors hover:text-[#0f172a]"
+                  className="group flex min-w-0 items-start gap-3 border-t border-slate-200 pt-4 text-sm text-gray-600 transition-colors hover:text-[#0f172a]"
                 >
-                  <span className="mt-0.5 text-xs font-semibold text-[#134e4a] tabular-nums">
+                  <span className="mt-0.5 shrink-0 text-xs font-semibold text-[#134e4a] tabular-nums">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-medium leading-snug">{item.label}</span>
+                  <span className="min-w-0 font-medium leading-snug">{item.label}</span>
                 </Link>
               ))}
             </div>
@@ -131,7 +131,7 @@ export default function WhyFRP() {
 
           {/* Desktop column: humanizing photo + sector caption card. Hidden on
                mobile (the photo renders inline with the copy above). */}
-          <div className="relative hidden lg:block lg:sticky lg:top-24">
+          <div className="relative hidden lg:block sticky-side">
             <div
               className="relative isolate overflow-hidden rounded-3xl shadow-[0_28px_80px_-38px_rgba(15,23,42,0.55)]"
               style={{ aspectRatio: "4/3" }}
