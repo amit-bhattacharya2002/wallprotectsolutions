@@ -8,6 +8,7 @@ export const APPROVED_PHOTO_SLUGS = {
   katsuya: "katsuya",
   portMoody: "port-moody-urgent-and-primary-care-center",
   sd70: "sd70-port-alberni-secondary-school-fibo",
+  dtes: "dtes",
 } as const;
 
 /** Build a numbered project photo URL on Vercel Blob. */
@@ -43,9 +44,9 @@ export const sitePhotos = {
   },
   healthcare: {
     featured: photo(
-      projectPhoto(S.breathe, "006"),
-      "Healthcare interior with wall protection at Breathe Medical Manufacturing",
-      "Breathe Medical Manufacturing",
+      projectPhoto(S.dtes, "028"),
+      "Interior wall protection at Lily's Community Health Centre, DTES Vancouver",
+      "Lily's DTES Health Centre",
     ),
     upcc: photo(
       projectPhoto(S.breathe, "009"),
