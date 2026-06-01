@@ -15,15 +15,15 @@ const proofBlocks = [
 ];
 
 const upccClinics = [
-  { name: "Surrey Newton UPCC", gc: "KDS" },
-  { name: "Chilliwack UPCC", gc: "KDS" },
+  { name: "Surrey Newton UPCC", gc: "KDS", slug: "surrey-newton-urgent-and-primary-care-centre" },
+  { name: "Chilliwack UPCC", gc: "KDS", slug: "chilliwack-urgent-and-primary-care-center" },
   { name: "Mission UPCC", gc: "KDS" },
   { name: "Port Coquitlam UPCC", gc: "KDS" },
   { name: "Cloverdale UPCC", gc: "KDS" },
-  { name: "Port Moody UPCC", gc: "KDS" },
+  { name: "Port Moody UPCC", gc: "KDS", slug: "port-moody-urgent-and-primary-care-center" },
   { name: "East Richmond UPCC", gc: "CDC" },
   { name: "Burnaby Edmonds UPCC", gc: "CDC" },
-  { name: "Langley UPCC", gc: "CDC" },
+  { name: "Langley UPCC", gc: "CDC", slug: "langley-urgent-and-primary-care-center" },
   { name: "South Surrey UPCC", gc: "CDC" },
   { name: "Nanaimo UPCC", gc: "Tectonica" },
   { name: "Ucluelet UPCC", gc: "Tectonica" },
@@ -32,7 +32,7 @@ const upccClinics = [
   { name: "Vancouver SE UPCC", gc: "Chandos" },
   { name: "Kamloops UPCC", gc: "True" },
   { name: "Seymour Clinic", gc: "" },
-];
+] as const satisfies ReadonlyArray<{ name: string; gc: string; slug?: string }>;
 
 const hospitals = [
   "Vancouver General Hospital (VGH)",
@@ -199,25 +199,35 @@ export default function HealthcarePage() {
               </div>
               <SitePhoto photo={sitePhotos.healthcare.upcc} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.3)]" />
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <ul className="grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-14">
               {upccClinics.map((clinic) => (
-                <div key={clinic.name} className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-5 py-4">
-                  <div className="w-2 h-2 rounded-full bg-[#134e4a] flex-shrink-0" />
-                  <div>
-                    <div className="font-medium text-[#0f172a] text-sm">{clinic.name}</div>
-                    {clinic.gc && <div className="text-xs text-gray-500 mt-0.5">GC: {clinic.gc}</div>}
-                  </div>
-                </div>
+                <li key={clinic.name} className="border-b border-slate-200/90 py-4">
+                  {"slug" in clinic && clinic.slug ? (
+                    <Link
+                      href={`/projects/${clinic.slug}`}
+                      className="text-sm font-semibold leading-snug text-[#134e4a] transition-colors hover:text-[#0d9488]"
+                    >
+                      {clinic.name}
+                    </Link>
+                  ) : (
+                    <div className="text-sm font-semibold leading-snug text-[#0f172a]">{clinic.name}</div>
+                  )}
+                  {clinic.gc && (
+                    <div className="mt-1.5 text-xs text-slate-500">
+                      General contractor — {clinic.gc}
+                    </div>
+                  )}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
         {/* Hospital Experience */}
         <section id="hospitals" className="section-shell-lg section-shell-dark bg-[#2a4663] scroll-mt-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
-              <div className="sticky-side">
+            <div className="mb-12 grid items-start gap-12 lg:mb-14 lg:grid-cols-2 lg:gap-16">
+              <div>
                 <span className="text-sm font-medium text-[#5eead4] tracking-wider uppercase mb-4 block">
                   Hospital Experience
                 </span>
@@ -237,17 +247,15 @@ export default function HealthcarePage() {
                   </svg>
                 </Link>
               </div>
-              <div className="space-y-6">
-                <SitePhoto photo={sitePhotos.healthcare.hospital} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.45)]" />
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {hospitals.map((hospital) => (
-                    <div key={hospital} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#5eead4] flex-shrink-0" />
-                      <span className="text-white/80 text-sm">{hospital}</span>
-                    </div>
-                  ))}
+              <SitePhoto photo={sitePhotos.healthcare.hospital} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.45)]" />
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {hospitals.map((hospital) => (
+                <div key={hospital} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#5eead4] flex-shrink-0" />
+                  <span className="text-white/80 text-sm">{hospital}</span>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
