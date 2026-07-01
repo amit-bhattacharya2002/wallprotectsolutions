@@ -79,7 +79,7 @@ export default function Contact() {
         fill
         quality={100}
         sizes="100vw"
-        className="pointer-events-none -z-20 object-cover object-center"
+        className="pointer-events-none -z-20 hidden object-cover object-center md:block"
       />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(8,22,37,0.78)_0%,rgba(8,22,37,0.44)_46%,rgba(8,22,37,0.72)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(255,255,255,0.22),transparent_28%),radial-gradient(circle_at_78%_8%,rgba(0,94,184,0.28),transparent_34%)]" />
