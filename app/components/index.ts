@@ -26,3 +26,5 @@ export { default as SystemProjectsList } from './SystemProjectsList';
 export { default as SitePhoto } from './SitePhoto';
 export { default as HealthcareKnowledgeDiagram } from './HealthcareKnowledgeDiagram';
 export { default as RelatedHealthcareResources } from './RelatedHealthcareResources';
+export { default as VrcaBadge } from './VrcaBadge';
+export { default as ProcoreBadge } from './ProcoreBadge';
