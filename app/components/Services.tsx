@@ -47,7 +47,7 @@ export default function Services() {
                 loading="eager"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0f3a36]/62 via-transparent to-transparent md:bg-linear-to-r md:from-transparent md:via-transparent md:to-white/10" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#07162c]/62 via-transparent to-transparent md:bg-linear-to-r md:from-transparent md:via-transparent md:to-white/10" />
               <p className="absolute bottom-3 left-4 right-4 text-xs font-medium text-white/90 md:bottom-4 md:left-5 md:text-sm">
                 {sitePhotos.alsoSupplyInstall.caption}
               </p>

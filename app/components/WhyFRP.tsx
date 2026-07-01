@@ -146,7 +146,7 @@ export default function WhyFRP() {
                 loading="eager"
                 className="object-cover filter-[saturate(0.85)_brightness(0.97)]"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0f3a36] via-[#0f3a36]/48 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#07162c] via-[#10233F]/48 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="text-white/80 text-sm mb-2 uppercase tracking-wider">Sectors served</div>
                 <div className="text-white font-medium text-lg">

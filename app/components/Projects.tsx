@@ -54,7 +54,7 @@ export default function Projects() {
                   priority
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[#0f3a36]/82 via-[#0f3a36]/24 to-transparent p-6">
+                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[#07162c]/82 via-[#10233F]/24 to-transparent p-6">
                   <span className="inline-flex rounded-full bg-white/92 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#10233F]">
                     Featured case study
                   </span>
