@@ -60,10 +60,10 @@ export default function FAQPage() {
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
                 Filter by topic
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-x-5 gap-y-2 border-b border-slate-200">
               <button
                 onClick={() => setActiveCategory("all")}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === "all" ? "bg-[#005EB8] text-white" : "bg-[#f8fafc] text-gray-600 hover:bg-gray-200"}`}
+                className={`border-b-2 pb-2 text-sm font-medium transition-colors ${activeCategory === "all" ? "border-[#005EB8] text-[#005EB8]" : "border-transparent text-gray-600 hover:text-[#0f172a]"}`}
               >
                 All Questions
               </button>
@@ -71,7 +71,7 @@ export default function FAQPage() {
                 <button
                   key={cat.slug}
                   onClick={() => setActiveCategory(cat.slug)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === cat.slug ? "bg-[#005EB8] text-white" : "bg-[#f8fafc] text-gray-600 hover:bg-gray-200"}`}
+                  className={`border-b-2 pb-2 text-sm font-medium transition-colors ${activeCategory === cat.slug ? "border-[#005EB8] text-[#005EB8]" : "border-transparent text-gray-600 hover:text-[#0f172a]"}`}
                 >
                   {cat.title}
                 </button>

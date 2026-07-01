@@ -20,10 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/frp-benefits`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/city`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     // Services
+    { url: `${baseUrl}/services`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/services/frp-sales`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/services/frp-installation`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/services/frp-service`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     // Manufacturers
+    { url: `${baseUrl}/manufacturers`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/wall-protection/manufacturers`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/marlite`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/crane-composites`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/graham`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },

@@ -145,11 +145,11 @@ export default function FRPInstallationPage() {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-3 mb-8">
+                <div className="mb-8 grid border-y border-slate-200 sm:grid-cols-2">
                   {clientTypes.map((type) => (
-                    <span key={type} className="px-4 py-2 bg-[#f8fafc] border border-gray-200 rounded-full text-gray-600 text-sm">
+                    <div key={type} className="border-b border-slate-200 py-3 text-sm font-medium text-slate-700 even:sm:pl-5 sm:[&:nth-last-child(-n+2)]:border-b-0">
                       {type}
-                    </span>
+                    </div>
                   ))}
                 </div>
 
@@ -216,11 +216,12 @@ export default function FRPInstallationPage() {
                 <div key={type.title} className="p-8 border border-gray-200 rounded-xl">
                   <h3 className="text-xl font-semibold text-[#0f172a] mb-3">{type.title}</h3>
                   <p className="text-gray-600 font-normal mb-4">{type.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="border-t border-slate-200">
                     {type.applications.map((app) => (
-                      <span key={app} className="text-sm text-[#f97316] bg-orange-50 px-3 py-1 rounded-full">
+                      <div key={app} className="flex items-start gap-2 border-b border-slate-200 py-2.5 text-sm text-slate-600 last:border-b-0">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-[#005EB8]" aria-hidden="true" />
                         {app}
-                      </span>
+                      </div>
                     ))}
                   </div>
                 </div>

@@ -55,11 +55,11 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
 
         <section className="section-shell bg-white border-t border-gray-100">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="mb-8 flex flex-wrap gap-x-4 gap-y-2 border-b border-slate-200 pb-4">
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 rounded-full bg-[#f2f8e8] text-[#64A70B] text-xs font-semibold tracking-wide uppercase"
+                  className="text-xs font-semibold uppercase tracking-[0.16em] text-[#64A70B]"
                 >
                   {tag}
                 </span>

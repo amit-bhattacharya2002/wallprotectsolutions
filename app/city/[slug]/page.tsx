@@ -318,7 +318,22 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             </div>
           </div>
         </section>
-
+{/* City CTA */}
+<div className="border-t bg-white border-slate-200 ">
+          <div className="mx-auto text-center flex max-w-7xl flex-col gap-1.5 px-6 py-4 h-auto sm:flex-row sm:items-center sm:justify-center lg:px-8">
+            <div className="max-w-3xl">
+              <h2 className="text-xs font-medium tracking-tight text-slate-700 sm:text-sm">
+                Schedule an on-site measurement in {city.name}.
+              </h2>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex h-8 shrink-0 items-center justify-center border hover:bg-linear-to-r from-[#005EB8] via-[#0d6fc7] to-[#347f6a] hover:text-white sm:border-b border-slate-200 px-3 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100  "
+            >
+              Schedule On-Site Measurement
+            </Link>
+          </div>
+        </div>
         {/* Nearby Cities */}
         {nearbyCities.length > 0 && (
           <section className="section-shell-lg bg-[#f8fafc]">
@@ -326,12 +341,12 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
               <h2 className="text-2xl font-semibold text-[#0f172a] mb-8">
                 Also Serving Nearby Areas
               </h2>
-              <div className="flex flex-wrap gap-3">
+              <div className="grid border-y border-slate-200 sm:grid-cols-2 lg:grid-cols-3">
                 {nearbyCities.map((nearbyCity) => (
                   <Link
                     key={nearbyCity.slug}
                     href={`/city/${nearbyCity.slug}`}
-                    className="px-5 py-2.5 bg-white border border-gray-200 rounded-full text-gray-700 hover:border-[#64A70B] hover:text-[#64A70B] transition-colors font-medium"
+                    className="border-b border-slate-200 py-3 text-sm font-medium text-slate-700 transition-colors hover:text-[#64A70B] sm:px-4 lg:[&:nth-last-child(-n+3)]:border-b-0"
                   >
                     {nearbyCity.name}
                   </Link>
@@ -340,36 +355,8 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             </div>
           </section>
         )}
-
-        {/* CTA Section */}
-        <section className="section-shell-lg section-shell-dark brand-blue-surface">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
-              Get a Quotation for {city.name}
-            </h2>
-            <p className="text-white/80 font-normal mb-10 max-w-2xl mx-auto">
-              We provide quotations according to your deadlines. Our team can attend your site in {city.name} for 
-              on-site measurements at no additional cost.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/quote"
-                className="inline-flex items-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#64A70B] hover:text-white transition-all"
-              >
-                Submit Project Specifications
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 border border-white/30 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all"
-              >
-                Schedule On-Site Measurement
-              </Link>
-            </div>
-          </div>
-        </section>
+{/* bg-linear-to-r from-[#005EB8] via-[#0d6fc7] to-[#347f6a] */}
+        
       </main>
       <Footer />
     </>

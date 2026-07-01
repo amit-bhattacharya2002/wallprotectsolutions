@@ -28,17 +28,19 @@ export default function FeaturedHealthcareProject() {
         aria-hidden="true"
         className="object-cover object-center opacity-[0.78]"
       />
-      <div className="absolute inset-0 bg-[#071522]/54" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.98)_0%,rgba(7,21,34,0.86)_48%,rgba(7,21,34,0.38)_100%)]" />
+      <div className="absolute inset-0 bg-linear-to-r from-[#005EB8]/82 via-[#0d6fc7]/66 to-[#64A70B]/58" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.76)_0%,rgba(7,21,34,0.58)_48%,rgba(7,21,34,0.22)_100%)]" />
+      <div className="absolute inset-0 bg-linear-to-b from-[#071522]/30 via-transparent to-[#071522]/56" />
+      <div className="absolute inset-y-0 right-0 w-full bg-[linear-gradient(90deg,transparent_0%,rgba(7,21,34,0.14)_42%,rgba(7,21,34,0.42)_100%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:gap-14">
           <div className="reveal lg:sticky lg:top-28">
             <span className="eyebrow">Featured Case Study</span>
-            <h2 className="section-title section-title-dark mt-3 mb-5">
+            <h2 className="section-title section-title-dark mt-3 mb-5 [text-shadow:_0_3px_18px_rgb(7_21_34_/_0.48)]">
               Lily&apos;s DTES Health Centre
             </h2>
-            <p className="section-lead section-lead-dark">
+            <p className="section-lead section-lead-dark [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.42)]">
               A full healthcare interior protection package in Vancouver&apos;s
               Downtown Eastside, combining hygienic wall cladding, FRP, wall
               protection, and architectural specialties under one coordinated
@@ -67,7 +69,7 @@ export default function FeaturedHealthcareProject() {
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[#9BCB4A]">
                 Why it matters
               </p>
-              <p className="mt-2 text-sm leading-6 text-white/72">
+              <p className="mt-2 text-sm font-medium leading-6 text-white/84 [text-shadow:_0_2px_12px_rgb(7_21_34_/_0.42)]">
                 This is the kind of project that signals premium capability:
                 multi-system scope, healthcare expectations, and careful
                 coordination with the broader construction team.

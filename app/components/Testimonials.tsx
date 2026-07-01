@@ -95,7 +95,9 @@ export default function Testimonials() {
         sizes="100vw"
         className="pointer-events-none absolute inset-0 z-0 object-cover object-center filter-[saturate(0.88)_brightness(0.82)]"
       />
-      <div className="pointer-events-none absolute inset-0 z-1 bg-[#10233F]/90" />
+      <div className="pointer-events-none absolute inset-0 z-1 bg-linear-to-r from-[#005EB8]/84 via-[#0d6fc7]/66 to-[#64A70B]/58" />
+      <div className="pointer-events-none absolute inset-0 z-1 bg-[linear-gradient(90deg,rgba(7,21,34,0.8)_0%,rgba(7,21,34,0.6)_48%,rgba(7,21,34,0.3)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 z-1 bg-linear-to-b from-[#071522]/34 via-transparent to-[#071522]/6" />
       <div
         className="pointer-events-none absolute -top-24 -left-20 z-2 h-72 w-72 rounded-full blur-3xl"
         style={{ background: "radial-gradient(circle, rgba(155,203,74,0.18) 0%, rgba(155,203,74,0) 70%)" }}
@@ -110,8 +112,8 @@ export default function Testimonials() {
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-6 lg:px-8">
         <div className="section-header reveal mx-auto mb-10 max-w-3xl shrink-0 text-center lg:mb-12">
           <span className="eyebrow">Testimonials</span>
-          <h2 className="section-title section-title-dark mb-4">What our clients say</h2>
-          <p className="section-lead section-lead-dark mx-auto">
+          <h2 className="section-title section-title-dark mb-4 [text-shadow:_0_3px_18px_rgb(7_21_34_/_0.5)]">What our clients say</h2>
+          <p className="section-lead section-lead-dark mx-auto [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.42)]">
             Don&apos;t just take our word for it. Here is feedback from owners, GCs, and operators across British Columbia.
           </p>
         </div>

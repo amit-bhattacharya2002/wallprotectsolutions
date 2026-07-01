@@ -179,7 +179,7 @@ export default function WallProtectionPage() {
                       >
                         <span className="font-medium text-[#0f172a] group-hover:text-[#f97316] transition-colors">{mfr.name}</span>
                         <div className="flex items-center gap-2">
-                          <span className="text-sm text-[#f97316] bg-orange-50 px-3 py-1 rounded-full">{mfr.type}</span>
+                          <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#005EB8]">{mfr.type}</span>
                           <svg className="w-4 h-4 text-gray-500 group-hover:text-[#f97316] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
@@ -256,11 +256,11 @@ export default function WallProtectionPage() {
                 <div key={product.name} className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
                   <h3 className="text-xl font-semibold text-[#0f172a] mb-3">{product.name}</h3>
                   <p className="text-gray-600 font-normal mb-4 leading-relaxed">{product.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="border-t border-slate-200 pt-3">
                     {product.brands.map((brand) => (
-                      <span key={brand} className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+                      <div key={brand} className="border-b border-slate-200 py-2 text-sm text-slate-600 last:border-b-0">
                         {brand}
-                      </span>
+                      </div>
                     ))}
                   </div>
                 </div>

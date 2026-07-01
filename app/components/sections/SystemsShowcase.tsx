@@ -12,7 +12,10 @@ import SystemsShowcaseMobile from "./SystemsShowcase.mobile";
 import SystemsShowcaseGrid from "./SystemsShowcase.grid";
 import { SYSTEMS, type ShowcaseSystem } from "./SystemsShowcase.data";
 
+// RESTORE INTERACTIVE TAB: used by the parked SystemsShowcaseViewToggle/state below.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type ShowcaseViewMode = "interactive" | "grid";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const VIEW_STORAGE_KEY = "systems-showcase-view";
 
 const N = SYSTEMS.length;
@@ -269,6 +272,7 @@ function SystemCard({
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function SystemsShowcaseDesktop() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
@@ -344,6 +348,11 @@ function SystemsShowcaseDesktop() {
 
 export default function SystemsShowcase() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  // RESTORE INTERACTIVE TAB:
+  // Re-enable this state block, render <SystemsShowcaseViewToggle />, and use
+  // showInteractive/showDesktopGrid below. Keeping it here preserves the prior
+  // localStorage behavior for when the interactive showcase comes back.
+  /*
   const [view, setView] = useState<ShowcaseViewMode>(() => {
     if (typeof window === "undefined") return "interactive";
     const stored = window.localStorage.getItem(VIEW_STORAGE_KEY);
@@ -363,15 +372,19 @@ export default function SystemsShowcase() {
 
   const showInteractive = isDesktop && view === "interactive";
   const showDesktopGrid = isDesktop && view === "grid";
+  */
 
   return (
     <div className="m-0 py-0" role="region" aria-label="Three systems, one unified installation">
+      {/* RESTORE INTERACTIVE TAB:
       {isDesktop && (
         <div className="mx-auto mb-5 flex max-w-7xl justify-end px-6 lg:mb-6 lg:px-8">
           <SystemsShowcaseViewToggle view={view} onChange={handleViewChange} />
         </div>
       )}
+      */}
 
+      {/* RESTORE INTERACTIVE TAB:
       {showInteractive ? (
         <SystemsShowcaseDesktop />
       ) : showDesktopGrid ? (
@@ -379,10 +392,15 @@ export default function SystemsShowcase() {
       ) : (
         <SystemsShowcaseMobile />
       )}
+      */}
+      {isDesktop ? <SystemsShowcaseGrid /> : <SystemsShowcaseMobile />}
     </div>
   );
 }
 
+// RESTORE INTERACTIVE TAB: this toggle is intentionally parked while the
+// homepage defaults to the grid showcase. Reconnect it in SystemsShowcase().
+/*
 function SystemsShowcaseViewToggle({
   view,
   onChange,
@@ -442,3 +460,4 @@ function SystemsShowcaseViewToggle({
     </div>
   );
 }
+*/

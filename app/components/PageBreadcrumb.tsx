@@ -67,8 +67,7 @@ export default function PageBreadcrumb() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Mirror Header.tsx's 80px collapse threshold so the sticky `top` value
-  // morphs in lockstep with the header as it shrinks.
+  // Keep the breadcrumb pinned just below the responsive header height.
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 80);
     onScroll();
@@ -93,19 +92,16 @@ export default function PageBreadcrumb() {
 
   return (
     <>
-      {/* In-flow spacer sized to the fully-expanded header. Reserves vertical
-          space so the sticky breadcrumb bar's natural position sits flush
-          below the header on first paint. */}
-      <div className="h-15 md:h-10 lg:h-40" aria-hidden="true" />
+      <div className="h-15 md:h-10 lg:h-38" aria-hidden="true" />
 
       <nav
         aria-label="Breadcrumb"
-        className={`sticky z-30 border-y border-slate-200/60 bg-white/86 shadow-[0_10px_30px_-28px_rgba(15,23,42,0.45)] backdrop-blur-md transition-[top] duration-300 ease-out ${
-          isScrolled ? "top-[60px]" : "top-15 md:top-10 lg:top-40"
+        className={`sticky z-30 bg-white/92 backdrop-blur-sm transition-[top] duration-300 ease-out ${
+          isScrolled ? "top-[60px]" : "top-15 md:top-10 lg:top-38"
         }`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 py-2.5 text-[0.72rem] font-medium uppercase tracking-[0.08em] text-slate-500 md:text-xs">
+          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 border-b border-slate-200/80 py-3 text-[0.72rem] font-medium text-slate-500 md:text-xs">
             <li>
               <Link
                 href="/"
@@ -132,7 +128,7 @@ export default function PageBreadcrumb() {
                 </svg>
                 {item.isLast ? (
                   <span
-                    className="font-semibold text-[#0f172a]"
+                    className="font-medium text-[#0f172a]"
                     aria-current="page"
                   >
                     {item.label}

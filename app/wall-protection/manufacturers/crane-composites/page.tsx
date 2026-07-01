@@ -118,7 +118,7 @@ export default function CraneCompositesPage() {
                         <h4 className="text-sm font-medium text-gray-600 uppercase tracking-wider mb-3">Textures</h4>
                         <div className="flex flex-wrap gap-2">
                           {product.options.textures.map((texture) => (
-                            <span key={texture} className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-sm text-gray-600">
+                            <span key={texture} className="inline-block border-b border-slate-300 pb-1 text-sm text-slate-600">
                               {texture}
                             </span>
                           ))}
@@ -131,7 +131,7 @@ export default function CraneCompositesPage() {
                         <h4 className="text-sm font-medium text-gray-600 uppercase tracking-wider mb-3">Colors</h4>
                         <div className="flex flex-wrap gap-2">
                           {product.options.colors.map((color) => (
-                            <span key={color} className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-sm text-gray-600">
+                            <span key={color} className="inline-block border-b border-slate-300 pb-1 text-sm text-slate-600">
                               {color}
                             </span>
                           ))}
@@ -144,7 +144,7 @@ export default function CraneCompositesPage() {
                         <h4 className="text-sm font-medium text-gray-600 uppercase tracking-wider mb-3">Sizes</h4>
                         <div className="flex flex-wrap gap-2">
                           {product.options.sizes.map((size) => (
-                            <span key={size} className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-sm text-gray-600">
+                            <span key={size} className="inline-block border-b border-slate-300 pb-1 text-sm text-slate-600">
                               {size}
                             </span>
                           ))}
@@ -157,7 +157,7 @@ export default function CraneCompositesPage() {
                         <h4 className="text-sm font-medium text-gray-600 uppercase tracking-wider mb-3">Ideal Applications</h4>
                         <div className="flex flex-wrap gap-2">
                           {product.options.applications.map((app) => (
-                            <span key={app} className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-sm text-gray-600">
+                            <span key={app} className="inline-block border-b border-slate-300 pb-1 text-sm text-slate-600">
                               {app}
                             </span>
                           ))}
@@ -170,7 +170,7 @@ export default function CraneCompositesPage() {
                         <h4 className="text-sm font-medium text-gray-600 uppercase tracking-wider mb-3">Panel Types</h4>
                         <div className="flex flex-wrap gap-2">
                           {product.options.types.map((type) => (
-                            <span key={type} className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-sm text-gray-600">
+                            <span key={type} className="inline-block border-b border-slate-300 pb-1 text-sm text-slate-600">
                               {type}
                             </span>
                           ))}
@@ -229,7 +229,7 @@ export default function CraneCompositesPage() {
                 <Link
                   key={manufacturer.name}
                   href={manufacturer.href}
-                  className="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-600 hover:border-[#f97316] hover:text-[#f97316] transition-colors font-medium"
+                  className="border-b border-slate-300 py-2 font-medium text-slate-600 transition-colors hover:border-[#64A70B] hover:text-[#64A70B]"
                 >
                   {manufacturer.name}
                 </Link>

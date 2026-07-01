@@ -72,9 +72,9 @@ export default function ResourcesPage() {
                   key={article.slug}
                   className="group border border-gray-200 p-6 transition-colors hover:border-[#64A70B]"
                 >
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="mb-4 flex flex-wrap gap-x-3 gap-y-1.5 border-b border-slate-200 pb-3">
                     {article.tags.map((tag) => (
-                      <span key={tag} className="px-2.5 py-1 bg-[#f8fafc] text-gray-500 text-xs font-medium rounded-full">{tag}</span>
+                      <span key={tag} className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{tag}</span>
                     ))}
                   </div>
                   <h3 className="text-lg font-semibold text-[#0f172a] mb-3 group-hover:text-[#64A70B] transition-colors leading-snug">

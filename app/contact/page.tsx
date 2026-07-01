@@ -261,9 +261,9 @@ export default function ContactPage() {
                 Our team travels to all major cities and communities.
               </p>
             </div>
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="mx-auto grid max-w-4xl border-y border-slate-200 text-left sm:grid-cols-2 lg:grid-cols-3">
               {serviceAreas.map((city) => (
-                <span key={city} className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-gray-600 text-sm">
+                <span key={city} className="border-b border-slate-200 py-3 text-sm text-slate-600 sm:px-4 lg:[&:nth-last-child(-n+3)]:border-b-0">
                   {city}
                 </span>
               ))}

@@ -112,7 +112,7 @@ export default function SystemsPage() {
                       </span>
                     </div>
                     <div className="md:col-span-3">
-                      <h3 className="text-xl md:text-2xl font-semibold text-[#0f172a] group-hover:text-[#64A70B] transition-colors duration-300 tracking-tight">
+                      <h3 className="text-xl md:text-2xl font-semibold text-[#0f172a] group-hover:text-white transition-colors duration-300 tracking-tight">
                         {system.name}
                       </h3>
                     </div>

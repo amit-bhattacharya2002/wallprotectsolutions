@@ -127,52 +127,59 @@ export default function WallProtectionSystemsPage() {
                 className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
               />
             </div>
-            <div className="space-y-10">
-              {products.map((product, index) => (
-                <div key={product.manufacturer} className={`grid items-stretch gap-10 lg:grid-cols-2 ${index > 0 ? "border-t border-gray-200 pt-10" : ""}`}>
-                  <div>
-                    <div className="mb-4 flex flex-wrap items-center gap-3">
-                      <h3 className="text-xl font-semibold text-[#0f172a]">{product.manufacturer}</h3>
-                      <span className="rounded-full bg-[#005EB8] px-3 py-1 text-xs font-semibold text-white">{product.relationship}</span>
-                    </div>
-                    <ul className="space-y-2">
-                      {product.items.map((item) => (
-                        <li key={item} className="flex items-baseline gap-3 text-gray-600">
-                          <svg className="h-5 w-5 shrink-0 translate-y-0.5 text-[#64A70B]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
-                          {item}
-                        </li>
-                      ))}
-                      {"subItems" in product && product.subItems ? (
-                        <li className="mt-4 list-none">
-                          <p className="mb-2 text-sm font-semibold text-[#0f172a]">{product.subItems.title}</p>
-                          <ul className="space-y-2 border-l-2 border-[#64A70B]/25 pl-4">
-                            {product.subItems.items.map((item) => (
-                              <li key={item} className="flex items-baseline gap-3 text-gray-600">
-                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#005EB8]" aria-hidden="true" />
-                                <span className="text-sm leading-relaxed">{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {products.map((product) => (
+                <div
+                  key={product.manufacturer}
+                  className="flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_22px_70px_-50px_rgba(15,23,42,0.34)] md:p-7"
+                >
+                  <div className="mb-6 grid gap-5">
+                    <div className="flex flex-wrap items-center gap-4">
+                      {product.logoSrc ? (
+                        <div className="relative h-20 w-32 shrink-0 rounded-xl border border-slate-100 bg-white p-3 shadow-[0_12px_34px_-28px_rgba(15,23,42,0.45)]">
+                          <Image
+                            src={product.logoSrc}
+                            alt={`${product.manufacturer} logo`}
+                            fill
+                            sizes="128px"
+                            className="object-contain object-center p-3"
+                          />
+                        </div>
                       ) : null}
-                    </ul>
-                  </div>
-                  <div className="flex h-full min-h-[220px] flex-col rounded-xl border border-gray-100 bg-[#f8fafc] p-6">
-                    {product.logoSrc ? (
-                      <div className="relative mb-5 h-28 w-full shrink-0">
-                        <Image
-                          src={product.logoSrc}
-                          alt={`${product.manufacturer} logo`}
-                          fill
-                          sizes="(min-width: 1024px) 420px, 100vw"
-                          className="object-contain object-center p-2"
-                        />
+                      <div>
+                        <h3 className="text-2xl font-semibold tracking-tight text-[#0f172a]">{product.manufacturer}</h3>
+                        <span className="mt-2 inline-flex rounded-full bg-[#005EB8] px-3 py-1 text-xs font-semibold text-white">{product.relationship}</span>
                       </div>
-                    ) : null}
-                    <p className="text-sm leading-relaxed text-gray-600">{product.note}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm leading-relaxed text-slate-600">{product.note}</p>
+                    </div>
                   </div>
+
+                  <ul className="border-y border-slate-200/80">
+                    {product.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 border-b border-slate-200/70 py-3.5 last:border-b-0">
+                        <svg className="mt-1 h-4 w-4 shrink-0 text-[#64A70B]" fill="none" stroke="currentColor" strokeWidth="2.4" viewBox="0 0 20 20" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m5 10 3 3 7-7" />
+                        </svg>
+                        <span className="text-sm leading-relaxed text-slate-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {"subItems" in product && product.subItems ? (
+                    <div className="mt-5 border-l-2 border-[#005EB8]/35 pl-5">
+                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#005EB8]">{product.subItems.title}</p>
+                      <div className="grid gap-2.5">
+                        {product.subItems.items.map((item) => (
+                          <div key={item} className="flex items-start gap-3 text-slate-600">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#005EB8]" aria-hidden="true" />
+                            <span className="text-sm leading-relaxed">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               ))}
             </div>

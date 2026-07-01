@@ -201,9 +201,9 @@ export default function FRPSalesPage() {
                 <div key={mfr.name} className="bg-white p-8 rounded-xl border border-gray-200">
                   <h3 className="text-xl font-semibold text-[#0f172a] mb-2">{mfr.name}</h3>
                   <p className="text-gray-600 font-normal mb-4">{mfr.description}</p>
-                  <span className="text-sm text-[#f97316] bg-orange-50 px-3 py-1 rounded-full">
+                  <div className="border-t border-slate-200 pt-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#005EB8]">
                     {mfr.specialty}
-                  </span>
+                  </div>
                 </div>
               ))}
             </div>

@@ -51,7 +51,7 @@ export default function IndustriesPage() {
                       <div className="flex items-center gap-3 mb-4">
                         <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight">{industry.name}</h2>
                         {industry.primary && (
-                          <span className="px-3 py-1 bg-[#005EB8]/10 text-[#64A70B] text-xs font-medium rounded-full">Primary Focus</span>
+                          <span className="border-l border-[#64A70B]/45 pl-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#64A70B]">Primary Focus</span>
                         )}
                       </div>
                       <p className="text-gray-600 leading-relaxed font-normal mb-6">{industry.description}</p>
@@ -98,11 +98,11 @@ export default function IndustriesPage() {
                         className="mb-6 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
                       />
                       <div className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-4">Systems commonly installed</div>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="grid border-y border-slate-200 sm:grid-cols-2">
                         {industry.systems.map((sys) => (
-                          <span key={sys} className="px-4 py-2 bg-[#f8fafc] border border-gray-200 rounded-full text-sm text-gray-700 font-medium">
+                          <div key={sys} className="border-b border-slate-200 py-3 text-sm font-medium text-slate-700 even:sm:pl-5 sm:[&:nth-last-child(-n+2)]:border-b-0">
                             {sys}
-                          </span>
+                          </div>
                         ))}
                       </div>
                     </div>
