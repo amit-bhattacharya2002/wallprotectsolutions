@@ -190,9 +190,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
+      {/* border-t  border-white/10 */}
       {/* Contact + credentials strip */}
-      <div className="border-t border-white/10">
+      <div className="">
         <div className="mx-auto max-w-7xl px-6 py-6 lg:px-8">
           <div className="flex flex-col items-center gap-7 md:flex-row md:justify-between md:gap-10">
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-8">
