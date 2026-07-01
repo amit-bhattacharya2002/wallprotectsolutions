@@ -209,7 +209,7 @@ export default function MarlitePage() {
                     )}
 
                     {product.options.feature && (
-                      <div className="mt-6 p-4 bg-[#2a4663]/5 rounded-lg">
+                      <div className="mt-6 p-4 bg-[#005EB8]/5 rounded-lg">
                         <p className="text-sm text-gray-600">
                           <span className="font-medium text-[#0f172a]">Key Feature:</span> {product.options.feature}
                         </p>
@@ -223,7 +223,7 @@ export default function MarlitePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-[#2a4663]">
+        <section className="brand-blue-surface py-20">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
               Ready to discuss your Marlite FRP project?

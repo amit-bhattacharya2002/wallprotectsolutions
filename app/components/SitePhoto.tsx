@@ -81,7 +81,7 @@ export default function SitePhoto({
           className={imageClassName}
         />
         {overlay === "gradient" ? (
-          <div className="absolute inset-0 bg-linear-to-t from-[#2a4663]/55 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#0f3a36]/72 via-[#0f3a36]/16 to-transparent" />
         ) : null}
         {resolved.caption ? (
           <figcaption className="absolute bottom-3 left-4 right-4 text-xs font-medium text-white/90 md:bottom-4 md:text-sm">

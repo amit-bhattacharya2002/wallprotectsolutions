@@ -47,6 +47,8 @@ export default function PreConstructionPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.preConstruction}
           eyebrow="Pre-Construction & Specification Support"
           title="Pre-construction and specification support"
           subtitle="We engage early — helping GCs, project managers, and design teams make the right wall protection and hygienic system decisions before they become problems on site."
@@ -65,7 +67,7 @@ export default function PreConstructionPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-14">
               <div className="max-w-2xl">
-                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">What We Provide</span>
+                <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">What We Provide</span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">Pre-construction services</h2>
                 <p className="text-gray-600 leading-relaxed font-normal">Our GC-level construction background means we understand the full project context — not just the wall protection scope. We engage as a construction partner, not just a subcontractor responding to a tender.</p>
               </div>
@@ -73,8 +75,8 @@ export default function PreConstructionPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {services.map((service, index) => (
-                <div key={service.title} className="p-8 border border-gray-200 rounded-xl hover:border-[#0d9488] transition-colors">
-                  <div className="text-sm text-[#134e4a] font-medium mb-3">0{index + 1}</div>
+                <div key={service.title} className="p-8 border border-gray-200 rounded-xl hover:border-[#64A70B] transition-colors">
+                  <div className="text-sm text-[#64A70B] font-medium mb-3">0{index + 1}</div>
                   <h3 className="text-lg font-semibold text-[#0f172a] mb-3">{service.title}</h3>
                   <p className="text-gray-600 font-normal leading-relaxed text-sm">{service.description}</p>
                 </div>
@@ -87,15 +89,15 @@ export default function PreConstructionPage() {
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="mx-auto mb-14 max-w-3xl text-center">
-              <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Project Stages</span>
+              <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Project Stages</span>
               <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">When to involve us — and why</h2>
               <p className="text-gray-600 leading-relaxed font-normal">The earlier we are involved in a healthcare project, the more value we can add. Here is what we contribute at each project stage.</p>
             </div>
             <div className="space-y-4">
               {whenToInvolveUs.map((stage, index) => (
                 <div key={stage.stage} className="grid md:grid-cols-4 gap-6 bg-white border border-gray-200 rounded-xl p-6 md:p-8 items-start">
-                  <div className="border-l-[3px] border-[#134e4a] pl-4">
-                    <span className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-[#134e4a]">
+                  <div className="border-l-[3px] border-[#64A70B] pl-4">
+                    <span className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-[#64A70B]">
                       Stage {String(index + 1).padStart(2, "0")}
                     </span>
                     <h3 className="text-base font-semibold tracking-tight text-[#0f172a] md:text-lg leading-snug">

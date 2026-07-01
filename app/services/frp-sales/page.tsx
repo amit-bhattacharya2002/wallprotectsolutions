@@ -119,7 +119,9 @@ export default function FRPSalesPage() {
     <>
       <Header />
       <main>
-        <PageHero 
+        <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.services.sales}
           title="FRP Sales"
           subtitle="Premium FRP panels for wall and ceiling applications from leading manufacturers."
           breadcrumb="Services / FRP Sales"
@@ -155,7 +157,7 @@ export default function FRPSalesPage() {
 
                 <Link
                   href="/quote"
-                  className="inline-flex items-center gap-3 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                  className="inline-flex items-center gap-3 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
                 >
                   Request a Quote
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -241,7 +243,7 @@ export default function FRPSalesPage() {
         </section>
 
         {/* Accessories Section */}
-        <section className="py-20 lg:py-28 bg-[#2a4663]">
+        <section className="brand-blue-surface py-20 lg:py-28">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-4">
@@ -270,19 +272,19 @@ export default function FRPSalesPage() {
                 Ready to order FRP panels?
               </h2>
               <p className="text-gray-600 font-normal mb-10 max-w-2xl mx-auto">
-                Contact us for a quote. We'll help you select the right products and provide 
+                Contact us for a quote. We&apos;ll help you select the right products and provide 
                 competitive pricing for your project.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/quote"
-                  className="inline-flex items-center justify-center gap-3 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                  className="inline-flex items-center justify-center gap-3 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
                 >
                   Get a Quote
                 </Link>
                 <Link
                   href="/services/frp-installation"
-                  className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#2a4663] transition-all"
+                  className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#64A70B] transition-all"
                 >
                   Learn About Installation
                 </Link>

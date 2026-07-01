@@ -6,31 +6,37 @@ const manufacturers = [
   {
     name: "Construction Specialties",
     logoSrc: "/cs.png",
+    useCase: "Impact protection",
     note: "Acrovyn sheets, crash rails, corner guards, handrails, door protection",
   },
   {
     name: "Altro",
     logoSrc: "/altro.webp",
+    useCase: "Hygienic cladding",
     note: "Whiterock welded hygienic systems and Puraguard panel systems",
   },
   {
     name: "Inpro",
     logoSrc: "/inpro.jpg",
+    useCase: "Corridor protection",
     note: "Wall protection, door protection, corridor systems, and Aspex graphics",
   },
   {
     name: "Panolam",
     logoSrc: "/panolam.png",
+    useCase: "FRL / decorative",
     note: "FRL decorative wall systems and healthcare corridor finishes",
   },
   {
     name: "Marlite",
     logoSrc: "/marlite.png",
+    useCase: "FRP / hybrid panels",
     note: "Traditional FRP, Induro, Symmetrix, and decorative hybrid panels",
   },
   {
     name: "Valto",
     logoSrc: "/valto.png",
+    useCase: "FRP systems",
     note: "Glasbord FRP and Varietex decorative wall systems",
   },
 ];
@@ -73,10 +79,15 @@ export default function ManufacturerStrip() {
               We regularly work with products from leading manufacturers including Construction Specialties, Altro, Inpro, Panolam, Marlite, and others. The goal is not to push one brand everywhere. It is to choose the right system for the application, specification, budget, and maintenance conditions.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white shadow-[0_22px_60px_-42px_rgba(15,23,42,0.28)]">
+            <div className="grid border-b border-slate-200 bg-[#f8fafc] px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 md:grid-cols-[0.85fr_0.8fr_1.35fr] lg:px-6">
+              <span>Manufacturer</span>
+              <span className="hidden md:block">Best fit</span>
+              <span className="hidden md:block">Typical scope</span>
+            </div>
             {manufacturers.map((m, index) => (
-              <div key={m.name} className="rounded-xl border border-slate-200 bg-white p-5 shadow-[0_16px_40px_-34px_rgba(15,23,42,0.28)] lg:p-6">
-                <div className="mb-4 flex h-12 items-center border-b border-slate-100 pb-3 sm:h-14">
+              <div key={m.name} className="grid gap-4 border-b border-slate-200 px-5 py-5 last:border-b-0 md:grid-cols-[0.85fr_0.8fr_1.35fr] md:items-center lg:px-6">
+                <div className="flex h-11 items-center md:h-12">
                   <div className="relative h-full w-full">
                     <Image
                       src={m.logoSrc}
@@ -89,8 +100,14 @@ export default function ManufacturerStrip() {
                     />
                   </div>
                 </div>
-                <div className="text-base font-semibold text-[#0f172a] leading-tight mb-2">{m.name}</div>
-                <div className="text-sm text-gray-500 leading-relaxed">{m.note}</div>
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[#4f8f16] md:hidden">Best fit</div>
+                  <div className="text-sm font-semibold text-[#0f172a]">{m.useCase}</div>
+                </div>
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[#4f8f16] md:hidden">Typical scope</div>
+                  <div className="text-sm leading-relaxed text-gray-500">{m.note}</div>
+                </div>
               </div>
             ))}
           </div>
@@ -98,10 +115,10 @@ export default function ManufacturerStrip() {
 
         <div className="mt-10 border-y border-slate-200 py-7 lg:mt-12 lg:py-8">
           <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#134e4a]">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
               What this means for project teams
             </div>
-            <Link href="/manufacturers" className="inline-flex items-center gap-1.5 text-[#134e4a] text-sm font-medium hover:gap-2 transition-all">
+            <Link href="/manufacturers" className="inline-flex items-center gap-1.5 text-[#64A70B] text-sm font-medium hover:gap-2 transition-all">
               View manufacturer partners
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -115,7 +132,7 @@ export default function ManufacturerStrip() {
               "Cleaner coordination across wall protection, hygienic systems, FRP/FRL, and Division 10 scopes",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 md:pr-6 md:last:pr-0 md:not-first:pl-6">
-                <svg className="w-4 h-4 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-[#64A70B] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span>{item}</span>

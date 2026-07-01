@@ -30,7 +30,7 @@ function SystemListCard({ sys, eager }: { sys: ShowcaseSystem; eager?: boolean }
         </p>
         <Link
           href={sys.href}
-          className="inline-flex items-center gap-1.5 text-base font-semibold text-[#14b8a6] transition-colors hover:text-[#0d9488]"
+          className="inline-flex items-center gap-1.5 text-base font-semibold text-[#64A70B] transition-colors hover:text-[#4f8f16]"
         >
           Learn more
           <span aria-hidden>→</span>

@@ -17,6 +17,8 @@ export default function IndustriesPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.industries.healthcare}
           eyebrow="Industries"
           title="Industries served"
           subtitle="Healthcare is the core of our business — 75%+ of our work. We also serve education, food service, commercial, and industrial sectors across British Columbia."
@@ -49,12 +51,12 @@ export default function IndustriesPage() {
                       <div className="flex items-center gap-3 mb-4">
                         <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight">{industry.name}</h2>
                         {industry.primary && (
-                          <span className="px-3 py-1 bg-[#134e4a]/10 text-[#134e4a] text-xs font-medium rounded-full">Primary Focus</span>
+                          <span className="px-3 py-1 bg-[#005EB8]/10 text-[#64A70B] text-xs font-medium rounded-full">Primary Focus</span>
                         )}
                       </div>
                       <p className="text-gray-600 leading-relaxed font-normal mb-6">{industry.description}</p>
                       {industry.slug === "healthcare" && (
-                        <Link href="/healthcare" className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-[#134e4a] transition-all hover:gap-3">
+                        <Link href="/healthcare" className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-[#64A70B] transition-all hover:gap-3">
                           View healthcare experience
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -69,9 +71,9 @@ export default function IndustriesPage() {
                               <li key={project.slug}>
                                 <Link
                                   href={`/projects/${project.slug}`}
-                                  className="group inline-flex items-center gap-2 text-sm font-medium text-[#134e4a] transition-colors hover:text-[#0d9488]"
+                                  className="group inline-flex items-center gap-2 text-sm font-medium text-[#64A70B] transition-colors hover:text-[#64A70B]"
                                 >
-                                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#134e4a] transition-colors group-hover:bg-[#0d9488]" aria-hidden />
+                                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#005EB8] transition-colors group-hover:bg-[#64A70B]" aria-hidden />
                                   {project.title}
                                 </Link>
                               </li>
@@ -79,7 +81,7 @@ export default function IndustriesPage() {
                           </ul>
                           <Link
                             href={`/projects#${industry.projectsFilterHash}`}
-                            className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#0f172a] transition-all hover:gap-3 hover:text-[#134e4a]"
+                            className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#0f172a] transition-all hover:gap-3 hover:text-[#64A70B]"
                           >
                             View all {industry.name.toLowerCase()} projects
                             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>

@@ -9,6 +9,7 @@ import {
   Contact,
   Footer,
   FeaturedHealthcareProject,
+  HealthcareApplications,
   ManufacturerStrip,
   PreConstructionCTA,
   ResourcesPreview,
@@ -23,6 +24,7 @@ export default function Home() {
         <Hero />
         <HeroTrustLine />
         <Services />
+        <HealthcareApplications />
         <Projects />
         <FeaturedHealthcareProject />
         <WhyFRP />

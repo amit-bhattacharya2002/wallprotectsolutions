@@ -1,11 +1,46 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Header, Footer, PageHero } from "@/app/components";
+import { Header, Footer, PageHero, RelatedHealthcareResources } from "@/app/components";
 import ProjectDetailMedia from "@/app/components/ProjectDetailMedia";
 import ProjectCover from "@/app/components/ProjectCover";
 import { projects, getProjectBySlug, getAllProjectSlugs } from "@/app/data/projects";
 import { getProjectCoverImage, projectHasMedia, resolveProjectGallery } from "@/app/lib/project-gallery";
 import { getProductHref } from "@/app/lib/product-links";
+
+function getProjectResourceSlugs(products: string[] = []) {
+  const text = products.join(" ").toLowerCase();
+  const slugs = new Set<string>(["healthcare-wall-finish-selection-guide"]);
+
+  if (text.includes("altro") || text.includes("hygienic")) {
+    slugs.add("healthcare-sink-splash-zones");
+    slugs.add("clean-utility-vs-soiled-utility-surface-considerations");
+    slugs.add("altro-whiterock-vs-frp-healthcare");
+  }
+
+  if (text.includes("frp")) {
+    slugs.add("frp-vs-frl");
+    slugs.add("healthcare-sink-splash-zones");
+  }
+
+  if (text.includes("frl") || text.includes("panolam") || text.includes("decorative")) {
+    slugs.add("decorative-vs-hygienic-wall-systems");
+    slugs.add("frp-vs-frl");
+  }
+
+  if (
+    text.includes("wall protection") ||
+    text.includes("acrovyn") ||
+    text.includes("inpro") ||
+    text.includes("corner") ||
+    text.includes("crash") ||
+    text.includes("division")
+  ) {
+    slugs.add("impact-protection-healthcare-corridors");
+    slugs.add("crash-rails-corner-guards-corridor-protection");
+  }
+
+  return Array.from(slugs).slice(0, 4);
+}
 
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({
@@ -39,6 +74,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const relatedProjects = projects
     .filter((p) => p.category === project.category && p.slug !== project.slug)
     .slice(0, 2);
+  const relatedResourceSlugs = getProjectResourceSlugs(project.details.products);
 
   return (
     <>
@@ -49,7 +85,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           eyebrow={project.category}
           badge={
             project.signature ? (
-              <span className="inline-flex items-center rounded-full bg-[#134e4a]/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#0d9488]">
+              <span className="inline-flex items-center rounded-full bg-[#005EB8]/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
                 Signature Project
               </span>
             ) : undefined
@@ -74,12 +110,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <p className="text-gray-600 leading-relaxed font-normal text-lg mb-8">
                     {project.fullDescription}
                   </p>
+                  <RelatedHealthcareResources
+                    slugs={relatedResourceSlugs}
+                    intro="How this project connects to healthcare wall system selection, product fit, and long-term surface performance."
+                    className="mt-10"
+                  />
                 </ProjectDetailMedia>
               </div>
 
               <div className="lg:col-span-1">
                 <div className="bg-[#f8fafc] rounded-2xl p-8 sticky top-32">
-                  <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-[#134e4a]">Project Details</h3>
+                  <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">Project Details</h3>
                   <div className="space-y-5">
                     {project.details.location && (
                       <div>
@@ -105,10 +146,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <ul className="space-y-3">
                           {project.details.products.map((product) => (
                             <li key={product} className="flex items-baseline gap-2.5">
-                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#134e4a]" aria-hidden="true" />
+                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#005EB8]" aria-hidden="true" />
                               <Link
                                 href={getProductHref(product)}
-                                className="text-base font-medium leading-snug text-[#0f172a] underline decoration-[#134e4a]/35 underline-offset-[0.2em] transition-colors hover:text-[#134e4a] hover:decoration-[#134e4a]"
+                                className="text-base font-medium leading-snug text-[#0f172a] underline decoration-[#64A70B]/35 underline-offset-[0.2em] transition-colors hover:text-[#64A70B] hover:decoration-[#64A70B]"
                               >
                                 {product}
                               </Link>
@@ -122,7 +163,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <div className="mt-8 pt-6 border-t border-gray-200">
                     <Link
                       href="/quote"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#2a4663] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-colors"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#005EB8] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-colors"
                     >
                       Start Similar Project
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

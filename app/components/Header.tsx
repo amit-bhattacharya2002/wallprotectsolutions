@@ -37,7 +37,7 @@ const navigation = [
     href: "/pre-construction",
     children: [
       { name: "Pre-Construction", href: "/pre-construction" },
-      { name: "Resources", href: "/resources" },
+      { name: "Healthcare Knowledge Centre", href: "/resources" },
       { name: "FAQ", href: "/faq" },
       { name: "Why FRP?", href: "/frp-benefits" },
       { name: "Service Areas", href: "/city" },
@@ -152,7 +152,7 @@ export default function Header() {
             </svg>
           )}
           <span
-            className={`absolute inset-x-0 -bottom-1 h-[2px] origin-center bg-[#134e4a] transition-transform duration-200 ${
+            className={`absolute inset-x-0 -bottom-1 h-[2px] origin-center bg-[#005EB8] transition-transform duration-200 ${
               isItemActive(item) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
             }`}
           />
@@ -229,7 +229,7 @@ export default function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="group flex min-w-0 shrink-0 flex-col leading-none lg:shrink-0"
+              className="brand-wordmark group flex min-w-0 shrink-0 flex-col leading-none lg:shrink-0"
             >
               <span
                 className={`font-semibold leading-tight tracking-tight text-[#0f172a] transition-all duration-300 ${
@@ -239,7 +239,7 @@ export default function Header() {
                 FRP Installations Inc.
               </span>
               <span
-                className={`hidden font-semibold uppercase leading-tight tracking-[0.18em] text-[#134e4a] transition-all duration-300 sm:block ${
+                className={`hidden font-semibold uppercase leading-tight tracking-[0.18em] text-[#64A70B] transition-all duration-300 sm:block ${
                   isScrolled
                     ? "text-[0.6rem] md:text-[0.68rem]"
                     : "text-[0.62rem] md:text-[0.72rem]"
@@ -269,7 +269,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:border-[#0d9488]/40 hover:bg-white hover:text-[#0d9488]"
+                className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:border-[#64A70B]/40 hover:bg-white hover:text-[#64A70B]"
                 aria-label="Open site search"
                 title="Search (⌘K)"
               >
@@ -289,7 +289,7 @@ export default function Header() {
               </button>
               <Link
                 href="/quote"
-                className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#2a4663] px-5 py-2 text-sm font-medium text-white transition-all hover:bg-[#3a597b]"
+                className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#005EB8] px-5 py-2 text-sm font-medium text-white transition-all hover:bg-[#2B7DCE]"
               >
                 Get a Quote
                 <svg
@@ -313,7 +313,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#0d9488] hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#64A70B] hover:text-white"
                 aria-label="Search the site"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -322,7 +322,7 @@ export default function Header() {
               </button>
               <a
                 href="tel:604-715-9469"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#0d9488] hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#64A70B] hover:text-white"
                 aria-label="Call us"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -331,7 +331,7 @@ export default function Header() {
               </a>
               <a
                 href="mailto:info@frpinstallations.com"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#0d9488] hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#64A70B] hover:text-white"
                 aria-label="Email us"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -345,17 +345,17 @@ export default function Header() {
               >
                 <div className="relative flex h-3 w-4 flex-col justify-between">
                   <span
-                    className={`h-0.5 w-full origin-center bg-[#2a4663] transition-all duration-300 ${
+                    className={`h-0.5 w-full origin-center bg-[#005EB8] transition-all duration-300 ${
                       isMobileMenuOpen ? "translate-y-[5px] rotate-45" : ""
                     }`}
                   />
                   <span
-                    className={`h-0.5 w-full bg-[#2a4663] transition-all duration-300 ${
+                    className={`h-0.5 w-full bg-[#005EB8] transition-all duration-300 ${
                       isMobileMenuOpen ? "opacity-0" : ""
                     }`}
                   />
                   <span
-                    className={`h-0.5 w-full origin-center bg-[#2a4663] transition-all duration-300 ${
+                    className={`h-0.5 w-full origin-center bg-[#005EB8] transition-all duration-300 ${
                       isMobileMenuOpen ? "-translate-y-[5px] -rotate-45" : ""
                     }`}
                   />
@@ -405,12 +405,12 @@ export default function Header() {
           <Link
             href="/"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="flex min-w-0 shrink-0 flex-col leading-none"
+            className="brand-wordmark flex min-w-0 shrink-0 flex-col leading-none"
           >
             <span className="text-base font-semibold leading-tight tracking-tight text-[#0f172a]">
               FRP Installations Inc.
             </span>
-            <span className="text-xs font-medium leading-tight tracking-wide text-[#134e4a]">
+            <span className="text-xs font-medium leading-tight tracking-wide text-[#64A70B]">
               Wall Protection Solutions
             </span>
           </Link>
@@ -433,10 +433,10 @@ export default function Header() {
                 setIsSearchOpen(true);
                 setIsMobileMenuOpen(false);
               }}
-              className="mb-5 flex w-full items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-left text-[#0f172a] transition-colors hover:border-[#0d9488]/30 hover:bg-[#0d9488]/5"
+              className="mb-5 flex w-full items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-left text-[#0f172a] transition-colors hover:border-[#64A70B]/30 hover:bg-[#64A70B]/5"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
-                <svg className="h-5 w-5 text-[#134e4a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-5 w-5 text-[#64A70B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="m21 21-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0Z" />
                 </svg>
               </div>
@@ -452,7 +452,7 @@ export default function Header() {
                     <button
                       onClick={() => setMobileDropdownOpen(mobileDropdownOpen === item.name ? null : item.name)}
                       className={`flex w-full items-center justify-between py-4 text-lg font-medium transition-colors ${
-                        isItemActive(item) ? "text-[#134e4a]" : "text-[#0f172a]"
+                        isItemActive(item) ? "text-[#64A70B]" : "text-[#0f172a]"
                       }`}
                     >
                       {item.name}
@@ -478,7 +478,7 @@ export default function Header() {
                             onClick={() => setIsMobileMenuOpen(false)}
                             className={`flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors ${
                               pathname === child.href
-                                ? "bg-[#134e4a]/10 text-[#134e4a]"
+                                ? "bg-[#005EB8]/10 text-[#64A70B]"
                                 : "text-slate-500 hover:bg-slate-50"
                             }`}
                           >
@@ -494,7 +494,7 @@ export default function Header() {
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block py-4 text-lg font-medium transition-colors ${
-                      pathname === item.href ? "text-[#134e4a]" : "text-[#0f172a] hover:text-[#0d9488]"
+                      pathname === item.href ? "text-[#64A70B]" : "text-[#0f172a] hover:text-[#64A70B]"
                     }`}
                   >
                     {item.name}
@@ -509,7 +509,7 @@ export default function Header() {
             <Link
               href="/quote"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#2a4663] py-4 font-medium text-white transition-colors hover:bg-[#3a597b]"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#005EB8] py-4 font-medium text-white transition-colors hover:bg-[#2B7DCE]"
             >
               Get a Quote
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -524,10 +524,10 @@ export default function Header() {
             <div className="space-y-4">
               <a
                 href="tel:604-715-9469"
-                className="flex items-center gap-3 text-[#0f172a] transition-colors hover:text-[#0d9488]"
+                className="flex items-center gap-3 text-[#0f172a] transition-colors hover:text-[#64A70B]"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
-                  <svg className="h-5 w-5 text-[#134e4a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-5 w-5 text-[#64A70B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
@@ -538,10 +538,10 @@ export default function Header() {
               </a>
               <a
                 href="mailto:info@frpinstallations.com"
-                className="flex items-center gap-3 text-[#0f172a] transition-colors hover:text-[#0d9488]"
+                className="flex items-center gap-3 text-[#0f172a] transition-colors hover:text-[#64A70B]"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
-                  <svg className="h-5 w-5 text-[#134e4a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-5 w-5 text-[#64A70B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
@@ -555,7 +555,7 @@ export default function Header() {
 
           {/* Service Area Badge */}
           <div className="mx-5 mb-8 mt-5 flex items-center gap-2 text-sm text-slate-600">
-            <svg className="h-4 w-4 text-[#134e4a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="h-4 w-4 text-[#64A70B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>

@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
+import { Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 import StickyContactBar from "./components/StickyContactBar";
 import PageBreadcrumb from "./components/PageBreadcrumb";
 import ScrollRevealManager from "./components/ScrollRevealManager";
 import BackToTopButton from "./components/BackToTopButton";
+
+const redHatDisplay = Red_Hat_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-red-hat-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://frpinstallations.com"),
@@ -168,7 +176,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${redHatDisplay.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -176,7 +184,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#2a4663" />
+        <meta name="theme-color" content="#005EB8" />
         <meta name="geo.region" content="CA-BC" />
         <meta name="geo.placename" content="Coquitlam" />
         <meta name="geo.position" content="49.2827;-122.7931" />

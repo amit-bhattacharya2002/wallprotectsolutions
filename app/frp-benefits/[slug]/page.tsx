@@ -68,8 +68,8 @@ export default async function BenefitPage({ params }: { params: Promise<{ slug: 
                   <div className="space-y-4">
                     {benefit.applications.map((application, index) => (
                       <div key={index} className="flex items-start gap-4 p-4 bg-[#f8fafc] rounded-xl">
-                        <div className="w-8 h-8 rounded-full bg-[#134e4a]/10 flex items-center justify-center shrink-0">
-                          <svg className="w-4 h-4 text-[#134e4a]" fill="currentColor" viewBox="0 0 20 20">
+                        <div className="w-8 h-8 rounded-full bg-[#005EB8]/10 flex items-center justify-center shrink-0">
+                          <svg className="w-4 h-4 text-[#64A70B]" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
                         </div>
@@ -81,10 +81,10 @@ export default async function BenefitPage({ params }: { params: Promise<{ slug: 
 
                 {/* Pro Tip */}
                 {benefit.proTip && (
-                  <div className="mt-10 p-6 bg-[#2a4663] rounded-2xl">
+                  <div className="brand-blue-surface mt-10 p-6 rounded-2xl">
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#5eead4]/20 flex items-center justify-center shrink-0">
-                        <svg className="w-5 h-5 text-[#5eead4]" fill="currentColor" viewBox="0 0 20 20">
+                      <div className="w-10 h-10 rounded-full bg-[#9BCB4A]/20 flex items-center justify-center shrink-0">
+                        <svg className="w-5 h-5 text-[#9BCB4A]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                         </svg>
                       </div>
@@ -112,7 +112,7 @@ export default async function BenefitPage({ params }: { params: Promise<{ slug: 
                       "Knowledgeable Sales Team",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm">
-                        <svg className="w-5 h-5 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 text-[#64A70B] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                         <span className="text-gray-600">{item}</span>
@@ -123,13 +123,13 @@ export default async function BenefitPage({ params }: { params: Promise<{ slug: 
                   <div className="space-y-3">
                     <Link
                       href="/quote"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#2a4663] text-white px-6 py-3 rounded-full font-medium hover:bg-[#0d9488] transition-colors"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#005EB8] text-white px-6 py-3 rounded-full font-medium hover:bg-[#64A70B] transition-colors"
                     >
                       Submit Project Specs
                     </Link>
                     <Link
                       href="/contact"
-                      className="w-full inline-flex items-center justify-center gap-2 border border-gray-300 text-[#0f172a] px-6 py-3 rounded-full font-medium hover:border-[#0d9488] hover:text-[#0d9488] transition-colors"
+                      className="w-full inline-flex items-center justify-center gap-2 border border-gray-300 text-[#0f172a] px-6 py-3 rounded-full font-medium hover:border-[#64A70B] hover:text-[#64A70B] transition-colors"
                     >
                       Schedule Site Visit
                     </Link>
@@ -149,12 +149,12 @@ export default async function BenefitPage({ params }: { params: Promise<{ slug: 
                 <Link
                   key={b.slug}
                   href={`/frp-benefits/${b.slug}`}
-                  className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-[#0d9488] hover:shadow-lg transition-all"
+                  className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-[#64A70B] hover:shadow-lg transition-all"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[#134e4a]/10 text-[#134e4a] flex items-center justify-center mb-4 transition-colors group-hover:bg-[#0d9488]/15 group-hover:text-[#0d9488]">
+                  <div className="w-10 h-10 rounded-xl bg-[#005EB8]/10 text-[#64A70B] flex items-center justify-center mb-4 transition-colors group-hover:bg-[#64A70B]/15 group-hover:text-[#64A70B]">
                     <BenefitIcon name={b.icon} className="w-5 h-5" />
                   </div>
-                  <h3 className="font-semibold text-[#0f172a] mb-2 group-hover:text-[#0d9488] transition-colors">
+                  <h3 className="font-semibold text-[#0f172a] mb-2 group-hover:text-[#64A70B] transition-colors">
                     {b.shortTitle}
                   </h3>
                   <p className="text-sm text-gray-600 font-normal line-clamp-2">
@@ -167,7 +167,7 @@ export default async function BenefitPage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 lg:py-24 bg-[#2a4663]">
+        <section className="brand-blue-surface py-16 lg:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
               Ready to get started?
@@ -178,7 +178,7 @@ export default async function BenefitPage({ params }: { params: Promise<{ slug: 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/quote"
-                className="inline-flex items-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#0d9488] hover:text-white transition-all"
+                className="inline-flex items-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#64A70B] hover:text-white transition-all"
               >
                 Get a Free Quote
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

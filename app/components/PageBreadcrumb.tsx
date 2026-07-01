@@ -38,7 +38,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   manufacturers: "Manufacturer Partners",
   projects: "Our Work",
   systems: "Systems & Products",
-  resources: "Resources",
+  resources: "Knowledge Centre",
   industries: "Industries",
   healthcare: "Healthcare",
   about: "About",
@@ -100,16 +100,16 @@ export default function PageBreadcrumb() {
 
       <nav
         aria-label="Breadcrumb"
-        className={`sticky z-30 border-b border-slate-100 bg-white transition-[top] duration-300 ease-out ${
+        className={`sticky z-30 border-y border-slate-200/60 bg-white/86 shadow-[0_10px_30px_-28px_rgba(15,23,42,0.45)] backdrop-blur-md transition-[top] duration-300 ease-out ${
           isScrolled ? "top-[60px]" : "top-15 md:top-10 lg:top-40"
         }`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 py-3 text-xs text-slate-400 md:text-[0.8rem]">
+          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 py-2.5 text-[0.72rem] font-medium uppercase tracking-[0.08em] text-slate-500 md:text-xs">
             <li>
               <Link
                 href="/"
-                className="transition-colors hover:text-[#0f172a]"
+                className="transition-colors hover:text-[#64A70B]"
               >
                 Home
               </Link>
@@ -132,7 +132,7 @@ export default function PageBreadcrumb() {
                 </svg>
                 {item.isLast ? (
                   <span
-                    className="font-medium text-[#0f172a]"
+                    className="font-semibold text-[#0f172a]"
                     aria-current="page"
                   >
                     {item.label}
@@ -140,7 +140,7 @@ export default function PageBreadcrumb() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="transition-colors hover:text-[#0f172a]"
+                    className="transition-colors hover:text-[#64A70B]"
                   >
                     {item.label}
                   </Link>

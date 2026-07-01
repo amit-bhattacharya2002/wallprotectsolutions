@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import PlaceholderBadge from "./PlaceholderBadge";
+import { sitePhotos } from "@/app/data/site-photos";
 
 const stats = [
   {
@@ -27,15 +27,27 @@ const stats = [
   },
 ];
 
-const differentiators = [
-  { label: "Supply & install accountability", href: "/about" },
-  { label: "Healthcare specialization", href: "/healthcare" },
-  { label: "Pre-construction support", href: "/pre-construction" },
-  { label: "GC-level project understanding", href: "/about" },
-  { label: "Manufacturer depth", href: "/manufacturers" },
-  { label: "Product-neutral system selection", href: "/systems" },
-  { label: "Submittals & shop drawings", href: "/pre-construction" },
-  { label: "Active healthcare experience", href: "/healthcare" },
+const proofRows = [
+  {
+    label: "Scope Control",
+    title: "Supply and install only",
+    description: "We keep product, procurement, installation quality, and warranty alignment under one accountable scope.",
+  },
+  {
+    label: "Project Fit",
+    title: "Healthcare and institutional depth",
+    description: "UPCCs, hospitals, clinics, schools, and sanitary production areas are the environments we understand best.",
+  },
+  {
+    label: "Before Site",
+    title: "Submittals, alternates, and details",
+    description: "We support tender reviews, product comparisons, long-lead planning, transitions, samples, and closeout documentation.",
+  },
+  {
+    label: "System Selection",
+    title: "Product-neutral recommendations",
+    description: "FRP is one option. We also work across welded hygienic systems, wall protection, FRL, wet wall, stainless, and Division 10.",
+  },
 ];
 
 export default function WhyFRP() {
@@ -53,73 +65,65 @@ export default function WhyFRP() {
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid gap-x-8 gap-y-7 md:grid-cols-2 lg:grid-cols-4 mb-12 lg:mb-14 reveal">
+        <div className="reveal mb-12 grid overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_24px_70px_-46px_rgba(15,23,42,0.34)] lg:mb-14 lg:grid-cols-4">
           {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="border-t border-slate-200 pt-5 max-md:text-center md:text-left"
-            >
-              <div className="text-4xl md:text-5xl font-semibold text-[#0f172a] mb-3 tracking-tight">
+            <div key={stat.label} className="border-b border-slate-200 p-6 last:border-b-0 md:p-7 lg:border-b-0 lg:border-r lg:last:border-r-0">
+              <div className="mb-3 text-4xl font-semibold tracking-tight text-[#10233F] md:text-5xl">
                 {stat.number}
               </div>
-              <div className="text-xs text-[#134e4a] font-semibold uppercase tracking-[0.14em] mb-2">
+              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#4f8f16]">
                 {stat.label}
               </div>
-              <p className="text-gray-500 text-sm leading-relaxed font-normal">
+              <p className="text-sm leading-relaxed text-slate-500">
                 {stat.description}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Differentiators — now "humanized" on desktop with a 4:3 trades photo
-             floated right of the copy. Stacks full-width above on mobile. */}
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-10 lg:gap-16 items-start">
           <div>
             <span className="eyebrow">Why contractors choose us</span>
             <h3 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight mb-4 leading-tight">
               More than an installer — a construction partner
             </h3>
 
-            {/* Mobile-first: humanizing image stacks above the copy on small
-                 screens, then lives in the right column on lg+. */}
             <div
               className="relative isolate mb-6 overflow-hidden rounded-[1.25rem] shadow-[0_24px_60px_-34px_rgba(15,23,42,0.45)] lg:hidden"
               style={{ aspectRatio: "4/3" }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1600&q=80"
-                alt="Trades installer at work — representative placeholder"
+                src={sitePhotos.healthcare.trust.src}
+                alt={sitePhotos.healthcare.trust.alt}
                 fill
                 sizes="100vw"
                 loading="eager"
                 className="object-cover filter-[saturate(0.85)_brightness(0.97)]"
               />
-              <PlaceholderBadge />
             </div>
 
             <p className="text-gray-600 leading-relaxed font-normal mb-6 text-base">
-              We focus on selecting the right system for the environment rather than promoting a single manufacturer or product. Different wall protection and hygienic systems perform best in different applications, budgets, and maintenance conditions.
+              We focus on selecting the right system for the environment rather than promoting one manufacturer everywhere. Different wall protection and hygienic systems perform best in different applications, budgets, traffic patterns, and maintenance conditions.
             </p>
-            <div className="grid grid-cols-1 gap-x-6 gap-y-4 min-[420px]:grid-cols-2">
-              {differentiators.map((item, index) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="group flex min-w-0 items-start gap-3 border-t border-slate-200 pt-4 text-sm text-gray-600 transition-colors hover:text-[#0f172a]"
-                >
-                  <span className="mt-0.5 shrink-0 text-xs font-semibold text-[#134e4a] tabular-nums">
+            <div className="border-y border-slate-200">
+              {[
+                "Wall protection systems",
+                "Hygienic cladding",
+                "FRP / FRL panels",
+                "Wet wall and stainless protection",
+              ].map((item, index) => (
+                <div key={item} className="flex items-center gap-4 border-b border-slate-200 py-4 last:border-b-0">
+                  <span className="w-7 shrink-0 text-xs font-semibold tabular-nums tracking-[0.16em] text-[#4f8f16]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="min-w-0 font-medium leading-snug">{item.label}</span>
-                </Link>
+                  <span className="text-sm font-medium text-slate-700">{item}</span>
+                </div>
               ))}
             </div>
             <div className="mt-8 max-md:flex max-md:justify-center md:block">
               <Link
                 href="/healthcare"
-                className="inline-flex items-center gap-2 text-[#134e4a] font-medium transition-all hover:gap-3"
+                className="inline-flex items-center gap-2 text-[#64A70B] font-medium transition-all hover:gap-3 hover:text-[#4f8f16]"
               >
                 View our healthcare experience
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,23 +133,20 @@ export default function WhyFRP() {
             </div>
           </div>
 
-          {/* Desktop column: humanizing photo + sector caption card. Hidden on
-               mobile (the photo renders inline with the copy above). */}
-          <div className="relative hidden lg:block sticky-side">
+          <div className="relative hidden lg:block">
             <div
               className="relative isolate overflow-hidden rounded-3xl shadow-[0_28px_80px_-38px_rgba(15,23,42,0.55)]"
               style={{ aspectRatio: "4/3" }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1600&q=80"
-                alt="Trades installer at work — representative placeholder"
+                src={sitePhotos.healthcare.trust.src}
+                alt={sitePhotos.healthcare.trust.alt}
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 loading="eager"
                 className="object-cover filter-[saturate(0.85)_brightness(0.97)]"
               />
-              <PlaceholderBadge />
-              <div className="absolute inset-0 bg-linear-to-t from-[#2a4663] via-[#2a4663]/45 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0f3a36] via-[#0f3a36]/48 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="text-white/80 text-sm mb-2 uppercase tracking-wider">Sectors served</div>
                 <div className="text-white font-medium text-lg">
@@ -153,8 +154,18 @@ export default function WhyFRP() {
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#134e4a] rounded-2xl -z-10 opacity-60" />
+            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#64A70B] rounded-2xl -z-10 opacity-45" />
           </div>
+        </div>
+
+        <div className="mt-12 grid gap-5 lg:grid-cols-4">
+          {proofRows.map((item) => (
+            <div key={item.title} className="border-t border-slate-200 pt-5">
+              <div className="mb-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#4f8f16]">{item.label}</div>
+              <h4 className="mb-3 text-base font-semibold leading-snug text-[#0f172a]">{item.title}</h4>
+              <p className="text-sm leading-relaxed text-slate-500">{item.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

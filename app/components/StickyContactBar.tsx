@@ -37,7 +37,7 @@ export default function StickyContactBar() {
         visible && showBar ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <div className="flex items-center gap-2 border-t border-white/10 bg-[#2a4663] px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))]">
+      <div className="flex items-center gap-2 border-t border-white/10 bg-[#005EB8] px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))]">
         <a
           href="tel:604-715-9469"
           aria-label="Call us at 604-715-9469"
@@ -49,7 +49,7 @@ export default function StickyContactBar() {
         </a>
         <Link
           href="/quote"
-          className="inline-flex h-11 min-w-0 flex-1 items-center justify-center rounded-full bg-[#0d9488] px-4 text-sm font-medium text-white transition-colors hover:bg-[#14b8a6]"
+          className="inline-flex h-11 min-w-0 flex-1 items-center justify-center rounded-full bg-[#64A70B] px-4 text-sm font-medium text-white transition-colors hover:bg-[#9BCB4A]"
         >
           Get a quote
         </Link>

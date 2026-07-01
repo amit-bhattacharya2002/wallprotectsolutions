@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import type { ProjectGalleryImage } from "@/app/data/galleries/types";
 
@@ -54,9 +55,9 @@ export default function ProjectGalleryLightbox({
     activeThumb?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }, [activeIndex]);
 
-  if (!activeImage) return null;
+  if (typeof document === "undefined" || !activeImage) return null;
 
-  return (
+  const lightbox = (
     <div
       className="fixed inset-0 z-[100] flex flex-col bg-[#0f172a]/96 backdrop-blur-sm"
       role="dialog"
@@ -84,7 +85,7 @@ export default function ProjectGalleryLightbox({
       </div>
 
       {/* Main carousel */}
-      <div className="relative flex min-h-0 flex-1 items-center justify-center">
+      <div className="relative flex min-h-0 flex-1 items-center justify-center px-4 py-4 sm:px-6">
         {/* Left nav panel */}
         <button
           type="button"
@@ -100,18 +101,16 @@ export default function ProjectGalleryLightbox({
         </button>
 
         {/* Image — edge-to-edge; nav buttons overlay the sides */}
-        <div className="relative h-full w-full max-h-[calc(100dvh-10rem)]">
-          <div className="relative h-full w-full">
-            <Image
-              key={activeImage.src}
-              src={activeImage.src}
-              alt={activeImage.alt}
-              fill
-              sizes="100vw"
-              priority
-              className="object-contain"
-            />
-          </div>
+        <div className="relative h-[calc(100dvh-12rem)] max-h-full w-full">
+          <Image
+            key={activeImage.src}
+            src={activeImage.src}
+            alt={activeImage.alt}
+            fill
+            sizes="100vw"
+            priority
+            className="object-contain"
+          />
         </div>
 
         {/* Right nav panel */}
@@ -145,7 +144,7 @@ export default function ProjectGalleryLightbox({
                 onClick={() => onChange(index)}
                 className={`relative h-16 w-[5.5rem] shrink-0 overflow-hidden rounded-lg border-2 transition-all sm:h-[4.5rem] sm:w-28 ${
                   isActive
-                    ? "border-[#5eead4] ring-2 ring-[#5eead4]/40 opacity-100"
+                    ? "border-[#9BCB4A] ring-2 ring-[#9BCB4A]/40 opacity-100"
                     : "border-transparent opacity-55 hover:border-white/30 hover:opacity-90"
                 }`}
                 aria-label={`View photo ${index + 1}`}
@@ -168,4 +167,6 @@ export default function ProjectGalleryLightbox({
       </div>
     </div>
   );
+
+  return createPortal(lightbox, document.body);
 }

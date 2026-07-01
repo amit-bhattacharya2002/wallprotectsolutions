@@ -33,7 +33,7 @@ export default function PopularQuestionsAccordion({ items }: PopularQuestionsAcc
               className="flex w-full items-start justify-between gap-4 px-5 py-5 text-left transition-colors hover:bg-[#f8fafc]"
             >
               <span className="min-w-0 flex-1">
-                <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#134e4a]">
+                <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
                   {item.category}
                 </span>
                 <span className="block text-base font-medium leading-relaxed text-[#0f172a]">

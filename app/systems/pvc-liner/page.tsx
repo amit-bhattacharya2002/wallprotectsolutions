@@ -19,6 +19,8 @@ export default function PVCLinerPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.systems.pvcLiner}
           eyebrow="PVC Liner Systems"
           title="PVC structural liner systems for industrial and agricultural environments"
           subtitle="Direct-to-stud PVC liner panels for washdown, industrial, and food processing environments where a seamless, durable, cleanable wall surface is required."
@@ -40,7 +42,7 @@ export default function PVCLinerPage() {
                 className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
               />
               <div>
-                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#134e4a]">
+                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#64A70B]">
                   Washdown environments
                 </span>
                 <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
@@ -60,12 +62,12 @@ export default function PVCLinerPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
-                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Manufacturers</span>
+                <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Manufacturers</span>
                 <h2 className="text-3xl font-semibold text-[#0f172a] tracking-tight mb-8">PVC liner manufacturers we work with</h2>
                 <div className="space-y-3">
                   {manufacturers.map((m) => (
                     <div key={m} className="flex items-start gap-3 bg-[#f8fafc] border border-gray-100 rounded-xl px-5 py-3">
-                      <div className="w-2 h-2 rounded-full bg-[#134e4a] flex-shrink-0 mt-1.5" />
+                      <div className="w-2 h-2 rounded-full bg-[#005EB8] flex-shrink-0 mt-1.5" />
                       <span className="text-gray-700 text-sm">{m}</span>
                     </div>
                   ))}
@@ -78,12 +80,12 @@ export default function PVCLinerPage() {
               </div>
               <div>
                 <SitePhoto photo={sitePhotos.systems.pvcLinerSecondary} overlay="gradient" className="mb-8 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
-                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Applications</span>
+                <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Applications</span>
                 <h2 className="text-3xl font-semibold text-[#0f172a] tracking-tight mb-8">Where PVC liner systems are used</h2>
                 <div className="space-y-3">
                   {applications.map((app) => (
                     <div key={app} className="flex items-start gap-3 border border-gray-200 rounded-xl px-5 py-3">
-                      <div className="w-2 h-2 rounded-full bg-[#134e4a] flex-shrink-0 mt-1.5" />
+                      <div className="w-2 h-2 rounded-full bg-[#005EB8] flex-shrink-0 mt-1.5" />
                       <span className="text-gray-700 text-sm">{app}</span>
                     </div>
                   ))}

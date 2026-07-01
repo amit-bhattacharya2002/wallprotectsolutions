@@ -39,7 +39,7 @@ export default function ServiceAreasPage() {
                 className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
               />
               <div className="sticky-side">
-                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#134e4a]">
+                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#64A70B]">
                   BC-wide coverage
                 </span>
                 <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
@@ -103,7 +103,7 @@ export default function ServiceAreasPage() {
               {regions.map((region) => (
                 <div key={region}>
                   <h2 className="text-2xl font-semibold text-[#0f172a] mb-6 flex items-center gap-3">
-                    <span className="w-8 h-1 bg-[#134e4a] rounded-full" />
+                    <span className="w-8 h-1 bg-[#005EB8] rounded-full" />
                     {region}
                   </h2>
                   <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -111,9 +111,9 @@ export default function ServiceAreasPage() {
                       <Link
                         key={city.slug}
                         href={`/city/${city.slug}`}
-                        className="group surface-card-muted p-4 hover:border-[#0d9488] hover:bg-white transition-all"
+                        className="group surface-card-muted p-4 hover:border-[#64A70B] hover:bg-white transition-all"
                       >
-                        <span className="text-[#0f172a] font-medium group-hover:text-[#0d9488] transition-colors">
+                        <span className="text-[#0f172a] font-medium group-hover:text-[#64A70B] transition-colors">
                           {city.name}
                         </span>
                       </Link>
@@ -126,7 +126,7 @@ export default function ServiceAreasPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="section-shell-lg section-shell-dark bg-[#2a4663]">
+        <section className="section-shell-lg section-shell-dark brand-blue-surface">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
               Don&apos;t see your city?
@@ -138,7 +138,7 @@ export default function ServiceAreasPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               {/* <Link
                 href="/quote"
-                className="inline-flex items-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#0d9488] hover:text-white transition-all"
+                className="inline-flex items-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#64A70B] hover:text-white transition-all"
               >
                 Get a Free Quote
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllProjectSlugs } from "./data/projects";
 import { getAllBenefitSlugs } from "./data/frp-benefits";
 import { getAllCitySlugs } from "./data/cities";
+import { resourceArticles } from "./data/resources";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://frpinstallations.com";
@@ -14,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/quote`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${baseUrl}/schedule-on-site-measurement`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${baseUrl}/projects`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${baseUrl}/resources`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/wall-protection`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${baseUrl}/frp-benefits`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/city`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
@@ -53,5 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...projectPages, ...benefitPages, ...cityPages];
+  const resourcePages = resourceArticles.map((article) => ({
+    url: `${baseUrl}/resources/${article.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...projectPages, ...benefitPages, ...cityPages, ...resourcePages];
 }
