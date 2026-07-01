@@ -298,7 +298,7 @@ function SystemsShowcaseDesktop() {
           <FullBleedImage key={sys.id} sys={sys} index={i} scrollYProgress={showcaseProgress} />
         ))}
 
-        <div className="pointer-events-none absolute inset-0 z-15 bg-linear-to-r from-[#0a2926]/54 via-[#0f3a36]/16 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 z-15 bg-linear-to-r from-[#07162c]/54 via-[#10233F]/16 to-transparent" />
 
         {connectorGeom ? (
           <svg

@@ -45,7 +45,7 @@ function GridProjectCard({ project }: { project: Project }) {
           variant="card"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-[#0f3a36]/58 via-[#0f3a36]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#07162c]/58 via-[#10233F]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <div className="absolute top-3 left-3">
           <ProjectBadges project={project} />
         </div>
