@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import VrcaBadge from "./VrcaBadge";
 
 /**
  * Real project photography used by the homepage carousel.
@@ -93,14 +94,20 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
             Wall Protection Construction Partner.
           </p>
         </div>
-        <span className="shrink-0">{badge}</span>
+        <span className="flex shrink-0 flex-col items-end gap-1.5">
+          {badge}
+          <VrcaBadge variant="white" imgClassName="h-5 w-auto sm:h-6" />
+        </span>
       </div>
     );
   }
 
   return (
     <div className="flex w-full max-w-full flex-col gap-3 text-left">
-      {badge}
+      <div className="flex items-center gap-4">
+        {badge}
+        <VrcaBadge variant="white" imgClassName="h-9 w-auto md:h-10 lg:h-14" />
+      </div>
       <div className="h-0.5 w-full max-w-[300px] bg-linear-to-r from-[#005EB8] to-[#64A70B]" />
       <p className="text-sm font-semibold tracking-tight text-white md:text-lg">Wall Protection Construction Partner.</p>
       <p className="text-xs leading-relaxed text-white/75 md:text-sm">

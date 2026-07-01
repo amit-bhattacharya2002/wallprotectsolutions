@@ -102,27 +102,25 @@ export default function PageHero({
   const isPhoto = visual === "photo";
   const isLightBluePhoto = isPhoto && photoTone === "lightBlue";
   const isBlueGreenPhoto = isPhoto && photoTone === "blueGreen";
-  const needsProminentPhotoText = isLightBluePhoto || isBlueGreenPhoto;
+  const needsProminentPhotoText = !isEditorial;
   const resolvedPhoto = resolveBackgroundPhoto(backgroundPhoto);
   const sectionClass = isEditorial
     ? "min-h-[440px] bg-[#f8fafc] text-[#0f172a]"
-    : `grain-overlay min-h-[480px] ${needsProminentPhotoText ? "brand-blue-surface" : "bg-[#10222d] text-white"}`;
+    : "grain-overlay min-h-[480px] brand-blue-surface text-white";
   const titleClass = isEditorial
     ? "text-[#0f172a]"
-    : needsProminentPhotoText
-      ? "text-white [text-shadow:_0_3px_24px_rgb(0_36_91_/_0.55)]"
-      : "text-white [text-shadow:_0_4px_28px_rgb(0_18_35_/_0.72)]";
+    : "text-white [text-shadow:_0_2px_6px_rgb(7_21_34_/_0.7),_0_4px_28px_rgb(7_21_34_/_0.55)]";
   const eyebrowClass = isEditorial ? "text-[#64A70B]" : "text-[#9BCB4A]";
   const subtitleClass = isEditorial
     ? "text-slate-600"
-    : needsProminentPhotoText
-      ? "text-white/92 [text-shadow:_0_2px_16px_rgb(0_36_91_/_0.5)]"
-      : "text-white/90 [text-shadow:_0_2px_18px_rgb(0_18_35_/_0.68)]";
-  const quickLabelClass = isEditorial ? "text-slate-500" : needsProminentPhotoText ? "text-white/78" : "text-white/58";
+    : "text-white [text-shadow:_0_1px_4px_rgb(7_21_34_/_0.72),_0_3px_18px_rgb(7_21_34_/_0.5)]";
+  const quickLabelClass = isEditorial
+    ? "text-slate-500"
+    : "text-white/88 [text-shadow:_0_2px_12px_rgb(7_21_34_/_0.58)]";
   const quickLinkClass = isEditorial
     ? "border-slate-200/80 bg-white/70 text-slate-700 hover:border-[#64A70B]/35 hover:bg-white hover:text-[#64A70B]"
     : needsProminentPhotoText
-      ? "border-white/20 bg-[#004A91]/35 text-white shadow-[0_18px_42px_-30px_rgba(0,30,80,0.85)] hover:border-[#9BCB4A]/60 hover:bg-[#004A91]/48 hover:text-[#9BCB4A]"
+      ? "border-white/34 bg-[#07365a]/76 text-white shadow-[0_20px_48px_-30px_rgba(0,18,40,0.95)] backdrop-blur-md hover:border-[#9BCB4A]/70 hover:bg-[#063253]/88 hover:text-white"
       : "border-white/10 bg-white/6 text-slate-100 hover:border-[#9BCB4A]/45 hover:bg-white/10 hover:text-[#9BCB4A]";
   const quickIconClass = isEditorial ? "text-[#64A70B]" : "text-[#9BCB4A]";
 
@@ -137,28 +135,16 @@ export default function PageHero({
             fill
             priority
             sizes="100vw"
-            className={`object-cover scale-[1.02] ${isBlueGreenPhoto ? "opacity-[0.24] saturate-[0.8] contrast-110" : ""}`}
+            className="object-cover scale-[1.02] opacity-[0.58] saturate-[0.9] contrast-110"
           />
-          {isBlueGreenPhoto ? (
+          {isBlueGreenPhoto || isLightBluePhoto || isPhoto ? (
             <>
-              <div className="absolute inset-0 bg-linear-to-r from-[#004A91]/70 via-[#005EB8]/28 to-transparent" />
-              <div className="absolute inset-y-0 left-0 w-full max-w-[980px] bg-linear-to-r from-[#003B75]/76 via-[#005EB8]/34 to-transparent" />
-              <div className="absolute inset-0 bg-linear-to-t from-[#004A91]/44 via-transparent to-white/8" />
+              <div className="absolute inset-0 bg-linear-to-r from-[#0868C4]/84 via-[#0d6fc7]/66 to-[#0868C4]/6" />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.45)_0%,rgba(7,21,34,0.28)_48%,rgba(7,21,34,0.1)_100%)]" />
+              <div className="absolute inset-0 bg-linear-to-b from-[#071522]/15 via-transparent to-[#071522]/35" />
+              <div className="absolute inset-y-0 left-0 w-full max-w-[980px] bg-linear-to-r from-[#071522]/25 via-[#071522]/10 to-transparent" />
             </>
-          ) : isLightBluePhoto ? (
-            <>
-              <div className="absolute inset-0 bg-linear-to-r from-[#0B1D3A]/94 via-[#10233F]/66 to-[#005EB8]/18" />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0B1D3A]/58 via-[#10233F]/18 to-white/8" />
-              <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-[#2B7DCE]/16" />
-              <div className="absolute inset-y-0 left-0 w-full max-w-[980px] bg-linear-to-r from-[#07162c]/76 via-[#10233F]/38 to-transparent" />
-            </>
-          ) : (
-            <>
-              <div className="absolute inset-0 bg-linear-to-r from-[#07162c]/94 via-[#10233F]/78 to-[#10233F]/30" />
-              <div className="absolute inset-0 bg-linear-to-t from-[#07162c]/66 via-transparent to-[#10233F]/18" />
-              <div className="absolute inset-0 bg-linear-to-b from-[#07162c]/22 via-transparent to-transparent" />
-            </>
-          )}
+          ) : null}
         </>
       ) : isEditorial ? (
         <>
@@ -171,8 +157,9 @@ export default function PageHero({
         </>
       ) : (
         <>
-          <div className="absolute inset-0 bg-linear-to-br from-[#081820] via-[#243f54] to-[#10222d]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(94,234,212,0.13),transparent_32%),radial-gradient(circle_at_12%_78%,rgba(0,94,184,0.18),transparent_28%)]" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#0868C4] via-[#0d6fc7] to-[#0868C4]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.78)_0%,rgba(7,21,34,0.56)_48%,rgba(7,21,34,0.28)_100%)]" />
+          <div className="absolute inset-0 bg-linear-to-b from-[#071522]/32 via-transparent to-[#071522]/58" />
           <div className="absolute inset-0 opacity-[0.055]" style={{
             backgroundImage: "linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.16) 1px, transparent 1px)",
             backgroundSize: "72px 72px",
@@ -269,7 +256,7 @@ export default function PageHero({
                     <a
                       key={`${link.label}-${link.href}`}
                       href={link.href}
-                      className={`group flex items-center justify-between gap-3 border px-4 py-3.5 text-sm font-medium shadow-[0_18px_42px_-34px_rgba(15,23,42,0.65)] backdrop-blur-sm transition-all ${quickLinkClass}`}
+                      className={`group flex items-center justify-between gap-3 border px-4 py-3.5 text-sm font-semibold shadow-[0_18px_42px_-34px_rgba(15,23,42,0.65)] transition-all ${quickLinkClass}`}
                     >
                       {link.label}
                       <svg
@@ -291,7 +278,7 @@ export default function PageHero({
                     <Link
                       key={`${link.label}-${link.href}`}
                       href={link.href}
-                      className={`group flex items-center justify-between gap-3 border px-4 py-3.5 text-sm font-medium shadow-[0_18px_42px_-34px_rgba(15,23,42,0.65)] backdrop-blur-sm transition-all ${quickLinkClass}`}
+                      className={`group flex items-center justify-between gap-3 border px-4 py-3.5 text-sm font-semibold shadow-[0_18px_42px_-34px_rgba(15,23,42,0.65)] transition-all ${quickLinkClass}`}
                     >
                       {link.label}
                       <svg

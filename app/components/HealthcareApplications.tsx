@@ -41,7 +41,7 @@ export default function HealthcareApplications() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden border-b border-white/10 bg-[#0c1c32]">
+    <section className="relative overflow-hidden border-b border-white/10 bg-[#0c1c32] lg:h-[760px]">
       <Image
         src="/actualphotos/hero-healthcare-lounge.jpg"
         alt="Healthcare lounge with architectural wall protection and glazing"
@@ -49,12 +49,14 @@ export default function HealthcareApplications() {
         sizes="100vw"
         className="object-cover object-center opacity-[0.78]"
       />
-      <div className="absolute inset-0 bg-[#071522]/54" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.98)_0%,rgba(7,21,34,0.86)_48%,rgba(7,21,34,0.38)_100%)]" />
+      <div className="absolute inset-0 bg-linear-to-r from-[#005EB8]/82 via-[#0d6fc7]/66 to-[#64A70B]/58" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.72)_0%,rgba(7,21,34,0.52)_48%,rgba(7,21,34,0.18)_100%)]" />
+      <div className="absolute inset-0 bg-linear-to-b from-[#071522]/30 via-transparent to-[#071522]/52" />
+      <div className="absolute inset-y-0 right-0 w-full bg-[linear-gradient(90deg,transparent_0%,rgba(7,21,34,0.18)_42%,rgba(7,21,34,0.46)_100%)]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:flex lg:h-full lg:items-center lg:px-8 lg:py-0">
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-14">
-          <div className="reveal">
+          <div className="reveal lg:min-h-[520px]">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#9BCB4A]">Healthcare Applications</span>
             <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
               Wall protection decisions by clinical space.
@@ -81,7 +83,7 @@ export default function HealthcareApplications() {
                     aria-controls={`healthcare-application-${index}`}
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   >
-                    <span className="text-lg font-semibold leading-6 text-white">
+                    <span className="text-lg font-semibold leading-6 text-white [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.55)]">
                       {item.area}
                     </span>
                     <span
@@ -98,10 +100,10 @@ export default function HealthcareApplications() {
                   </button>
                   {openIndex === index && (
                     <div id={`healthcare-application-${index}`} className="max-w-2xl pb-6 pr-10">
-                      <p className="text-base leading-7 text-white/84">
+                      <p className="text-base font-medium leading-7 text-white/95 [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.5)]">
                         {item.focus}
                       </p>
-                      <p className="mt-3 text-sm leading-6 text-white/66">
+                      <p className="mt-3 text-sm font-medium leading-6 text-white/82 [text-shadow:_0_2px_12px_rgb(7_21_34_/_0.45)]">
                         {item.detail}
                       </p>
                     </div>

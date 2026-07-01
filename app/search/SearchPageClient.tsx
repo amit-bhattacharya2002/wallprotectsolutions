@@ -63,14 +63,14 @@ export default function SearchPageClient({ initialQuery }: SearchPageClientProps
                   className="w-full bg-transparent text-base text-[#0f172a] placeholder:text-slate-400 focus:outline-none sm:text-lg"
                 />
               </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center rounded-full bg-[#005EB8]/10 px-3 py-1.5 text-xs font-medium text-[#9BCB4A]">
+              <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-slate-200 pt-4">
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#64A70B]">
                   Acrovyn
                 </span>
-                <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                   Altro Whiterock
                 </span>
-                <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                   FRP panels
                 </span>
               </div>

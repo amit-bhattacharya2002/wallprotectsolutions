@@ -410,8 +410,30 @@ img {
   inset: 0;
   pointer-events: none;
   background:
+    linear-gradient(90deg, rgba(7, 21, 34, 0.2), rgba(7, 21, 34, 0.1) 46%, rgba(7, 21, 34, 0.22)),
     radial-gradient(circle at 86% 14%, rgba(155, 203, 74, 0.16), transparent 30%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0));
+}
+
+.brand-blue-surface:not(.page-hero) > * {
+  position: relative;
+  z-index: 1;
+}
+
+.brand-blue-surface :where(h1, h2, h3, h4, p, li, a, span) {
+  text-shadow: 0 2px 14px rgba(7, 21, 34, 0.34);
+}
+
+.brand-blue-surface :where(.text-white\/40, .text-white\/45, .text-white\/50, .text-white\/55) {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.brand-blue-surface :where(.text-white\/60, .text-white\/70) {
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+.brand-blue-surface :where(.text-white\/80, .text-white\/90) {
+  color: rgba(255, 255, 255, 0.94) !important;
 }
 
 .surface-card {

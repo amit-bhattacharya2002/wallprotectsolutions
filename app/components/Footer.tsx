@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import VrcaBadge from "./VrcaBadge";
+import ProcoreBadge from "./ProcoreBadge";
 
 const footerLinks = {
   systems: [
@@ -50,24 +52,28 @@ export default function Footer() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
       <div
         id="footer-quote"
-        className="relative isolate scroll-mt-28 overflow-hidden border-b border-white/10 lg:scroll-mt-24"
+        className="relative isolate scroll-mt-28 overflow-hidden lg:scroll-mt-24"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, rgba(7,21,34,0.95) 0%, rgba(7,21,34,0.78) 48%, rgba(7,21,34,0.92) 100%), url('/actualphotos/hero-hygienic-production-room.jpg')",
+            "url('/actualphotos/hero-hygienic-production-room.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(94,234,212,0.16),transparent_30%),radial-gradient(circle_at_78%_18%,rgba(0,94,184,0.24),transparent_34%)]" />
-        <div className="relative mx-auto max-w-7xl px-6 py-16 pb-24 lg:px-8 lg:py-20">
+        <div className="absolute inset-0 bg-linear-to-r from-[#005EB8]/84 via-[#0d6fc7]/66 to-[#64A70B]/58" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.78)_0%,rgba(7,21,34,0.58)_48%,rgba(7,21,34,0.32)_100%)]" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#071522]/32 via-transparent to-[#071522]/62" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.13),transparent_30%),radial-gradient(circle_at_78%_18%,rgba(0,94,184,0.22),transparent_34%)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28 bg-[linear-gradient(180deg,rgba(7,21,34,0)_0%,rgba(7,21,34,0.26)_36%,rgba(7,21,34,0.72)_72%,#071522_100%)]" />
+        <div className="relative z-20 mx-auto max-w-7xl px-6 py-16 pb-24 lg:px-8 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.82fr] lg:items-end">
             <div className="max-w-4xl">
               <div className="mb-8 h-0.5 w-16 bg-[#9BCB4A]" />
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#9BCB4A]">Start a Scope Review</p>
-              <h3 className="mb-6 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-6xl">
+              <h3 className="mb-6 max-w-3xl text-4xl font-semibold tracking-tight text-white [text-shadow:_0_3px_18px_rgb(7_21_34_/_0.5)] md:text-5xl lg:text-6xl">
                 Get pricing clarity before wall protection becomes a site issue.
               </h3>
-              <p className="max-w-3xl text-lg leading-8 text-white/74 md:text-xl">
+              <p className="max-w-3xl text-lg font-medium leading-8 text-white/88 [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.4)] md:text-xl">
                 Send drawings, photos, or project notes. We help GCs and project teams price the right system, flag details early, and keep closeout documentation clean.
               </p>
             </div>
@@ -100,8 +106,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="relative mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-18">
-        <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent lg:inset-x-8" />
+      <div className="relative mx-auto max-w-7xl px-6 pt-14 pb-8 lg:px-8 lg:pt-18 lg:pb-8">
         <div className="grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
           {/* Logo, office, contact */}
           <div className="min-w-0 lg:pr-6">
@@ -118,7 +123,7 @@ export default function Footer() {
             <p className="mb-7 max-w-sm text-[0.95rem] leading-7 text-white/58">
               Commercial wall protection, FRP, and hygienic cladding installation for healthcare, institutional, food service, and high-use spaces across BC.
             </p>
-            <div className="mb-7 border-y border-white/12 py-5">
+            <div className="mb-7 border-t border-white/12 py-5">
               <div className="mb-2 text-[11px] uppercase tracking-[0.18em] text-white/62">Office</div>
               <p className="text-[0.9375rem] font-normal leading-relaxed text-white/64">
                 145-1685 Pinetree Way
@@ -130,24 +135,6 @@ export default function Footer() {
               <p className="mt-3 text-[11px] font-normal uppercase tracking-[0.16em] text-[#9BCB4A]/80">
                 By Appointment Only
               </p>
-            </div>
-            <div className="space-y-3">
-              <a href="tel:604-715-9469" className="group flex items-center gap-3 text-[0.9375rem] text-white/62 transition-colors hover:text-white">
-                <span className="flex h-5 w-5 items-center justify-center text-white/45 transition-colors group-hover:text-[#9BCB4A]">
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </span>
-                604-715-9469
-              </a>
-              <a href="mailto:info@frpinstallations.com" className="group flex items-center gap-3 text-[0.9375rem] text-white/62 transition-colors hover:text-white">
-                <span className="flex h-5 w-5 items-center justify-center text-white/45 transition-colors group-hover:text-[#9BCB4A]">
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </span>
-                info@frpinstallations.com
-              </a>
             </div>
           </div>
 
@@ -196,6 +183,36 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Contact + credentials strip */}
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-6 lg:px-8">
+          <div className="flex flex-col items-center gap-7 md:flex-row md:justify-between md:gap-10">
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-8">
+              <a href="tel:604-715-9469" className="group flex items-center gap-3 text-[0.9375rem] text-white/62 transition-colors hover:text-white">
+                <span className="flex h-5 w-5 items-center justify-center text-white/45 transition-colors group-hover:text-[#9BCB4A]">
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </span>
+                604-715-9469
+              </a>
+              <a href="mailto:info@frpinstallations.com" className="group flex items-center gap-3 text-[0.9375rem] text-white/62 transition-colors hover:text-white">
+                <span className="flex h-5 w-5 items-center justify-center text-white/45 transition-colors group-hover:text-[#9BCB4A]">
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                info@frpinstallations.com
+              </a>
+            </div>
+            <div className="flex items-center gap-6">
+              <VrcaBadge variant="white" className="w-40" />
+              <ProcoreBadge className="w-28" />
+            </div>
           </div>
         </div>
       </div>

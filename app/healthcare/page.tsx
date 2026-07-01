@@ -251,11 +251,11 @@ export default function HealthcarePage() {
               </div>
               <SitePhoto photo={sitePhotos.healthcare.hospital} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.45)]" />
             </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid border-y border-white/15 sm:grid-cols-2 lg:grid-cols-3">
               {hospitals.map((hospital) => (
-                <div key={hospital} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#9BCB4A] flex-shrink-0" />
-                  <span className="text-white/80 text-sm">{hospital}</span>
+                <div key={hospital} className="flex items-start gap-3 border-b border-white/12 py-3.5 text-sm text-white/78 sm:px-4 lg:[&:nth-last-child(-n+3)]:border-b-0">
+                  <span className="mt-2 h-px w-4 shrink-0 bg-[#9BCB4A]/70" aria-hidden="true" />
+                  <span>{hospital}</span>
                 </div>
               ))}
             </div>

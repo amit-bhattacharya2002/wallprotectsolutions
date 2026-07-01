@@ -214,7 +214,7 @@ export default function FRPServicePage() {
         <section className="brand-blue-surface py-20 lg:py-28">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
-              <div className="inline-block bg-[#f97316] text-white px-6 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="mb-6 inline-block border-b-2 border-[#64A70B] pb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[#9BCB4A]">
                 Our Guarantee
               </div>
               <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-4">

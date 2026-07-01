@@ -1,4 +1,4 @@
-import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
+import { PageHero, Footer, Header, SitePhoto, VrcaBadge, ProcoreBadge } from "@/app/components";
 import Link from "next/link";
 import { sitePhotos } from "@/app/data/site-photos";
 
@@ -74,6 +74,12 @@ export default function AboutPage() {
             { label: "Pre-Construction Support", href: "/pre-construction" },
             { label: "Contact Us", href: "/contact" },
           ]}
+          supportingContent={
+            <div className="flex flex-wrap items-center gap-5 sm:gap-6">
+              <ProcoreBadge imgClassName="h-12 w-auto md:h-14" />
+              <VrcaBadge variant="white" imgClassName="h-10 w-auto md:h-12" />
+            </div>
+          }
         />
 
         {/* Our Story */}
@@ -275,6 +281,32 @@ export default function AboutPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Memberships & Affiliations */}
+        <section className="bg-white pb-14 lg:pb-20">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid items-center gap-8 border-t border-gray-100 pt-12 sm:grid-cols-[1fr_auto] lg:pt-14">
+              <div className="max-w-xl">
+                <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-[#64A70B]">
+                  Memberships &amp; Affiliations
+                </span>
+                <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
+                  A proud member of the construction community
+                </h2>
+                <p className="font-normal leading-relaxed text-gray-600">
+                  FRP Installations Inc. is a proud member of the Vancouver Regional
+                  Construction Association (VRCA) and part of the Procore Construction
+                  Network — reflecting our commitment to industry standards, safety,
+                  and professional practice across British Columbia.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center justify-start gap-6 sm:justify-end md:gap-8">
+                <VrcaBadge variant="color" className="w-52 md:w-60" />
+                <ProcoreBadge className="w-32 md:w-36" />
+              </div>
             </div>
           </div>
         </section>

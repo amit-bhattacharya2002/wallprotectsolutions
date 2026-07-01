@@ -103,17 +103,17 @@ export default function ServiceAreasPage() {
               {regions.map((region) => (
                 <div key={region}>
                   <h2 className="text-2xl font-semibold text-[#0f172a] mb-6 flex items-center gap-3">
-                    <span className="w-8 h-1 bg-[#005EB8] rounded-full" />
+                    <span className="h-px w-8 bg-[#005EB8]" />
                     {region}
                   </h2>
-                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                  <div className="grid border-y border-slate-200 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
                     {citiesByRegion[region].map((city) => (
                       <Link
                         key={city.slug}
                         href={`/city/${city.slug}`}
-                        className="group surface-card-muted p-4 hover:border-[#64A70B] hover:bg-white transition-all"
+                        className="group border-b border-slate-200 py-3 text-sm font-medium text-[#0f172a] transition-colors hover:text-[#64A70B] sm:px-4 xl:[&:nth-last-child(-n+6)]:border-b-0"
                       >
-                        <span className="text-[#0f172a] font-medium group-hover:text-[#64A70B] transition-colors">
+                        <span>
                           {city.name}
                         </span>
                       </Link>

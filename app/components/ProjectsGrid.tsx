@@ -120,7 +120,7 @@ function ViewToggle({
 }) {
   return (
     <div
-      className="inline-flex rounded-full border border-gray-200 bg-[#f8fafc] p-1"
+      className="inline-flex border border-gray-200 bg-white"
       role="group"
       aria-label="Project view mode"
     >
@@ -129,9 +129,9 @@ function ViewToggle({
         onClick={() => onChange("grid")}
         aria-pressed={view === "grid"}
         aria-label="Thumbnail view"
-        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+        className={`inline-flex items-center gap-1.5 border-r border-gray-200 px-3 py-1.5 text-sm font-medium transition-colors ${
           view === "grid"
-            ? "bg-white text-[#0f172a] shadow-sm"
+            ? "bg-[#f8fafc] text-[#0f172a]"
             : "text-gray-500 hover:text-[#0f172a]"
         }`}
       >
@@ -145,9 +145,9 @@ function ViewToggle({
         onClick={() => onChange("list")}
         aria-pressed={view === "list"}
         aria-label="List view"
-        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+        className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium transition-colors ${
           view === "list"
-            ? "bg-white text-[#0f172a] shadow-sm"
+            ? "bg-[#f8fafc] text-[#0f172a]"
             : "text-gray-500 hover:text-[#0f172a]"
         }`}
       >
@@ -211,7 +211,7 @@ export default function ProjectsGrid() {
         </div>
 
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 border-b border-slate-200">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -221,10 +221,10 @@ export default function ProjectsGrid() {
                   window.history.replaceState(null, "", `#${hash}`);
                   document.getElementById("all")?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`border-b-2 pb-2 text-sm font-medium transition-all duration-200 ${
                   active === cat
-                    ? "bg-[#005EB8] text-white"
-                    : "bg-[#f8fafc] text-gray-500 hover:text-[#0f172a] hover:bg-gray-100 border border-gray-200"
+                    ? "border-[#005EB8] text-[#005EB8]"
+                    : "border-transparent text-gray-500 hover:text-[#0f172a]"
                 }`}
               >
                 {cat}

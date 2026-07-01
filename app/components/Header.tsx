@@ -239,10 +239,10 @@ export default function Header() {
                 FRP Installations Inc.
               </span>
               <span
-                className={`hidden font-semibold uppercase leading-tight tracking-[0.18em] text-[#64A70B] transition-all duration-300 sm:block ${
+                className={`block font-semibold uppercase leading-tight tracking-[0.18em] text-[#64A70B] transition-all duration-300 ${
                   isScrolled
-                    ? "text-[0.6rem] md:text-[0.68rem]"
-                    : "text-[0.62rem] md:text-[0.72rem]"
+                    ? "text-[0.5rem] sm:text-[0.6rem] md:text-[0.68rem]"
+                    : "text-[0.52rem] sm:text-[0.62rem] md:text-[0.72rem]"
                 }`}
               >
                 Wall Protection Solutions
@@ -410,7 +410,7 @@ export default function Header() {
             <span className="text-base font-semibold leading-tight tracking-tight text-[#0f172a]">
               FRP Installations Inc.
             </span>
-            <span className="text-xs font-medium leading-tight tracking-wide text-[#64A70B]">
+            <span className="text-[0.62rem] font-semibold uppercase leading-tight tracking-[0.18em] text-[#64A70B]">
               Wall Protection Solutions
             </span>
           </Link>
