@@ -147,16 +147,16 @@ export default function PageHero({
             </>
           ) : isLightBluePhoto ? (
             <>
-              <div className="absolute inset-0 bg-linear-to-r from-[#0f3a36]/94 via-[#0f3a36]/64 to-[#2B7DCE]/18" />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0f3a36]/58 via-[#0f3a36]/16 to-white/8" />
-              <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-[#9BCB4A]/18" />
-              <div className="absolute inset-y-0 left-0 w-full max-w-[980px] bg-linear-to-r from-[#0a2926]/76 via-[#0f3a36]/36 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-r from-[#0B1D3A]/94 via-[#10233F]/66 to-[#005EB8]/18" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0B1D3A]/58 via-[#10233F]/18 to-white/8" />
+              <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-[#2B7DCE]/16" />
+              <div className="absolute inset-y-0 left-0 w-full max-w-[980px] bg-linear-to-r from-[#07162c]/76 via-[#10233F]/38 to-transparent" />
             </>
           ) : (
             <>
-              <div className="absolute inset-0 bg-linear-to-r from-[#0a2926]/94 via-[#0f3a36]/78 to-[#0f3a36]/30" />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0a2926]/66 via-transparent to-[#0f3a36]/18" />
-              <div className="absolute inset-0 bg-linear-to-b from-[#0a2926]/22 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-r from-[#07162c]/94 via-[#10233F]/78 to-[#10233F]/30" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#07162c]/66 via-transparent to-[#10233F]/18" />
+              <div className="absolute inset-0 bg-linear-to-b from-[#07162c]/22 via-transparent to-transparent" />
             </>
           )}
         </>

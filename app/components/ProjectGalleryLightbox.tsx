@@ -90,7 +90,7 @@ export default function ProjectGalleryLightbox({
         <button
           type="button"
           onClick={goPrev}
-          className="absolute inset-y-0 left-0 z-10 flex w-[min(18vw,5rem)] items-center justify-center bg-gradient-to-r from-black/40 to-transparent text-white/70 transition-colors hover:text-white sm:w-[min(14vw,6rem)]"
+          className="absolute inset-y-0 left-0 z-10 flex w-[min(18vw,5rem)] items-center justify-center bg-gradient-to-r from-[#0a2926]/48 to-transparent text-white/70 transition-colors hover:text-white sm:w-[min(14vw,6rem)]"
           aria-label="Previous photo"
         >
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/30 backdrop-blur-sm">
@@ -117,7 +117,7 @@ export default function ProjectGalleryLightbox({
         <button
           type="button"
           onClick={goNext}
-          className="absolute inset-y-0 right-0 z-10 flex w-[min(18vw,5rem)] items-center justify-center bg-gradient-to-l from-black/40 to-transparent text-white/70 transition-colors hover:text-white sm:w-[min(14vw,6rem)]"
+          className="absolute inset-y-0 right-0 z-10 flex w-[min(18vw,5rem)] items-center justify-center bg-gradient-to-l from-[#0a2926]/48 to-transparent text-white/70 transition-colors hover:text-white sm:w-[min(14vw,6rem)]"
           aria-label="Next photo"
         >
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/30 backdrop-blur-sm">
