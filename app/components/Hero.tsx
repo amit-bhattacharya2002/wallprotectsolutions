@@ -87,9 +87,9 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
 
   if (mobile) {
     return (
-      <div className="flex w-full flex-row items-center justify-start gap-5">
+      <div className="flex w-full flex-row items-center justify-center gap-5">
         {badge}
-        <VrcaBadge variant="color" className="rounded-md bg-white px-2 py-1 shadow-sm" imgClassName="h-5 w-auto sm:h-6" />
+        <VrcaBadge variant="color" className="rounded-sm border border-black bg-white px-2 py-1" imgClassName="h-5 w-auto sm:h-6" />
       </div>
     );
   }
@@ -98,7 +98,7 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
     <div className="flex w-full max-w-full flex-col gap-3 text-left">
       <div className="flex items-center gap-4">
         {badge}
-        <VrcaBadge variant="color" className="rounded-md bg-white px-3 py-1.5 shadow-sm" imgClassName="h-5 w-auto md:h-7 lg:h-9" />
+        <VrcaBadge variant="color" className="rounded-sm border border-black bg-white px-3 py-1.5" imgClassName="h-5 w-auto md:h-7 lg:h-9" />
       </div>
       <div className="h-0.5 w-full max-w-[300px] bg-linear-to-r from-[#005EB8] to-[#64A70B]" />
       <p className="text-sm font-semibold tracking-tight text-white md:text-lg">Wall Protection Construction Partner.</p>
@@ -290,7 +290,7 @@ export default function Hero() {
             {slideCopy.map((slide, idx) => (
               <div
                 key={idx}
-                className={`col-start-1 row-start-1 ${
+                className={`col-start-1 row-start-1 text-center md:text-left ${
                   idx === activeIndex
                     ? "relative z-10 opacity-100 transition-opacity duration-500 ease-out motion-reduce:transition-none"
                     : "pointer-events-none relative z-0 opacity-0 transition-none motion-reduce:transition-none"
@@ -300,7 +300,7 @@ export default function Hero() {
                 <p className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#9BCB4A] md:mb-5">
                   {slide.eyebrow}
                 </p>
-                <h2 className="max-w-[18ch] text-left text-[clamp(1.45rem,6.2vw,2.1rem)] font-semibold leading-[1.06] tracking-tight text-white max-sm:max-w-[19ch] sm:max-w-[20ch] sm:text-4xl md:max-w-[14ch] md:text-6xl lg:text-7xl">
+                <h2 className="mx-auto max-w-[18ch] text-center text-[clamp(1.85rem,8vw,2.8rem)] font-bold leading-[1.06] tracking-tight text-white [text-shadow:_0_2px_6px_rgb(7_21_34_/_0.6),_0_6px_28px_rgb(7_21_34_/_0.45)] max-sm:max-w-[19ch] sm:max-w-[20ch] sm:text-5xl md:mx-0 md:max-w-[14ch] md:text-left md:text-6xl lg:text-7xl">
                   {slide.headline}
                 </h2>
                 <Link
