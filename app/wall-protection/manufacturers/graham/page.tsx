@@ -185,7 +185,7 @@ export default function GrahamPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-[#2a4663]">
+        <section className="brand-blue-surface py-20">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
               Ready to discuss your Graham FRP project?

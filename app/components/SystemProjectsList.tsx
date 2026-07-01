@@ -31,15 +31,15 @@ export default function SystemProjectsList({
               href={`/projects/${project.slug}`}
               className={`group inline-flex items-center gap-2 text-sm font-medium transition-colors ${
                 isDark
-                  ? "text-[#5eead4] hover:text-white"
-                  : "text-[#134e4a] hover:text-[#0d9488]"
+                  ? "text-[#9BCB4A] hover:text-white"
+                  : "text-[#64A70B] hover:text-[#64A70B]"
               }`}
             >
               <span
                 className={`h-1.5 w-1.5 shrink-0 rounded-full transition-colors ${
                   isDark
-                    ? "bg-[#5eead4] group-hover:bg-white"
-                    : "bg-[#134e4a] group-hover:bg-[#0d9488]"
+                    ? "bg-[#9BCB4A] group-hover:bg-white"
+                    : "bg-[#005EB8] group-hover:bg-[#64A70B]"
                 }`}
                 aria-hidden
               />

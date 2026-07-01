@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element -- parallax requires plain img per spec */
 
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useRef, useState, type RefObject } from "react";
+import { useLayoutEffect, useRef, useState, type RefObject } from "react";
 import type { MotionValue } from "framer-motion";
 import { motion, useMotionTemplate, useScroll, useSpring, useTransform } from "framer-motion";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
@@ -178,7 +178,7 @@ function CardToPinConnector({
       y1={ay}
       x2={x2}
       y2={y2}
-      stroke="#14b8a6"
+      stroke="#64A70B"
       strokeWidth={2}
       strokeLinecap="round"
       vectorEffect="non-scaling-stroke"
@@ -208,11 +208,11 @@ function PinOverlay({
     >
       <span className="relative flex h-5 w-5 items-center justify-center">
         <motion.span
-          className="absolute inline-flex h-full w-full rounded-full bg-[#14b8a6] opacity-40"
+          className="absolute inline-flex h-full w-full rounded-full bg-[#64A70B] opacity-35"
           animate={{ scale: [1, 2.6], opacity: [0.45, 0] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
         />
-        <span className="relative h-3 w-3 rounded-full bg-[#14b8a6] ring-2 ring-white shadow-[0_0_0_3px_rgba(20,184,166,0.18)]" />
+        <span className="relative h-3 w-3 rounded-full bg-[#64A70B] ring-2 ring-white shadow-[0_0_0_3px_rgba(100,167,11,0.18)]" />
       </span>
     </motion.div>
   );
@@ -245,7 +245,7 @@ function SystemCard({
             aria-hidden
           />
         ) : null}
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#14b8a6] md:text-[0.8rem]">
+        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#9BCB4A] md:text-[0.8rem]">
           System {sys.number} / 03
         </p>
         <h3 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-[#0B1D3A] md:text-4xl">
@@ -259,7 +259,7 @@ function SystemCard({
         </p>
         <Link
           href={sys.href}
-          className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-[#14b8a6] transition-colors hover:text-[#0d9488]"
+          className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-[#9BCB4A] transition-colors hover:text-white"
         >
           Learn more
           <span aria-hidden>→</span>
@@ -344,19 +344,17 @@ function SystemsShowcaseDesktop() {
 
 export default function SystemsShowcase() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const [view, setView] = useState<ShowcaseViewMode>("interactive");
-
-  useEffect(() => {
+  const [view, setView] = useState<ShowcaseViewMode>(() => {
+    if (typeof window === "undefined") return "interactive";
     const stored = window.localStorage.getItem(VIEW_STORAGE_KEY);
     if (stored === "interactive" || stored === "grid" || stored === "list") {
-      setView(stored === "list" ? "grid" : stored);
-      return;
+      return stored === "list" ? "grid" : stored;
     }
-    if (prefersReducedMotion) {
-      setView("grid");
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      return "grid";
     }
-  }, [prefersReducedMotion]);
+    return "interactive";
+  });
 
   const handleViewChange = (nextView: ShowcaseViewMode) => {
     setView(nextView);

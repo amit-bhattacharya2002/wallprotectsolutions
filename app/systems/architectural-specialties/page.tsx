@@ -22,6 +22,8 @@ export default function ArchitecturalSpecialtiesPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.systems.architectural}
           eyebrow="Architectural Specialties / Division 10"
           title="Architectural specialties and Division 10 systems"
           subtitle="Expansion joint covers, entrance mat systems, cubicle curtain tracks, and door and frame protection — primarily through our Construction Specialties and Inpro relationships."
@@ -43,7 +45,7 @@ export default function ArchitecturalSpecialtiesPage() {
                 className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
               />
               <div>
-                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#134e4a]">
+                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#64A70B]">
                   Complete healthcare packages
                 </span>
                 <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
@@ -67,7 +69,7 @@ export default function ArchitecturalSpecialtiesPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-14">
               <div>
-                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Division 10</span>
+                <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Division 10</span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">
                   Systems we supply and install
                 </h2>
@@ -80,7 +82,7 @@ export default function ArchitecturalSpecialtiesPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {items.map((item) => (
-                <div key={item.name} className="p-8 border border-gray-200 rounded-xl hover:border-[#0d9488] transition-colors">
+                <div key={item.name} className="p-8 border border-gray-200 rounded-xl hover:border-[#64A70B] transition-colors">
                   <h3 className="text-xl font-semibold text-[#0f172a] mb-4">{item.name}</h3>
                   <p className="text-gray-600 font-normal leading-relaxed">{item.description}</p>
                 </div>

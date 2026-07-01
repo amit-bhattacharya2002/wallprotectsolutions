@@ -29,7 +29,7 @@ const workflow = [
 
 export default function ContractorConfidence() {
   return (
-    <section className="section-shell-lg section-shell-dark grain-overlay relative isolate overflow-hidden border-t border-white/5 bg-[#2a4663]">
+    <section className="section-shell-lg section-shell-dark grain-overlay relative isolate overflow-hidden border-t border-white/5 bg-[#10233F]">
       <Image
         src="/actualphotos/5.jpg"
         alt=""
@@ -38,7 +38,7 @@ export default function ContractorConfidence() {
         sizes="100vw"
         className="pointer-events-none absolute inset-0 z-0 object-cover object-center filter-[saturate(0.88)_brightness(0.82)]"
       />
-      <div className="pointer-events-none absolute inset-0 z-1 bg-[#2a4663]/90" />
+      <div className="pointer-events-none absolute inset-0 z-1 bg-[#10233F]/90" />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="reveal mx-auto mb-12 max-w-3xl text-center lg:mb-14">
           <span className="eyebrow">Why Contractors Choose Us</span>
@@ -58,7 +58,7 @@ export default function ContractorConfidence() {
                   key={item}
                   className="flex items-start gap-3 border-b border-white/10 py-4 text-left last:border-b-0"
                 >
-                  <span className="mt-0.5 w-7 shrink-0 text-xs font-semibold tracking-[0.16em] text-[#5eead4] tabular-nums">
+                  <span className="mt-0.5 w-7 shrink-0 text-xs font-semibold tracking-[0.16em] text-[#9BCB4A] tabular-nums">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <p className="min-w-0 text-sm leading-relaxed text-white/76">
@@ -71,7 +71,7 @@ export default function ContractorConfidence() {
             <div className="max-md:flex max-md:justify-center md:block">
               <Link
                 href="/pre-construction"
-                className="inline-flex items-center gap-2 font-medium text-[#5eead4] transition-all hover:gap-3"
+                className="inline-flex items-center gap-2 font-medium text-[#9BCB4A] transition-all hover:gap-3 hover:text-white"
               >
                 See how we support projects early
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ export default function ContractorConfidence() {
           <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
             {deliveryPoints.map((item) => (
               <div key={item.title} className="border-t border-white/12 pt-5 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:text-center sm:text-left">
-                <div className="mb-4 text-[#5eead4] max-sm:flex max-sm:justify-center">
+                <div className="mb-4 text-[#9BCB4A] max-sm:flex max-sm:justify-center">
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 13l4 4L19 7" />
                   </svg>

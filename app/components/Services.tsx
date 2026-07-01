@@ -47,14 +47,14 @@ export default function Services() {
                 loading="eager"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0B1D3A]/55 via-transparent to-transparent md:bg-linear-to-r md:from-transparent md:via-transparent md:to-white/10" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0f3a36]/62 via-transparent to-transparent md:bg-linear-to-r md:from-transparent md:via-transparent md:to-white/10" />
               <p className="absolute bottom-3 left-4 right-4 text-xs font-medium text-white/90 md:bottom-4 md:left-5 md:text-sm">
                 {sitePhotos.alsoSupplyInstall.caption}
               </p>
             </div>
 
             <div className="flex flex-col justify-center px-5 py-7 md:px-8 md:py-9 lg:px-10">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#14b8a6]">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#4f8f16]">
                 Also supply &amp; install
               </p>
               <p className="mb-5 max-w-2xl text-sm leading-relaxed text-slate-500 md:text-[0.9375rem]">
@@ -67,11 +67,11 @@ export default function Services() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-[#f8fafc] px-4 py-2.5 text-sm font-medium text-[#0f172a] transition-colors hover:border-[#14b8a6]/45 hover:bg-[#f0fdfa] hover:text-[#0d9488] md:text-[0.9375rem]"
+                    className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-[#f8fafc] px-4 py-2.5 text-sm font-medium text-[#0f172a] transition-colors hover:border-[#64A70B]/35 hover:bg-[#F4F7FA] hover:text-[#64A70B] md:text-[0.9375rem]"
                   >
                     {item.label}
                     <svg
-                      className="h-3.5 w-3.5 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:text-[#14b8a6]"
+                      className="h-3.5 w-3.5 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:text-[#64A70B]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ export default function Services() {
               <div className="mt-6 border-t border-slate-100 pt-5">
                 <Link
                   href="/systems"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#134e4a] transition-colors hover:text-[#0d9488] md:text-base"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#64A70B] transition-colors hover:text-[#4f8f16] md:text-base"
                 >
                   View all systems
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>

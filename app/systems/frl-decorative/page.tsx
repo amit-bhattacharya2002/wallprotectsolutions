@@ -1,4 +1,4 @@
-import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
+import { Header, Footer, PageHero, RelatedHealthcareResources, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
 import { systemProjects } from "@/app/data/system-projects";
 
@@ -42,6 +42,8 @@ export default function FRLDecorativePage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.systems.frl}
           eyebrow="FRL / Decorative Wall Systems"
           title="FRL and decorative wall systems for healthcare and institutional interiors"
           subtitle="Panolam FRL distributor (400+ colours), Formica HardStop, and Marlite decorative lines — for healthcare corridors, reception areas, and institutional interiors where a finished appearance is required alongside impact and moisture resistance."
@@ -70,7 +72,7 @@ export default function FRLDecorativePage() {
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <h3 className="text-xl font-semibold text-[#0f172a]">{system.name}</h3>
-                      <span className="px-3 py-1 bg-[#134e4a]/10 text-[#134e4a] text-xs font-medium rounded-full">{system.relationship}</span>
+                      <span className="px-3 py-1 bg-[#005EB8]/10 text-[#64A70B] text-xs font-medium rounded-full">{system.relationship}</span>
                     </div>
                     <p className="text-gray-600 leading-relaxed font-normal">{system.description}</p>
                   </div>
@@ -79,7 +81,7 @@ export default function FRLDecorativePage() {
                     <ul className="space-y-3">
                       {system.highlights.map((h) => (
                         <li key={h} className="flex items-start gap-3">
-                          <svg className="w-5 h-5 text-[#134e4a] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <svg className="w-5 h-5 text-[#64A70B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
                           <span className="text-gray-600 text-sm">{h}</span>
@@ -93,6 +95,15 @@ export default function FRLDecorativePage() {
             <SystemProjectsList
               systemName={frlProjects.name}
               projectSlugs={frlProjects.slugs}
+              className="mt-12"
+            />
+            <RelatedHealthcareResources
+              slugs={[
+                "decorative-vs-hygienic-wall-systems",
+                "frp-vs-frl",
+                "healthcare-wall-finish-selection-guide",
+                "wall-protection-transitions-adjacent-finishes",
+              ]}
               className="mt-12"
             />
           </div>

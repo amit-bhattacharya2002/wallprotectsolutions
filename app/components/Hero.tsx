@@ -88,7 +88,7 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
     return (
       <div className="flex w-full flex-row items-start justify-between gap-3 sm:gap-4">
         <div className="flex min-w-0 flex-1 flex-col items-start gap-2">
-          <div className="h-0.5 w-12 shrink-0 bg-[#0d9488] sm:w-16" aria-hidden />
+          <div className="h-0.5 w-12 shrink-0 bg-linear-to-r from-[#005EB8] to-[#64A70B] sm:w-16" aria-hidden />
           <p className="min-w-0 text-left text-sm font-semibold leading-snug tracking-tight text-white">
             Wall Protection Construction Partner.
           </p>
@@ -101,7 +101,7 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
   return (
     <div className="flex w-full max-w-full flex-col gap-3 text-left">
       {badge}
-      <div className="h-0.5 w-full max-w-[300px] bg-[#0d9488]" />
+      <div className="h-0.5 w-full max-w-[300px] bg-linear-to-r from-[#005EB8] to-[#64A70B]" />
       <p className="text-sm font-semibold tracking-tight text-white md:text-lg">Wall Protection Construction Partner.</p>
       <p className="text-xs leading-relaxed text-white/75 md:text-sm">
         Specializing in healthcare and institutional interior protection systems across British Columbia.
@@ -270,7 +270,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(12,24,48,0.72) 0%, rgba(12,24,48,0.4) 35%, rgba(12,24,48,0.05) 65%, rgba(12,24,48,0) 100%)",
+            "linear-gradient(to right, rgba(16,35,63,0.72) 0%, rgba(16,35,63,0.42) 35%, rgba(16,35,63,0.08) 65%, rgba(16,35,63,0) 100%)",
         }}
       />
       <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
@@ -298,7 +298,7 @@ export default function Hero() {
                 }`}
                 aria-hidden={idx !== activeIndex}
               >
-                <p className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#5eead4] md:mb-5">
+                <p className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#9BCB4A] md:mb-5">
                   {slide.eyebrow}
                 </p>
                 <h2 className="max-w-[18ch] text-left text-[clamp(1.45rem,6.2vw,2.1rem)] font-semibold leading-[1.06] tracking-tight text-white max-sm:max-w-[19ch] sm:max-w-[20ch] sm:text-4xl md:max-w-[14ch] md:text-6xl lg:text-7xl">
@@ -307,9 +307,9 @@ export default function Hero() {
                 <Link
                   href={slide.ctaHref}
                   tabIndex={idx === activeIndex ? 0 : -1}
-                  className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-[#5eead4] max-sm:mt-6 md:mt-9 md:text-base"
+                  className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-[#9BCB4A] max-sm:mt-6 md:mt-9 md:text-base"
                 >
-                  <span className="border-b border-white/40 pb-0.5 transition-colors group-hover:border-[#5eead4]">
+                  <span className="border-b border-white/40 pb-0.5 transition-colors group-hover:border-[#9BCB4A]">
                     {slide.ctaLabel}
                   </span>
                   <svg
@@ -346,25 +346,40 @@ export default function Hero() {
               <div className="mb-1.5 w-full lg:mb-0 lg:hidden">
                 <HeroPartnerStack layout="mobile" />
               </div>
-              <div className="flex w-full flex-col bg-white px-4 py-4 shadow-xl shadow-black/10 md:px-8 md:py-7">
-                <div className="mb-2 h-0.5 w-6 bg-[#134e4a] md:mb-4 md:w-9" />
+              <div className="flex w-full flex-col border border-white/80 bg-white/95 px-4 py-4 shadow-[0_26px_70px_-42px_rgba(16,35,63,0.75)] backdrop-blur md:px-8 md:py-7">
+                <div className="mb-2 h-0.5 w-20 bg-linear-to-r from-[#005EB8] to-[#64A70B] md:mb-4 md:w-28" />
 
-                <h1 className="mb-0.5 text-xl font-extrabold leading-[1.05] tracking-tight text-[#0f172a] md:mb-1.5 md:text-[clamp(1.6rem,2.4vw,2.4rem)]">
+                <h1 className="brand-wordmark mb-0.5 text-xl font-extrabold leading-[1.05] tracking-tight text-[#0f172a] md:mb-1.5 md:text-[clamp(1.6rem,2.4vw,2.4rem)]">
                   FRP Installations Inc.
                 </h1>
-                <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#134e4a] md:mb-5 md:text-[0.78rem]">
+                <p className="brand-wordmark mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#4f8f16] md:mb-5 md:text-[0.78rem]">
                   Wall Protection Solutions
                 </p>
 
-                <p className="mb-4 text-xs leading-relaxed text-slate-500 md:mb-6 md:text-base">
+                <p className="mb-4 text-xs leading-relaxed text-slate-600 md:mb-5 md:text-base">
                   Healthcare and institutional interior protection systems across
                   British Columbia.
                 </p>
 
+                <div className="mb-4 grid grid-cols-2 gap-3 border-y border-slate-200 py-3 md:mb-6 md:gap-4">
+                  <div>
+                    <div className="text-lg font-semibold leading-none tracking-tight text-[#10233F] md:text-2xl">700+</div>
+                    <div className="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-slate-500 md:text-[0.68rem]">
+                      Projects
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-lg font-semibold leading-none tracking-tight text-[#10233F] md:text-2xl">16+</div>
+                    <div className="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-slate-500 md:text-[0.68rem]">
+                      UPCC Clinics
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex flex-col items-stretch gap-2 md:flex-col md:gap-3 lg:flex-row">
                   <Link
                     href="/quote"
-                    className="group inline-flex w-full items-center justify-center gap-2 bg-[#2a4663] px-3 py-2.5 text-xs font-medium text-white transition-all hover:bg-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                    className="group inline-flex w-full items-center justify-center gap-2 bg-[#005EB8] px-3 py-2.5 text-xs font-medium text-white transition-all hover:bg-[#004A91] md:px-5 md:py-3 md:text-sm"
                   >
                     Get a Quote
                     <svg
@@ -383,7 +398,7 @@ export default function Hero() {
                   </Link>
                   <Link
                     href="/healthcare"
-                    className="inline-flex w-full items-center justify-center gap-2 border border-slate-200 px-3 py-2.5 text-xs font-medium text-slate-600 transition-all hover:border-[#0d9488] hover:text-[#0d9488] md:px-5 md:py-3 md:text-sm"
+                    className="inline-flex w-full items-center justify-center gap-2 border border-slate-200 px-3 py-2.5 text-xs font-medium text-[#10233F] transition-all hover:border-[#64A70B]/45 hover:text-[#64A70B] md:px-5 md:py-3 md:text-sm"
                   >
                     Healthcare Work
                   </Link>

@@ -10,8 +10,8 @@ interface SearchResultsListProps {
 }
 
 const badgeStyles: Record<string, string> = {
-  Systems: "bg-[#134e4a]/10 text-[#134e4a]",
-  Services: "bg-[#2a4663]/8 text-[#0f172a]",
+  Systems: "bg-[#005EB8]/10 text-[#64A70B]",
+  Services: "bg-[#005EB8]/8 text-[#0f172a]",
   Manufacturers: "bg-slate-100 text-slate-700",
   Projects: "bg-amber-50 text-amber-700",
   Pages: "bg-slate-100 text-slate-600",
@@ -32,7 +32,7 @@ export default function SearchResultsList({
         return (
           <div key={section.group} className={compact ? "space-y-2.5" : "space-y-3"}>
             <div className="flex items-center gap-3">
-              <div className="h-px w-8 bg-[#134e4a]" />
+              <div className="h-px w-8 bg-[#005EB8]" />
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
                 {getSearchGroupLabel(section.group)}
               </p>
@@ -43,7 +43,7 @@ export default function SearchResultsList({
                   key={`${result.group}-${result.href}-${result.title}`}
                   href={result.href}
                   onClick={onResultClick}
-                  className={`group block w-full rounded-2xl border border-slate-200/80 bg-white transition-all hover:border-[#0d9488]/30 hover:shadow-[0_18px_42px_-28px_rgba(15,23,42,0.34)] ${
+                  className={`group block w-full rounded-2xl border border-slate-200/80 bg-white transition-all hover:border-[#64A70B]/30 hover:shadow-[0_18px_42px_-28px_rgba(15,23,42,0.34)] ${
                     compact ? "p-3.5 sm:p-4" : "p-5"
                   }`}
                 >
@@ -52,7 +52,7 @@ export default function SearchResultsList({
                       <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-medium ${badgeClass}`}>
                         {result.badge ?? getSearchGroupLabel(result.group)}
                       </span>
-                      <h3 className={`mt-3 font-semibold tracking-tight text-[#0f172a] group-hover:text-[#0d9488] ${
+                      <h3 className={`mt-3 font-semibold tracking-tight text-[#0f172a] group-hover:text-[#64A70B] ${
                         compact ? "text-[0.95rem] sm:text-base" : "text-lg"
                       }`}>
                         {result.title}
@@ -64,7 +64,7 @@ export default function SearchResultsList({
                       </p>
                     </div>
                     <svg
-                      className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-[#0d9488]"
+                      className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-[#64A70B]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

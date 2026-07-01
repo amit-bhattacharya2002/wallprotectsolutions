@@ -5,9 +5,161 @@ export interface ResourceArticle {
   tags: string[];
   summary: string[];
   takeaways: string[];
+  diagram?: "sink-splash-zone" | "room-map" | "wall-finish-guide";
+  relatedSlugs?: string[];
 }
 
 export const resourceArticles: ResourceArticle[] = [
+  {
+    slug: "healthcare-sink-splash-zones",
+    title: "Understanding healthcare sink splash zones",
+    description: "Why healthcare hand hygiene sinks often need enhanced, cleanable wall surface protection around moisture, cleaning, and splash exposure.",
+    tags: ["Healthcare", "Sink Splash Zones", "IPAC Considerations"],
+    diagram: "sink-splash-zone",
+    relatedSlugs: [
+      "altro-whiterock-vs-frp-healthcare",
+      "products-hospital-washrooms-showers",
+      "wall-protection-transitions-adjacent-finishes",
+    ],
+    summary: [
+      "Healthcare sink locations often create demanding surface conditions because water, soap, disinfectants, and repeated cleaning all meet at one wall assembly. The right finish is not only about appearance; it is about cleanability, moisture resistance, durability, and how penetrations and transitions are detailed.",
+      "Hand hygiene stations, clinical sinks, utility sinks, and patient washroom sinks can each have different performance expectations. In some spaces, FRP or a trim-finished panel system may be appropriate. In others, a welded hygienic wall system or stainless protection may be considered because the cleaning protocol and moisture exposure are more demanding.",
+      "Final design requirements vary by health authority, project specifications, room classification, and Infection Prevention & Control review. Our role is to help the construction team understand product options, installation implications, and details that commonly affect long-term performance.",
+    ],
+    takeaways: [
+      "Sink-adjacent wall surfaces should be evaluated for moisture, chemical exposure, cleanability, and penetrations.",
+      "Common systems include Altro Whiterock, FRP, Acrovyn sheet, stainless steel, and wet-wall assemblies depending on the room.",
+      "Confirm final requirements with the design team, health authority standards, project specifications, and IPAC review.",
+    ],
+  },
+  {
+    slug: "clean-utility-vs-soiled-utility-surface-considerations",
+    title: "Clean utility vs soiled utility rooms: surface considerations",
+    description: "How clean utility and soiled utility rooms differ, and why wall system selection should reflect cleaning, moisture, storage, and clinical workflow demands.",
+    tags: ["Healthcare", "Utility Rooms", "Hygienic Systems"],
+    diagram: "room-map",
+    relatedSlugs: [
+      "healthcare-sink-splash-zones",
+      "altro-whiterock-vs-frp-healthcare",
+      "welded-hygienic-wall-systems-worth-cost",
+    ],
+    summary: [
+      "Clean utility and soiled utility rooms may sit close together on a drawing, but they usually place different demands on interior finishes. Clean utility rooms often prioritize storage, cleanable surfaces, and protection from cart or equipment impact. Soiled utility rooms more often involve moisture, waste handling, frequent cleaning, and higher exposure to splashes and chemicals.",
+      "Because the use case is different, the wall protection strategy should not be selected by room name alone. The team should consider the sink condition, cleaning protocol, cart traffic, penetrations, casework transitions, and whether the space requires a seamless hygienic finish or a durable trim-finished panel system.",
+      "Early review of utility rooms helps avoid late substitutions, awkward transitions, and overspending on systems that are not required in every room.",
+    ],
+    takeaways: [
+      "Clean utility rooms often need durable cleanable protection around storage and equipment movement.",
+      "Soiled utility rooms often require higher attention to moisture, splash exposure, and cleaning chemicals.",
+      "Room-by-room review is stronger than applying one wall finish across every healthcare support space.",
+    ],
+  },
+  {
+    slug: "operating-room-surface-considerations",
+    title: "Operating room surface considerations",
+    description: "A practical overview of cleanable, seamless, and impact-resistant wall finish considerations around ORs and adjacent clinical spaces.",
+    tags: ["Operating Rooms", "Healthcare", "Hygienic Systems"],
+    relatedSlugs: [
+      "welded-hygienic-wall-systems-worth-cost",
+      "altro-whiterock-vs-frp-healthcare",
+      "wall-protection-transitions-adjacent-finishes",
+    ],
+    summary: [
+      "Operating rooms and OR-adjacent spaces require careful coordination between infection-control expectations, durability, cleaning protocols, and architectural detailing. The wall finish is only one part of that assembly, but it has a major impact on long-term maintenance and cleanability.",
+      "Welded hygienic wall systems are often considered where seamless, crevice-free surfaces are required. Adjacent corridors, procedure areas, storage rooms, and support spaces may require different levels of protection depending on traffic, cleaning, and clinical use.",
+      "The important construction question is not simply which product is specified. It is whether the selected system, transitions, penetrations, corners, and terminations are coordinated early enough to perform as intended.",
+    ],
+    takeaways: [
+      "OR-related spaces should be reviewed for cleanability, transitions, penetrations, and clinical workflow.",
+      "Seamless hygienic systems are valuable where the room classification and cleaning requirements justify them.",
+      "Adjacent healthcare spaces may need a different balance of impact protection, moisture resistance, and finish quality.",
+    ],
+  },
+  {
+    slug: "healthcare-wall-finish-selection-guide",
+    title: "Healthcare wall finish selection guide",
+    description: "A high-level comparison of painted drywall, FRP, Acrovyn sheet, Altro Whiterock, FRL, and stainless protection in healthcare environments.",
+    tags: ["Healthcare", "Specification", "Wall Finishes"],
+    diagram: "wall-finish-guide",
+    relatedSlugs: [
+      "frp-vs-frl",
+      "altro-whiterock-vs-frp-healthcare",
+      "acrovyn-vs-inpro",
+    ],
+    summary: [
+      "Healthcare wall finish selection is usually a balance between cleanability, impact resistance, moisture resistance, chemical resistance, cost, and finish expectations. No single wall system belongs everywhere.",
+      "Painted drywall may be appropriate in low-risk, low-impact spaces. FRP can be practical in support and utility rooms. Acrovyn sheet and similar wall protection systems are often used for impact resistance in corridors and patient-facing areas. Altro Whiterock and other welded hygienic systems are used where seamless cleanable surfaces are required. FRL can provide a more architectural appearance in public or corridor spaces. Stainless protection is best reserved for harsh, highly sanitary, or custom conditions.",
+      "The strongest specification decisions come from matching the system to the room, cleaning protocol, budget, and long-term maintenance expectation.",
+    ],
+    takeaways: [
+      "Select wall systems by room condition and performance need, not just by product familiarity.",
+      "Balance cleanability, impact, moisture, chemical exposure, appearance, and budget.",
+      "Use trade input early to avoid overspecification, underspecification, and awkward transitions.",
+    ],
+  },
+  {
+    slug: "impact-protection-healthcare-corridors",
+    title: "Impact protection in healthcare corridors",
+    description: "How to think about wall guards, corner guards, crash rails, sheet protection, and door protection in healthcare corridors.",
+    tags: ["Corridors", "Wall Protection", "Healthcare"],
+    relatedSlugs: [
+      "crash-rails-corner-guards-corridor-protection",
+      "acrovyn-vs-inpro",
+      "healthcare-wall-finish-selection-guide",
+    ],
+    summary: [
+      "Healthcare corridors take abuse from beds, carts, wheelchairs, equipment, maintenance traffic, and daily public use. A corridor protection package should respond to the actual impact source and height rather than relying on one default product everywhere.",
+      "Corner guards, wall guards, crash rails, handrails, door protection, and sheet protection each solve different problems. In high-traffic healthcare areas, the best package often combines several elements with coordinated mounting heights, colours, and transitions.",
+      "Well-planned wall protection reduces repainting, patching, shutdowns, and long-term maintenance disruption while still supporting the design intent of the facility.",
+    ],
+    takeaways: [
+      "Match protection type to impact source, traffic pattern, and corridor use.",
+      "Combine rails, guards, sheet protection, and door protection where needed.",
+      "Coordinate colour, profile, mounting height, and transitions early.",
+    ],
+  },
+  {
+    slug: "decorative-vs-hygienic-wall-systems",
+    title: "Decorative vs hygienic wall systems in healthcare",
+    description: "Where FRL and decorative protection systems fit, where welded hygienic systems fit, and why the two should not be treated as interchangeable.",
+    tags: ["FRL", "Hygienic Systems", "Healthcare"],
+    relatedSlugs: [
+      "frp-vs-frl",
+      "healthcare-wall-finish-selection-guide",
+      "welded-hygienic-wall-systems-worth-cost",
+    ],
+    summary: [
+      "Decorative wall systems and hygienic wall systems can both appear in healthcare projects, but they usually solve different problems. FRL and decorative wall panels are often selected where durability, impact resistance, and a finished architectural appearance matter. Welded hygienic systems are selected where cleanability and seamless surfaces are the primary performance drivers.",
+      "Confusing the two can create problems. A decorative panel may look appropriate in a corridor or public-facing clinical space, but it may not satisfy the same requirements as a welded hygienic wall system in a higher-risk room. Conversely, a fully welded hygienic system may be unnecessary in a space where the real need is impact resistance and finish quality.",
+      "The better question is: what does the room need to withstand, how will it be cleaned, and what appearance standard is expected?",
+    ],
+    takeaways: [
+      "Use decorative systems where appearance and durability are the primary needs.",
+      "Use hygienic systems where cleanability, moisture resistance, and seamless detailing are required.",
+      "Avoid treating FRL, FRP, and welded hygienic systems as direct substitutes without reviewing room requirements.",
+    ],
+  },
+  {
+    slug: "healthcare-renovation-surface-protection-considerations",
+    title: "Healthcare renovation surface protection considerations",
+    description: "What GCs and project teams should consider when installing wall protection and hygienic systems in active or phased healthcare renovations.",
+    tags: ["Healthcare Renovation", "Pre-Construction", "Phasing"],
+    relatedSlugs: [
+      "value-engineering-wall-protection-scopes",
+      "wall-protection-transitions-adjacent-finishes",
+      "healthcare-wall-finish-selection-guide",
+    ],
+    summary: [
+      "Healthcare renovations are rarely simple. Work may happen near active clinical areas, under phased schedules, with infection-control procedures, limited access, and tight shutdown windows. Wall protection and hygienic systems need to be planned around those constraints.",
+      "The installation sequence, material staging, dust control, noise, penetrations, and tie-ins to existing finishes can all affect the project. Early review helps the team identify long-lead materials, awkward transitions, and room conditions that could slow installation once construction starts.",
+      "A specialty subcontractor with healthcare experience can help flag practical issues before they become field problems, especially where wall protection ties into casework, flooring, ceilings, plumbing fixtures, or existing substrates.",
+    ],
+    takeaways: [
+      "Plan wall protection scopes around access, phasing, active facilities, and shutdown windows.",
+      "Review existing substrates, penetrations, transitions, and adjacent trades early.",
+      "Use pre-construction input to reduce field surprises in clinical renovation work.",
+    ],
+  },
   {
     slug: "frp-vs-frl",
     title: "FRP vs FRL: When to use each",

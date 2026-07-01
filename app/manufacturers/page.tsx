@@ -25,6 +25,8 @@ export default function ManufacturersPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.manufacturers}
           title="Manufacturer partners"
           subtitle="We regularly work with products from leading manufacturers including Construction Specialties, Altro, Inpro, Panolam, Marlite, and others, always selecting based on the right fit for the project, not a preferred brand arrangement."
           breadcrumb="Manufacturer Partners"
@@ -40,12 +42,12 @@ export default function ManufacturersPage() {
         />
 
         {/* Philosophy strip */}
-        <section className="bg-linear-to-r from-[#134e4a] via-[#0f3a36] to-[#134e4a] py-12 lg:py-16">
+        <section className="brand-blue-surface py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <p className="mx-auto max-w-4xl text-center text-lg font-semibold leading-relaxed tracking-tight text-white md:text-xl lg:text-[1.375rem] lg:leading-snug">
               Over the years we have developed particularly strong relationships with{" "}
-              <span className="text-[#99f6e4]">Construction Specialties</span> and{" "}
-              <span className="text-[#99f6e4]">Altro</span> — whose products are widely used in healthcare and institutional environments. We remain product-neutral and application-focused.
+              <span className="text-[#9BCB4A]">Construction Specialties</span> and{" "}
+              <span className="text-[#9BCB4A]">Altro</span> — whose products are widely used in healthcare and institutional environments. We remain product-neutral and application-focused.
             </p>
           </div>
         </section>
@@ -56,7 +58,7 @@ export default function ManufacturersPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               <SitePhoto photo={sitePhotos.manufacturers} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
               <div className="sticky-side">
-                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Real project work</span>
+                <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Real project work</span>
                 <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight mb-4">
                   Manufacturer depth on live healthcare projects
                 </h2>
@@ -79,22 +81,22 @@ export default function ManufacturersPage() {
                   <div key={cat}>
                     <div className="flex items-center gap-4 mb-8">
                       <h2 className="text-2xl font-semibold text-[#0f172a] tracking-tight">{categoryLabels[cat]}</h2>
-                      <Link href={`/systems/${cat === "frp" ? "frp-wall-systems" : cat === "frl-decorative" ? "frl-decorative" : cat === "pvc-liner" ? "pvc-liner" : cat === "wet-wall" ? "wet-wall" : cat === "hygienic-cladding" ? "hygienic-wall-cladding" : "wall-protection"}`} className="text-sm text-[#134e4a] hover:underline">
+                      <Link href={`/systems/${cat === "frp" ? "frp-wall-systems" : cat === "frl-decorative" ? "frl-decorative" : cat === "pvc-liner" ? "pvc-liner" : cat === "wet-wall" ? "wet-wall" : cat === "hygienic-cladding" ? "hygienic-wall-cladding" : "wall-protection"}`} className="text-sm text-[#64A70B] hover:underline">
                         View system →
                       </Link>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {catManufacturers.map((mfr) => (
-                        <div key={mfr.slug} className={`surface-card p-6 ${mfr.featured ? "border-[#134e4a]" : ""}`}>
+                        <div key={mfr.slug} className={`surface-card p-6 ${mfr.featured ? "border-[#64A70B]" : ""}`}>
                           <div className="flex items-start justify-between mb-3">
                             <h3 className="text-base font-semibold text-[#0f172a]">{mfr.name}</h3>
-                            {mfr.featured && <span className="px-2 py-0.5 bg-[#134e4a]/10 text-[#134e4a] text-xs font-medium rounded-full ml-2 flex-shrink-0">Key Partner</span>}
+                            {mfr.featured && <span className="px-2 py-0.5 bg-[#005EB8]/10 text-[#64A70B] text-xs font-medium rounded-full ml-2 flex-shrink-0">Key Partner</span>}
                           </div>
                           <p className="text-xs text-gray-500 font-medium mb-3">{mfr.relationship}</p>
                           <ul className="space-y-1">
                             {mfr.products.slice(0, 4).map((p) => (
                               <li key={p} className="text-gray-600 text-xs flex items-start gap-2">
-                                <span className="text-[#134e4a] mt-0.5 flex-shrink-0">—</span>
+                                <span className="text-[#64A70B] mt-0.5 flex-shrink-0">—</span>
                                 {p}
                               </li>
                             ))}

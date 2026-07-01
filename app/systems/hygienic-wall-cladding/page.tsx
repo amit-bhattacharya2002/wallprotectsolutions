@@ -1,4 +1,4 @@
-import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
+import { Header, Footer, PageHero, RelatedHealthcareResources, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
 import { systemProjects } from "@/app/data/system-projects";
 
@@ -66,6 +66,8 @@ export default function HygienicWallCladdingPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.systems.hygienic}
           eyebrow="Hygienic Wall Cladding"
           title="Hygienic wall cladding for healthcare environments"
           subtitle="Altro-trained and approved installer for Whiterock and Puraguard. Also supply and install True North and AM-Clad weldable systems. We help specify the right level of system for each clinical space."
@@ -83,7 +85,7 @@ export default function HygienicWallCladdingPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-14">
               <div className="max-w-2xl">
-                <span className="text-sm font-medium text-[#134e4a] tracking-wider uppercase mb-4 block">Systems We Install</span>
+                <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Systems We Install</span>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-4">Four hygienic cladding systems — matched to the requirement</h2>
                 <p className="text-gray-500 leading-relaxed font-normal text-base md:text-lg">
                   Not every healthcare space needs a fully welded seamless system. We help match the right hygienic level to each space, avoiding both overspecification and underspecification.
@@ -97,7 +99,7 @@ export default function HygienicWallCladdingPage() {
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <h3 className="text-2xl font-semibold text-[#0f172a]">{system.name}</h3>
-                      <span className="px-3 py-1 bg-[#134e4a]/10 text-[#134e4a] text-xs font-medium rounded-full">{system.relationship}</span>
+                      <span className="px-3 py-1 bg-[#005EB8]/10 text-[#64A70B] text-xs font-medium rounded-full">{system.relationship}</span>
                     </div>
                     <p className="text-gray-500 text-sm font-medium mb-3">{system.type}</p>
                     <p className="text-gray-600 leading-relaxed font-normal mb-6">{system.description}</p>
@@ -112,7 +114,7 @@ export default function HygienicWallCladdingPage() {
                     <ul className="space-y-3">
                       {system.usedWhen.map((use) => (
                         <li key={use} className="flex items-start gap-3">
-                          <svg className="w-5 h-5 text-[#134e4a] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <svg className="w-5 h-5 text-[#64A70B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
                           <span className="text-gray-600 text-sm">{use}</span>
@@ -126,6 +128,15 @@ export default function HygienicWallCladdingPage() {
             <SystemProjectsList
               systemName={hygienicProjects.name}
               projectSlugs={hygienicProjects.slugs}
+              className="mt-12"
+            />
+            <RelatedHealthcareResources
+              slugs={[
+                "healthcare-sink-splash-zones",
+                "operating-room-surface-considerations",
+                "clean-utility-vs-soiled-utility-surface-considerations",
+                "welded-hygienic-wall-systems-worth-cost",
+              ]}
               className="mt-12"
             />
           </div>

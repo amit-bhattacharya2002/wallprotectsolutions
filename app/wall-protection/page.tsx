@@ -111,6 +111,8 @@ export default function WallProtectionPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.wallProtection}
           title="Wall Protection Panels"
           subtitle="FRP panels and wall protection solutions for commercial, industrial, and healthcare applications across BC."
           breadcrumb="Products"
@@ -140,7 +142,7 @@ export default function WallProtectionPage() {
                     all these boxes and more.
                   </p>
                   <p>
-                    FRP Panels are a cost-effective "wall covering" and "wall protection" solution 
+                    FRP Panels are a cost-effective &quot;wall covering&quot; and &quot;wall protection&quot; solution 
                     compared to other wall covering systems due to their relatively low cost, 
                     availability, and ease of installation.
                   </p>
@@ -155,7 +157,7 @@ export default function WallProtectionPage() {
                 <div className="mt-8">
                   <Link
                     href="/quote"
-                    className="inline-flex items-center gap-3 bg-[#2a4663] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                    className="inline-flex items-center gap-3 bg-[#005EB8] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-all"
                   >
                     Get FRP Quote
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,7 +196,7 @@ export default function WallProtectionPage() {
         </section>
 
         {/* Why FRP Section */}
-        <section className="py-20 lg:py-28 bg-[#2a4663]">
+        <section className="brand-blue-surface py-20 lg:py-28">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
               <div>
@@ -299,7 +301,7 @@ export default function WallProtectionPage() {
         {/* FRP Options CTA */}
         <section className="py-20 lg:py-28 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="bg-[#2a4663] rounded-3xl p-10 lg:p-16">
+            <div className="brand-blue-surface rounded-3xl p-10 lg:p-16">
               <div className="grid lg:grid-cols-2 gap-12 items-start">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">

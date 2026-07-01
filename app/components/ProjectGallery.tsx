@@ -38,7 +38,7 @@ export default function ProjectGallery({ title, images }: ProjectGalleryProps) {
               key={`${image.src}-${index}`}
               type="button"
               onClick={() => setLightboxIndex(index)}
-              className="group relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-100 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0d9488] focus-visible:ring-offset-2 sm:rounded-xl"
+              className="group relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-100 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64A70B] focus-visible:ring-offset-2 sm:rounded-xl"
               aria-label={`Open photo ${index + 1} in gallery viewer`}
             >
               <ProjectImage
@@ -47,7 +47,7 @@ export default function ProjectGallery({ title, images }: ProjectGalleryProps) {
                 variant="gallery"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <span className="absolute inset-0 bg-[#0f172a]/0 transition-colors group-hover:bg-[#0f172a]/10" />
+              <span className="pointer-events-none absolute inset-0 bg-transparent transition-colors group-hover:bg-slate-950/10" />
               <span className="absolute bottom-2 right-2 rounded-full bg-black/50 px-2 py-0.5 text-[10px] font-medium text-white opacity-0 transition-opacity group-hover:opacity-100">
                 View
               </span>
@@ -60,7 +60,7 @@ export default function ProjectGallery({ title, images }: ProjectGalleryProps) {
             <button
               type="button"
               onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
-              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-[#0f172a] transition-colors hover:border-[#0d9488] hover:text-[#0d9488]"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-[#0f172a] transition-colors hover:border-[#64A70B] hover:text-[#64A70B]"
             >
               Load {remaining} more photo{remaining === 1 ? "" : "s"}
               <span className="text-gray-400">

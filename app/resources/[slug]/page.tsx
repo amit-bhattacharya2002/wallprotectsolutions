@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { Footer, Header, PageHero } from "@/app/components";
+import { Footer, Header, HealthcareKnowledgeDiagram, PageHero, RelatedHealthcareResources } from "@/app/components";
 import { getResourceArticle, resourceArticles } from "@/app/data/resources";
 
 export function generateStaticParams() {
@@ -39,7 +39,9 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
       <Header />
       <main>
         <PageHero
+          visual="editorial"
           breadcrumb="Resources"
+          eyebrow="Healthcare Knowledge Centre"
           title={article.title}
           subtitle={article.description}
           fullHeight={false}
@@ -57,12 +59,18 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 rounded-full bg-[#f0fdfa] text-[#134e4a] text-xs font-semibold tracking-wide uppercase"
+                  className="px-3 py-1.5 rounded-full bg-[#f2f8e8] text-[#64A70B] text-xs font-semibold tracking-wide uppercase"
                 >
                   {tag}
                 </span>
               ))}
             </div>
+
+            {article.diagram ? (
+              <div className="mb-8">
+                <HealthcareKnowledgeDiagram type={article.diagram} />
+              </div>
+            ) : null}
 
             <div className="surface-card p-8 lg:p-10 mb-8">
               <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight mb-5">
@@ -76,13 +84,13 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
             </div>
 
             <div className="surface-card-muted p-8 lg:p-10">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#134e4a] mb-4">
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B] mb-4">
                 Key Takeaways
               </div>
               <ul className="space-y-4">
                 {article.takeaways.map((takeaway) => (
                   <li key={takeaway} className="flex items-start gap-3 text-gray-600">
-                    <svg className="w-5 h-5 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-[#64A70B] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span className="leading-relaxed">{takeaway}</span>
@@ -91,10 +99,25 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
               </ul>
             </div>
 
+            <div className="mt-8 border-l-2 border-[#64A70B] bg-[#f8fafc] px-5 py-4">
+              <p className="text-sm leading-relaxed text-slate-600">
+                Final requirements vary by project specifications, health authority standards, room classification, and Infection Prevention & Control review. This article is intended as a planning resource for construction teams, not as design direction.
+              </p>
+            </div>
+
+            {article.relatedSlugs ? (
+              <RelatedHealthcareResources
+                slugs={article.relatedSlugs}
+                title="Related knowledge centre articles"
+                intro=""
+                className="mt-8"
+              />
+            ) : null}
+
             <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <Link
                 href="/resources"
-                className="inline-flex items-center gap-2 text-[#134e4a] font-medium hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-[#64A70B] font-medium hover:gap-3 transition-all"
               >
                 Back to all resources
                 <svg className="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,7 +126,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#2a4663] text-white px-6 py-3 rounded-full font-medium hover:bg-[#0d9488] transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-[#005EB8] text-white px-6 py-3 rounded-full font-medium hover:bg-[#64A70B] transition-colors"
               >
                 Discuss your project
               </Link>

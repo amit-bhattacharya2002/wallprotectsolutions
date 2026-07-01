@@ -21,7 +21,7 @@ export default function BackToTopButton() {
       type="button"
       onClick={scrollToTop}
       aria-label="Back to top"
-      className={`fixed right-4 z-40 hidden h-11 w-11 rounded-full border border-white/20 bg-[#2a4663]/90 text-white shadow-[0_18px_36px_-20px_rgba(15,23,42,0.65)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#5eead4]/60 hover:bg-[#2a4663] hover:text-[#5eead4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0d9488] focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:h-12 sm:w-12 sm:right-5 lg:inline-flex lg:items-center lg:justify-center lg:right-6 ${
+      className={`fixed right-4 z-40 hidden h-11 w-11 rounded-full border border-white/20 bg-[#005EB8]/90 text-white shadow-[0_18px_36px_-20px_rgba(15,23,42,0.65)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#9BCB4A]/60 hover:bg-[#005EB8] hover:text-[#9BCB4A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64A70B] focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:h-12 sm:w-12 sm:right-5 lg:inline-flex lg:items-center lg:justify-center lg:right-6 ${
         isVisible ? "lg:bottom-6 lg:opacity-100" : "pointer-events-none lg:bottom-4 lg:opacity-0"
       }`}
     >

@@ -9,7 +9,7 @@ interface TestimonialProps {
 
 /**
  * Single pull-quote testimonial card. Center-aligned, max-width ~800px,
- * large italicized display-weight quote with a small teal rule above and
+ * large italicized display-weight quote with a small green rule above and
  * avatar + firm line below.
  *
  * Homepage passes representative copy; swap for a named client quote once
@@ -24,11 +24,11 @@ export default function Testimonial({
   return (
     <section className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-[800px] px-6 text-center">
-        <div className="mx-auto mb-8 h-0.5 w-12 bg-[#0d9488]" aria-hidden="true" />
+        <div className="mx-auto mb-8 h-0.5 w-12 bg-[#64A70B]" aria-hidden="true" />
         <blockquote className="text-2xl font-medium italic leading-snug tracking-tight text-[#0f172a] md:text-3xl lg:text-[2rem] lg:leading-tight">
-          <span className="mr-1 align-[0.2em] text-[#0d9488]">&ldquo;</span>
+          <span className="mr-1 align-[0.2em] text-[#64A70B]">&ldquo;</span>
           {quote}
-          <span className="ml-1 align-[0.2em] text-[#0d9488]">&rdquo;</span>
+          <span className="ml-1 align-[0.2em] text-[#64A70B]">&rdquo;</span>
         </blockquote>
         <div className="mt-10 flex items-center justify-center gap-4">
           {headshotSrc ? (

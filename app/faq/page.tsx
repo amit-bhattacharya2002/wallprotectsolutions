@@ -19,6 +19,7 @@ export default function FAQPage() {
       <Header />
       <main>
         <PageHero
+          visual="editorial"
           eyebrow="FAQ"
           title="Frequently asked questions"
           subtitle="Technical reference for GCs, project managers, estimators, and design teams. Answers to common questions about wall protection systems, hygienic cladding, pre-construction, and documentation."
@@ -33,27 +34,36 @@ export default function FAQPage() {
         />
 
         {/* Category filter + FAQ */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="py-14 lg:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-[340px_1fr] gap-12 lg:gap-16 items-start">
-              <div className="sticky-side">
+            <div className="grid lg:grid-cols-[300px_1fr] gap-10 lg:gap-14 items-start">
+              <aside className="lg:sticky lg:top-28">
                 <SitePhoto
                   photo={sitePhotos.pages.faq}
                   overlay="gradient"
-                  className="mb-6 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
+                  className="mb-5 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
                 />
-                <p className="text-sm leading-relaxed text-gray-500">
-                  Answers grounded in installed healthcare and pharmaceutical work — including CSN Pharma,
-                  Chilliwack UPCC, Breathe Medical Manufacturing, and 101-6470 201 Street.
-                </p>
-              </div>
+                <div className="border-l-2 border-[#64A70B] bg-[#f8fafc] px-5 py-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#64A70B] mb-2">
+                    Field Notes
+                  </p>
+                  <p className="text-sm leading-relaxed text-gray-600">
+                    Answers grounded in installed healthcare and pharmaceutical work, including CSN Pharma,
+                    Chilliwack UPCC, Breathe Medical Manufacturing, and 101-6470 201 Street.
+                  </p>
+                </div>
+              </aside>
 
               <div className="max-w-3xl">
             {/* Category tabs */}
-            <div className="flex flex-wrap gap-2 mb-14">
+            <div className="mb-8 border-b border-gray-200 pb-5">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
+                Filter by topic
+              </p>
+              <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setActiveCategory("all")}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === "all" ? "bg-[#2a4663] text-white" : "bg-[#f8fafc] text-gray-600 hover:bg-gray-200"}`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === "all" ? "bg-[#005EB8] text-white" : "bg-[#f8fafc] text-gray-600 hover:bg-gray-200"}`}
               >
                 All Questions
               </button>
@@ -61,29 +71,30 @@ export default function FAQPage() {
                 <button
                   key={cat.slug}
                   onClick={() => setActiveCategory(cat.slug)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === cat.slug ? "bg-[#2a4663] text-white" : "bg-[#f8fafc] text-gray-600 hover:bg-gray-200"}`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === cat.slug ? "bg-[#005EB8] text-white" : "bg-[#f8fafc] text-gray-600 hover:bg-gray-200"}`}
                 >
                   {cat.title}
                 </button>
               ))}
+              </div>
             </div>
 
             {/* FAQ items */}
-            <div className="space-y-12">
+            <div className="space-y-8">
               {visibleCategories.map((category) => (
                 <div key={category.slug}>
-                  <h2 className="text-xl font-semibold text-[#0f172a] mb-6 pb-3 border-b border-gray-200">
+                  <h2 className="text-xl font-semibold text-[#0f172a] mb-4">
                     {category.title}
                   </h2>
-                  <div className="space-y-2">
+                  <div className="divide-y divide-gray-200 border-y border-gray-200">
                     {category.items.map((item) => {
                       const key = `${category.slug}-${item.question}`;
                       const isOpen = openItem === key;
                       return (
-                        <div key={key} className="border border-gray-200 rounded-xl overflow-hidden">
+                        <div key={key}>
                           <button
                             onClick={() => setOpenItem(isOpen ? null : key)}
-                            className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[#f8fafc] transition-colors"
+                            className="w-full flex items-center justify-between px-0 py-5 text-left hover:text-[#64A70B] transition-colors"
                           >
                             <span className="font-medium text-[#0f172a] pr-4">{item.question}</span>
                             <svg
@@ -96,7 +107,7 @@ export default function FAQPage() {
                             </svg>
                           </button>
                           {isOpen && (
-                            <div className="px-6 pb-6 pt-2 bg-[#f8fafc] border-t border-gray-100">
+                            <div className="pb-6 pr-6">
                               <p className="text-gray-600 leading-relaxed font-normal">{item.answer}</p>
                             </div>
                           )}
@@ -113,13 +124,13 @@ export default function FAQPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-[#f8fafc] border-t border-gray-100">
+        <section className="py-14 lg:py-16 bg-[#f8fafc] border-t border-gray-100">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight mb-4">Have a question that isn't answered here?</h2>
-            <p className="text-gray-600 max-w-xl mx-auto mb-8 font-normal">Get in touch — we are happy to discuss your project's specific requirements.</p>
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight mb-4">Have a question that isn&apos;t answered here?</h2>
+            <p className="text-gray-600 max-w-xl mx-auto mb-8 font-normal">Get in touch — we are happy to discuss your project&apos;s specific requirements.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium hover:bg-[#3a597b] transition-colors">Contact Us</Link>
-              <Link href="/pre-construction" className="inline-flex items-center gap-2 text-[#134e4a] font-medium hover:gap-3 transition-all">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#2B7DCE] transition-colors">Contact Us</Link>
+              <Link href="/pre-construction" className="inline-flex items-center gap-2 text-[#64A70B] font-medium hover:gap-3 transition-all">
                 Pre-Construction Support
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

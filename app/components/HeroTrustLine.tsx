@@ -1,15 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import PlaceholderBadge from "./PlaceholderBadge";
 
 /**
  * Each stat has a final numeric value plus a rendered prefix/suffix so the
  * count-up animation only touches the number and leaves the "+" / "%" / "M"
- * decoration stable. `teal` flags the hero number in the original design
- * (healthcare work percentage) — kept for continuity, now rendered on navy.
+ * decoration stable. `accent` flags the healthcare work percentage, rendered
+ * as a quiet healthcare-green accent on navy.
  */
 type Stat = {
   prefix?: string;
@@ -17,13 +15,13 @@ type Stat = {
   suffix: string;
   unit?: string;
   label: string;
-  teal?: boolean;
+  accent?: boolean;
 };
 
 const stats: Stat[] = [
   { value: 700, suffix: "+", label: "Projects Completed" },
   { value: 16, suffix: "+", label: "UPCC Clinics" },
-  { value: 75, suffix: "%+", label: "Healthcare Work", teal: true },
+  { value: 75, suffix: "%+", label: "Healthcare Work", accent: true },
   { value: 20, suffix: "+", label: "Years Experience" },
   { value: 5, suffix: "M+", unit: "(Million)", label: "Sq Ft Installed" },
 ];
@@ -61,10 +59,10 @@ function CountUpStat({ stat, start }: { stat: Stat; start: boolean }) {
   }, [start, stat.value]);
 
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-2 text-center md:px-5">
+    <div className="border-t border-slate-200 pt-4 max-md:text-center md:border-l md:border-t-0 md:pl-6">
       <span
-        className={`block text-3xl md:text-4xl font-bold tracking-tight leading-none tabular-nums ${
-          stat.teal ? "text-[#5eead4]" : "text-white"
+        className={`block text-3xl font-semibold tracking-tight leading-none tabular-nums md:text-4xl ${
+          stat.accent ? "text-[#4f8f16]" : "text-[#10233F]"
         }`}
       >
         {stat.prefix}
@@ -72,11 +70,11 @@ function CountUpStat({ stat, start }: { stat: Stat; start: boolean }) {
         {stat.suffix}
       </span>
       {stat.unit ? (
-        <span className="mt-1 block text-[0.65rem] font-medium uppercase tracking-[0.06em] text-white/50 md:text-[0.7rem]">
+        <span className="mt-1 block text-[0.65rem] font-medium uppercase tracking-[0.06em] text-slate-400 md:text-[0.7rem]">
           {stat.unit}
         </span>
       ) : null}
-      <span className="mt-2 block text-xs md:text-sm text-white/70 leading-snug">
+      <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.12em] text-slate-500 md:text-[0.78rem]">
         {stat.label}
       </span>
     </div>
@@ -114,47 +112,28 @@ export default function HeroTrustLine() {
   return (
     <div
       ref={containerRef}
-      className="relative isolate overflow-hidden border-b border-white/5 bg-[#0c1830]"
+      className="relative isolate overflow-hidden border-b border-slate-200 bg-white"
     >
-      {/* Dim, out-of-focus install photo backdrop. Heavy navy overlay on top
-          lets the stats read crisply without the photo fighting for attention. */}
-      <Image
-        src="https://images.unsplash.com/photo-1735448213878-6d52000a1961?auto=format&fit=crop&w=2400&q=80"
-        alt=""
-        aria-hidden="true"
-        fill
-        priority={false}
-        sizes="100vw"
-        className="pointer-events-none object-cover opacity-60 blur-[2px] filter-[saturate(0.7)]"
-      />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{ backgroundColor: "rgba(12, 24, 48, 0.88)" }}
-      />
-      <PlaceholderBadge />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#005EB8]/35 to-transparent" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-10 md:py-12 lg:px-8">
-        <div className="flex flex-col gap-8 md:gap-10">
-          <div>
-            <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#5eead4]">
-              Trusted Across British Columbia
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-9 md:py-10 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[0.92fr_1.5fr] lg:items-end lg:gap-12">
+          <div className="max-lg:text-center">
+            <p className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#4f8f16]">
+              Built for spec-driven projects
             </p>
-            <div className="grid w-full grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-8">
-              {stats.map((stat, i) => (
-                <CountUpStat key={i} stat={stat} start={hasStarted} />
-              ))}
-            </div>
-          </div>
-
-          <div className="max-w-full border-t border-white/10 pt-6">
-            <p className="text-center text-base leading-relaxed text-white/80 md:text-lg">
-              Trusted by general contractors across British Columbia for interior wall protection systems, with a deep focus on healthcare environments, from active hospital renovations to UPCC clinics and medical facilities.
+            <h2 className="text-2xl font-semibold tracking-tight text-[#10233F] md:text-3xl">
+              Proof before promises.
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-600 md:text-base md:leading-7">
+              Healthcare-heavy experience, manufacturer familiarity, and
+              GC-level coordination for wall protection packages across BC.
             </p>
             <Link
               href="/healthcare"
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 text-sm font-medium text-[#5eead4] transition-all hover:gap-3"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#64A70B] transition-all hover:gap-3 hover:text-[#4f8f16]"
             >
-              Our Healthcare Experience
+              See healthcare experience
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -164,6 +143,12 @@ export default function HeroTrustLine() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-5 gap-y-6 md:grid-cols-5 md:gap-x-0">
+            {stats.map((stat, i) => (
+              <CountUpStat key={i} stat={stat} start={hasStarted} />
+            ))}
           </div>
         </div>
       </div>

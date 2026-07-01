@@ -42,7 +42,7 @@ export default function FRPBenefitsPage() {
                 className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
               />
               <div className="sticky-side">
-                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#134e4a]">
+                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#64A70B]">
                   Real installations
                 </span>
                 <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
@@ -76,18 +76,18 @@ export default function FRPBenefitsPage() {
                 <Link
                   key={benefit.slug}
                   href={`/frp-benefits/${benefit.slug}`}
-                  className="group surface-card-muted p-8 hover:border-[#0d9488] hover:shadow-xl transition-all duration-300"
+                  className="group surface-card-muted p-8 hover:border-[#64A70B] hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-[#134e4a]/10 text-[#134e4a] flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#0d9488]/15 group-hover:text-[#0d9488]">
+                  <div className="w-12 h-12 rounded-2xl bg-[#005EB8]/10 text-[#64A70B] flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#64A70B]/15 group-hover:text-[#64A70B]">
                     <BenefitIcon name={benefit.icon} className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-semibold text-[#0f172a] mb-3 group-hover:text-[#0d9488] transition-colors">
+                  <h3 className="text-xl font-semibold text-[#0f172a] mb-3 group-hover:text-[#64A70B] transition-colors">
                     {benefit.title}
                   </h3>
                   <p className="text-gray-600 font-normal leading-relaxed mb-5">
                     {benefit.description}
                   </p>
-                  <span className="inline-flex items-center gap-2 text-sm font-medium text-[#134e4a] group-hover:text-[#0d9488] group-hover:gap-3 transition-all">
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-[#64A70B] group-hover:text-[#64A70B] group-hover:gap-3 transition-all">
                     Learn more
                     <svg
                       className="w-4 h-4"
@@ -110,7 +110,7 @@ export default function FRPBenefitsPage() {
           </div>
         </section>
 
-        <section className="section-shell-lg section-shell-dark bg-[#2a4663] border-t border-white/5">
+        <section className="section-shell-lg section-shell-dark brand-blue-surface border-t border-white/5">
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div className="sticky-side">
@@ -126,13 +126,13 @@ export default function FRPBenefitsPage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/quote"
-                    className="inline-flex items-center justify-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#0d9488] hover:text-white transition-all"
+                    className="inline-flex items-center justify-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#64A70B] hover:text-white transition-all"
                   >
                     Get a free quote
                   </Link>
                   <Link
                     href="/wall-protection"
-                    className="inline-flex items-center justify-center gap-3 border border-white/30 text-white px-8 py-4 rounded-full font-medium hover:border-[#5eead4] hover:text-[#5eead4] hover:bg-white/5 transition-all"
+                    className="inline-flex items-center justify-center gap-3 border border-white/30 text-white px-8 py-4 rounded-full font-medium hover:border-[#9BCB4A] hover:text-[#9BCB4A] hover:bg-white/5 transition-all"
                   >
                     View products
                   </Link>
@@ -151,7 +151,7 @@ export default function FRPBenefitsPage() {
                     key={stat.label}
                     className="surface-card-dark p-6 text-center"
                   >
-                    <div className="text-4xl font-semibold text-[#5eead4] mb-2 tracking-tight">
+                    <div className="text-4xl font-semibold text-[#9BCB4A] mb-2 tracking-tight">
                       {stat.value}
                     </div>
                     <div className="text-sm text-white/70">{stat.label}</div>

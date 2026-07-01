@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import type { SitePhotoMeta } from "@/app/data/site-photos";
 
 interface QuickLink {
   label: string;
@@ -23,7 +25,7 @@ interface PageHeroProps {
   subtitle?: string;
   /**
    * Small accent label rendered above the title, e.g. "Healthcare" or
-   * "Hygienic Cladding". Shows in mint (`#5eead4`) caps.
+   * "Hygienic Cladding". Shows in mint (`#9BCB4A`) caps.
    */
   eyebrow?: string;
   /**
@@ -45,6 +47,12 @@ interface PageHeroProps {
   quickLinksTitle?: string;
   supportingContent?: ReactNode;
   subtitleClassName?: string;
+  /** Visual surface for inner-page heroes. */
+  visual?: "dark" | "photo" | "editorial";
+  /** Tone for photo-backed heroes. Defaults to the darker photo treatment. */
+  photoTone?: "dark" | "lightBlue" | "blueGreen";
+  /** Optional real project photo used by the photo-backed hero variant. */
+  backgroundPhoto?: SitePhotoMeta | string;
   /** Tighter bottom padding for long hero titles on system pages. */
   compact?: boolean;
   /**
@@ -65,6 +73,11 @@ function isNativeAnchor(href: string) {
 
 const arrowPath = "M17 8l4 4m0 0l-4 4m4-4H3";
 
+function resolveBackgroundPhoto(photo?: SitePhotoMeta | string) {
+  if (!photo) return null;
+  return typeof photo === "string" ? { src: photo, alt: "" } : photo;
+}
+
 export default function PageHero({
   title,
   subtitle,
@@ -76,32 +89,103 @@ export default function PageHero({
   quickLinksTitle,
   supportingContent,
   subtitleClassName,
+  visual = "dark",
+  photoTone = "dark",
+  backgroundPhoto,
   compact = false,
 }: PageHeroProps) {
   const hasEyebrowRow = Boolean(eyebrow || badge);
   const paddingClass = compact
-    ? "pt-14 pb-10 md:pt-18 md:pb-12 lg:pt-22 lg:pb-16"
-    : "pt-14 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-28";
+    ? "pt-16 pb-12 md:pt-20 md:pb-14 lg:pt-24 lg:pb-16"
+    : "pt-16 pb-16 md:pt-22 md:pb-20 lg:pt-28 lg:pb-24";
+  const isEditorial = visual === "editorial";
+  const isPhoto = visual === "photo";
+  const isLightBluePhoto = isPhoto && photoTone === "lightBlue";
+  const isBlueGreenPhoto = isPhoto && photoTone === "blueGreen";
+  const needsProminentPhotoText = isLightBluePhoto || isBlueGreenPhoto;
+  const resolvedPhoto = resolveBackgroundPhoto(backgroundPhoto);
+  const sectionClass = isEditorial
+    ? "min-h-[440px] bg-[#f8fafc] text-[#0f172a]"
+    : `grain-overlay min-h-[480px] ${needsProminentPhotoText ? "brand-blue-surface" : "bg-[#10222d] text-white"}`;
+  const titleClass = isEditorial
+    ? "text-[#0f172a]"
+    : needsProminentPhotoText
+      ? "text-white [text-shadow:_0_3px_24px_rgb(0_36_91_/_0.55)]"
+      : "text-white [text-shadow:_0_4px_28px_rgb(0_18_35_/_0.72)]";
+  const eyebrowClass = isEditorial ? "text-[#64A70B]" : "text-[#9BCB4A]";
+  const subtitleClass = isEditorial
+    ? "text-slate-600"
+    : needsProminentPhotoText
+      ? "text-white/92 [text-shadow:_0_2px_16px_rgb(0_36_91_/_0.5)]"
+      : "text-white/90 [text-shadow:_0_2px_18px_rgb(0_18_35_/_0.68)]";
+  const quickLabelClass = isEditorial ? "text-slate-500" : needsProminentPhotoText ? "text-white/78" : "text-white/58";
+  const quickLinkClass = isEditorial
+    ? "border-slate-200/80 bg-white/70 text-slate-700 hover:border-[#64A70B]/35 hover:bg-white hover:text-[#64A70B]"
+    : needsProminentPhotoText
+      ? "border-white/20 bg-[#004A91]/35 text-white shadow-[0_18px_42px_-30px_rgba(0,30,80,0.85)] hover:border-[#9BCB4A]/60 hover:bg-[#004A91]/48 hover:text-[#9BCB4A]"
+      : "border-white/10 bg-white/6 text-slate-100 hover:border-[#9BCB4A]/45 hover:bg-white/10 hover:text-[#9BCB4A]";
+  const quickIconClass = isEditorial ? "text-[#64A70B]" : "text-[#9BCB4A]";
 
   return (
-    <section className={`relative overflow-hidden bg-[#0f212a] ${paddingClass}`}>
-      <div className="absolute inset-0 bg-linear-to-br from-[#2a4663] via-[#3a597b] to-[#2a4663]" />
-      <div
-        className="absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: "40px 40px",
-        }}
-      />
-      {/* Ambient orbs — two complementary glows for a richer, less empty feel */}
-      <div className="pointer-events-none absolute -top-32 right-[-8%] h-[520px] w-[520px] rounded-full bg-[#5eead4]/10 blur-[140px]" />
-      <div className="pointer-events-none absolute bottom-[-25%] left-[-8%] h-[440px] w-[440px] rounded-full bg-[#134e4a]/30 blur-[160px]" />
+    <section className={`page-hero relative overflow-hidden ${sectionClass} ${paddingClass}`}>
+      {isPhoto && resolvedPhoto ? (
+        <>
+          <Image
+            src={resolvedPhoto.src}
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            sizes="100vw"
+            className={`object-cover scale-[1.02] ${isBlueGreenPhoto ? "opacity-[0.24] saturate-[0.8] contrast-110" : ""}`}
+          />
+          {isBlueGreenPhoto ? (
+            <>
+              <div className="absolute inset-0 bg-linear-to-r from-[#004A91]/70 via-[#005EB8]/28 to-transparent" />
+              <div className="absolute inset-y-0 left-0 w-full max-w-[980px] bg-linear-to-r from-[#003B75]/76 via-[#005EB8]/34 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#004A91]/44 via-transparent to-white/8" />
+            </>
+          ) : isLightBluePhoto ? (
+            <>
+              <div className="absolute inset-0 bg-linear-to-r from-[#0f3a36]/94 via-[#0f3a36]/64 to-[#2B7DCE]/18" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0f3a36]/58 via-[#0f3a36]/16 to-white/8" />
+              <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-[#9BCB4A]/18" />
+              <div className="absolute inset-y-0 left-0 w-full max-w-[980px] bg-linear-to-r from-[#0a2926]/76 via-[#0f3a36]/36 to-transparent" />
+            </>
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-linear-to-r from-[#0a2926]/94 via-[#0f3a36]/78 to-[#0f3a36]/30" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0a2926]/66 via-transparent to-[#0f3a36]/18" />
+              <div className="absolute inset-0 bg-linear-to-b from-[#0a2926]/22 via-transparent to-transparent" />
+            </>
+          )}
+        </>
+      ) : isEditorial ? (
+        <>
+          <div className="absolute inset-x-0 top-0 h-px bg-slate-200/90" />
+          <div className="absolute inset-0 bg-linear-to-b from-white via-[#f8fafc] to-[#eef5f4]" />
+          <div className="absolute inset-0 opacity-[0.045]" style={{
+            backgroundImage: "linear-gradient(#0f172a 1px, transparent 1px), linear-gradient(90deg, #0f172a 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }} />
+        </>
+      ) : (
+        <>
+          <div className="absolute inset-0 bg-linear-to-br from-[#081820] via-[#243f54] to-[#10222d]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(94,234,212,0.13),transparent_32%),radial-gradient(circle_at_12%_78%,rgba(0,94,184,0.18),transparent_28%)]" />
+          <div className="absolute inset-0 opacity-[0.055]" style={{
+            backgroundImage: "linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.16) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+          }} />
+          <div className="absolute inset-x-0 top-0 h-px bg-white/15" />
+        </>
+      )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-left">
         <div
           className={
             quickLinks
-              ? "grid lg:grid-cols-[1fr_280px] gap-12 lg:gap-16 items-start"
+              ? "grid lg:grid-cols-[1fr_320px] gap-10 lg:gap-16 items-start"
               : undefined
           }
         >
@@ -132,7 +216,7 @@ export default function PageHero({
             {hasEyebrowRow && (
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 {eyebrow && (
-                  <span className="text-[#0d9488] text-xs md:text-sm font-semibold uppercase tracking-[0.18em]">
+                  <span className={`${eyebrowClass} text-xs md:text-sm font-semibold uppercase tracking-[0.18em]`}>
                     {eyebrow}
                   </span>
                 )}
@@ -140,13 +224,13 @@ export default function PageHero({
               </div>
             )}
 
-            <h1 className="mb-6 max-w-4xl text-4xl font-semibold tracking-tight text-white text-balance md:text-5xl lg:text-6xl">
+            <h1 className={`mb-6 max-w-5xl font-[var(--font-red-hat-display)] text-4xl font-bold tracking-tight ${titleClass} text-balance md:text-5xl lg:text-6xl`}>
               {title}
             </h1>
 
             {subtitle && (
               <p
-                className={`max-w-3xl text-pretty font-normal leading-relaxed text-white/78 ${
+                className={`max-w-3xl text-pretty font-[var(--font-red-hat-display)] font-medium leading-relaxed ${subtitleClass} ${
                   subtitleClassName ?? "text-lg"
                 }`}
               >
@@ -155,13 +239,13 @@ export default function PageHero({
             )}
 
             {meta && meta.length > 0 && (
-              <div className="mt-10 flex flex-wrap gap-x-10 gap-y-6 border-t border-white/10 pt-8">
+              <div className={`mt-10 flex flex-wrap gap-x-10 gap-y-6 border-t pt-8 ${isEditorial ? "border-slate-200" : "border-white/12"}`}>
                 {meta.map((item) => (
                   <div key={item.label}>
-                    <div className="text-2xl md:text-3xl font-semibold text-[#5eead4] tracking-tight">
+                    <div className={`text-2xl md:text-3xl font-semibold tracking-tight ${isEditorial ? "text-[#64A70B]" : "text-[#9BCB4A]"}`}>
                       {item.value}
                     </div>
-                    <div className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-white/55">
+                    <div className={`mt-1 text-xs font-medium uppercase tracking-[0.14em] ${isEditorial ? "text-slate-500" : "text-white/55"}`}>
                       {item.label}
                     </div>
                   </div>
@@ -176,20 +260,20 @@ export default function PageHero({
 
           {quickLinks && (
             <div className="hidden lg:block text-left">
-              <p className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-white/70">
+              <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.16em] ${quickLabelClass}`}>
                 {quickLinksTitle ?? "Quick links"}
               </p>
-              <div className="space-y-0.5">
+              <div className="space-y-2.5">
                 {quickLinks.map((link) =>
                   isNativeAnchor(link.href) ? (
                     <a
                       key={`${link.label}-${link.href}`}
                       href={link.href}
-                      className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-100 transition-all hover:bg-white/8 hover:text-[#5eead4] hover:underline hover:underline-offset-4"
+                      className={`group flex items-center justify-between gap-3 border px-4 py-3.5 text-sm font-medium shadow-[0_18px_42px_-34px_rgba(15,23,42,0.65)] backdrop-blur-sm transition-all ${quickLinkClass}`}
                     >
                       {link.label}
                       <svg
-                        className="w-3.5 h-3.5 shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                        className={`w-3.5 h-3.5 shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${quickIconClass}`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -207,11 +291,11 @@ export default function PageHero({
                     <Link
                       key={`${link.label}-${link.href}`}
                       href={link.href}
-                      className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-100 transition-all hover:bg-white/8 hover:text-[#5eead4] hover:underline hover:underline-offset-4"
+                      className={`group flex items-center justify-between gap-3 border px-4 py-3.5 text-sm font-medium shadow-[0_18px_42px_-34px_rgba(15,23,42,0.65)] backdrop-blur-sm transition-all ${quickLinkClass}`}
                     >
                       {link.label}
                       <svg
-                        className="w-3.5 h-3.5 shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                        className={`w-3.5 h-3.5 shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${quickIconClass}`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

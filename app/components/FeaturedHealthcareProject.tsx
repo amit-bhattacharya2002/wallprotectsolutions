@@ -19,78 +19,115 @@ const lilyDtesImages = [
 
 export default function FeaturedHealthcareProject() {
   return (
-    <section className="section-shell-lg section-shell-dark grain-overlay bg-[#2a4663]">
+    <section className="section-shell-lg section-shell-dark grain-overlay relative overflow-hidden border-b border-white/10 bg-[#0c1c32]">
+      <Image
+        src={lilyDtesImages[0].src}
+        alt=""
+        fill
+        sizes="100vw"
+        aria-hidden="true"
+        className="object-cover object-center opacity-[0.78]"
+      />
+      <div className="absolute inset-0 bg-[#071522]/54" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.98)_0%,rgba(7,21,34,0.86)_48%,rgba(7,21,34,0.38)_100%)]" />
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="reveal mx-auto mb-10 max-w-4xl text-center">
-          <span className="eyebrow">Signature Project</span>
-          <h2 className="section-title section-title-dark mb-5">
-            Lily&apos;s DTES Health Centre
-          </h2>
-          <p className="section-lead section-lead-dark mx-auto">
-            Our largest single healthcare interior protection package to date — approximately $550,000 in wall protection, hygienic cladding, and architectural specialties for a full health centre build-out in Vancouver&apos;s Downtown Eastside.
-          </p>
-        </div>
+        <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:gap-14">
+          <div className="reveal lg:sticky lg:top-28">
+            <span className="eyebrow">Featured Case Study</span>
+            <h2 className="section-title section-title-dark mt-3 mb-5">
+              Lily&apos;s DTES Health Centre
+            </h2>
+            <p className="section-lead section-lead-dark">
+              A full healthcare interior protection package in Vancouver&apos;s
+              Downtown Eastside, combining hygienic wall cladding, FRP, wall
+              protection, and architectural specialties under one coordinated
+              scope.
+            </p>
 
-        <div className="mb-10 grid gap-4 lg:grid-cols-[1.45fr_0.55fr]">
-          <div className="relative aspect-video overflow-hidden rounded-3xl shadow-[0_34px_90px_-44px_rgba(0,0,0,0.7)]">
-            <Image
-              src={lilyDtesImages[0].src}
-              alt={lilyDtesImages[0].alt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 58vw"
-              priority
-              className="object-cover object-center scale-[1.08] filter-[saturate(0.92)_brightness(0.98)]"
-            />
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            {lilyDtesImages.slice(1).map((image) => (
-              <div
-                key={image.src}
-                className="relative aspect-video overflow-hidden rounded-[1.25rem] shadow-[0_26px_70px_-46px_rgba(0,0,0,0.7)] lg:aspect-[16/10]"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 22vw"
-                  loading="eager"
-                  className="object-cover object-center scale-[1.08] filter-[saturate(0.92)_brightness(0.98)]"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="py-8">
-          {/* Full-bleed to viewport edges below lg: cancel max-w-7xl horizontal padding so
-              snapshot dividers span the full content width on phone / stacked layouts. */}
-          <div className="max-lg:-mx-6 max-lg:px-6 max-lg:text-center lg:mx-0 lg:px-0 lg:text-left">
-            <div className="mb-6 text-xs font-semibold uppercase tracking-[0.22em] text-[#5eead4]">
-              Project Snapshot
-            </div>
-            <div className="grid w-full grid-cols-1 gap-x-8 gap-y-5 max-sm:justify-items-stretch sm:grid-cols-2 sm:justify-items-start">
+            <div className="mt-8 grid gap-4 border-y border-white/10 py-6 sm:grid-cols-2">
               {[
                 { label: "Project Value", value: "~$550K" },
-                { label: "Scope", value: "Full Interior Protection" },
-                { label: "Systems", value: "Altro Whiterock, FRP, Wall Protection" },
+                { label: "Scope", value: "Full interior protection" },
+                { label: "Systems", value: "Altro Whiterock, FRP, wall protection" },
                 { label: "Location", value: "Vancouver, BC" },
               ].map((stat) => (
-                <div key={stat.label} className="w-full border-t border-white/12 pt-4">
-                  <div className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/40">{stat.label}</div>
-                  <div className="text-base font-semibold leading-snug text-white">{stat.value}</div>
+                <div key={stat.label} className="border-t border-white/10 pt-4 first:border-t-0 sm:[&:nth-child(-n+2)]:border-t-0">
+                  <div className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/40">
+                    {stat.label}
+                  </div>
+                  <div className="text-base font-semibold leading-snug text-white">
+                    {stat.value}
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="mt-7 max-lg:flex max-lg:justify-center lg:block">
+
+            <div className="mt-7 border-l-2 border-[#64A70B] pl-5">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[#9BCB4A]">
+                Why it matters
+              </p>
+              <p className="mt-2 text-sm leading-6 text-white/72">
+                This is the kind of project that signals premium capability:
+                multi-system scope, healthcare expectations, and careful
+                coordination with the broader construction team.
+              </p>
+            </div>
+
+            <div className="mt-8">
               <Link
                 href="/healthcare"
-                className="inline-flex items-center gap-2 border-b border-[#5eead4]/50 pb-1 text-sm font-semibold text-[#5eead4] transition-all hover:gap-3 hover:border-[#5eead4]"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#10233F] shadow-sm transition-colors hover:bg-[#9BCB4A]"
               >
                 View healthcare experience
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
+            </div>
+          </div>
+
+          <div className="reveal reveal-stagger-1">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[1rem] shadow-[0_34px_90px_-44px_rgba(0,0,0,0.7)]">
+              <Image
+                src={lilyDtesImages[0].src}
+                alt={lilyDtesImages[0].alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                priority
+                className="object-cover object-center scale-[1.08] filter-[saturate(0.92)_brightness(0.98)]"
+              />
+            </div>
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {lilyDtesImages.slice(1).map((image) => (
+                <div
+                  key={image.src}
+                  className="relative aspect-[16/10] overflow-hidden rounded-[0.875rem] shadow-[0_26px_70px_-46px_rgba(0,0,0,0.7)]"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 28vw"
+                    loading="eager"
+                    className="object-cover object-center scale-[1.08] filter-[saturate(0.92)_brightness(0.98)]"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-3">
+              {[
+                "Healthcare build-out",
+                "Multi-manufacturer package",
+                "Coordinated supply & install",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3 text-sm text-white/72">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#64A70B]" />
+                  <span className="leading-snug">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -105,7 +142,7 @@ export default function FeaturedHealthcareProject() {
               </span>
             ))}
           </div>
-          <Link href="/manufacturers" className="shrink-0 text-xs font-medium text-[#5eead4] transition-colors hover:text-[#0d9488] max-lg:mx-auto lg:ml-auto">
+          <Link href="/manufacturers" className="shrink-0 text-xs font-medium text-[#9BCB4A] transition-colors hover:text-white max-lg:mx-auto lg:ml-auto">
             All partners →
           </Link>
         </div>

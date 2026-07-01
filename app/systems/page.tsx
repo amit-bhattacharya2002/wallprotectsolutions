@@ -1,5 +1,6 @@
 import { Footer, Header, PageHero } from "@/app/components";
 import Link from "next/link";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Wall Protection Systems & Products | FRP Installations Inc. | Wall Protection Solutions",
@@ -71,6 +72,8 @@ export default function SystemsPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.systems.wallProtectionProducts}
           title="Wall protection systems & products"
           subtitle="We supply and install the complete range of interior protection systems for healthcare, institutional, and commercial construction across British Columbia."
           subtitleClassName="text-lg md:text-xl"
@@ -101,7 +104,7 @@ export default function SystemsPage() {
                   href={system.href}
                   className="group relative block px-4 py-10 md:py-12 border-b border-gray-200 overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-[#2a4663] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out" />
+                  <div className="absolute inset-0 bg-[#005EB8] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out" />
                   <div className="relative z-10 grid gap-4 md:grid-cols-12 md:gap-8 items-start">
                     <div className="md:col-span-1">
                       <span className="text-sm text-gray-400 group-hover:text-white/60 font-medium transition-colors duration-300">
@@ -109,7 +112,7 @@ export default function SystemsPage() {
                       </span>
                     </div>
                     <div className="md:col-span-3">
-                      <h3 className="text-xl md:text-2xl font-semibold text-[#0f172a] group-hover:text-[#0d9488] transition-colors duration-300 tracking-tight">
+                      <h3 className="text-xl md:text-2xl font-semibold text-[#0f172a] group-hover:text-[#64A70B] transition-colors duration-300 tracking-tight">
                         {system.name}
                       </h3>
                     </div>

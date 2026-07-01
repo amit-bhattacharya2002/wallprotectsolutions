@@ -1,5 +1,6 @@
 import { Footer, Header, PageHero } from "@/app/components";
 import ProjectsGrid from "@/app/components/ProjectsGrid";
+import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
   title: "Projects | FRP Installations Inc. | Wall Protection Solutions",
@@ -19,6 +20,8 @@ export default function ProjectsPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.healthcare.featured}
           title="700+ projects across British Columbia"
           subtitle="Healthcare is the core of our portfolio: hospitals, UPCC clinics, and long-term care facilities across BC. We also work in education, food service, agriculture, and commercial environments."
           breadcrumb="Our Work"

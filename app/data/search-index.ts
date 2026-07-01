@@ -159,6 +159,15 @@ const staticEntries: SearchEntry[] = [
     keywords: ["quote", "pricing", "estimate", "budget", "quotation", "project specifications"],
   },
   {
+    title: "Healthcare Knowledge Centre",
+    href: "/resources",
+    group: "page",
+    badge: "Knowledge",
+    featured: true,
+    description: "Healthcare wall systems resources covering sink splash zones, utility rooms, hygienic cladding, FRP, FRL, and wall protection selection.",
+    keywords: ["resources", "knowledge centre", "healthcare knowledge", "sink splash zones", "utility rooms", "wall finish guide", "ipac considerations"],
+  },
+  {
     title: "FAQ",
     href: "/faq",
     group: "page",
@@ -248,7 +257,7 @@ const resourceEntries: SearchEntry[] = resourceArticles.map((article) => ({
   title: article.title,
   href: `/resources/${article.slug}`,
   group: "resource",
-  badge: "Resource",
+  badge: "Knowledge",
   description: article.description,
   keywords: [
     ...article.tags,
@@ -299,7 +308,7 @@ const groupLabels: Record<SearchGroup, string> = {
   service: "Services",
   manufacturer: "Manufacturers",
   project: "Projects",
-  resource: "Resources",
+  resource: "Knowledge Centre",
   page: "Pages",
 };
 

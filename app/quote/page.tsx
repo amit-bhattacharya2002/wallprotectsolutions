@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { PageHero, Footer, Header } from "@/app/components";
+import { sitePhotos } from "@/app/data/site-photos";
 
 const projectTypes = [
   "New Installation",
@@ -68,6 +69,8 @@ export default function QuotePage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.preConstruction}
           title="Get a Quote"
           subtitle="Submit your project specifications for a free, no-obligation quote. We respond quickly with accurate pricing."
           breadcrumb="Quote"
@@ -108,31 +111,31 @@ export default function QuotePage() {
                     <h3 className="font-semibold text-[#0f172a] mb-4">What to Include</h3>
                     <ul className="space-y-2 text-sm text-gray-600">
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#64A70B] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Approximate square footage
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#64A70B] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Type of space / application
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#64A70B] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Project location
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#64A70B] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Desired timeline
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="w-4 h-4 text-[#134e4a] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#64A70B] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         Any drawings or specifications
@@ -143,13 +146,13 @@ export default function QuotePage() {
                   <div className="space-y-4 pt-6 border-t border-gray-200">
                     <div>
                       <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Phone</div>
-                      <a href="tel:604-715-9469" className="text-lg font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
+                      <a href="tel:604-715-9469" className="text-lg font-semibold text-[#0f172a] hover:text-[#64A70B] transition-colors">
                         604-715-9469
                       </a>
                     </div>
                     <div>
                       <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">Email</div>
-                      <a href="mailto:info@frpinstallations.com" className="text-lg font-semibold text-[#0f172a] hover:text-[#0d9488] transition-colors">
+                      <a href="mailto:info@frpinstallations.com" className="text-lg font-semibold text-[#0f172a] hover:text-[#64A70B] transition-colors">
                         info@frpinstallations.com
                       </a>
                     </div>
@@ -286,7 +289,7 @@ export default function QuotePage() {
                           name="timeline"
                           value={formData.timeline}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#2a4663] focus:ring-0 transition-colors"
+                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#64A70B] focus:ring-0 transition-colors"
                         >
                           <option value="">Select timeline</option>
                           <option value="asap">As soon as possible</option>
@@ -303,7 +306,7 @@ export default function QuotePage() {
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#2a4663] focus:ring-0 transition-colors"
+                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0f172a] focus:border-[#64A70B] focus:ring-0 transition-colors"
                         >
                           <option value="">Select budget range</option>
                           <option value="under-5k">Under $5,000</option>
@@ -386,7 +389,7 @@ export default function QuotePage() {
 
                   <button
                     type="submit"
-                    className="w-full bg-[#2a4663] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#0d9488]"
+                    className="w-full bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#64A70B]"
                   >
                     Submit Quote Request
                   </button>
@@ -401,7 +404,7 @@ export default function QuotePage() {
         </section>
 
         {/* Trust Indicators */}
-        <section className="section-shell section-shell-dark bg-[#3a597b]">
+        <section className="section-shell section-shell-dark bg-[#2B7DCE]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
