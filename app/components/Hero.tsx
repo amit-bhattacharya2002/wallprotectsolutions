@@ -80,24 +80,16 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
         alt="Find us on Procore — FRP Installations on the Procore Construction Network"
         width={176}
         height={64}
-        className={mobile ? "h-9 w-auto sm:h-10" : "h-10 w-auto md:h-12 lg:h-16"}
+        className={mobile ? "h-7 w-auto sm:h-8" : "h-8 w-auto md:h-10 lg:h-12"}
       />
     </a>
   );
 
   if (mobile) {
     return (
-      <div className="flex w-full flex-row items-start justify-between gap-3 sm:gap-4">
-        <div className="flex min-w-0 flex-1 flex-col items-start gap-2">
-          <div className="h-0.5 w-12 shrink-0 bg-linear-to-r from-[#005EB8] to-[#64A70B] sm:w-16" aria-hidden />
-          <p className="min-w-0 text-left text-sm font-semibold leading-snug tracking-tight text-white">
-            Wall Protection Construction Partner.
-          </p>
-        </div>
-        <span className="flex shrink-0 flex-col items-end gap-1.5">
-          {badge}
-          <VrcaBadge variant="white" imgClassName="h-5 w-auto sm:h-6" />
-        </span>
+      <div className="flex w-full flex-row items-center justify-start gap-5">
+        {badge}
+        <VrcaBadge variant="color" className="rounded-md bg-white px-2 py-1 shadow-sm" imgClassName="h-5 w-auto sm:h-6" />
       </div>
     );
   }
@@ -106,7 +98,7 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
     <div className="flex w-full max-w-full flex-col gap-3 text-left">
       <div className="flex items-center gap-4">
         {badge}
-        <VrcaBadge variant="white" imgClassName="h-9 w-auto md:h-10 lg:h-14" />
+        <VrcaBadge variant="color" className="rounded-md bg-white px-3 py-1.5 shadow-sm" imgClassName="h-5 w-auto md:h-7 lg:h-9" />
       </div>
       <div className="h-0.5 w-full max-w-[300px] bg-linear-to-r from-[#005EB8] to-[#64A70B]" />
       <p className="text-sm font-semibold tracking-tight text-white md:text-lg">Wall Protection Construction Partner.</p>

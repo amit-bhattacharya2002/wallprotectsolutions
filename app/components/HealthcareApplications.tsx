@@ -47,7 +47,7 @@ export default function HealthcareApplications() {
         alt="Healthcare lounge with architectural wall protection and glazing"
         fill
         sizes="100vw"
-        className="object-cover object-center opacity-[0.78]"
+        className="hidden object-cover object-center opacity-[0.78] md:block"
       />
       <div className="absolute inset-0 bg-linear-to-r from-[#005EB8]/82 via-[#0d6fc7]/66 to-[#64A70B]/58" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.72)_0%,rgba(7,21,34,0.52)_48%,rgba(7,21,34,0.18)_100%)]" />

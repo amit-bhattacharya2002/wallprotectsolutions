@@ -37,7 +37,7 @@ export default function StickyContactBar() {
         visible && showBar ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <div className="flex items-center gap-2 border-t border-white/10 bg-[#005EB8] px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))]">
+      <div className="flex items-center gap-2 border-t border-white/10 bg-linear-to-br from-[#0868C4] via-[#005EB8] to-[#00427F] px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))]">
         <a
           href="tel:604-715-9469"
           aria-label="Call us at 604-715-9469"
