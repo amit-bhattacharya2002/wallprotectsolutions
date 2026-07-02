@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `FRP Benefits: ${benefit.title} | FRP Installations`,
     description: benefit.description,
+    alternates: { canonical: `/frp-benefits/${slug}` },
   };
 }
 

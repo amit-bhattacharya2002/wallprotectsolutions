@@ -8,36 +8,42 @@ const manufacturers = [
     logoSrc: "/cs.png",
     useCase: "Impact protection",
     note: "Acrovyn sheets, crash rails, corner guards, handrails, door protection",
+    href: "/manufacturers",
   },
   {
     name: "Altro",
     logoSrc: "/altro.webp",
     useCase: "Hygienic cladding",
     note: "Whiterock welded hygienic systems and Puraguard panel systems",
+    href: "/manufacturers",
   },
   {
     name: "Inpro",
     logoSrc: "/inpro.jpg",
     useCase: "Corridor protection",
     note: "Wall protection, door protection, corridor systems, and Aspex graphics",
+    href: "/manufacturers",
   },
   {
     name: "Panolam",
     logoSrc: "/panolam.png",
     useCase: "FRL / decorative",
     note: "FRL decorative wall systems and healthcare corridor finishes",
+    href: "/wall-protection/manufacturers/panolam",
   },
   {
     name: "Marlite",
     logoSrc: "/marlite.png",
     useCase: "FRP / hybrid panels",
     note: "Traditional FRP, Induro, Symmetrix, and decorative hybrid panels",
+    href: "/wall-protection/manufacturers/marlite",
   },
   {
     name: "Valto",
     logoSrc: "/valto.png",
     useCase: "FRP systems",
     note: "Glasbord FRP and Varietex decorative wall systems",
+    href: "/wall-protection/manufacturers/crane-composites",
   },
 ];
 
@@ -86,7 +92,7 @@ export default function ManufacturerStrip() {
               <span className="hidden md:block">Typical scope</span>
             </div>
             {manufacturers.map((m, index) => (
-              <div key={m.name} className="grid gap-4 border-b border-slate-200 px-5 py-5 last:border-b-0 md:grid-cols-[0.85fr_0.8fr_1.35fr] md:items-center lg:px-6">
+              <Link key={m.name} href={m.href} className="grid gap-4 border-b border-slate-200 px-5 py-5 transition-colors last:border-b-0 hover:bg-[#f8fafc] md:grid-cols-[0.85fr_0.8fr_1.35fr] md:items-center lg:px-6">
                 <div className="flex h-11 items-center md:h-12">
                   <div className="relative h-full w-full">
                     <Image
@@ -108,7 +114,7 @@ export default function ManufacturerStrip() {
                   <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[#4f8f16] md:hidden">Typical scope</div>
                   <div className="text-sm leading-relaxed text-gray-500">{m.note}</div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

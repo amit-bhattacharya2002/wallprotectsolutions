@@ -1,6 +1,14 @@
 import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { sitePhotos } from "@/app/data/site-photos";
+
+export const metadata: Metadata = {
+  title: "FRP Service",
+  description:
+    "Expert consultation, ongoing support, and a 12-month warranty on all FRP and wall protection installations across British Columbia.",
+  alternates: { canonical: "/services/frp-service" },
+};
 
 const services = [
   {

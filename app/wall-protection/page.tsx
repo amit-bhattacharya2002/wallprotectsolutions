@@ -1,6 +1,14 @@
 import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { sitePhotos } from "@/app/data/site-photos";
+
+export const metadata: Metadata = {
+  title: "Wall Protection Panels & Systems",
+  description:
+    "FRP panels and wall protection solutions for commercial, industrial, and healthcare applications across British Columbia. Supply and installation from leading manufacturers.",
+  alternates: { canonical: "/wall-protection" },
+};
 
 const frpBenefits = [
   {

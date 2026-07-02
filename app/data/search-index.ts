@@ -187,7 +187,7 @@ const staticEntries: SearchEntry[] = [
 
 const manufacturerHrefMap: Record<string, string> = {
   "construction-specialties": "/systems/wall-protection",
-  inpro: "/systems/wall-protection",
+  inpro: "/wall-protection/manufacturers/inpro",
   ricochet: "/systems/wall-protection",
   altro: "/systems/hygienic-wall-cladding",
   "true-north": "/systems/hygienic-wall-cladding",

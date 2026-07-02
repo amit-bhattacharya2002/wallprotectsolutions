@@ -1,6 +1,14 @@
 import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { sitePhotos } from "@/app/data/site-photos";
+
+export const metadata: Metadata = {
+  title: "FRP Installation",
+  description:
+    "Professional FRP panel installation for walls and ceilings across British Columbia. Supply-and-install of FRP, hygienic cladding, and wall protection systems.",
+  alternates: { canonical: "/services/frp-installation" },
+};
 
 const benefits = [
   {

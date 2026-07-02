@@ -14,7 +14,7 @@ const redHatDisplay = Red_Hat_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://frpinstallations.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://frpinstallations.com"),
   title: {
     default: "FRP Installations Inc. | Wall Protection Solutions — Healthcare & Institutional Interior Protection BC",
     template: "%s | FRP Installations | Wall Protection Solutions",
@@ -81,12 +81,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
-  alternates: {
-    canonical: "https://frpinstallations.com",
-  },
+  // NOTE: Add the real Google Search Console verification code here (or verify
+  // via DNS) when connecting the domain, e.g. verification: { google: "..." }.
+  // A global `alternates.canonical` is intentionally NOT set here: in the App
+  // Router it would be inherited by every page and make them all canonicalize
+  // to the homepage. Each page sets its own self-referencing canonical instead.
   category: "Construction",
 };
 

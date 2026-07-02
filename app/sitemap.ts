@@ -5,7 +5,9 @@ import { getAllCitySlugs } from "./data/cities";
 import { resourceArticles } from "./data/resources";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://frpinstallations.com";
+  // Env-aware so the test deploy doesn't emit production URLs. Set
+  // NEXT_PUBLIC_SITE_URL in the deploy environment; falls back to production.
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://frpinstallations.com";
 
   // Static pages
   const staticPages = [
@@ -27,11 +29,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Manufacturers
     { url: `${baseUrl}/manufacturers`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/wall-protection/manufacturers`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${baseUrl}/wall-protection/manufacturers/inpro`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/marlite`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/crane-composites`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/graham`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/panolam`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/nudo`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    // Healthcare & other key landing pages
+    { url: `${baseUrl}/healthcare`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${baseUrl}/industries`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${baseUrl}/pre-construction`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/faq`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
+    { url: `${baseUrl}/careers`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.5 },
+    { url: `${baseUrl}/privacy-policy`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.3 },
+    // Systems
+    { url: `${baseUrl}/systems`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/systems/wall-protection`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/systems/hygienic-wall-cladding`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/systems/frp-wall-systems`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/systems/frl-decorative`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/systems/pvc-liner`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/systems/wet-wall`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/systems/architectural-specialties`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/systems/stainless-protection`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
   ];
 
   // Dynamic project pages

@@ -18,6 +18,7 @@ const footerLinks = {
     { name: "Healthcare Experience", href: "/healthcare" },
     { name: "Healthcare Knowledge Centre", href: "/resources" },
     { name: "Projects", href: "/projects" },
+    { name: "FRP Services", href: "/services" },
     { name: "Pre-Construction Support", href: "/pre-construction" },
     { name: "Manufacturer Partners", href: "/manufacturers" },
     { name: "Careers", href: "/careers" },
@@ -239,6 +240,10 @@ export default function Footer() {
               <span className="hidden text-white/20 sm:inline" aria-hidden="true">|</span>
               <Link href="/contact" className="text-xs text-white/68 transition-colors hover:text-white md:text-sm">
                 Contact
+              </Link>
+              <span className="hidden text-white/20 sm:inline" aria-hidden="true">|</span>
+              <Link href="/privacy-policy" className="text-xs text-white/68 transition-colors hover:text-white md:text-sm">
+                Privacy Policy
               </Link>
             </div>
           </div>
