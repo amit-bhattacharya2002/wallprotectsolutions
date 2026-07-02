@@ -112,19 +112,30 @@ export default function HealthcareApplications() {
               ))}
             </div>
 
-            <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-7 flex flex-col gap-5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/58">
                 Hospitals · Clinics · UPCCs · Long-term care
               </p>
-              <Link
-                href="/healthcare"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#9BCB4A] transition-all hover:gap-3 hover:text-white"
-              >
-                View healthcare experience
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-8">
+                <Link
+                  href="/healthcare"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#9BCB4A] transition-all hover:gap-3 hover:text-white"
+                >
+                  View healthcare experience
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/resources"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#9BCB4A] transition-all hover:gap-3 hover:text-white"
+                >
+                  Healthcare Knowledge Centre
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
