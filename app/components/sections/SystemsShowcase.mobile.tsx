@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
-import { SYSTEMS, SYSTEMS_COUNT, type ShowcaseSystem } from "./SystemsShowcase.data";
+import { SYSTEMS, type ShowcaseSystem } from "./SystemsShowcase.data";
 
 function SystemListCard({ sys, eager }: { sys: ShowcaseSystem; eager?: boolean }) {
   return (
@@ -18,9 +18,6 @@ function SystemListCard({ sys, eager }: { sys: ShowcaseSystem; eager?: boolean }
         />
       </div>
       <div className="space-y-4 px-6 py-8 sm:px-8 sm:py-9">
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#6B7280]">
-          System {sys.number} / {String(SYSTEMS_COUNT).padStart(2, "0")}
-        </p>
         <h3 className="min-w-0 text-balance text-2xl font-semibold tracking-tight text-[#0B1D3A] sm:text-[1.65rem]">
           {sys.name}
         </h3>

@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
-import { SYSTEMS, SYSTEMS_COUNT, type ShowcaseSystem } from "./SystemsShowcase.data";
+import { SYSTEMS, type ShowcaseSystem } from "./SystemsShowcase.data";
 
 function SystemGridCard({ sys, eager }: { sys: ShowcaseSystem; eager?: boolean }) {
   return (
@@ -18,9 +18,6 @@ function SystemGridCard({ sys, eager }: { sys: ShowcaseSystem; eager?: boolean }
         />
       </div>
       <div className="flex flex-1 flex-col gap-3 px-5 py-6 lg:px-6 lg:py-7">
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#4f8f16]">
-          System {sys.number} / {String(SYSTEMS_COUNT).padStart(2, "0")}
-        </p>
         <h3 className="min-w-0 text-balance text-xl font-semibold tracking-tight text-[#0B1D3A] lg:text-[1.35rem]">{sys.name}</h3>
         <p className="text-sm italic leading-relaxed text-[#6B7280]">{sys.manufacturer}</p>
         <p className="flex-1 text-sm leading-relaxed text-[#374151] lg:text-[0.9375rem] lg:leading-[1.65]">
