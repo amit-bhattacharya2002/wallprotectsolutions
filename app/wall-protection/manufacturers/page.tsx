@@ -10,6 +10,11 @@ export const metadata = {
 
 const frpManufacturers = [
   {
+    name: "Inpro",
+    href: "/wall-protection/manufacturers/inpro",
+    description: "Wall protection systems including crash rails, wall guards, corner guards, handrails, door protection, and specialty interior products.",
+  },
+  {
     name: "Crane Composites",
     href: "/wall-protection/manufacturers/crane-composites",
     description: "Glasbord and Sequentia FRP panels for commercial, food service, healthcare, and industrial spaces.",

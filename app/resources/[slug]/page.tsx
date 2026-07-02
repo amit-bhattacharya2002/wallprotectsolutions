@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${article.title} | Resources | FRP Installations Inc. | Wall Protection Solutions`,
     description: article.description,
+    alternates: { canonical: `/resources/${slug}` },
   };
 }
 

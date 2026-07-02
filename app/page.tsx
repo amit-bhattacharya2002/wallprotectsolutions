@@ -15,6 +15,12 @@ import {
   ResourcesPreview,
   Testimonials,
 } from "./components";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  // Homepage keeps the layout's default title; set only its self-canonical.
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

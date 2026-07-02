@@ -1,6 +1,14 @@
 import { PageHero, Footer, Header, SitePhoto } from "@/app/components";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { sitePhotos } from "@/app/data/site-photos";
+
+export const metadata: Metadata = {
+  title: "FRP Sales",
+  description:
+    "Premium FRP panels for wall and ceiling applications from leading manufacturers. FRP, FRL, hygienic cladding, and wall protection products supplied across British Columbia.",
+  alternates: { canonical: "/services/frp-sales" },
+};
 
 const manufacturers = [
   {

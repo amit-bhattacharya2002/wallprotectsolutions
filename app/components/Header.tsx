@@ -30,6 +30,15 @@ const navigation = [
       { name: "Stainless Protection", href: "/systems/stainless-protection" },
     ],
   },
+  {
+    name: "Services",
+    href: "/services",
+    children: [
+      { name: "FRP Sales", href: "/services/frp-sales" },
+      { name: "FRP Installation", href: "/services/frp-installation" },
+      { name: "FRP Service", href: "/services/frp-service" },
+    ],
+  },
   { name: "Healthcare", href: "/healthcare" },
   { name: "Projects", href: "/projects" },
   {

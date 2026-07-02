@@ -1,5 +1,6 @@
-import { Footer, Header, PageHero, SitePhoto } from "@/app/components";
+import Image from "next/image";
 import Link from "next/link";
+import { Footer, Header, PageHero, SitePhoto } from "@/app/components";
 import { manufacturers } from "@/app/data/manufacturers";
 import { sitePhotos } from "@/app/data/site-photos";
 
@@ -9,17 +10,59 @@ export const metadata = {
 };
 
 const categoryLabels: Record<string, string> = {
-  "wall-protection": "Wall Protection Systems",
-  "hygienic-cladding": "Hygienic Wall Cladding",
-  "frp": "FRP Wall Systems",
-  "frl-decorative": "FRL / Decorative Wall Systems",
-  "pvc-liner": "PVC Liner Systems",
-  "wet-wall": "Wet Wall Systems",
+  "wall-protection": "Wall Protection",
+  "hygienic-cladding": "Hygienic Cladding",
+  frp: "FRP",
+  "frl-decorative": "FRL / Decorative",
+  "pvc-liner": "PVC Liner",
+  "wet-wall": "Wet Wall",
+};
+
+const categoryDescriptions: Record<string, string> = {
+  "wall-protection": "Crash rails, handrails, guards, sheet goods, doors, frames, and specialty protection.",
+  "hygienic-cladding": "Welded or trim-finished wall cladding systems for clinical and cleanable environments.",
+  frp: "Traditional and decorative FRP panels for support spaces, kitchens, washdown rooms, and utility areas.",
+  "frl-decorative": "Finished wall panel systems where impact resistance and public-facing design both matter.",
+  "pvc-liner": "Direct-to-stud liner systems for washdown, agricultural, industrial, and food processing spaces.",
+  "wet-wall": "Solid surface wet wall systems for washrooms, showers, and healthcare wet areas.",
+};
+
+const systemHrefByCategory: Record<string, string> = {
+  "wall-protection": "/systems/wall-protection",
+  "hygienic-cladding": "/systems/hygienic-wall-cladding",
+  frp: "/systems/frp-wall-systems",
+  "frl-decorative": "/systems/frl-decorative",
+  "pvc-liner": "/systems/pvc-liner",
+  "wet-wall": "/systems/wet-wall",
 };
 
 const categories = ["wall-protection", "hygienic-cladding", "frp", "frl-decorative", "pvc-liner", "wet-wall"] as const;
 
+const detailHrefBySlug: Record<string, string> = {
+  inpro: "/wall-protection/manufacturers/inpro",
+  "stabilit-graham": "/wall-protection/manufacturers/graham",
+  valto: "/wall-protection/manufacturers/crane-composites",
+  marlite: "/wall-protection/manufacturers/marlite",
+  nudo: "/wall-protection/manufacturers/nudo",
+  panolam: "/wall-protection/manufacturers/panolam",
+};
+
+const logoBySlug: Record<string, string> = {
+  "construction-specialties": "/cs.png",
+  inpro: "/inpro.jpg",
+  altro: "/altro.webp",
+  panolam: "/panolam.png",
+  marlite: "/marlite.png",
+  valto: "/valto.png",
+};
+
+const featuredSlugs = ["construction-specialties", "inpro", "altro", "panolam"];
+
 export default function ManufacturersPage() {
+  const featuredManufacturers = featuredSlugs
+    .map((slug) => manufacturers.find((manufacturer) => manufacturer.slug === slug))
+    .filter(Boolean);
+
   return (
     <>
       <Header />
@@ -28,92 +71,224 @@ export default function ManufacturersPage() {
           visual="photo"
           backgroundPhoto={sitePhotos.manufacturers}
           title="Manufacturer partners"
-          subtitle="We regularly work with products from leading manufacturers including Construction Specialties, Altro, Inpro, Panolam, Marlite, and others, always selecting based on the right fit for the project, not a preferred brand arrangement."
+          subtitle="A curated manufacturer network for healthcare, institutional, food service, and high-use interior protection. We select products by room condition, specification, budget, and long-term maintenance requirements."
           breadcrumb="Manufacturer Partners"
-          quickLinksTitle="By category"
+          quickLinksTitle="Explore"
           quickLinks={[
-            { label: "Wall Protection", href: "/systems/wall-protection" },
-            { label: "Hygienic Cladding", href: "/systems/hygienic-wall-cladding" },
-            { label: "FRP Systems", href: "/systems/frp-wall-systems" },
-            { label: "FRL / Decorative", href: "/systems/frl-decorative" },
-            { label: "PVC Liner", href: "/systems/pvc-liner" },
-            { label: "Wet Wall", href: "/systems/wet-wall" },
+            { label: "Wall Protection", href: "#wall-protection" },
+            { label: "Hygienic Cladding", href: "#hygienic-cladding" },
+            { label: "FRP Systems", href: "#frp" },
+            { label: "FRL / Decorative", href: "#frl-decorative" },
+            { label: "PVC Liner", href: "#pvc-liner" },
+            { label: "Wet Wall", href: "#wet-wall" },
           ]}
+          supportingContent={
+            <div className="grid gap-4 border-y border-white/14 py-6 md:grid-cols-3">
+              {[
+                ["20+", "Manufacturer lines"],
+                ["6", "System categories"],
+                ["Healthcare", "Primary project focus"],
+              ].map(([value, label]) => (
+                <div key={label} className="border-white/12 md:border-r md:pr-6 md:last:border-r-0">
+                  <div className="text-2xl font-semibold tracking-tight text-white md:text-3xl">{value}</div>
+                  <div className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-white/62">{label}</div>
+                </div>
+              ))}
+            </div>
+          }
         />
 
-        {/* Philosophy strip */}
-        <section className="brand-blue-surface py-12 lg:py-16">
+        <section className="border-b border-slate-200 bg-white py-14 lg:py-20">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <p className="mx-auto max-w-4xl text-center text-lg font-semibold leading-relaxed tracking-tight text-white md:text-xl lg:text-[1.375rem] lg:leading-snug">
-              Over the years we have developed particularly strong relationships with{" "}
-              <span className="text-[#9BCB4A]">Construction Specialties</span> and{" "}
-              <span className="text-[#9BCB4A]">Altro</span> — whose products are widely used in healthcare and institutional environments. We remain product-neutral and application-focused.
-            </p>
-          </div>
-        </section>
-
-        {/* Featured project */}
-        <section className="py-12 lg:py-16 bg-[#f8fafc] border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              <SitePhoto photo={sitePhotos.manufacturers} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
+            <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
               <div className="sticky-side">
-                <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Real project work</span>
-                <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight mb-4">
-                  Manufacturer depth on live healthcare projects
-                </h2>
-                <p className="text-gray-600 leading-relaxed font-normal">
-                  Our manufacturer relationships are built on installed project experience — not catalogue preference. We specify and install Construction Specialties, Altro, Inpro, Panolam, Marlite, and others based on what each space actually requires.
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
+                  Product Neutral. Project Specific.
                 </p>
+                <h2 className="text-3xl font-semibold tracking-tight text-[#0f172a] md:text-4xl">
+                  We lead with installed performance, not catalogue preference.
+                </h2>
+                <p className="mt-5 text-base font-medium leading-8 text-slate-600">
+                  The right manufacturer changes by room type, substrate, infection-control expectation, budget, lead time, and closeout requirements. This page maps the partners we commonly coordinate across wall protection, hygienic wall systems, FRP, FRL, PVC liner, and wet wall scopes.
+                </p>
+              </div>
+
+              <div className="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 md:grid-cols-2">
+                {featuredManufacturers.map((manufacturer) => {
+                  if (!manufacturer) return null;
+                  const detailHref = detailHrefBySlug[manufacturer.slug];
+                  const logoSrc = logoBySlug[manufacturer.slug];
+
+                  const content = (
+                    <>
+                      <div className="mb-7 flex min-h-16 items-center justify-between gap-5">
+                        <div>
+                          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#64A70B]">
+                            {manufacturer.relationship}
+                          </p>
+                          <h3 className="mt-2 text-xl font-semibold tracking-tight text-[#0f172a]">
+                            {manufacturer.name}
+                          </h3>
+                        </div>
+                        {logoSrc ? (
+                          <span className="flex h-16 w-28 shrink-0 items-center justify-center bg-white p-3 shadow-sm">
+                            <Image src={logoSrc} alt={`${manufacturer.name} logo`} width={112} height={56} className="max-h-10 w-auto object-contain" />
+                          </span>
+                        ) : null}
+                      </div>
+                      <div className="border-t border-slate-200">
+                        {manufacturer.products.slice(0, 4).map((product) => (
+                          <div key={product} className="border-b border-slate-200 py-3 text-sm font-medium leading-relaxed text-slate-700 last:border-b-0">
+                            {product}
+                          </div>
+                        ))}
+                      </div>
+                      {detailHref ? (
+                        <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#64A70B] transition-all group-hover:gap-3">
+                          View partner page
+                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </span>
+                      ) : null}
+                    </>
+                  );
+
+                  return detailHref ? (
+                    <Link key={manufacturer.slug} href={detailHref} className="group bg-[#f8fafc] p-6 transition-colors hover:bg-white lg:p-8">
+                      {content}
+                    </Link>
+                  ) : (
+                    <div key={manufacturer.slug} className="bg-[#f8fafc] p-6 lg:p-8">
+                      {content}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Manufacturers by category */}
-        <section className="section-shell-lg bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="space-y-16">
-              {categories.map((cat) => {
-                const catManufacturers = manufacturers.filter((m) => m.category === cat);
-                if (catManufacturers.length === 0) return null;
+        <section className="bg-[#f8fafc] py-14 lg:py-20">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mb-10 grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
+              <div>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
+                  Manufacturer Index
+                </p>
+                <h2 className="text-3xl font-semibold tracking-tight text-[#0f172a] md:text-4xl">
+                  Partners by system category
+                </h2>
+              </div>
+              <p className="max-w-3xl text-base font-medium leading-8 text-slate-600 lg:justify-self-end">
+                A quieter reference layout keeps the focus on how each manufacturer fits into the work. Use the system links for product selection context, or open the dedicated partner pages where available.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              {categories.map((category) => {
+                const categoryManufacturers = manufacturers.filter((manufacturer) => manufacturer.category === category);
+                if (categoryManufacturers.length === 0) return null;
+
                 return (
-                  <div key={cat}>
-                    <div className="flex items-center gap-4 mb-8">
-                      <h2 className="text-2xl font-semibold text-[#0f172a] tracking-tight">{categoryLabels[cat]}</h2>
-                      <Link href={`/systems/${cat === "frp" ? "frp-wall-systems" : cat === "frl-decorative" ? "frl-decorative" : cat === "pvc-liner" ? "pvc-liner" : cat === "wet-wall" ? "wet-wall" : cat === "hygienic-cladding" ? "hygienic-wall-cladding" : "wall-protection"}`} className="text-sm text-[#64A70B] hover:underline">
-                        View system →
-                      </Link>
+                  <section key={category} id={category} className="scroll-mt-32 border border-slate-200 bg-white">
+                    <div className="grid gap-px bg-slate-200 lg:grid-cols-[0.34fr_0.66fr]">
+                      <div className="bg-white p-6 lg:p-8">
+                        <div className="mb-5 h-0.5 w-14 bg-linear-to-r from-[#0868C4] to-[#64A70B]" />
+                        <h3 className="text-2xl font-semibold tracking-tight text-[#0f172a]">
+                          {categoryLabels[category]}
+                        </h3>
+                        <p className="mt-4 text-sm font-medium leading-7 text-slate-600">
+                          {categoryDescriptions[category]}
+                        </p>
+                        <Link
+                          href={systemHrefByCategory[category]}
+                          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#64A70B] transition-all hover:gap-3"
+                        >
+                          View system
+                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
+                      </div>
+
+                      <div className="bg-white">
+                        {categoryManufacturers.map((manufacturer) => {
+                          const detailHref = detailHrefBySlug[manufacturer.slug];
+                          const logoSrc = logoBySlug[manufacturer.slug];
+
+                          const row = (
+                            <div className="grid gap-5 border-b border-slate-200 p-5 last:border-b-0 md:grid-cols-[0.72fr_1.28fr] md:p-6">
+                              <div className="flex items-center gap-4">
+                                {logoSrc ? (
+                                  <span className="flex h-12 w-20 shrink-0 items-center justify-center bg-white p-2 ring-1 ring-slate-200">
+                                    <Image src={logoSrc} alt={`${manufacturer.name} logo`} width={88} height={44} className="max-h-8 w-auto object-contain" />
+                                  </span>
+                                ) : null}
+                                <div className="min-w-0">
+                                  <h4 className="font-semibold tracking-tight text-[#0f172a]">{manufacturer.name}</h4>
+                                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                                    {manufacturer.relationship}
+                                  </p>
+                                </div>
+                              </div>
+                              <div>
+                                <p className="text-sm font-medium leading-7 text-slate-600">
+                                  {manufacturer.products.slice(0, 3).join("; ")}
+                                </p>
+                                {detailHref ? (
+                                  <span className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-[#64A70B] transition-all group-hover:gap-3">
+                                    View details
+                                    <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                  </span>
+                                ) : null}
+                              </div>
+                            </div>
+                          );
+
+                          return detailHref ? (
+                            <Link key={manufacturer.slug} href={detailHref} className="group block transition-colors hover:bg-[#f8fafc]">
+                              {row}
+                            </Link>
+                          ) : (
+                            <div key={manufacturer.slug}>{row}</div>
+                          );
+                        })}
+                      </div>
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {catManufacturers.map((mfr) => (
-                        <div key={mfr.slug} className={`surface-card p-6 ${mfr.featured ? "border-[#64A70B]" : ""}`}>
-                          <div className="flex items-start justify-between mb-3">
-                            <h3 className="text-base font-semibold text-[#0f172a]">{mfr.name}</h3>
-                            {mfr.featured && <span className="px-2 py-0.5 bg-[#005EB8]/10 text-[#64A70B] text-xs font-medium rounded-full ml-2 flex-shrink-0">Key Partner</span>}
-                          </div>
-                          <p className="text-xs text-gray-500 font-medium mb-3">{mfr.relationship}</p>
-                          <ul className="space-y-1">
-                            {mfr.products.slice(0, 4).map((p) => (
-                              <li key={p} className="text-gray-600 text-xs flex items-start gap-2">
-                                <span className="text-[#64A70B] mt-0.5 flex-shrink-0">—</span>
-                                {p}
-                              </li>
-                            ))}
-                          </ul>
-                          {mfr.notes && (
-                            <p className="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-500 leading-relaxed italic">{mfr.notes}</p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  </section>
                 );
               })}
             </div>
           </div>
         </section>
 
+        <section className="bg-white py-14 lg:py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+            <SitePhoto photo={sitePhotos.manufacturers} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
+            <div className="flex flex-col justify-center">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
+                Real project work
+              </p>
+              <h2 className="text-3xl font-semibold tracking-tight text-[#0f172a] md:text-4xl">
+                Manufacturer depth matters most when scopes overlap.
+              </h2>
+              <p className="mt-5 text-base font-medium leading-8 text-slate-600">
+                Healthcare and institutional projects rarely rely on a single product line. A typical package may combine wall guards, handrails, FRP, hygienic cladding, stainless protection, curtain tracks, and specialty accessories. Our role is to coordinate the right mix early enough that pricing, submittals, and installation stay clean.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href="/systems/wall-protection" className="inline-flex items-center justify-center bg-[#005EB8] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#004A91]">
+                  View wall protection systems
+                </Link>
+                <Link href="/quote" className="inline-flex items-center justify-center border border-slate-300 px-6 py-3 text-sm font-semibold text-[#0f172a] transition-colors hover:border-[#64A70B] hover:text-[#64A70B]">
+                  Request product guidance
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
