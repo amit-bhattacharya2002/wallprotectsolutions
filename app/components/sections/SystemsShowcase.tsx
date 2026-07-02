@@ -248,10 +248,7 @@ function SystemCard({
             aria-hidden
           />
         ) : null}
-        <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#9BCB4A] md:text-[0.8rem]">
-          System {sys.number} / 03
-        </p>
-        <h3 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-[#0B1D3A] md:text-4xl">
+        <h3 className="text-3xl font-semibold leading-tight tracking-tight text-[#0B1D3A] md:text-4xl">
           {sys.name}
         </h3>
         <p className="mt-3 text-[0.9375rem] italic leading-relaxed text-[#6B7280] md:text-base">

@@ -26,7 +26,7 @@ export default function FeaturedHealthcareProject() {
         fill
         sizes="100vw"
         aria-hidden="true"
-        className="object-cover object-center opacity-[0.78]"
+        className="object-cover hidden md:block object-center opacity-[0.78]"
       />
       <div className="absolute inset-0 bg-linear-to-r from-[#005EB8]/82 via-[#0d6fc7]/66 to-[#64A70B]/58" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.76)_0%,rgba(7,21,34,0.58)_48%,rgba(7,21,34,0.22)_100%)]" />
