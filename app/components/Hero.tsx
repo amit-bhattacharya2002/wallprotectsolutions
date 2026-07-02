@@ -80,16 +80,16 @@ function HeroPartnerStack({ layout }: { layout: "mobile" | "desktop" }) {
         alt="Find us on Procore — FRP Installations on the Procore Construction Network"
         width={176}
         height={64}
-        className={mobile ? "h-7 w-auto sm:h-8" : "h-8 w-auto md:h-10 lg:h-12"}
+        className={mobile ? "h-8 w-auto sm:h-9" : "h-8 w-auto md:h-10 lg:h-12"}
       />
     </a>
   );
 
   if (mobile) {
     return (
-      <div className="flex w-full flex-row items-center justify-center gap-5">
+      <div className="flex w-full flex-row items-center justify-start gap-5">
         {badge}
-        <VrcaBadge variant="color" className="rounded-sm border border-black bg-white px-2 py-1" imgClassName="h-5 w-auto sm:h-6" />
+        <VrcaBadge variant="color" className="rounded-sm border border-black bg-white px-2.5 py-1" imgClassName="h-6 w-auto sm:h-7" />
       </div>
     );
   }
