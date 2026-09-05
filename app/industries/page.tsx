@@ -25,10 +25,10 @@ export default function IndustriesPage() {
           quickLinksTitle="Industries"
           quickLinks={[
             { label: "Healthcare", href: "/healthcare" },
-            { label: "Education", href: "/industries" },
-            { label: "Food Service", href: "/industries" },
-            { label: "Commercial", href: "/industries" },
-            { label: "Industrial", href: "/industries" },
+            { label: "Education", href: "/industries#education" },
+            { label: "Food Service", href: "/industries#food-service" },
+            { label: "Commercial", href: "/industries#commercial-public" },
+            { label: "Industrial", href: "/industries#industrial-agricultural" },
             { label: "View all systems", href: "/systems" },
           ]}
         />

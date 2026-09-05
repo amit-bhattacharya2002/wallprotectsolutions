@@ -5,20 +5,20 @@ import Image from "next/image";
 
 const testimonials = [
   {
+    name: "Jacob Vanderveen",
+    role: "General Contractor",
+    location: "Fraser Valley, BC",
+    scope: "Commercial interior wall scope",
+    content:
+      "Great quality work done in an efficient and organized manner. Very fast and cleaned up after themselves daily. Will definitely be using FRP Installations again.",
+  },
+  {
     name: "Chuck Lau",
     role: "Commercial Farm Owner",
     location: "Lower Mainland, BC",
     scope: "13,000 SF commercial farm",
     content:
       "These guys came through on short notice. Excellent company to work with. Very professional installers made quick work of 13,000 SF in commercial farm. Was on time, on budget, and cleaned up after themselves.",
-  },
-  {
-    name: "Murrin Bewick",
-    role: "Tofino Wilderness Resort",
-    location: "Tofino, BC",
-    scope: "Longhouse kitchen wall package",
-    content:
-      "These guys did the walls on our longhouse kitchen walls all the way out at Tofino Wilderness Resort! The service was awesome. Sales rep, Beau, is exceptionally helpful.",
   },
   {
     name: "Allen Vidovic",
@@ -29,20 +29,20 @@ const testimonials = [
       "Great Company! Great People and amazing Installers. We needed about 85 linear feet installed on short notice and these guys came in and rocked it out! Installation was on budget and no surprises.",
   },
   {
+    name: "Murrin Bewick",
+    role: "Tofino Wilderness Resort",
+    location: "Tofino, BC",
+    scope: "Longhouse kitchen wall package",
+    content:
+      "These guys did the walls on our longhouse kitchen walls all the way out at Tofino Wilderness Resort! The service was awesome. Sales rep, Beau, is exceptionally helpful.",
+  },
+  {
     name: "王静楠",
     role: "Restaurant Owner",
     location: "Burnaby, BC",
     scope: "Kitchen and janitor room cladding",
     content:
       "We used white FRP panel for our Kitchen and Janitor's room. Good quality, and they did great job. Fair price.",
-  },
-  {
-    name: "Jacob Vanderveen",
-    role: "General Contractor",
-    location: "Fraser Valley, BC",
-    scope: "Commercial interior wall scope",
-    content:
-      "Great quality work done in an efficient and organized manner. Very fast and cleaned up after themselves daily. Will definitely be using FRP Installations again.",
   },
 ];
 
@@ -114,7 +114,7 @@ export default function Testimonials() {
           <span className="eyebrow">Testimonials</span>
           <h2 className="section-title section-title-dark mb-4 [text-shadow:_0_3px_18px_rgb(7_21_34_/_0.5)]">What our clients say</h2>
           <p className="section-lead section-lead-dark mx-auto [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.42)]">
-            Don&apos;t just take our word for it. Here is feedback from owners, GCs, and operators across British Columbia.
+            Feedback from general contractors, facility owners, and operators across British Columbia — including the commercial and institutional work that sits alongside our healthcare portfolio.
           </p>
         </div>
 
@@ -139,8 +139,8 @@ export default function Testimonials() {
                   <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Completed installs</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-semibold tracking-tight text-white">24hr</div>
-                  <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Response cadence</div>
+                  <div className="text-2xl font-semibold tracking-tight text-white">1 day</div>
+                  <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Typical response</div>
                 </div>
               </div>
             </div>

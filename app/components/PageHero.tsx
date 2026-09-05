@@ -246,7 +246,36 @@ export default function PageHero({
           </div>
 
           {quickLinks && (
-            <div className="hidden lg:block text-left">
+            <div>
+              {/* Mobile: compact chip row so wayfinding isn’t desktop-only */}
+              <div className="mt-8 lg:hidden">
+                <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.16em] ${quickLabelClass}`}>
+                  {quickLinksTitle ?? "Quick links"}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {quickLinks.map((link) =>
+                    isNativeAnchor(link.href) ? (
+                      <a
+                        key={`m-${link.label}-${link.href}`}
+                        href={link.href}
+                        className={`inline-flex items-center border px-3 py-2 text-xs font-semibold transition-all ${quickLinkClass}`}
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={`m-${link.label}-${link.href}`}
+                        href={link.href}
+                        className={`inline-flex items-center border px-3 py-2 text-xs font-semibold transition-all ${quickLinkClass}`}
+                      >
+                        {link.label}
+                      </Link>
+                    )
+                  )}
+                </div>
+              </div>
+
+              <div className="hidden lg:block text-left">
               <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.16em] ${quickLabelClass}`}>
                 {quickLinksTitle ?? "Quick links"}
               </p>
@@ -299,6 +328,7 @@ export default function PageHero({
                   )
                 )}
               </div>
+            </div>
             </div>
           )}
         </div>

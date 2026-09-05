@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Header, Footer, PageHero, RelatedHealthcareResources, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
 import { systemProjects } from "@/app/data/system-projects";
@@ -12,24 +13,28 @@ export const metadata = {
 const systems = [
   {
     name: "Panolam Surface Systems — FRL",
+    href: "/wall-protection/manufacturers/panolam",
     relationship: "Distributor",
     description: "FRL (Fiberglass Reinforced Liner) wall panels in 400+ colours. A significant portion of our healthcare work uses Panolam FRL in corridors, reception areas, and public-facing spaces where a finished appearance is required alongside durability.",
     highlights: ["400+ colour options", "Approx. $200K in FRL in recent healthcare work", "Full distributor relationship — competitive pricing and availability"],
   },
   {
     name: "Formica HardStop",
+    href: "/wall-protection/manufacturers/formica",
     relationship: "Supplier",
     description: "HardStop FRL wall panels from Formica — an alternative FRL system for projects where Formica is specified or preferred.",
     highlights: ["FRL composite panel", "Alternative to Panolam for specified projects"],
   },
   {
     name: "Marlite Decorative Lines",
+    href: "/wall-protection/manufacturers/marlite",
     relationship: "Supplier",
     description: "Marlite Induro (HPL-faced FRP), Symmetrix (tile appearance), and Artizan Max (decorative) for applications requiring a more architectural surface finish alongside FRP core properties.",
     highlights: ["Induro — HPL-faced, most affordable decorative option", "Symmetrix — tile appearance with Sani-coat sealer", "Artizan Max — custom finishes and swatch patterns"],
   },
   {
     name: "Graphic / Custom Wall Systems",
+    href: "/systems/frl-decorative",
     relationship: "Multiple manufacturers",
     description: "For public-facing healthcare spaces where custom imagery or patterns are desired integrated into the wall protection system.",
     highlights: ["Acrovyn by Design (Construction Specialties)", "Inpro Aspex custom graphic system", "Valto Varietex decorative FRP line"],
@@ -71,7 +76,11 @@ export default function FRLDecorativePage() {
                 <div key={system.name} className={`grid lg:grid-cols-2 gap-10 items-start ${index > 0 ? "pt-12 border-t border-gray-200" : ""}`}>
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-4">
-                      <h3 className="text-xl font-semibold text-[#0f172a]">{system.name}</h3>
+                      <h3 className="text-xl font-semibold text-[#0f172a]">
+                        <Link href={system.href} className="transition-colors hover:text-[#64A70B]">
+                          {system.name}
+                        </Link>
+                      </h3>
                       <span className="px-3 py-1 bg-[#005EB8]/10 text-[#64A70B] text-xs font-medium rounded-full">{system.relationship}</span>
                     </div>
                     <p className="text-gray-600 leading-relaxed font-normal">{system.description}</p>

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header, Footer, PageHero } from "@/app/components";
 import { cities, getCityBySlug, getAllCitySlugs } from "@/app/data/cities";
+import { sitePhotos } from "@/app/data/site-photos";
 
 // Generate static params for all cities
 export function generateStaticParams() {
@@ -124,13 +125,15 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.pages.city}
           breadcrumb={`Service Area · ${city.region}`}
-          title={`${city.name} FRP Panels & Wall Protection`}
-          subtitle={`We supply and install wall protection, FRP, FRL, and hygienic systems throughout ${city.name} and the surrounding ${city.region} region.`}
+          title={`${city.name} Wall Protection & FRP Installation`}
+          subtitle={`We supply and install wall protection systems, hygienic cladding, FRP/FRL panels, and related interior protection throughout ${city.name} and the surrounding ${city.region} region.`}
           quickLinksTitle={heroQuickLinks.length > 0 ? `Nearby in ${city.region}` : "Explore"}
           quickLinks={heroQuickLinks.length > 0 ? heroQuickLinks : [
-            { label: "Wall Protection", href: "/systems/wall-protection" },
-            { label: "FRP Systems", href: "/systems/frp-wall-systems" },
+            { label: "Wall Protection Systems", href: "/systems/wall-protection" },
+            { label: "FRP Wall Systems", href: "/systems/frp-wall-systems" },
             { label: "Get a Quote", href: "/quote" },
             { label: "Contact", href: "/contact" },
           ]}
@@ -173,13 +176,13 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                     href="/quote"
                     className="inline-flex items-center gap-3 bg-[#005EB8] text-white px-6 py-3 rounded-full font-medium hover:bg-[#64A70B] transition-all"
                   >
-                    Get FRP Quote
+                    Get a Quote
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
                   <Link
-                    href="/wall-protection"
+                    href="/systems/wall-protection"
                     className="inline-flex items-center gap-3 border border-gray-300 text-[#0f172a] px-6 py-3 rounded-full font-medium hover:border-[#64A70B] hover:text-[#64A70B] transition-all"
                   >
                     FRP Options
@@ -239,7 +242,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             </div>
             <div className="mt-8">
               <Link
-                href="/wall-protection"
+                href="/systems/wall-protection"
                 className="inline-flex items-center gap-2 text-[#64A70B] font-medium hover:gap-3 transition-all"
               >
                 View all wall protection options

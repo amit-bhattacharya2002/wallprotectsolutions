@@ -14,6 +14,7 @@ export const metadata = {
 const products = [
   {
     manufacturer: "Construction Specialties (C/S)",
+    href: "/wall-protection/manufacturers/construction-specialties",
     logoSrc: "/cs.png",
     relationship: "BC Distributor",
     items: [
@@ -29,6 +30,7 @@ const products = [
   },
   {
     manufacturer: "Inpro",
+    href: "/wall-protection/manufacturers/inpro",
     logoSrc: "/inpro.jpg",
     relationship: "Full product access",
     items: [
@@ -147,7 +149,11 @@ export default function WallProtectionSystemsPage() {
                         </div>
                       ) : null}
                       <div>
-                        <h3 className="text-2xl font-semibold tracking-tight text-[#0f172a]">{product.manufacturer}</h3>
+                        <h3 className="text-2xl font-semibold tracking-tight text-[#0f172a]">
+                          <Link href={product.href} className="transition-colors hover:text-[#64A70B]">
+                            {product.manufacturer}
+                          </Link>
+                        </h3>
                         <span className="mt-2 inline-flex rounded-full bg-[#005EB8] px-3 py-1 text-xs font-semibold text-white">{product.relationship}</span>
                       </div>
                     </div>

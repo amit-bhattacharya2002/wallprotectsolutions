@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllProjectSlugs } from "./data/projects";
 import { getAllBenefitSlugs } from "./data/frp-benefits";
 import { getAllCitySlugs } from "./data/cities";
+import { manufacturers } from "./data/manufacturers";
 import { resourceArticles } from "./data/resources";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -29,12 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Manufacturers
     { url: `${baseUrl}/manufacturers`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/wall-protection/manufacturers`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${baseUrl}/wall-protection/manufacturers/inpro`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${baseUrl}/wall-protection/manufacturers/marlite`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/crane-composites`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/wall-protection/manufacturers/graham`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${baseUrl}/wall-protection/manufacturers/panolam`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${baseUrl}/wall-protection/manufacturers/nudo`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     // Healthcare & other key landing pages
     { url: `${baseUrl}/healthcare`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${baseUrl}/industries`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
@@ -85,5 +82,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...projectPages, ...benefitPages, ...cityPages, ...resourcePages];
+  const manufacturerPages = manufacturers.map((manufacturer) => ({
+    url: `${baseUrl}/wall-protection/manufacturers/${manufacturer.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...manufacturerPages, ...projectPages, ...benefitPages, ...cityPages, ...resourcePages];
 }

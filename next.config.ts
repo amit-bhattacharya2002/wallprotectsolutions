@@ -76,10 +76,15 @@ const nextConfig: NextConfig = {
       { source: "/frp-benefit/:slug", destination: "/frp-benefits/:slug", permanent: true },
       { source: "/frp-benefit", destination: "/frp-benefits", permanent: true },
 
-      // ── Legacy projects (slugs mostly changed; map the few matches, else index) ──
-      { source: "/project/breathe-medical-manufacturing", destination: "/projects/breathe-medical-manufacturing", permanent: true },
-      { source: "/project/bc-cancer-agency-x-ray-room", destination: "/projects/bc-cancer-agency", permanent: true },
+      // ── Legacy projects ──
+      // 34 of the 37 project slugs in the old Yoast sitemap exist verbatim under
+      // /projects/, so a slug-preserving redirect keeps their page-level link
+      // equity. The three renamed slugs are mapped explicitly first.
+      { source: "/project/bc-hops-co", destination: "/projects/bc-hops-co-stainless-steel-paneling-kiln-room", permanent: true },
+      { source: "/project/ross-place-retirement", destination: "/projects/ross-place-retirement-residence", permanent: true },
       { source: "/project/port-alberni-secondary-school", destination: "/projects/sd70-port-alberni-secondary-school", permanent: true },
+      { source: "/project/:slug", destination: "/projects/:slug", permanent: true },
+      // Bare /project and any multi-segment stragglers fall back to the index.
       { source: "/project/:slug*", destination: "/projects", permanent: true },
 
       // ── Legacy WordPress taxonomies (no 1:1 equivalent) ──

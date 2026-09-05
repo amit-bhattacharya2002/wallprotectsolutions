@@ -39,12 +39,24 @@ const systemHrefByCategory: Record<string, string> = {
 const categories = ["wall-protection", "hygienic-cladding", "frp", "frl-decorative", "pvc-liner", "wet-wall"] as const;
 
 const detailHrefBySlug: Record<string, string> = {
+  "construction-specialties": "/wall-protection/manufacturers/construction-specialties",
   inpro: "/wall-protection/manufacturers/inpro",
+  ricochet: "/wall-protection/manufacturers/ricochet",
+  altro: "/wall-protection/manufacturers/altro",
+  "true-north": "/wall-protection/manufacturers/true-north",
+  "am-clad": "/wall-protection/manufacturers/am-clad",
   "stabilit-graham": "/wall-protection/manufacturers/graham",
-  valto: "/wall-protection/manufacturers/crane-composites",
+  valto: "/wall-protection/manufacturers/valto",
   marlite: "/wall-protection/manufacturers/marlite",
   nudo: "/wall-protection/manufacturers/nudo",
   panolam: "/wall-protection/manufacturers/panolam",
+  formica: "/wall-protection/manufacturers/formica",
+  octaform: "/wall-protection/manufacturers/octaform",
+  "clean-16": "/wall-protection/manufacturers/clean-16",
+  "ez-liner": "/wall-protection/manufacturers/ez-liner",
+  "ag-tuf": "/wall-protection/manufacturers/ag-tuf",
+  delpro: "/wall-protection/manufacturers/delpro",
+  avonite: "/wall-protection/manufacturers/avonite",
 };
 
 const logoBySlug: Record<string, string> = {

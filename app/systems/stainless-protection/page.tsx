@@ -1,4 +1,5 @@
 import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
+import Link from "next/link";
 import { sitePhotos } from "@/app/data/site-photos";
 import { systemProjects } from "@/app/data/system-projects";
 
@@ -67,6 +68,29 @@ export default function StainlessProtectionPage() {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-slate-200 bg-[#f8fafc] py-14 lg:py-16">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-2xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
+                  Need stainless as part of a larger wall protection package?
+                </h2>
+                <p className="mt-3 text-gray-600 leading-relaxed">
+                  We often coordinate stainless corner guards and cladding with FRP, hygienic cladding, and Division 10 specialties under one accountable supply-and-install scope.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row shrink-0">
+                <Link href="/quote" className="btn-primary">
+                  Get a Quote
+                </Link>
+                <Link href="/systems" className="btn-secondary">
+                  Browse All Systems
+                </Link>
               </div>
             </div>
           </div>

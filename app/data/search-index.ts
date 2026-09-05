@@ -186,24 +186,24 @@ const staticEntries: SearchEntry[] = [
 ];
 
 const manufacturerHrefMap: Record<string, string> = {
-  "construction-specialties": "/systems/wall-protection",
+  "construction-specialties": "/wall-protection/manufacturers/construction-specialties",
   inpro: "/wall-protection/manufacturers/inpro",
-  ricochet: "/systems/wall-protection",
-  altro: "/systems/hygienic-wall-cladding",
-  "true-north": "/systems/hygienic-wall-cladding",
-  "am-clad": "/systems/hygienic-wall-cladding",
-  valto: "/systems/frp-wall-systems",
+  ricochet: "/wall-protection/manufacturers/ricochet",
+  altro: "/wall-protection/manufacturers/altro",
+  "true-north": "/wall-protection/manufacturers/true-north",
+  "am-clad": "/wall-protection/manufacturers/am-clad",
+  valto: "/wall-protection/manufacturers/valto",
   "stabilit-graham": "/wall-protection/manufacturers/graham",
   marlite: "/wall-protection/manufacturers/marlite",
   nudo: "/wall-protection/manufacturers/nudo",
   panolam: "/wall-protection/manufacturers/panolam",
-  formica: "/systems/frl-decorative",
-  octaform: "/systems/pvc-liner",
-  "clean-16": "/systems/pvc-liner",
-  "ez-liner": "/systems/pvc-liner",
-  "ag-tuf": "/systems/pvc-liner",
-  delpro: "/systems/pvc-liner",
-  avonite: "/systems/wet-wall",
+  formica: "/wall-protection/manufacturers/formica",
+  octaform: "/wall-protection/manufacturers/octaform",
+  "clean-16": "/wall-protection/manufacturers/clean-16",
+  "ez-liner": "/wall-protection/manufacturers/ez-liner",
+  "ag-tuf": "/wall-protection/manufacturers/ag-tuf",
+  delpro: "/wall-protection/manufacturers/delpro",
+  avonite: "/wall-protection/manufacturers/avonite",
 };
 
 const categoryKeywords: Record<string, string[]> = {

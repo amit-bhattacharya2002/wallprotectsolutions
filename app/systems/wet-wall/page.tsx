@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
 import { systemProjects } from "@/app/data/system-projects";
@@ -33,7 +34,9 @@ export default function WetWallPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
-                <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Avonite Wet Walls</span>
+                <Link href="/wall-protection/manufacturers/avonite" className="mb-4 block text-sm font-medium uppercase tracking-wider text-[#64A70B] transition-colors hover:text-[#005EB8]">
+                  Avonite Wet Walls
+                </Link>
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">The right wet wall solution for healthcare washrooms</h2>
                 <p className="text-gray-600 leading-relaxed font-normal mb-6">
                   Avonite Wet Walls is a solid surface wet wall system that provides a seamless, non-porous, fully waterproof wall surface for healthcare washrooms, shower rooms, and wet areas. We have installed wet wall and hygienic systems at UPCC clinics across BC, including the Chilliwack Urgent and Primary Care Centre.

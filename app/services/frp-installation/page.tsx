@@ -163,9 +163,9 @@ export default function FRPInstallationPage() {
 
                 <Link
                   href="/quote"
-                  className="inline-flex items-center gap-3 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                  className="btn-primary"
                 >
-                  Schedule Installation
+                  Get a Quote
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -196,7 +196,7 @@ export default function FRPInstallationPage() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {benefits.map((benefit) => (
-                <div key={benefit.title} className="p-8 bg-white rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
+                <div key={benefit.title} className="p-8 bg-white rounded-xl border border-gray-200 hover:border-[#005EB8] transition-colors">
                   <div className="w-12 h-12 bg-[#005EB8] rounded-lg flex items-center justify-center text-white mb-6">
                     {benefit.icon}
                   </div>
@@ -252,7 +252,7 @@ export default function FRPInstallationPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {process.map((item) => (
                 <div key={item.step} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
-                  <div className="text-[#f97316] text-sm font-medium mb-4">{item.step}</div>
+                  <div className="text-[#64A70B] text-sm font-medium mb-4">{item.step}</div>
                   <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
                   <p className="text-white/80 font-normal leading-relaxed">{item.description}</p>
                 </div>
@@ -277,7 +277,7 @@ export default function FRPInstallationPage() {
                   </p>
                   <Link
                     href="/quote"
-                    className="inline-flex items-center gap-3 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                    className="btn-primary"
                   >
                     Request Installation Quote
                   </Link>
@@ -298,12 +298,12 @@ export default function FRPInstallationPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <h2 className="text-2xl font-semibold text-[#0f172a] mb-8">Other Services</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <Link href="/services/frp-sales" className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
-                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#f97316] transition-colors">FRP Sales</h3>
+              <Link href="/services/frp-sales" className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#005EB8] transition-colors">
+                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#005EB8] transition-colors">FRP Sales</h3>
                 <p className="text-gray-600 font-normal">Premium FRP panels from leading manufacturers including Marlite, Crane, Graham, and Panolam.</p>
               </Link>
-              <Link href="/services/frp-service" className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
-                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#f97316] transition-colors">FRP Service</h3>
+              <Link href="/services/frp-service" className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#005EB8] transition-colors">
+                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#005EB8] transition-colors">FRP Service</h3>
                 <p className="text-gray-600 font-normal">Consultation services, product recommendations, and ongoing support.</p>
               </Link>
             </div>

@@ -12,6 +12,8 @@ const footerLinks = {
     { name: "FRL / Decorative Systems", href: "/systems/frl-decorative" },
     { name: "PVC Liner Systems", href: "/systems/pvc-liner" },
     { name: "Wet Wall Systems", href: "/systems/wet-wall" },
+    { name: "Architectural Specialties", href: "/systems/architectural-specialties" },
+    { name: "Stainless Protection", href: "/systems/stainless-protection" },
   ],
   company: [
     { name: "About", href: "/about" },
@@ -20,6 +22,9 @@ const footerLinks = {
     { name: "Projects", href: "/projects" },
     { name: "FRP Services", href: "/services" },
     { name: "Pre-Construction Support", href: "/pre-construction" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Why FRP?", href: "/frp-benefits" },
+    { name: "Schedule Site Measurement", href: "/schedule-on-site-measurement" },
     { name: "Manufacturer Partners", href: "/manufacturers" },
     { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
@@ -94,15 +99,15 @@ export default function Footer() {
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
                 <Link
                   href="/quote"
-                  className="inline-flex items-center justify-center gap-2 bg-[#005EB8] px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-[#004A91]"
+                  className="btn-primary px-7 py-4 text-base font-semibold"
                 >
-                  Submit Project Specifications
+                  Get a Quote
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 border border-white/24 px-7 py-4 text-base font-semibold text-white transition-colors hover:border-white/45 hover:bg-white/8"
+                  className="btn-secondary-light px-7 py-4 text-base font-semibold"
                 >
-                  Talk to a Specialist
+                  Contact Us
                 </Link>
               </div>
             </div>

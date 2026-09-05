@@ -122,7 +122,7 @@ export default function WallProtectionPage() {
           visual="photo"
           backgroundPhoto={sitePhotos.wallProtection}
           title="Wall Protection Panels"
-          subtitle="FRP panels and wall protection solutions for commercial, industrial, and healthcare applications across BC."
+          subtitle="FRP panels and wall protection solutions for healthcare, commercial, and industrial applications across BC. Prefer a system overview? Start with our systems library."
           breadcrumb="Products"
           quickLinksTitle="Systems"
           quickLinks={[
@@ -165,9 +165,9 @@ export default function WallProtectionPage() {
                 <div className="mt-8">
                   <Link
                     href="/quote"
-                    className="inline-flex items-center gap-3 bg-[#005EB8] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                    className="btn-primary"
                   >
-                    Get FRP Quote
+                    Get a Quote
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -185,10 +185,10 @@ export default function WallProtectionPage() {
                         href={mfr.href}
                         className="flex items-center justify-between py-3 border-b border-gray-200 last:border-0 group hover:bg-white rounded-lg px-3 -mx-3 transition-colors"
                       >
-                        <span className="font-medium text-[#0f172a] group-hover:text-[#f97316] transition-colors">{mfr.name}</span>
+                        <span className="font-medium text-[#0f172a] group-hover:text-[#005EB8] transition-colors">{mfr.name}</span>
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#005EB8]">{mfr.type}</span>
-                          <svg className="w-4 h-4 text-gray-500 group-hover:text-[#f97316] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-gray-500 group-hover:text-[#005EB8] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </div>
@@ -230,12 +230,12 @@ export default function WallProtectionPage() {
                 <Link 
                   key={benefit.slug} 
                   href={`/frp-benefits/${benefit.slug}`}
-                  className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 hover:border-[#f97316]/50 transition-all"
+                  className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 hover:border-[#005EB8]/50 transition-all"
                 >
-                  <div className="text-sm text-[#f97316] font-medium mb-3">0{index + 1}</div>
-                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#f97316] transition-colors">{benefit.title}</h3>
+                  <div className="text-sm text-[#64A70B] font-medium mb-3">0{index + 1}</div>
+                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#005EB8] transition-colors">{benefit.title}</h3>
                   <p className="text-white/80 text-sm font-normal leading-relaxed mb-4">{benefit.description}</p>
-                  <span className="inline-flex items-center gap-1 text-sm text-[#f97316] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="inline-flex items-center gap-1 text-sm text-[#64A70B] opacity-0 group-hover:opacity-100 transition-opacity">
                     Learn more
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -261,7 +261,7 @@ export default function WallProtectionPage() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {otherProducts.map((product) => (
-                <div key={product.name} className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
+                <div key={product.name} className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#005EB8] transition-colors">
                   <h3 className="text-xl font-semibold text-[#0f172a] mb-3">{product.name}</h3>
                   <p className="text-gray-600 font-normal mb-4 leading-relaxed">{product.description}</p>
                   <div className="border-t border-slate-200 pt-3">
@@ -294,10 +294,10 @@ export default function WallProtectionPage() {
               {applications.map((app) => (
                 <div
                   key={app.name}
-                  className="group p-5 bg-[#f8fafc] border border-gray-200 rounded-xl hover:border-[#f97316] hover:bg-white transition-colors cursor-default flex items-center min-h-[72px]"
+                  className="group p-5 bg-[#f8fafc] border border-gray-200 rounded-xl hover:border-[#005EB8] hover:bg-white transition-colors cursor-default flex items-center min-h-[72px]"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#f97316] shrink-0 mt-1.5" />
+                    <div className="w-2 h-2 rounded-full bg-[#64A70B] shrink-0 mt-1.5" />
                     <div className="text-sm text-gray-700 font-medium group-hover:text-[#0f172a] transition-colors leading-snug">{app.name}</div>
                   </div>
                 </div>
@@ -322,16 +322,16 @@ export default function WallProtectionPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
-                      href="/contact"
-                      className="inline-flex items-center justify-center gap-3 bg-white text-[#0f172a] px-8 py-4 rounded-full font-medium hover:bg-[#f97316] hover:text-white transition-all"
+                      href="/quote"
+                      className="btn-primary bg-white text-[#0f172a] hover:bg-[#004A91] hover:text-white"
                     >
-                      Contact Us
+                      Get a Quote
                     </Link>
                     <Link
-                      href="/services/frp-service"
-                      className="inline-flex items-center justify-center gap-3 border border-white/30 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all"
+                      href="/contact"
+                      className="btn-secondary-light"
                     >
-                      Learn About Our Services
+                      Contact Us
                     </Link>
                   </div>
                 </div>

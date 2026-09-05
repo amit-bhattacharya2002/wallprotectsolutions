@@ -90,7 +90,7 @@ const supportOptions = [
   },
   {
     title: "Email Support",
-    description: "Send us your questions and we'll respond within 24 business hours.",
+    description: "Send us your questions and we'll respond within one business day.",
     contact: "info@frpinstallations.com",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,14 +147,14 @@ export default function FRPServicePage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {services.map((service, index) => (
-                <div key={service.title} className="p-8 border border-gray-200 rounded-xl hover:border-[#f97316] transition-colors">
-                  <div className="text-sm text-[#f97316] font-medium mb-4">0{index + 1}</div>
+                <div key={service.title} className="p-8 border border-gray-200 rounded-xl hover:border-[#005EB8] transition-colors">
+                  <div className="text-sm text-[#64A70B] font-medium mb-4">0{index + 1}</div>
                   <h3 className="text-xl font-semibold text-[#0f172a] mb-3">{service.title}</h3>
                   <p className="text-gray-600 font-normal mb-6 leading-relaxed">{service.description}</p>
                   <ul className="space-y-2">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-gray-700 text-sm">
-                        <svg className="w-4 h-4 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#64A70B]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         {feature}
@@ -188,13 +188,13 @@ export default function FRPServicePage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/quote"
-                    className="inline-flex items-center justify-center gap-3 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                    className="btn-primary"
                   >
-                    Schedule Site Visit
+                    Schedule Site Measurement
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#64A70B] transition-all"
+                    className="btn-secondary"
                   >
                     Contact Us
                   </Link>
@@ -240,7 +240,7 @@ export default function FRPServicePage() {
                   <ul className="space-y-3">
                     {detail.items.map((item) => (
                       <li key={item} className="flex items-center gap-3 text-white/80">
-                        <svg className="w-5 h-5 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 text-[#64A70B]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         {item}
@@ -287,13 +287,13 @@ export default function FRPServicePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-3 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                className="btn-primary"
               >
                 Contact Us
               </Link>
               <a
                 href="tel:604-715-9469"
-                className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#64A70B] transition-all"
+                className="btn-secondary"
               >
                 Call 604-715-9469
               </a>
@@ -306,12 +306,12 @@ export default function FRPServicePage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <h2 className="text-2xl font-semibold text-[#0f172a] mb-8">Other Services</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <Link href="/services/frp-sales" className="group p-8 bg-[#f8fafc] rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
-                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#f97316] transition-colors">FRP Sales</h3>
+              <Link href="/services/frp-sales" className="group p-8 bg-[#f8fafc] rounded-xl border border-gray-200 hover:border-[#005EB8] transition-colors">
+                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#005EB8] transition-colors">FRP Sales</h3>
                 <p className="text-gray-600 font-normal">Premium FRP panels from leading manufacturers including Marlite, Crane, Graham, and Panolam.</p>
               </Link>
-              <Link href="/services/frp-installation" className="group p-8 bg-[#f8fafc] rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
-                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#f97316] transition-colors">FRP Installation</h3>
+              <Link href="/services/frp-installation" className="group p-8 bg-[#f8fafc] rounded-xl border border-gray-200 hover:border-[#005EB8] transition-colors">
+                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#005EB8] transition-colors">FRP Installation</h3>
                 <p className="text-gray-600 font-normal">Professional panel installation for walls and ceilings across British Columbia.</p>
               </Link>
             </div>

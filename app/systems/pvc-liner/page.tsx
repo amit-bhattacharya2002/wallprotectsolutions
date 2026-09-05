@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
 import { systemProjects } from "@/app/data/system-projects";
@@ -9,7 +10,13 @@ export const metadata = {
   description: "Supply and installation of direct-to-stud PVC liner panel systems from Octaform, Clean 16, EZ Liner, AG-Tuf, and DelPro for industrial, agricultural, and washdown environments across BC.",
 };
 
-const manufacturers = ["Octaform — direct-to-stud PVC liner systems", "Clean 16 — PVC liner panel systems", "EZ Liner — PVC liner panel systems", "AG-Tuf — PVC liner panel systems", "DelPro — PVC liner panel systems"];
+const manufacturers = [
+  { label: "Octaform — direct-to-stud PVC liner systems", href: "/wall-protection/manufacturers/octaform" },
+  { label: "Clean 16 — PVC liner panel systems", href: "/wall-protection/manufacturers/clean-16" },
+  { label: "EZ Liner — PVC liner panel systems", href: "/wall-protection/manufacturers/ez-liner" },
+  { label: "AG-Tuf — PVC liner panel systems", href: "/wall-protection/manufacturers/ag-tuf" },
+  { label: "DelPro — PVC liner panel systems", href: "/wall-protection/manufacturers/delpro" },
+];
 
 const applications = ["Agricultural barns and livestock facilities", "Food processing plants and packing facilities", "Commercial car washes", "Industrial utility and maintenance spaces", "Brewery and winery production areas", "Washdown and sanitation-intensive environments"];
 
@@ -66,10 +73,10 @@ export default function PVCLinerPage() {
                 <h2 className="text-3xl font-semibold text-[#0f172a] tracking-tight mb-8">PVC liner manufacturers we work with</h2>
                 <div className="space-y-3">
                   {manufacturers.map((m) => (
-                    <div key={m} className="flex items-start gap-3 bg-[#f8fafc] border border-gray-100 rounded-xl px-5 py-3">
+                    <Link key={m.href} href={m.href} className="flex items-start gap-3 bg-[#f8fafc] border border-gray-100 rounded-xl px-5 py-3 transition-colors hover:border-[#64A70B]">
                       <div className="w-2 h-2 rounded-full bg-[#005EB8] flex-shrink-0 mt-1.5" />
-                      <span className="text-gray-700 text-sm">{m}</span>
-                    </div>
+                      <span className="text-gray-700 text-sm">{m.label}</span>
+                    </Link>
                   ))}
                 </div>
                 <SystemProjectsList

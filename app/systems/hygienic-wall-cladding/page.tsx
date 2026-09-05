@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Header, Footer, PageHero, RelatedHealthcareResources, SitePhoto, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
 import { systemProjects } from "@/app/data/system-projects";
@@ -12,6 +13,7 @@ export const metadata = {
 const systems = [
   {
     name: "Altro Whiterock",
+    href: "/wall-protection/manufacturers/altro",
     type: "Welded seamless hygienic system",
     relationship: "Altro-trained & approved installer",
     description: "Fully welded seams, thermoformed corners — a completely seamless, crevice-free hygienic wall surface. The benchmark system for high infection-control classification spaces.",
@@ -26,6 +28,7 @@ const systems = [
   },
   {
     name: "Altro Puraguard",
+    href: "/wall-protection/manufacturers/altro",
     type: "Trim-finished hygienic panel system",
     relationship: "Altro-trained & approved installer",
     description: "Trim-finished hygienic panel system for areas with moderate hygienic requirements. Does not require welding — faster to install and more cost-effective than Whiterock.",
@@ -39,6 +42,7 @@ const systems = [
   },
   {
     name: "True North Premium Wall Cladding",
+    href: "/wall-protection/manufacturers/true-north",
     type: "Weldable & thermoformable hygienic system",
     relationship: "Supplier",
     description: "Performance is very similar to Altro Whiterock. Less expensive and more open-market than Altro — a genuine alternate where budget is a constraint and the performance requirement is the same.",
@@ -50,6 +54,7 @@ const systems = [
   },
   {
     name: "AM-Clad",
+    href: "/wall-protection/manufacturers/am-clad",
     type: "Weldable & thermoformable hygienic system",
     relationship: "Approved installer",
     description: "Similar in performance to Altro Whiterock. Less expensive option for projects where budget is a primary driver and the performance requirement can be met by an alternate system.",
@@ -98,7 +103,11 @@ export default function HygienicWallCladdingPage() {
                 <div key={system.name} className={`grid lg:grid-cols-2 gap-10 items-start ${index > 0 ? "pt-12 border-t border-gray-200" : ""}`}>
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-4">
-                      <h3 className="text-2xl font-semibold text-[#0f172a]">{system.name}</h3>
+                      <h3 className="text-2xl font-semibold text-[#0f172a]">
+                        <Link href={system.href} className="transition-colors hover:text-[#64A70B]">
+                          {system.name}
+                        </Link>
+                      </h3>
                       <span className="px-3 py-1 bg-[#005EB8]/10 text-[#64A70B] text-xs font-medium rounded-full">{system.relationship}</span>
                     </div>
                     <p className="text-gray-500 text-sm font-medium mb-3">{system.type}</p>

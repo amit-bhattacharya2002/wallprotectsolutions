@@ -126,13 +126,13 @@ export default async function BenefitPage({ params }: { params: Promise<{ slug: 
                       href="/quote"
                       className="w-full inline-flex items-center justify-center gap-2 bg-[#005EB8] text-white px-6 py-3 rounded-full font-medium hover:bg-[#64A70B] transition-colors"
                     >
-                      Submit Project Specs
+                      Get a Quote
                     </Link>
                     <Link
                       href="/contact"
-                      className="w-full inline-flex items-center justify-center gap-2 border border-gray-300 text-[#0f172a] px-6 py-3 rounded-full font-medium hover:border-[#64A70B] hover:text-[#64A70B] transition-colors"
+                      className="btn-secondary w-full"
                     >
-                      Schedule Site Visit
+                      Schedule Site Measurement
                     </Link>
                   </div>
                 </div>

@@ -71,7 +71,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-shell-lg relative isolate overflow-hidden border-t border-slate-200/70 bg-[#081625]">
+    <section id="contact" className="section-shell relative isolate overflow-hidden border-t border-slate-200/70 bg-[#081625]">
       <Image
         src="/actualphotos/usedforcontact.jpg"
         alt=""
@@ -120,7 +120,7 @@ export default function Contact() {
               </div>
 
               <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-                {["Free Site Visits", "24hr Response", "No Obligation"].map((item) => (
+                {["Free Site Visits", "1-Day Response", "No Obligation"].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#64A70B]" />
                     <span className="font-medium text-[#0f172a]">{item}</span>
