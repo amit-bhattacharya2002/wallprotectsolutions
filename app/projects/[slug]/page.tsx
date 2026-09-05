@@ -164,7 +164,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <div className="mt-8 pt-6 border-t border-gray-200">
                     <Link
                       href="/quote"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#005EB8] text-white px-6 py-3 rounded-full font-medium hover:bg-[#f97316] transition-colors"
+                      className="btn-primary w-full"
                     >
                       Start Similar Project
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -197,10 +197,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
-                    <span className="text-sm text-[#f97316] font-medium mb-2 block">
+                    <span className="text-sm text-[#64A70B] font-medium mb-2 block">
                       {relatedProject.category}
                     </span>
-                    <h3 className="text-xl font-semibold text-[#0f172a] mb-2 tracking-tight group-hover:text-[#f97316] transition-colors">
+                    <h3 className="text-xl font-semibold text-[#0f172a] mb-2 tracking-tight group-hover:text-[#005EB8] transition-colors">
                       {relatedProject.title}
                     </h3>
                     <p className="text-gray-600 font-normal">{relatedProject.description}</p>

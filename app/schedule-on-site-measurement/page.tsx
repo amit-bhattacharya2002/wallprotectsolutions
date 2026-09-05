@@ -228,7 +228,7 @@ export default function ScheduleMeasurementPage() {
                   </button>
 
                   <p className="text-sm text-gray-600 text-center mt-4">
-                    We&apos;ll confirm your appointment within 1 business day.
+                    We&apos;ll confirm your appointment within one business day.
                   </p>
                 </form>
               </div>

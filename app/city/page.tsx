@@ -17,6 +17,8 @@ export default function ServiceAreasPage() {
       <Header />
       <main>
         <PageHero
+          visual="photo"
+          backgroundPhoto={sitePhotos.pages.city}
           title="Serving British Columbia"
           subtitle="Wall protection, hygienic cladding, FRP, FRL, and interior protection systems delivered across Metro Vancouver, the Fraser Valley, Vancouver Island, the Interior, and beyond."
           breadcrumb="Service Areas"

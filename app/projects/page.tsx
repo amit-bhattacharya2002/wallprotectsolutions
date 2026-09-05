@@ -30,7 +30,7 @@ export default function ProjectsPage() {
             { label: "Healthcare Projects", href: "/projects#healthcare" },
             { label: "Education", href: "/projects#education" },
             { label: "Food & Beverage", href: "/projects#food-beverage" },
-            { label: "Agriculture", href: "/projects#agriculture" },
+            { label: "Special Projects", href: "/projects#special-projects" },
             { label: "View All Projects", href: "/projects#all" },
           ]}
           supportingContent={

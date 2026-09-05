@@ -3,26 +3,31 @@ import { Footer, Header, PageHero } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
 
 export const metadata = {
-  title: "FRP Manufacturers | Wall Protection Manufacturers | FRP Installations Inc.",
+  title: "Wall Protection Manufacturers | FRP Installations Inc.",
   description:
-    "FRP wall panel manufacturer pages for Marlite, Crane Composites, Graham, Panolam, and Nudo. Compare wall protection panel options for commercial and healthcare projects.",
+    "Manufacturer pages for Construction Specialties Acrovyn, Altro, Inpro, Panolam, Marlite, Valto, Graham, Nudo, and related wall protection system partners.",
 };
 
-const frpManufacturers = [
+const manufacturerPages = [
+  {
+    name: "Construction Specialties Acrovyn",
+    href: "/wall-protection/manufacturers/construction-specialties",
+    description: "Acrovyn sheets, crash rails, wall guards, corner guards, handrails, door protection, and Acrovyn by Design systems.",
+  },
+  {
+    name: "Altro",
+    href: "/wall-protection/manufacturers/altro",
+    description: "Whiterock welded hygienic wall systems and Puraguard trim-finished hygienic panels for healthcare environments.",
+  },
   {
     name: "Inpro",
     href: "/wall-protection/manufacturers/inpro",
     description: "Wall protection systems including crash rails, wall guards, corner guards, handrails, door protection, and specialty interior products.",
   },
   {
-    name: "Crane Composites",
-    href: "/wall-protection/manufacturers/crane-composites",
-    description: "Glasbord and Sequentia FRP panels for commercial, food service, healthcare, and industrial spaces.",
-  },
-  {
-    name: "Graham",
-    href: "/wall-protection/manufacturers/graham",
-    description: "Commercial-grade FRP wall panels for sanitation, durability, and day-to-day impact protection.",
+    name: "Panolam",
+    href: "/wall-protection/manufacturers/panolam",
+    description: "FRP, FRL, and decorative wall panel options with strong healthcare and institutional relevance.",
   },
   {
     name: "Marlite",
@@ -30,14 +35,29 @@ const frpManufacturers = [
     description: "Traditional and decorative FRP options, including Symmetrix, Induro, and specialty finishes.",
   },
   {
+    name: "Valto",
+    href: "/wall-protection/manufacturers/valto",
+    description: "Glasbord FRP and Varietex decorative wall systems from the manufacturer formerly known as Crane Composites.",
+  },
+  {
+    name: "Crane Composites",
+    href: "/wall-protection/manufacturers/crane-composites",
+    description: "Legacy route for Glasbord and Sequentia FRP searches, now aligned with the Valto manufacturer identity.",
+  },
+  {
+    name: "Graham",
+    href: "/wall-protection/manufacturers/graham",
+    description: "Commercial-grade FRP wall panels for sanitation, durability, and day-to-day impact protection.",
+  },
+  {
     name: "Nudo",
     href: "/wall-protection/manufacturers/nudo",
     description: "FRP panel products for demanding environments, including liner and specialty panel applications.",
   },
   {
-    name: "Panolam",
-    href: "/wall-protection/manufacturers/panolam",
-    description: "FRP, FRL, and decorative wall panel options with strong healthcare and institutional relevance.",
+    name: "Avonite",
+    href: "/wall-protection/manufacturers/avonite",
+    description: "Solid surface wet wall systems for healthcare washrooms, shower rooms, and wet-area applications.",
   },
 ];
 
@@ -49,11 +69,11 @@ export default function WallProtectionManufacturersPage() {
         <PageHero
           visual="photo"
           backgroundPhoto={sitePhotos.wallProtection}
-          eyebrow="FRP Manufacturers"
+          eyebrow="Manufacturer Pages"
           title="Wall protection manufacturer pages"
-          subtitle="A focused hub for FRP manufacturer pages preserved for search migration and product comparison across common wall protection panel lines."
+          subtitle="A focused hub for manufacturer pages across impact protection, hygienic cladding, FRP, FRL, PVC liner, and wet wall systems."
           quickLinksTitle="Manufacturers"
-          quickLinks={frpManufacturers.map((manufacturer) => ({
+          quickLinks={manufacturerPages.map((manufacturer) => ({
             label: manufacturer.name,
             href: manufacturer.href,
           }))}
@@ -63,19 +83,19 @@ export default function WallProtectionManufacturersPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mb-12 max-w-3xl">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
-                FRP product lines
+                Manufacturer references
               </p>
               <h2 className="text-3xl font-semibold tracking-tight text-[#0f172a] md:text-4xl">
-                Manufacturer references for FRP wall panels
+                Manufacturer references for wall protection systems
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600">
-                These pages support legacy product searches while connecting visitors back to the broader wall
-                protection and manufacturer partner sections of the site.
+                These pages support product searches while connecting visitors back to the broader system and
+                manufacturer partner sections of the site.
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {frpManufacturers.map((manufacturer) => (
+              {manufacturerPages.map((manufacturer) => (
                 <Link
                   key={manufacturer.href}
                   href={manufacturer.href}

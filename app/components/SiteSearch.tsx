@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useDeferredValue, useEffect, useState } from "react";
+import { useDeferredValue, useEffect, useId, useRef, useState } from "react";
 import { getFeaturedSearchEntries, searchSite } from "@/app/data/search-index";
 import SearchResultsList from "./SearchResultsList";
 
@@ -15,6 +15,10 @@ export default function SiteSearch({ isOpen, onClose }: SiteSearchProps) {
   const deferredQuery = useDeferredValue(query);
   const trimmedQuery = deferredQuery.trim();
   const results = trimmedQuery ? searchSite(trimmedQuery, 10) : getFeaturedSearchEntries(8);
+  const titleId = useId();
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const previouslyFocused = useRef<HTMLElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
 
   function handleClose() {
     setQuery("");
@@ -26,11 +30,18 @@ export default function SiteSearch({ isOpen, onClose }: SiteSearchProps) {
       return;
     }
 
+    previouslyFocused.current = document.activeElement as HTMLElement | null;
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
+    const frame = window.requestAnimationFrame(() => {
+      inputRef.current?.focus();
+    });
+
     return () => {
+      window.cancelAnimationFrame(frame);
       document.body.style.overflow = originalOverflow;
+      previouslyFocused.current?.focus?.();
     };
   }, [isOpen]);
 
@@ -41,35 +52,65 @@ export default function SiteSearch({ isOpen, onClose }: SiteSearchProps) {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        onClose();
+        event.preventDefault();
+        handleClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !panelRef.current) {
+        return;
+      }
+
+      const focusable = panelRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   if (!isOpen) {
     return null;
   }
 
   return (
-    <div className="fixed inset-0 z-[70]">
+    <div className="fixed inset-0 z-[70]" role="presentation">
       <button
         type="button"
         className="absolute inset-0 bg-[#004A91]/70 backdrop-blur-sm"
         onClick={handleClose}
         aria-label="Close search"
+        tabIndex={-1}
       />
       <div className="relative flex min-h-full items-start justify-center px-4 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
-        <div className="brand-blue-surface flex max-h-[calc(100dvh-2rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_40px_120px_-48px_rgba(2,6,23,0.95)] sm:max-h-[calc(100dvh-4rem)]">
+        <div
+          ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={titleId}
+          className="brand-blue-surface flex max-h-[calc(100dvh-2rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_40px_120px_-48px_rgba(2,6,23,0.95)] sm:max-h-[calc(100dvh-4rem)]"
+        >
           <div className="border-b border-white/10 px-5 py-5 sm:px-7 sm:py-6">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#64A70B]">
                   Search
                 </p>
-                <h2 className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-3xl">
+                <h2 id={titleId} className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-3xl">
                   Find systems, products, services, and brands
                 </h2>
                 <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/68 sm:text-[0.95rem]">
@@ -82,7 +123,7 @@ export default function SiteSearch({ isOpen, onClose }: SiteSearchProps) {
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
                 aria-label="Close search"
               >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
@@ -91,11 +132,15 @@ export default function SiteSearch({ isOpen, onClose }: SiteSearchProps) {
             <div className="mt-5 rounded-[1.35rem] border border-white/10 bg-white/6 p-2">
               <div className="flex flex-col gap-3 rounded-[1.1rem] bg-white px-4 py-3 shadow-[0_16px_44px_-32px_rgba(15,23,42,0.6)] sm:flex-row sm:items-center">
                 <div className="flex min-w-0 flex-1 items-center gap-3">
-                <svg className="h-5 w-5 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-5 w-5 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="m21 21-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0Z" />
                 </svg>
+                <label htmlFor="site-search-input" className="sr-only">
+                  Search the site
+                </label>
                 <input
-                  autoFocus
+                  id="site-search-input"
+                  ref={inputRef}
                   type="text"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}

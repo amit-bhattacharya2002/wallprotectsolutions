@@ -13,22 +13,27 @@ export const metadata = {
 const manufacturers = [
   {
     name: "Valto (formerly Crane Composites)",
+    href: "/wall-protection/manufacturers/valto",
     products: ["Glasbord — traditional FRP, industry standard", "Varietex — decorative FRP line with printed surface patterns"],
   },
   {
     name: "Stabilit / Graham",
+    href: "/wall-protection/manufacturers/graham",
     products: ["Exceliner and Glasliner", "White pebbled and white smooth — major volume products in healthcare", "Reliable Western Canada supply and cost-effective AHJ-friendly options"],
   },
   {
     name: "Marlite",
+    href: "/wall-protection/manufacturers/marlite",
     products: ["Standard FRP", "Induro (HPL-faced FRP)", "Symmetrix FRP (tile appearance)", "Artizan Max (decorative)"],
   },
   {
     name: "Panolam Surface Systems",
+    href: "/wall-protection/manufacturers/panolam",
     products: ["Traditional FRP wall panel options", "Also available as FRL — see FRL / Decorative Systems"],
   },
   {
     name: "Nudo",
+    href: "/wall-protection/manufacturers/nudo",
     products: ["Traditional FRP wall panel products"],
   },
 ];
@@ -83,7 +88,11 @@ export default function FRPWallSystemsPage() {
             <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
               {manufacturers.map((mfr) => (
                 <div key={mfr.name} className="border-l-2 border-[#64A70B] pl-6">
-                  <h3 className="mb-3 text-lg font-semibold text-[#0f172a]">{mfr.name}</h3>
+                  <h3 className="mb-3 text-lg font-semibold text-[#0f172a]">
+                    <Link href={mfr.href} className="transition-colors hover:text-[#64A70B]">
+                      {mfr.name}
+                    </Link>
+                  </h3>
                   <ul className="space-y-2">
                     {mfr.products.map((product) => (
                       <li key={product} className="flex items-baseline gap-3 text-sm leading-relaxed text-gray-600">

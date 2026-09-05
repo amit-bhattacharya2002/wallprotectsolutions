@@ -89,7 +89,7 @@ export default function NudoPage() {
               {products.map((product, index) => (
                 <div key={product.name} className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start ${index !== 0 ? 'pt-20 border-t border-gray-200' : ''}`}>
                   <div>
-                    <span className="text-sm font-medium text-[#f97316] tracking-wider uppercase mb-4 block">
+                    <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">
                       Product {String(index + 1).padStart(2, '0')}
                     </span>
                     <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">
@@ -103,7 +103,7 @@ export default function NudoPage() {
                     <ul className="space-y-3 mb-8">
                       {product.benefits.map((benefit) => (
                         <li key={benefit} className="flex items-start gap-3">
-                          <svg className="w-5 h-5 text-[#f97316] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <svg className="w-5 h-5 text-[#64A70B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
                           <span className="text-gray-600">{benefit}</span>
@@ -224,7 +224,7 @@ export default function NudoPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/quote"
-                className="group inline-flex items-center gap-3 bg-[#f97316] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#ea580c]"
+                className="group inline-flex items-center gap-3 bg-[#64A70B] text-white px-8 py-4 rounded-full font-medium transition-all hover:bg-[#ea580c]"
               >
                 Get a Quote
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

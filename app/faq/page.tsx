@@ -2,13 +2,27 @@
 
 import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { faqCategories } from "@/app/data/faq";
 import { sitePhotos } from "@/app/data/site-photos";
 
 export default function FAQPage() {
   const [openItem, setOpenItem] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>("all");
+  const baseId = useId();
+
+  useEffect(() => {
+    const applyHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && faqCategories.some((category) => category.slug === hash)) {
+        setActiveCategory(hash);
+      }
+    };
+
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
 
   const visibleCategories = activeCategory === "all"
     ? faqCategories
@@ -25,11 +39,11 @@ export default function FAQPage() {
           subtitle="Technical reference for GCs, project managers, estimators, and design teams. Answers to common questions about wall protection systems, hygienic cladding, pre-construction, and documentation."
           quickLinksTitle="Categories"
           quickLinks={[
-            { label: "General", href: "/faq" },
-            { label: "Pre-Construction", href: "/faq" },
-            { label: "Submittals", href: "/faq" },
-            { label: "Healthcare & Hygienic", href: "/faq" },
-            { label: "Wall Protection Systems", href: "/faq" },
+            { label: "General", href: "/faq#general" },
+            { label: "Pre-Construction", href: "/faq#pre-construction" },
+            { label: "Submittals", href: "/faq#submittals" },
+            { label: "Healthcare & Hygienic", href: "/faq#healthcare-hygienic" },
+            { label: "Wall Protection Systems", href: "/faq#wall-protection-systems" },
           ]}
         />
 
@@ -62,7 +76,11 @@ export default function FAQPage() {
               </p>
               <div className="flex flex-wrap gap-x-5 gap-y-2 border-b border-slate-200">
               <button
-                onClick={() => setActiveCategory("all")}
+                type="button"
+                onClick={() => {
+                  setActiveCategory("all");
+                  window.history.replaceState(null, "", "/faq");
+                }}
                 className={`border-b-2 pb-2 text-sm font-medium transition-colors ${activeCategory === "all" ? "border-[#005EB8] text-[#005EB8]" : "border-transparent text-gray-600 hover:text-[#0f172a]"}`}
               >
                 All Questions
@@ -70,7 +88,11 @@ export default function FAQPage() {
               {faqCategories.map((cat) => (
                 <button
                   key={cat.slug}
-                  onClick={() => setActiveCategory(cat.slug)}
+                  type="button"
+                  onClick={() => {
+                    setActiveCategory(cat.slug);
+                    window.history.replaceState(null, "", `/faq#${cat.slug}`);
+                  }}
                   className={`border-b-2 pb-2 text-sm font-medium transition-colors ${activeCategory === cat.slug ? "border-[#005EB8] text-[#005EB8]" : "border-transparent text-gray-600 hover:text-[#0f172a]"}`}
                 >
                   {cat.title}
@@ -82,17 +104,23 @@ export default function FAQPage() {
             {/* FAQ items */}
             <div className="space-y-8">
               {visibleCategories.map((category) => (
-                <div key={category.slug}>
+                <div key={category.slug} id={category.slug} className="scroll-mt-28">
                   <h2 className="text-xl font-semibold text-[#0f172a] mb-4">
                     {category.title}
                   </h2>
                   <div className="divide-y divide-gray-200 border-y border-gray-200">
-                    {category.items.map((item) => {
+                    {category.items.map((item, itemIndex) => {
                       const key = `${category.slug}-${item.question}`;
                       const isOpen = openItem === key;
+                      const panelId = `${baseId}-${category.slug}-${itemIndex}-panel`;
+                      const buttonId = `${baseId}-${category.slug}-${itemIndex}-button`;
                       return (
                         <div key={key}>
                           <button
+                            id={buttonId}
+                            type="button"
+                            aria-expanded={isOpen}
+                            aria-controls={panelId}
                             onClick={() => setOpenItem(isOpen ? null : key)}
                             className="w-full flex items-center justify-between px-0 py-5 text-left hover:text-[#64A70B] transition-colors"
                           >
@@ -102,15 +130,23 @@ export default function FAQPage() {
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
+                              aria-hidden="true"
                             >
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                           </button>
-                          {isOpen && (
-                            <div className="pb-6 pr-6">
-                              <p className="text-gray-600 leading-relaxed font-normal">{item.answer}</p>
+                          <div
+                            id={panelId}
+                            role="region"
+                            aria-labelledby={buttonId}
+                            className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+                              isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                            }`}
+                          >
+                            <div className="overflow-hidden">
+                              <p className="pb-6 pr-6 text-gray-600 leading-relaxed font-normal">{item.answer}</p>
                             </div>
-                          )}
+                          </div>
                         </div>
                       );
                     })}
@@ -129,10 +165,10 @@ export default function FAQPage() {
             <h2 className="text-2xl md:text-3xl font-semibold text-[#0f172a] tracking-tight mb-4">Have a question that isn&apos;t answered here?</h2>
             <p className="text-gray-600 max-w-xl mx-auto mb-8 font-normal">Get in touch — we are happy to discuss your project&apos;s specific requirements.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#2B7DCE] transition-colors">Contact Us</Link>
+              <Link href="/contact" className="btn-primary rounded-none">Contact Us</Link>
               <Link href="/pre-construction" className="inline-flex items-center gap-2 text-[#64A70B] font-medium hover:gap-3 transition-all">
                 Pre-Construction Support
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>

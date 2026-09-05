@@ -57,7 +57,7 @@ export default function QuotePage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Quote request submitted:", formData);
-    alert("Thank you for your quote request! We'll review your project details and get back to you within 24 hours with a detailed estimate.");
+    alert("Thank you for your quote request! We'll review your project details and get back to you within one business day with a detailed estimate.");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -395,7 +395,7 @@ export default function QuotePage() {
                   </button>
 
                   <p className="text-sm text-gray-600 text-center mt-4">
-                    We typically respond within 24 business hours.
+                    We typically respond within one business day.
                   </p>
                 </form>
               </div>

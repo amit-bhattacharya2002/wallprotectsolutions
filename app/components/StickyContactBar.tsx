@@ -51,7 +51,7 @@ export default function StickyContactBar() {
           href="/quote"
           className="inline-flex h-11 min-w-0 flex-1 items-center justify-center rounded-full bg-[#64A70B] px-4 text-sm font-medium text-white transition-colors hover:bg-[#9BCB4A]"
         >
-          Get a quote
+          Get a Quote
         </Link>
       </div>
     </div>

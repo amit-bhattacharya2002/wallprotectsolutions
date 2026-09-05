@@ -129,13 +129,6 @@ const jsonLd = {
         closes: "17:00",
       },
       sameAs: [],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "5.0",
-        reviewCount: "47",
-        bestRating: "5",
-        worstRating: "1",
-      },
     },
     {
       "@type": "WebSite",
@@ -190,8 +183,16 @@ export default function RootLayout({
         <meta name="ICBM" content="49.2827, -122.7931" />
       </head>
       <body className="antialiased">
+        <a
+          href="#main-content"
+          className="absolute left-4 top-4 z-100 -translate-y-16 rounded bg-white px-4 py-2 text-sm font-medium text-[#0f172a] outline-2 outline-[#64A70B] transition-transform focus:translate-y-0"
+        >
+          Skip to main content
+        </a>
         <PageBreadcrumb />
-        {children}
+        <div id="main-content">
+          {children}
+        </div>
         <BackToTopButton />
         <StickyContactBar />
         <ScrollRevealManager />

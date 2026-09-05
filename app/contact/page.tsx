@@ -30,7 +30,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    alert("Thank you for your message! We'll get back to you within 24 hours.");
+    alert("Thank you for your message! We'll get back to you within one business day.");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -98,7 +98,7 @@ export default function ContactPage() {
                       <a href="mailto:info@frpinstallations.com" className="text-2xl font-semibold text-[#0f172a] hover:text-[#64A70B] transition-colors">
                         info@frpinstallations.com
                       </a>
-                      <p className="text-gray-600 text-sm mt-1">We respond within 24 hours</p>
+                      <p className="text-gray-600 text-sm mt-1">We typically respond within one business day</p>
                     </div>
                   </div>
 

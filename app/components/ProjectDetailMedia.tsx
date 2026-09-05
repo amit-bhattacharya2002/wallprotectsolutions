@@ -56,7 +56,7 @@ export default function ProjectDetailMedia({
             className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
           <span className="pointer-events-none absolute inset-0 bg-transparent transition-colors group-hover:bg-slate-950/10" />
-          <span className="absolute bottom-4 right-4 rounded-full bg-black/55 px-3 py-1.5 text-xs font-medium text-white opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
+          <span className="absolute bottom-4 right-4 rounded-full bg-black/55 px-3 py-1.5 text-xs font-medium text-white opacity-90 backdrop-blur-sm sm:opacity-0 sm:transition-opacity sm:group-hover:opacity-100">
             View gallery
           </span>
         </button>
@@ -95,7 +95,7 @@ export default function ProjectDetailMedia({
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="pointer-events-none absolute inset-0 bg-transparent transition-colors group-hover:bg-slate-950/10" />
-                <span className="absolute bottom-2 right-2 rounded-full bg-black/50 px-2 py-0.5 text-[10px] font-medium text-white opacity-0 transition-opacity group-hover:opacity-100">
+                <span className="absolute bottom-2 right-2 rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-medium text-white opacity-90 sm:opacity-0 sm:transition-opacity sm:group-hover:opacity-100">
                   View
                 </span>
               </button>

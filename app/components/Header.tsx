@@ -136,6 +136,17 @@ export default function Header() {
         className="group relative"
         onMouseEnter={() => item.children && setActiveDropdown(item.name)}
         onMouseLeave={() => setActiveDropdown(null)}
+        onFocusCapture={() => item.children && setActiveDropdown(item.name)}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+            setActiveDropdown(null);
+          }
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            setActiveDropdown(null);
+          }
+        }}
       >
         <Link
           href={item.href}
@@ -146,6 +157,8 @@ export default function Header() {
               ? "text-[#0f172a]"
               : "text-slate-500 hover:text-[#0f172a]"
           }`}
+          aria-haspopup={item.children ? "menu" : undefined}
+          aria-expanded={item.children ? activeDropdown === item.name : undefined}
         >
           {item.name}
           {item.children && (
@@ -156,6 +169,7 @@ export default function Header() {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -168,12 +182,13 @@ export default function Header() {
         </Link>
 
         {item.children && activeDropdown === item.name && (
-          <div className="absolute left-0 top-full z-50 pt-2">
+          <div className="absolute left-0 top-full z-50 pt-2" role="menu" aria-label={`${item.name} submenu`}>
             <div className="min-w-[240px] rounded-xl border border-slate-100 bg-white py-2 shadow-xl">
               {item.children.map((child) => (
                 <Link
                   key={child.name}
                   href={child.href}
+                  role="menuitem"
                   className="block px-4 py-2.5 text-sm text-slate-500 transition-colors hover:bg-slate-50 hover:text-[#0f172a]"
                 >
                   {child.name}
@@ -229,16 +244,16 @@ export default function Header() {
         </div>
 
         {/* ── Row 2: Logo + nav (when scrolled) + search bar + CTA ── */}
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
-            className={`relative flex items-center gap-3 transition-all duration-300 ease-out md:gap-6 ${
+            className={`relative flex items-center gap-2 transition-all duration-300 ease-out sm:gap-3 md:gap-6 ${
               isScrolled ? "py-3" : "py-3 md:py-4"
             }`}
           >
             {/* Logo */}
             <Link
               href="/"
-              className="brand-wordmark group flex min-w-0 shrink-0 flex-col leading-none lg:shrink-0"
+              className="brand-wordmark group flex min-w-0 shrink flex-col leading-none lg:shrink-0"
             >
               <span
                 className={`font-semibold leading-tight tracking-tight text-[#0f172a] transition-all duration-300 ${
@@ -318,11 +333,11 @@ export default function Header() {
             </div>
 
             {/* Mobile actions */}
-            <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2 lg:hidden">
+            <div className="ml-auto flex shrink-0 items-center gap-1.5 lg:hidden">
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#64A70B] hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[#10233F] transition-colors hover:border-[#64A70B]/40 hover:text-[#64A70B]"
                 aria-label="Search the site"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -331,7 +346,7 @@ export default function Header() {
               </button>
               <a
                 href="tel:604-715-9469"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#64A70B] hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[#10233F] transition-colors hover:border-[#64A70B]/40 hover:text-[#64A70B]"
                 aria-label="Call us"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -340,7 +355,7 @@ export default function Header() {
               </a>
               <a
                 href="mailto:info@frpinstallations.com"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors hover:bg-[#64A70B] hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[#10233F] transition-colors hover:border-[#64A70B]/40 hover:text-[#64A70B]"
                 aria-label="Email us"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -348,23 +363,26 @@ export default function Header() {
                 </svg>
               </a>
               <button
+                type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-700"
-                aria-label="Menu"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[#10233F]"
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-nav-panel"
               >
                 <div className="relative flex h-3 w-4 flex-col justify-between">
                   <span
-                    className={`h-0.5 w-full origin-center bg-[#005EB8] transition-all duration-300 ${
+                    className={`h-0.5 w-full origin-center bg-[#10233F] transition-all duration-300 ${
                       isMobileMenuOpen ? "translate-y-[5px] rotate-45" : ""
                     }`}
                   />
                   <span
-                    className={`h-0.5 w-full bg-[#005EB8] transition-all duration-300 ${
+                    className={`h-0.5 w-full bg-[#10233F] transition-all duration-300 ${
                       isMobileMenuOpen ? "opacity-0" : ""
                     }`}
                   />
                   <span
-                    className={`h-0.5 w-full origin-center bg-[#005EB8] transition-all duration-300 ${
+                    className={`h-0.5 w-full origin-center bg-[#10233F] transition-all duration-300 ${
                       isMobileMenuOpen ? "-translate-y-[5px] -rotate-45" : ""
                     }`}
                   />
@@ -405,9 +423,14 @@ export default function Header() {
 
       {/* Mobile Menu Panel - Slide from right */}
       <div
+        id="mobile-nav-panel"
         className={`fixed bottom-0 right-0 top-0 z-[70] flex w-[85%] max-w-[360px] flex-col bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+        aria-hidden={!isMobileMenuOpen}
       >
         {/* Mobile Menu Header */}
         <div className="flex shrink-0 items-center justify-between border-b border-slate-100 p-5">
@@ -424,8 +447,10 @@ export default function Header() {
             </span>
           </Link>
           <button
+            type="button"
             onClick={() => setIsMobileMenuOpen(false)}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors hover:bg-slate-200"
+            aria-label="Close menu"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -458,24 +483,36 @@ export default function Header() {
               <div key={item.name} className="border-b border-slate-100 last:border-b-0">
                 {item.children ? (
                   <>
-                    <button
-                      onClick={() => setMobileDropdownOpen(mobileDropdownOpen === item.name ? null : item.name)}
-                      className={`flex w-full items-center justify-between py-4 text-lg font-medium transition-colors ${
-                        isItemActive(item) ? "text-[#64A70B]" : "text-[#0f172a]"
-                      }`}
-                    >
-                      {item.name}
-                      <svg
-                        className={`h-5 w-5 text-slate-400 transition-transform duration-200 ${
-                          mobileDropdownOpen === item.name ? "rotate-180" : ""
+                    <div className="flex items-center gap-2 py-3">
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`flex-1 text-lg font-medium transition-colors ${
+                          isItemActive(item) ? "text-[#64A70B]" : "text-[#0f172a]"
                         }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
+                        {item.name}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => setMobileDropdownOpen(mobileDropdownOpen === item.name ? null : item.name)}
+                        className="flex h-10 w-10 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-50"
+                        aria-expanded={mobileDropdownOpen === item.name}
+                        aria-label={`${mobileDropdownOpen === item.name ? "Collapse" : "Expand"} ${item.name} submenu`}
+                      >
+                        <svg
+                          className={`h-5 w-5 transition-transform duration-200 ${
+                            mobileDropdownOpen === item.name ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    </div>
                     <div className={`overflow-hidden transition-all duration-200 ${
                       mobileDropdownOpen === item.name ? "max-h-[400px] pb-3" : "max-h-0"
                     }`}>

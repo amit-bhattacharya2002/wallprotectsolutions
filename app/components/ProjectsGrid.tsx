@@ -12,6 +12,7 @@ const categoryByHash: Record<string, string> = {
   education: "Education",
   "food-beverage": "Food & Beverage",
   "special-projects": "Special Projects",
+  agriculture: "Special Projects",
 };
 
 type ViewMode = "grid" | "list";

@@ -53,6 +53,18 @@ body {
   letter-spacing: -0.01em;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -110,17 +122,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Gentle scroll fade-up for headings/blocks when they enter the viewport. */
 @keyframes scroll-fade-up {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(28px);
   will-change: opacity, transform;
 }
 .reveal.is-visible {
-  animation: scroll-fade-up 560ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scroll-fade-up 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .reveal.is-visible.reveal-stagger-1 { animation-delay: 90ms; }
 .reveal.is-visible.reveal-stagger-2 { animation-delay: 170ms; }
@@ -482,7 +494,64 @@ img {
 .field-input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+  box-shadow: 0 0 0 3px rgba(100, 167, 11, 0.18);
+}
+
+/* Shared CTA system — square corners match Footer / Contact / newer pages */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.9rem 1.75rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  color: var(--foreground);
+  background: transparent;
+  padding: 0.9rem 1.75rem;
+  font-weight: 500;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-secondary-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: white;
+  background: transparent;
+  padding: 0.9rem 1.75rem;
+  font-weight: 500;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.btn-secondary-light:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes kenburns {
+    from { transform: scale(1); }
+    to   { transform: scale(1); }
+  }
 }
 
 @media (min-width: 768px) {

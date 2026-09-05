@@ -165,7 +165,7 @@ export default function FRPSalesPage() {
 
                 <Link
                   href="/quote"
-                  className="inline-flex items-center gap-3 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                  className="btn-primary"
                 >
                   Request a Quote
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -178,7 +178,7 @@ export default function FRPSalesPage() {
                 <SitePhoto photo={sitePhotos.services.sales} overlay="gradient" className="mb-6 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
                 <div className="grid grid-cols-2 gap-4">
                 {features.map((feature) => (
-                  <div key={feature.title} className="p-6 border border-gray-200 rounded-xl hover:border-[#f97316] transition-colors">
+                  <div key={feature.title} className="p-6 border border-gray-200 rounded-xl hover:border-[#005EB8] transition-colors">
                     <div className="w-12 h-12 bg-[#f8fafc] rounded-lg flex items-center justify-center text-[#0f172a] mb-4">
                       {feature.icon}
                     </div>
@@ -237,7 +237,7 @@ export default function FRPSalesPage() {
                   <ul className="space-y-2">
                     {option.items.map((item) => (
                       <li key={item} className="flex items-center gap-2 text-gray-700">
-                        <svg className="w-4 h-4 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-[#64A70B]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         {item}
@@ -286,13 +286,13 @@ export default function FRPSalesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/quote"
-                  className="inline-flex items-center justify-center gap-3 bg-[#005EB8] text-white px-8 py-4 rounded-full font-medium hover:bg-[#f97316] transition-all"
+                  className="btn-primary"
                 >
                   Get a Quote
                 </Link>
                 <Link
                   href="/services/frp-installation"
-                  className="inline-flex items-center justify-center gap-3 border border-gray-300 text-[#0f172a] px-8 py-4 rounded-full font-medium hover:border-[#64A70B] transition-all"
+                  className="btn-secondary"
                 >
                   Learn About Installation
                 </Link>
@@ -306,12 +306,12 @@ export default function FRPSalesPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <h2 className="text-2xl font-semibold text-[#0f172a] mb-8">Other Services</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <Link href="/services/frp-installation" className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
-                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#f97316] transition-colors">FRP Installation</h3>
+              <Link href="/services/frp-installation" className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#005EB8] transition-colors">
+                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#005EB8] transition-colors">FRP Installation</h3>
                 <p className="text-gray-600 font-normal">Professional panel installation for walls and ceilings across British Columbia.</p>
               </Link>
-              <Link href="/services/frp-service" className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#f97316] transition-colors">
-                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#f97316] transition-colors">FRP Service</h3>
+              <Link href="/services/frp-service" className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-[#005EB8] transition-colors">
+                <h3 className="text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#005EB8] transition-colors">FRP Service</h3>
                 <p className="text-gray-600 font-normal">Consultation services, product recommendations, and 12-month warranty.</p>
               </Link>
             </div>

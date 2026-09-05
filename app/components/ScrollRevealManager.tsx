@@ -125,13 +125,25 @@ export default function ScrollRevealManager() {
           }
         }
       },
-      { rootMargin: "0px 0px -6% 0px", threshold: [0, 0.05, 0.1] },
+      // Negative bottom margin so the fade starts as the block enters the
+      // viewport, not while it's still well below the fold.
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
     );
+
+    const isInViewport = (el: HTMLElement) => {
+      const rect = el.getBoundingClientRect();
+      const viewportBottom = window.innerHeight * 0.88;
+      return rect.top < viewportBottom && rect.bottom > 0;
+    };
 
     const observeIfNeeded = (el: HTMLElement) => {
       if (observed.has(el)) return;
       if (!el.classList.contains("reveal") || el.classList.contains("is-visible")) return;
       observed.add(el);
+      if (isInViewport(el)) {
+        activate(el);
+        return;
+      }
       io.observe(el);
     };
 
@@ -147,10 +159,6 @@ export default function ScrollRevealManager() {
       rafInner = requestAnimationFrame(scan);
     });
 
-    const fallback = window.setTimeout(() => {
-      collect().forEach(activate);
-    }, 2800);
-
     const debouncedMutationScan = () => {
       if (mutationDebounceId !== null) {
         window.clearTimeout(mutationDebounceId);
@@ -164,9 +172,8 @@ export default function ScrollRevealManager() {
     const mo = new MutationObserver(debouncedMutationScan);
     mo.observe(document.body, { childList: true, subtree: true });
 
-    const onPageShow = (e: PageTransitionEvent) => {
+    const onPageShow = () => {
       scan();
-      if (e.persisted) collect().forEach(activate);
     };
     window.addEventListener("pageshow", onPageShow);
 
@@ -178,7 +185,6 @@ export default function ScrollRevealManager() {
     return () => {
       cancelAnimationFrame(rafOuter);
       cancelAnimationFrame(rafInner);
-      window.clearTimeout(fallback);
       if (mutationDebounceId !== null) {
         window.clearTimeout(mutationDebounceId);
       }
