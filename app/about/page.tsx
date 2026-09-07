@@ -197,9 +197,9 @@ export default function AboutPage() {
                   and professional practice across British Columbia.
                 </p>
               </div>
-              <div className="flex flex-wrap items-center justify-start gap-6 sm:justify-end md:gap-8">
-                <VrcaBadge variant="color" className="w-52 md:w-60" />
-                <ProcoreBadge className="w-32 md:w-36" />
+              <div className="flex flex-nowrap items-center justify-start gap-3 sm:justify-end sm:gap-6 md:gap-8">
+                <VrcaBadge variant="color" className="w-36 shrink-0 sm:w-52 md:w-60" />
+                <ProcoreBadge className="w-24 shrink-0 sm:w-32 md:w-36" />
               </div>
             </div>
           </div>
