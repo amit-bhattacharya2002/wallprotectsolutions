@@ -102,9 +102,9 @@ export default function SiteSearch({ isOpen, onClose }: SiteSearchProps) {
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
-          className="brand-blue-surface flex max-h-[calc(100dvh-2rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_40px_120px_-48px_rgba(2,6,23,0.95)] sm:max-h-[calc(100dvh-4rem)]"
+          className="flex max-h-[calc(100dvh-2rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_40px_120px_-48px_rgba(2,6,23,0.95)] sm:max-h-[calc(100dvh-4rem)]"
         >
-          <div className="border-b border-white/10 px-5 py-5 sm:px-7 sm:py-6">
+          <div className="brand-blue-surface shrink-0 border-b border-white/10 px-5 py-5 sm:px-7 sm:py-6">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#64A70B]">

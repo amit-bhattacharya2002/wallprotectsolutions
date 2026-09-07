@@ -38,7 +38,15 @@ function easeOutCubic(t: number) {
  * container scrolls into view. Respects `prefers-reduced-motion` by snapping
  * straight to the final value.
  */
-function CountUpStat({ stat, start }: { stat: Stat; start: boolean }) {
+function CountUpStat({
+  stat,
+  start,
+  className = "",
+}: {
+  stat: Stat;
+  start: boolean;
+  className?: string;
+}) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -59,7 +67,9 @@ function CountUpStat({ stat, start }: { stat: Stat; start: boolean }) {
   }, [start, stat.value]);
 
   return (
-    <div className="border-t border-slate-200 pt-4 max-md:text-center md:border-l md:border-t-0 md:pl-6">
+    <div
+      className={`border-t border-slate-200 pt-4 max-md:text-center md:border-l md:border-t-0 md:pl-6 ${className}`}
+    >
       <span
         className={`block text-3xl font-semibold tracking-tight leading-none tabular-nums md:text-4xl ${
           stat.accent ? "text-[#4f8f16]" : "text-[#10233F]"
@@ -147,7 +157,12 @@ export default function HeroTrustLine() {
 
           <div className="grid grid-cols-2 gap-x-5 gap-y-6 md:grid-cols-5 md:gap-x-0">
             {stats.map((stat, i) => (
-              <CountUpStat key={i} stat={stat} start={hasStarted} />
+              <CountUpStat
+                key={i}
+                stat={stat}
+                start={hasStarted}
+                className={i === stats.length - 1 ? "max-md:col-span-2" : undefined}
+              />
             ))}
           </div>
         </div>
