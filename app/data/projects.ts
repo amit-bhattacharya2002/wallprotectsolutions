@@ -184,7 +184,7 @@ export const projects: Project[] = [
     description: "Wall protection for Vancouver General Hospital endoscopy suite work.",
     fullDescription:
       "FRP and hygienic wall protection installed for VGH endoscopy suite upgrades. The scope supports sanitary, cleanable surfaces required in procedural healthcare environments within an operating hospital.",
-    image: "https://2u8xhjuusb19t6ck.public.blob.vercel-storage.com/projects/vgh-endoscopy/cover.webp",
+    image: "https://2u8xhjuusb19t6ck.public.blob.vercel-storage.com/projects/vgh-endoscopy/cover.webp?v=20260907",
     details: {
       location: "Vancouver, BC",
       products: ["Healthcare-Grade FRP", "Hygienic Wall Cladding", "Sealed Systems"],
