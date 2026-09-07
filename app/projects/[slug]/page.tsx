@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header, Footer, PageHero, RelatedHealthcareResources } from "@/app/components";
 import ProjectDetailMedia from "@/app/components/ProjectDetailMedia";
 import ProjectCover from "@/app/components/ProjectCover";
+import ProjectPageHero from "@/app/components/ProjectPageHero";
 import { projects, getProjectBySlug, getAllProjectSlugs } from "@/app/data/projects";
 import { getProjectCoverImage, projectHasMedia, resolveProjectGallery } from "@/app/lib/project-gallery";
 import { getProductHref } from "@/app/lib/product-links";
@@ -82,20 +83,30 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <>
       <Header />
       <main>
-        <PageHero
-          backLink={{ href: "/projects", label: "Back to Projects" }}
-          eyebrow={project.category}
-          badge={
-            project.signature ? (
-              <span className="inline-flex items-center rounded-full bg-[#005EB8]/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
-                Signature Project
-              </span>
-            ) : undefined
-          }
+        <ProjectPageHero
           title={project.title}
           subtitle={project.description}
-          subtitleClassName="text-lg md:text-xl"
+          category={project.category}
+          signature={project.signature}
+          coverImage={coverImage}
+          hasMedia={hasMedia}
         />
+        <div className="hidden lg:block">
+          <PageHero
+            backLink={{ href: "/projects", label: "Back to Projects" }}
+            eyebrow={project.category}
+            badge={
+              project.signature ? (
+                <span className="inline-flex items-center rounded-full bg-[#005EB8]/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
+                  Signature Project
+                </span>
+              ) : undefined
+            }
+            title={project.title}
+            subtitle={project.description}
+            subtitleClassName="text-lg md:text-xl"
+          />
+        </div>
 
         <section className="py-16 lg:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">

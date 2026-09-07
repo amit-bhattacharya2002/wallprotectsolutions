@@ -45,7 +45,7 @@ export default function ProjectDetailMedia({
         <button
           type="button"
           onClick={() => openLightbox(findCoverIndex(images, coverImage))}
-          className="group relative -mx-6 mb-10 block aspect-[16/10] w-[calc(100%+3rem)] overflow-hidden rounded-none bg-gray-100 text-left shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64A70B] focus-visible:ring-offset-2 sm:mx-0 sm:w-full sm:rounded-2xl"
+          className="group relative mb-10 hidden aspect-16/10 w-full overflow-hidden rounded-2xl bg-gray-100 text-left shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64A70B] focus-visible:ring-offset-2 lg:block"
           aria-label="Open main project photo in gallery viewer"
         >
           <ProjectImage
@@ -61,7 +61,7 @@ export default function ProjectDetailMedia({
           </span>
         </button>
       ) : (
-        <div className="-mx-6 mb-10 flex aspect-[16/10] w-[calc(100%+3rem)] items-center justify-center rounded-none bg-[#f1f5f9] sm:mx-0 sm:w-full sm:rounded-2xl">
+        <div className="mb-10 hidden aspect-16/10 w-full items-center justify-center rounded-2xl bg-[#f1f5f9] lg:flex">
           <p className="px-6 text-center text-sm font-medium uppercase tracking-[0.16em] text-slate-400">
             Project photos coming soon
           </p>
