@@ -329,10 +329,16 @@ export default function Hero() {
 
       {/* ── Foreground layer ── */}
       <div className="pointer-events-none relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col md:absolute md:inset-0">
+        {/* Mobile: equal leftover space above and below the copy so it sits
+            in the photo band between the header and the card. */}
+        <div
+          className="min-h-[calc(4.75rem+env(safe-area-inset-top,0px))] flex-1 md:hidden"
+          aria-hidden
+        />
         {/* Heading — one slot, each slide supplies its own eyebrow + headline.
              All variants stack in a single grid cell and crossfade in sync
              with the background slideshow. */}
-        <div className="pointer-events-none relative z-40 shrink-0 px-5 pt-[3.25rem] pb-0 md:absolute md:inset-x-0 md:top-[28dvh] md:px-8 md:pb-24 md:pt-0 lg:top-[30dvh] lg:pb-0 lg:pl-10 lg:pr-8">
+        <div className="pointer-events-none relative z-40 shrink-0 px-5 pb-0 md:absolute md:inset-x-0 md:top-[28dvh] md:px-8 md:pb-24 md:pt-0 lg:top-[30dvh] lg:pb-0 lg:pl-10 lg:pr-8">
           {/*
             Stacked in one grid cell. Do NOT crossfade outgoing + incoming copy
             with the same long opacity transition — both sit at ~50% opacity in
@@ -390,8 +396,10 @@ export default function Hero() {
           />
         </div>
 
-        {/* Bottom: mobile = dots → Procore + card column. md+ = dots, then partner + card in one row (items-end aligns bottoms). */}
-        <div className="pointer-events-none relative z-50 mt-auto flex w-full shrink-0 flex-col items-center px-4 pb-2 max-md:gap-2 md:absolute md:inset-0 md:bottom-3 md:mt-0 md:items-end md:justify-end md:gap-2 md:px-8 md:pb-8 md:pt-0 lg:px-10">
+        <div className="flex-[0.7] md:hidden" aria-hidden />
+
+        {/* Bottom: mobile = Procore + card column. md+ = dots, then partner + card in one row (items-end aligns bottoms). */}
+        <div className="pointer-events-none relative z-50 flex w-full shrink-0 flex-col items-center px-4 pb-2 max-md:gap-2 md:absolute md:inset-0 md:bottom-3 md:items-end md:justify-end md:gap-2 md:px-8 md:pb-8 md:pt-0 lg:px-10">
           <HeroCarouselDots
             activeIndex={activeIndex}
             onSelect={setActiveIndex}
