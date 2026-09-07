@@ -249,6 +249,10 @@ const projectEntries: SearchEntry[] = projects.map((project) => ({
     project.category,
     project.fullDescription,
     project.details.location ?? "",
+    project.details.year ?? "",
+    project.details.finish ?? "",
+    project.details.industry ?? "",
+    ...(project.details.rooms ?? []),
     ...(project.details.products ?? []),
   ],
 }));

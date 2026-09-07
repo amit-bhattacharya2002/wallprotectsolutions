@@ -1,6 +1,7 @@
-import { Header, Footer, PageHero, RelatedHealthcareResources, SitePhoto, SystemProjectsList } from "@/app/components";
+import { Header, Footer, PageHero, RelatedHealthcareResources, SitePhoto, SystemOverview, SystemProjectsList } from "@/app/components";
 import Link from "next/link";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemOverviews } from "@/app/data/system-overviews";
 import { systemProjects } from "@/app/data/system-projects";
 
 const frpProjects = systemProjects["frp-wall-systems"];
@@ -76,6 +77,8 @@ export default function FRPWallSystemsPage() {
             { label: "All Systems", href: "/systems" },
           ]}
         />
+
+        <SystemOverview overview={systemOverviews["frp-wall-systems"]} />
 
         <section className="scroll-mt-28 bg-white py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">

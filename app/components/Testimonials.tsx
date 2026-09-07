@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
+import ParallaxBackground from "./ParallaxBackground";
 
 const testimonials = [
   {
@@ -87,13 +87,9 @@ export default function Testimonials() {
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      <Image
+      <ParallaxBackground
         src="/actualphotos/7.jpg"
-        alt=""
-        aria-hidden="true"
-        fill
-        sizes="100vw"
-        className="pointer-events-none absolute inset-0 z-0 hidden object-cover object-center filter-[saturate(0.88)_brightness(0.82)] md:block"
+        imageClassName="filter-[saturate(0.88)_brightness(0.82)]"
       />
       <div className="pointer-events-none absolute inset-0 z-1 bg-linear-to-r from-[#005EB8]/84 via-[#0d6fc7]/66 to-[#64A70B]/58" />
       <div className="pointer-events-none absolute inset-0 z-1 bg-[linear-gradient(90deg,rgba(7,21,34,0.8)_0%,rgba(7,21,34,0.6)_48%,rgba(7,21,34,0.3)_100%)]" />

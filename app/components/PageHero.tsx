@@ -102,7 +102,6 @@ export default function PageHero({
   const isPhoto = visual === "photo";
   const isLightBluePhoto = isPhoto && photoTone === "lightBlue";
   const isBlueGreenPhoto = isPhoto && photoTone === "blueGreen";
-  const needsProminentPhotoText = !isEditorial;
   const resolvedPhoto = resolveBackgroundPhoto(backgroundPhoto);
   const sectionClass = isEditorial
     ? "min-h-[440px] bg-[#f8fafc] text-[#0f172a]"
@@ -116,12 +115,16 @@ export default function PageHero({
     : "text-white [text-shadow:_0_1px_4px_rgb(7_21_34_/_0.72),_0_3px_18px_rgb(7_21_34_/_0.5)]";
   const quickLabelClass = isEditorial
     ? "text-slate-500"
-    : "text-white/88 [text-shadow:_0_2px_12px_rgb(7_21_34_/_0.58)]";
+    : "text-[#9BCB4A] [text-shadow:0_1px_8px_rgba(7,21,34,0.45)]";
+  const quickListShellClass = isEditorial
+    ? "overflow-hidden rounded-xl border border-slate-200/90 bg-white/70 shadow-[0_18px_40px_-32px_rgba(15,23,42,0.28)] backdrop-blur-xl"
+    : "overflow-hidden rounded-xl border border-white/28 bg-white/18 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_22px_50px_-36px_rgba(7,21,34,0.55)] backdrop-blur-xl backdrop-saturate-150";
+  const quickListHeaderClass = isEditorial
+    ? "border-b border-slate-200/90 bg-white/40 px-4 py-2.5"
+    : "border-b border-white/15 bg-[#07162c]/25 px-4 py-2.5";
   const quickLinkClass = isEditorial
-    ? "border-slate-200/80 bg-white/70 text-slate-700 hover:border-[#64A70B]/35 hover:bg-white hover:text-[#64A70B]"
-    : needsProminentPhotoText
-      ? "border-white/34 bg-[#07365a]/76 text-white shadow-[0_20px_48px_-30px_rgba(0,18,40,0.95)] backdrop-blur-md hover:border-[#9BCB4A]/70 hover:bg-[#063253]/88 hover:text-white"
-      : "border-white/10 bg-white/6 text-slate-100 hover:border-[#9BCB4A]/45 hover:bg-white/10 hover:text-[#9BCB4A]";
+    ? "group flex items-center justify-between gap-3 border-b border-slate-200/80 px-4 py-3 text-sm font-semibold text-slate-800 last:border-b-0 transition-colors hover:bg-white/70 hover:text-[#64A70B]"
+    : "group flex items-center justify-between gap-3 border-b border-white/15 px-4 py-3 text-sm font-semibold text-white last:border-b-0 transition-colors [text-shadow:0_1px_2px_rgba(7,21,34,0.55),0_6px_18px_rgba(7,21,34,0.35)] hover:bg-white/16";
   const quickIconClass = isEditorial ? "text-[#64A70B]" : "text-[#9BCB4A]";
 
   return (
@@ -135,14 +138,14 @@ export default function PageHero({
             fill
             priority
             sizes="100vw"
-            className="object-cover scale-[1.02] opacity-[0.58] saturate-[0.9] contrast-110"
+            className="z-0 object-cover scale-[1.02] opacity-[0.58] saturate-[0.9] contrast-110"
           />
           {isBlueGreenPhoto || isLightBluePhoto || isPhoto ? (
             <>
-              <div className="absolute inset-0 bg-linear-to-r from-[#0868C4]/84 via-[#0d6fc7]/66 to-[#0868C4]/6" />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.45)_0%,rgba(7,21,34,0.28)_48%,rgba(7,21,34,0.1)_100%)]" />
-              <div className="absolute inset-0 bg-linear-to-b from-[#071522]/15 via-transparent to-[#071522]/35" />
-              <div className="absolute inset-y-0 left-0 w-full max-w-[980px] bg-linear-to-r from-[#071522]/25 via-[#071522]/10 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 z-[1] bg-linear-to-r from-[#0868C4]/84 via-[#0d6fc7]/66 to-[#0868C4]/6" />
+              <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(7,21,34,0.45)_0%,rgba(7,21,34,0.28)_48%,rgba(7,21,34,0.1)_100%)]" />
+              <div className="pointer-events-none absolute inset-0 z-[1] bg-linear-to-b from-[#071522]/15 via-transparent to-[#071522]/35" />
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-full max-w-[980px] bg-linear-to-r from-[#071522]/25 via-[#071522]/10 to-transparent" />
             </>
           ) : null}
         </>
@@ -157,14 +160,14 @@ export default function PageHero({
         </>
       ) : (
         <>
-          <div className="absolute inset-0 bg-linear-to-r from-[#0868C4] via-[#0d6fc7] to-[#0868C4]" />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.78)_0%,rgba(7,21,34,0.56)_48%,rgba(7,21,34,0.28)_100%)]" />
-          <div className="absolute inset-0 bg-linear-to-b from-[#071522]/32 via-transparent to-[#071522]/58" />
-          <div className="absolute inset-0 opacity-[0.055]" style={{
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-linear-to-r from-[#0868C4] via-[#0d6fc7] to-[#0868C4]" />
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(7,21,34,0.78)_0%,rgba(7,21,34,0.56)_48%,rgba(7,21,34,0.28)_100%)]" />
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-linear-to-b from-[#071522]/32 via-transparent to-[#071522]/58" />
+          <div className="pointer-events-none absolute inset-0 z-[1] opacity-[0.055]" style={{
             backgroundImage: "linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.16) 1px, transparent 1px)",
             backgroundSize: "72px 72px",
           }} />
-          <div className="absolute inset-x-0 top-0 h-px bg-white/15" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-px bg-white/15" />
         </>
       )}
 
@@ -246,90 +249,46 @@ export default function PageHero({
           </div>
 
           {quickLinks && (
-            <div>
-              {/* Mobile: compact chip row so wayfinding isn’t desktop-only */}
-              <div className="mt-8 lg:hidden">
-                <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.16em] ${quickLabelClass}`}>
+            <nav className="mt-8 text-left lg:mt-0" aria-label={quickLinksTitle ?? "Quick links"}>
+              <div className={quickListShellClass}>
+                <p className={`${quickListHeaderClass} text-xs font-semibold uppercase tracking-[0.16em] ${quickLabelClass}`}>
                   {quickLinksTitle ?? "Quick links"}
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  {quickLinks.map((link) =>
-                    isNativeAnchor(link.href) ? (
-                      <a
-                        key={`m-${link.label}-${link.href}`}
-                        href={link.href}
-                        className={`inline-flex items-center border px-3 py-2 text-xs font-semibold transition-all ${quickLinkClass}`}
-                      >
+                <div>
+                  {quickLinks.map((link) => {
+                    const content = (
+                      <>
                         {link.label}
+                        <svg
+                          className={`h-3.5 w-3.5 shrink-0 opacity-40 transition-all group-hover:translate-x-0.5 group-hover:opacity-100 ${quickIconClass}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d={arrowPath}
+                          />
+                        </svg>
+                      </>
+                    );
+
+                    return isNativeAnchor(link.href) ? (
+                      <a key={`${link.label}-${link.href}`} href={link.href} className={quickLinkClass}>
+                        {content}
                       </a>
                     ) : (
-                      <Link
-                        key={`m-${link.label}-${link.href}`}
-                        href={link.href}
-                        className={`inline-flex items-center border px-3 py-2 text-xs font-semibold transition-all ${quickLinkClass}`}
-                      >
-                        {link.label}
+                      <Link key={`${link.label}-${link.href}`} href={link.href} className={quickLinkClass}>
+                        {content}
                       </Link>
-                    )
-                  )}
+                    );
+                  })}
                 </div>
               </div>
-
-              <div className="hidden lg:block text-left">
-              <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.16em] ${quickLabelClass}`}>
-                {quickLinksTitle ?? "Quick links"}
-              </p>
-              <div className="space-y-2.5">
-                {quickLinks.map((link) =>
-                  isNativeAnchor(link.href) ? (
-                    <a
-                      key={`${link.label}-${link.href}`}
-                      href={link.href}
-                      className={`group flex items-center justify-between gap-3 border px-4 py-3.5 text-sm font-semibold shadow-[0_18px_42px_-34px_rgba(15,23,42,0.65)] transition-all ${quickLinkClass}`}
-                    >
-                      {link.label}
-                      <svg
-                        className={`w-3.5 h-3.5 shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${quickIconClass}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d={arrowPath}
-                        />
-                      </svg>
-                    </a>
-                  ) : (
-                    <Link
-                      key={`${link.label}-${link.href}`}
-                      href={link.href}
-                      className={`group flex items-center justify-between gap-3 border px-4 py-3.5 text-sm font-semibold shadow-[0_18px_42px_-34px_rgba(15,23,42,0.65)] transition-all ${quickLinkClass}`}
-                    >
-                      {link.label}
-                      <svg
-                        className={`w-3.5 h-3.5 shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${quickIconClass}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d={arrowPath}
-                        />
-                      </svg>
-                    </Link>
-                  )
-                )}
-              </div>
-            </div>
-            </div>
+            </nav>
           )}
         </div>
       </div>

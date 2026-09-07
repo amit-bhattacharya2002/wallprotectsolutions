@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import ParallaxBackground from "./ParallaxBackground";
 import VrcaBadge from "./VrcaBadge";
 import ProcoreBadge from "./ProcoreBadge";
 
@@ -62,14 +63,7 @@ export default function Footer() {
       >
         {/* Background photo hidden on mobile — it renders inconsistently there;
              the gradient overlays + footer navy carry the panel on their own. */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 hidden bg-cover bg-center md:block"
-          style={{
-            backgroundImage:
-              "url('/actualphotos/hero-hygienic-production-room.jpg')",
-          }}
-        />
+        <ParallaxBackground src="/actualphotos/hero-hygienic-production-room.jpg" />
         <div className="absolute inset-0 bg-linear-to-r from-[#005EB8]/84 via-[#0d6fc7]/66 to-[#64A70B]/58" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.78)_0%,rgba(7,21,34,0.58)_48%,rgba(7,21,34,0.32)_100%)]" />
         <div className="absolute inset-0 bg-linear-to-b from-[#071522]/32 via-transparent to-[#071522]/62" />

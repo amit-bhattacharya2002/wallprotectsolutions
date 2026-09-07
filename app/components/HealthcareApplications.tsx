@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import ParallaxBackground from "./ParallaxBackground";
 
 const applications = [
   {
@@ -42,12 +42,10 @@ export default function HealthcareApplications() {
 
   return (
     <section className="relative overflow-hidden border-b border-white/10 bg-[#0c1c32] lg:h-[760px]">
-      <Image
+      <ParallaxBackground
         src="/actualphotos/hero-healthcare-lounge.jpg"
         alt="Healthcare lounge with architectural wall protection and glazing"
-        fill
-        sizes="100vw"
-        className="hidden object-cover object-center opacity-[0.78] md:block"
+        imageClassName="opacity-[0.78]"
       />
       <div className="absolute inset-0 bg-linear-to-r from-[#005EB8]/82 via-[#0d6fc7]/66 to-[#64A70B]/58" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.72)_0%,rgba(7,21,34,0.52)_48%,rgba(7,21,34,0.18)_100%)]" />
@@ -71,45 +69,54 @@ export default function HealthcareApplications() {
 
           <div className="reveal reveal-stagger-1">
             <div className="border-t border-white/25">
-              {applications.map((item, index) => (
-                <div
-                  key={item.area}
-                  className="border-b border-white/20"
-                >
-                  <button
-                    type="button"
-                    className="flex w-full cursor-pointer items-center justify-between gap-5 py-5 text-left outline-none transition-colors hover:text-white"
-                    aria-expanded={openIndex === index}
-                    aria-controls={`healthcare-application-${index}`}
-                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  >
-                    <span className="text-lg font-semibold leading-6 text-white [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.55)]">
-                      {item.area}
-                    </span>
-                    <span
-                      className={`flex h-7 w-7 shrink-0 items-center justify-center border text-lg leading-none transition-colors ${
-                        openIndex === index
-                          ? "border-[#9BCB4A]/70 bg-[#9BCB4A] text-[#071522]"
-                          : "border-white/25 text-[#9BCB4A]"
+              {applications.map((item, index) => {
+                const isOpen = openIndex === index;
+                return (
+                  <div key={item.area} className="border-b border-white/20">
+                    <button
+                      type="button"
+                      className="flex w-full cursor-pointer items-center justify-between gap-5 py-5 text-left outline-none transition-colors hover:text-white"
+                      aria-expanded={isOpen}
+                      aria-controls={`healthcare-application-${index}`}
+                      onClick={() => setOpenIndex(isOpen ? null : index)}
+                    >
+                      <span className="text-lg font-semibold leading-6 text-white [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.55)]">
+                        {item.area}
+                      </span>
+                      <span
+                        className={`flex h-7 w-7 shrink-0 items-center justify-center border text-lg leading-none transition-all duration-300 ${
+                          isOpen
+                            ? "border-[#9BCB4A]/70 bg-[#9BCB4A] text-[#071522]"
+                            : "border-white/25 text-[#9BCB4A]"
+                        }`}
+                      >
+                        <span className="translate-y-[-1px]">{isOpen ? "-" : "+"}</span>
+                      </span>
+                    </button>
+                    <div
+                      id={`healthcare-application-${index}`}
+                      className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                       }`}
                     >
-                      <span className="translate-y-[-1px]">
-                        {openIndex === index ? "-" : "+"}
-                      </span>
-                    </span>
-                  </button>
-                  {openIndex === index && (
-                    <div id={`healthcare-application-${index}`} className="max-w-2xl pb-6 pr-10">
-                      <p className="text-base font-medium leading-7 text-white/95 [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.5)]">
-                        {item.focus}
-                      </p>
-                      <p className="mt-3 text-sm font-medium leading-6 text-white/82 [text-shadow:_0_2px_12px_rgb(7_21_34_/_0.45)]">
-                        {item.detail}
-                      </p>
+                      <div className="overflow-hidden">
+                        <div
+                          className={`max-w-2xl pb-6 pr-10 transition-opacity duration-300 ${
+                            isOpen ? "opacity-100" : "opacity-0"
+                          }`}
+                        >
+                          <p className="text-base font-medium leading-7 text-white/95 [text-shadow:_0_2px_14px_rgb(7_21_34_/_0.5)]">
+                            {item.focus}
+                          </p>
+                          <p className="mt-3 text-sm font-medium leading-6 text-white/82 [text-shadow:_0_2px_12px_rgb(7_21_34_/_0.45)]">
+                            {item.detail}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  )}
-                </div>
-              ))}
+                  </div>
+                );
+              })}
             </div>
 
             <div className="mt-7 flex flex-col gap-5">

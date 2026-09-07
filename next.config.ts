@@ -1,7 +1,15 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import type { NextConfig } from "next";
 
+const appDir = path.dirname(fileURLToPath(import.meta.url));
+
 const nextConfig: NextConfig = {
+  // Parent folder has a stub package-lock.json; pin the app root so webpack
+  // does not scan that tree and hang on startup.
+  outputFileTracingRoot: appDir,
   images: {
+    qualities: [75, 100],
     remotePatterns: [
       {
         protocol: "https",
@@ -80,6 +88,8 @@ const nextConfig: NextConfig = {
       // 34 of the 37 project slugs in the old Yoast sitemap exist verbatim under
       // /projects/, so a slug-preserving redirect keeps their page-level link
       // equity. The three renamed slugs are mapped explicitly first.
+      { source: "/project/bc-cancer-agency", destination: "/projects/bc-cancer-agency-x-ray-room", permanent: true },
+      { source: "/projects/bc-cancer-agency", destination: "/projects/bc-cancer-agency-x-ray-room", permanent: true },
       { source: "/project/bc-hops-co", destination: "/projects/bc-hops-co-stainless-steel-paneling-kiln-room", permanent: true },
       { source: "/project/ross-place-retirement", destination: "/projects/ross-place-retirement-residence", permanent: true },
       { source: "/project/port-alberni-secondary-school", destination: "/projects/sd70-port-alberni-secondary-school", permanent: true },

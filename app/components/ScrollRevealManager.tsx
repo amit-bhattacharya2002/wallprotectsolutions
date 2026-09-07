@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const STAGGER_MAX = 5;
@@ -95,6 +95,14 @@ function autoApplyReveal() {
 export default function ScrollRevealManager() {
   const pathname = usePathname();
 
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    window.history.scrollRestoration = "manual";
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [pathname]);
+
   useEffect(() => {
     let mutationDebounceId: number | null = null;
 
@@ -116,12 +124,19 @@ export default function ScrollRevealManager() {
 
     const observed = new WeakSet<Element>();
 
+    const isInViewport = (el: HTMLElement) => {
+      const rect = el.getBoundingClientRect();
+      const viewportBottom = window.innerHeight * 0.88;
+      return rect.top < viewportBottom && rect.bottom > 0;
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            activate(entry.target);
-            io.unobserve(entry.target);
+          const el = entry.target as HTMLElement;
+          if (entry.isIntersecting && isInViewport(el)) {
+            activate(el);
+            io.unobserve(el);
           }
         }
       },
@@ -129,12 +144,6 @@ export default function ScrollRevealManager() {
       // viewport, not while it's still well below the fold.
       { rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
     );
-
-    const isInViewport = (el: HTMLElement) => {
-      const rect = el.getBoundingClientRect();
-      const viewportBottom = window.innerHeight * 0.88;
-      return rect.top < viewportBottom && rect.bottom > 0;
-    };
 
     const observeIfNeeded = (el: HTMLElement) => {
       if (observed.has(el)) return;

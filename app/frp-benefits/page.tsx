@@ -111,14 +111,14 @@ export default function FRPBenefitsPage() {
         </section>
 
         <section className="section-shell-lg section-shell-dark brand-blue-surface border-t border-white/5">
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-              <div className="sticky-side">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+              <div>
                 <span className="eyebrow">Next steps</span>
                 <h2 className="section-title section-title-dark mb-5">
                   Ready to experience the benefits of FRP?
                 </h2>
-                <p className="section-lead section-lead-dark mb-8">
+                <p className="section-lead section-lead-dark mb-8 max-w-xl">
                   Our team can help you select the right FRP products for your
                   specific application. We provide free on-site consultations
                   and measurements across British Columbia.
@@ -138,26 +138,23 @@ export default function FRPBenefitsPage() {
                   </Link>
                 </div>
               </div>
+              <SitePhoto
+                photo={sitePhotos.pages.frpBenefitsCta}
+                overlay="gradient"
+                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.35)]"
+              />
+            </div>
 
-              <div className="space-y-6">
-                <SitePhoto
-                  photo={sitePhotos.pages.frpBenefitsCta}
-                  overlay="gradient"
-                  className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.35)]"
-                />
-                <div className="grid grid-cols-2 gap-4">
+            <div className="brand-glass mt-10 overflow-hidden lg:mt-14">
+              <div className="grid gap-px bg-white/20 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="surface-card-dark p-6 text-center"
-                  >
-                    <div className="text-4xl font-semibold text-[#9BCB4A] mb-2 tracking-tight">
+                  <div key={stat.label} className="bg-white/5 px-6 py-7 text-center">
+                    <div className="mb-2 text-4xl font-semibold tracking-tight text-white">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-white/70">{stat.label}</div>
+                    <div className="text-sm text-white/80">{stat.label}</div>
                   </div>
                 ))}
-                </div>
               </div>
             </div>
           </div>

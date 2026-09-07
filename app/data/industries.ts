@@ -21,7 +21,7 @@ export const industries: Industry[] = [
       "port-moody-urgent-and-primary-care-center",
       "chilliwack-urgent-and-primary-care-center",
       "lions-gate-hospital-angiography-upgrade",
-      "bc-cancer-agency",
+      "bc-cancer-agency-x-ray-room",
     ],
     projectsFilterHash: "healthcare",
   },

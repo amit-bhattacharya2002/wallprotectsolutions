@@ -79,6 +79,7 @@ async function uploadBuffer(
     token,
     contentType: "image/webp",
     addRandomSuffix: false,
+    allowOverwrite: true,
   });
   return result.url;
 }
@@ -230,6 +231,7 @@ export async function uploadProjectFolder(
     token,
     contentType: "application/json",
     addRandomSuffix: false,
+    allowOverwrite: true,
   });
 
   console.log(`✓ "${title}" complete — cover: ${coverUrl}`);

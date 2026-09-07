@@ -1,0 +1,17 @@
+{
+  "cover": "https://2u8xhjuusb19t6ck.public.blob.vercel-storage.com/projects/hello-fresh-abbotsford-warehouse/cover.webp",
+  "images": [
+    {
+      "src": "https://2u8xhjuusb19t6ck.public.blob.vercel-storage.com/projects/hello-fresh-abbotsford-warehouse/001.webp",
+      "alt": "Hello Fresh Abbotsford Warehouse — 001 Photo 2021 05 28 9 08 14 AM scaled"
+    },
+    {
+      "src": "https://2u8xhjuusb19t6ck.public.blob.vercel-storage.com/projects/hello-fresh-abbotsford-warehouse/002.webp",
+      "alt": "Hello Fresh Abbotsford Warehouse — 002 Photo 2021 05 28 9 12 47 AM scaled"
+    },
+    {
+      "src": "https://2u8xhjuusb19t6ck.public.blob.vercel-storage.com/projects/hello-fresh-abbotsford-warehouse/003.webp",
+      "alt": "Hello Fresh Abbotsford Warehouse — 003 Photo 2021 05 28 9 09 52 AM 1 scaled"
+    }
+  ]
+}

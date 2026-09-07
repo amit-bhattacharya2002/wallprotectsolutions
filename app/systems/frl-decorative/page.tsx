@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Header, Footer, PageHero, RelatedHealthcareResources, SitePhoto, SystemProjectsList } from "@/app/components";
+import { Header, Footer, PageHero, RelatedHealthcareResources, SystemOverview, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemOverviews } from "@/app/data/system-overviews";
 import { systemProjects } from "@/app/data/system-projects";
 
 const frlProjects = systemProjects["frl-decorative"];
@@ -61,15 +62,14 @@ export default function FRLDecorativePage() {
           ]}
         />
 
+        <SystemOverview overview={systemOverviews["frl-decorative"]} />
+
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-start mb-14">
-              <div className="max-w-3xl">
-                <p className="text-gray-500 leading-relaxed font-normal text-base md:text-lg">
+            <div className="mb-14 max-w-3xl">
+              <p className="text-gray-500 leading-relaxed font-normal text-base md:text-lg">
                 FRL offers 400+ colour options and a significantly more finished appearance, while still retaining the durability of a fibre-reinforced core.
-                </p>
-              </div>
-              <SitePhoto photo={sitePhotos.systems.frl} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
+              </p>
             </div>
             <div className="space-y-12">
               {systems.map((system, index) => (

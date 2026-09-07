@@ -57,7 +57,10 @@ function GridProjectCard({ project }: { project: Project }) {
           {project.title}
         </h3>
         {project.details.location && (
-          <p className="text-xs text-gray-400 mb-2">{project.details.location}</p>
+          <p className="text-xs text-gray-400 mb-2">
+            {project.details.location}
+            {project.details.year ? ` · ${project.details.year}` : ""}
+          </p>
         )}
         <p className="text-sm text-gray-600 leading-relaxed line-clamp-2 mb-3">{project.description}</p>
         {project.details.products && project.details.products[0] && (
@@ -93,7 +96,10 @@ function ListProjectCard({ project }: { project: Project }) {
           {project.title}
         </h3>
         {project.details.location && (
-          <p className="text-xs text-gray-400">{project.details.location}</p>
+          <p className="text-xs text-gray-400">
+            {project.details.location}
+            {project.details.year ? ` · ${project.details.year}` : ""}
+          </p>
         )}
         <p className="text-sm leading-relaxed text-gray-600 line-clamp-2 sm:line-clamp-none">
           {project.description}

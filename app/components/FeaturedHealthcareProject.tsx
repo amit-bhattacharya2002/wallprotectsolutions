@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ParallaxBackground from "./ParallaxBackground";
 
 const partners = ["Construction Specialties", "Altro", "Inpro", "Panolam", "Marlite", "Valto"];
 const lilyDtesImages = [
@@ -20,14 +21,7 @@ const lilyDtesImages = [
 export default function FeaturedHealthcareProject() {
   return (
     <section className="section-shell-lg section-shell-dark grain-overlay relative overflow-hidden border-b border-white/10 bg-[#0c1c32]">
-      <Image
-        src={lilyDtesImages[0].src}
-        alt=""
-        fill
-        sizes="100vw"
-        aria-hidden="true"
-        className="object-cover hidden md:block object-center opacity-[0.78]"
-      />
+      <ParallaxBackground src={lilyDtesImages[0].src} imageClassName="opacity-[0.78]" />
       <div className="absolute inset-0 bg-linear-to-r from-[#005EB8]/82 via-[#0d6fc7]/66 to-[#64A70B]/58" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,34,0.76)_0%,rgba(7,21,34,0.58)_48%,rgba(7,21,34,0.22)_100%)]" />
       <div className="absolute inset-0 bg-linear-to-b from-[#071522]/30 via-transparent to-[#071522]/56" />

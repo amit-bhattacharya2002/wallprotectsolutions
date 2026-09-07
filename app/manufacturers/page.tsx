@@ -112,71 +112,71 @@ export default function ManufacturersPage() {
 
         <section className="border-b border-slate-200 bg-white py-14 lg:py-20">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-              <div className="sticky-side">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
-                  Product Neutral. Project Specific.
-                </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-[#0f172a] md:text-4xl">
-                  We lead with installed performance, not catalogue preference.
-                </h2>
-                <p className="mt-5 text-base font-medium leading-8 text-slate-600">
-                  The right manufacturer changes by room type, substrate, infection-control expectation, budget, lead time, and closeout requirements. This page maps the partners we commonly coordinate across wall protection, hygienic wall systems, FRP, FRL, PVC liner, and wet wall scopes.
-                </p>
-              </div>
+            <div className="max-w-3xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#64A70B]">
+                Product Neutral. Project Specific.
+              </p>
+              <h2 className="text-3xl font-semibold tracking-tight text-[#0f172a] md:text-4xl">
+                We lead with installed performance, not catalogue preference.
+              </h2>
+              <p className="mt-5 text-base font-medium leading-8 text-slate-600">
+                The right manufacturer changes by room type, substrate, infection-control expectation, budget, lead time, and closeout requirements. These are the partners we coordinate most often.
+              </p>
+            </div>
 
-              <div className="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 md:grid-cols-2">
-                {featuredManufacturers.map((manufacturer) => {
-                  if (!manufacturer) return null;
-                  const detailHref = detailHrefBySlug[manufacturer.slug];
-                  const logoSrc = logoBySlug[manufacturer.slug];
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:gap-8">
+              {featuredManufacturers.map((manufacturer) => {
+                if (!manufacturer) return null;
+                const detailHref = detailHrefBySlug[manufacturer.slug];
+                const logoSrc = logoBySlug[manufacturer.slug];
 
-                  const content = (
-                    <>
-                      <div className="mb-7 flex min-h-16 items-center justify-between gap-5">
-                        <div>
-                          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#64A70B]">
-                            {manufacturer.relationship}
-                          </p>
-                          <h3 className="mt-2 text-xl font-semibold tracking-tight text-[#0f172a]">
-                            {manufacturer.name}
-                          </h3>
-                        </div>
-                        {logoSrc ? (
-                          <span className="flex h-16 w-28 shrink-0 items-center justify-center bg-white p-3 shadow-sm">
-                            <Image src={logoSrc} alt={`${manufacturer.name} logo`} width={112} height={56} className="max-h-10 w-auto object-contain" />
-                          </span>
-                        ) : null}
+                const content = (
+                  <>
+                    <div className="flex items-start justify-between gap-5">
+                      <div className="min-w-0">
+                        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#64A70B]">
+                          {manufacturer.relationship}
+                        </p>
+                        <h3 className="mt-2 text-xl font-semibold tracking-tight text-[#0f172a]">
+                          {manufacturer.name}
+                        </h3>
                       </div>
-                      <div className="border-t border-slate-200">
-                        {manufacturer.products.slice(0, 4).map((product) => (
-                          <div key={product} className="border-b border-slate-200 py-3 text-sm font-medium leading-relaxed text-slate-700 last:border-b-0">
-                            {product}
-                          </div>
-                        ))}
-                      </div>
-                      {detailHref ? (
-                        <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#64A70B] transition-all group-hover:gap-3">
-                          View partner page
-                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
+                      {logoSrc ? (
+                        <span className="flex h-14 w-24 shrink-0 items-center justify-center bg-white p-2">
+                          <Image src={logoSrc} alt={`${manufacturer.name} logo`} width={96} height={48} className="max-h-9 w-auto object-contain" />
                         </span>
                       ) : null}
-                    </>
-                  );
-
-                  return detailHref ? (
-                    <Link key={manufacturer.slug} href={detailHref} className="group bg-[#f8fafc] p-6 transition-colors hover:bg-white lg:p-8">
-                      {content}
-                    </Link>
-                  ) : (
-                    <div key={manufacturer.slug} className="bg-[#f8fafc] p-6 lg:p-8">
-                      {content}
                     </div>
-                  );
-                })}
-              </div>
+                    <ul className="mt-6 space-y-2.5">
+                      {manufacturer.products.slice(0, 3).map((product) => (
+                        <li key={product} className="text-sm leading-relaxed text-slate-600">
+                          {product}
+                        </li>
+                      ))}
+                    </ul>
+                    {detailHref ? (
+                      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[#64A70B] transition-all group-hover:gap-3">
+                        View partner page
+                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
+                    ) : null}
+                  </>
+                );
+
+                const cardClassName = "flex h-full flex-col bg-[#f8fafc] p-7 lg:p-8";
+
+                return detailHref ? (
+                  <Link key={manufacturer.slug} href={detailHref} className={`group ${cardClassName} transition-colors hover:bg-[#f1f5f9]`}>
+                    {content}
+                  </Link>
+                ) : (
+                  <div key={manufacturer.slug} className={cardClassName}>
+                    {content}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

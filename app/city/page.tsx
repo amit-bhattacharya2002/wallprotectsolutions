@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Header, Footer, PageHero, SitePhoto } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto, ServiceAreasDirectory } from "@/app/components";
 import { cities, getCitiesByRegion } from "@/app/data/cities";
 import { sitePhotos } from "@/app/data/site-photos";
 
@@ -101,29 +101,7 @@ export default function ServiceAreasPage() {
                 className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
               />
             </div>
-            <div className="space-y-16">
-              {regions.map((region) => (
-                <div key={region}>
-                  <h2 className="text-2xl font-semibold text-[#0f172a] mb-6 flex items-center gap-3">
-                    <span className="h-px w-8 bg-[#005EB8]" />
-                    {region}
-                  </h2>
-                  <div className="grid border-y border-slate-200 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-                    {citiesByRegion[region].map((city) => (
-                      <Link
-                        key={city.slug}
-                        href={`/city/${city.slug}`}
-                        className="group border-b border-slate-200 py-3 text-sm font-medium text-[#0f172a] transition-colors hover:text-[#64A70B] sm:px-4 xl:[&:nth-last-child(-n+6)]:border-b-0"
-                      >
-                        <span>
-                          {city.name}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ServiceAreasDirectory />
           </div>
         </section>
 

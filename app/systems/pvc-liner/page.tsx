@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto, SystemOverview, SystemProjectsList } from "@/app/components";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemOverviews } from "@/app/data/system-overviews";
 import { systemProjects } from "@/app/data/system-projects";
 
 const pvcProjects = systemProjects["pvc-liner"];
@@ -40,30 +41,7 @@ export default function PVCLinerPage() {
           ]}
         />
 
-        <section className="border-b border-slate-200/80 bg-[#f8fafc] py-12 lg:py-16">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
-              <SitePhoto
-                photo={sitePhotos.systems.pvcLiner}
-                overlay="gradient"
-                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
-              />
-              <div>
-                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#64A70B]">
-                  Washdown environments
-                </span>
-                <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
-                  Sanitary wall systems for production facilities
-                </h2>
-                <p className="text-base leading-relaxed text-gray-600">
-                  At Breathe Medical Manufacturing we installed FRP and hygienic wall systems throughout
-                  production areas — the same washdown-capable, easy-to-clean surfaces PVC liner systems
-                  are specified for in food processing, agricultural, and industrial environments.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <SystemOverview overview={systemOverviews["pvc-liner"]} />
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
