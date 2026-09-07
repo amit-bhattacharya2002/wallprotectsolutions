@@ -1,9 +1,9 @@
 import Link from "next/link";
 import ProjectImage from "./ProjectImage";
+import ViewGalleryButton from "./ViewGalleryButton";
 
 interface ProjectPageHeroProps {
   title: string;
-  subtitle?: string;
   category?: string;
   signature?: boolean;
   coverImage: string;
@@ -12,7 +12,6 @@ interface ProjectPageHeroProps {
 
 export default function ProjectPageHero({
   title,
-  subtitle,
   category,
   signature,
   coverImage,
@@ -60,14 +59,14 @@ export default function ProjectPageHero({
           <h1 className="mt-2 max-w-[18ch] text-[2rem] font-bold leading-[1.08] tracking-tight text-white">
             {title}
           </h1>
+          <ViewGalleryButton className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/25">
+            View gallery
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </ViewGalleryButton>
         </div>
       </div>
-
-      {subtitle && (
-        <div className="bg-white px-5 py-5">
-          <p className="text-base leading-relaxed text-slate-600">{subtitle}</p>
-        </div>
-      )}
     </section>
   );
 }

@@ -4,6 +4,7 @@ import { Header, Footer, PageHero, RelatedHealthcareResources } from "@/app/comp
 import ProjectDetailMedia from "@/app/components/ProjectDetailMedia";
 import ProjectCover from "@/app/components/ProjectCover";
 import ProjectPageHero from "@/app/components/ProjectPageHero";
+import ProjectGalleryProvider from "@/app/components/ProjectGalleryProvider";
 import { projects, getProjectBySlug, getAllProjectSlugs } from "@/app/data/projects";
 import { getProjectCoverImage, projectHasMedia, resolveProjectGallery } from "@/app/lib/project-gallery";
 import { getProductHref } from "@/app/lib/product-links";
@@ -83,9 +84,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <>
       <Header />
       <main>
+        <ProjectGalleryProvider
+          images={gallery.images}
+          title={project.title}
+          coverImage={coverImage}
+        >
         <ProjectPageHero
           title={project.title}
-          subtitle={project.description}
           category={project.category}
           signature={project.signature}
           coverImage={coverImage}
@@ -108,12 +113,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           />
         </div>
 
-        <section className="py-16 lg:py-24 bg-white">
+        <section className="py-10 lg:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
               <div className="lg:col-span-2">
                 <ProjectDetailMedia
-                  title={project.title}
                   coverImage={coverImage}
                   coverAlt={project.title}
                   images={gallery.images}
@@ -126,7 +130,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <RelatedHealthcareResources
                     slugs={relatedResourceSlugs}
                     intro="How this project connects to healthcare wall system selection, product fit, and long-term surface performance."
-                    className="mt-10"
+                    className="mt-10 hidden lg:block"
                   />
                 </ProjectDetailMedia>
               </div>
@@ -211,6 +215,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 </div>
               </div>
             </div>
+
+            <RelatedHealthcareResources
+              slugs={relatedResourceSlugs}
+              intro="How this project connects to healthcare wall system selection, product fit, and long-term surface performance."
+              className="mt-12 lg:hidden"
+            />
           </div>
         </section>
 
@@ -246,6 +256,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </div>
           </section>
         )}
+        </ProjectGalleryProvider>
       </main>
       <Footer />
     </>
