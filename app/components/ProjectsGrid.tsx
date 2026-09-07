@@ -202,7 +202,7 @@ export default function ProjectsGrid() {
   const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="all" className="section-shell bg-white scroll-mt-32">
+    <section id="all" className="section-shell bg-white scroll-mt-32" data-no-reveal>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-3xl mb-8 md:mb-10">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#64A70B] mb-3">

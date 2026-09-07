@@ -94,6 +94,8 @@ function autoApplyReveal() {
  */
 export default function ScrollRevealManager() {
   const pathname = usePathname();
+  const skipReveal =
+    pathname === "/projects" || pathname.startsWith("/projects/");
 
   useLayoutEffect(() => {
     if (typeof window === "undefined") return;
@@ -107,6 +109,7 @@ export default function ScrollRevealManager() {
     let mutationDebounceId: number | null = null;
 
     if (typeof window === "undefined") return;
+    if (skipReveal) return;
 
     const activate = (el: Element) => {
       (el as HTMLElement).classList.add("is-visible");
@@ -202,7 +205,7 @@ export default function ScrollRevealManager() {
       window.removeEventListener("pageshow", onPageShow);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [pathname]);
+  }, [pathname, skipReveal]);
 
   return null;
 }
