@@ -55,14 +55,14 @@ export default function Projects() {
                   priority
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-[#07162c]/82 via-[#10233F]/24 to-transparent p-6 transition duration-300 group-hover:translate-y-3 group-hover:opacity-0 [@media(hover:none)]:hidden">
+                <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-[#07162c]/82 via-[#10233F]/24 to-transparent p-6 lg:transition lg:duration-300 lg:group-hover:translate-y-3 lg:group-hover:opacity-0">
                   <span className="inline-flex rounded-full bg-white/92 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#10233F]">
                     Featured case study
                   </span>
                 </div>
-                <div className="absolute inset-0 z-20 flex translate-y-full flex-col justify-end px-6 pb-6 pt-20 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-focus-within:translate-y-0 [@media(hover:none)]:translate-y-0 sm:px-7 sm:pb-7">
+                <div className="absolute inset-0 z-20 hidden translate-y-full flex-col justify-end px-6 pb-6 pt-20 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-focus-within:translate-y-0 lg:flex">
                   <FrostWash />
-                  <div className="relative [text-shadow:0_1px_2px_rgba(7,22,44,0.65),0_8px_24px_rgba(7,22,44,0.4)]">
+                  <div className="relative min-w-0">
                     <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-[#9BCB4A]">
                       Featured case study
                     </p>
@@ -72,8 +72,11 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col items-start justify-center bg-linear-to-br from-white to-slate-50 p-8 text-left lg:p-12">
-                <div className="mb-5 grid w-full grid-cols-1 gap-3 border-y border-slate-200 py-5 sm:grid-cols-3">
+              <div className="flex flex-col items-start justify-center bg-linear-to-br from-white to-slate-50 p-6 text-left sm:p-8 lg:p-12">
+                <h3 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] max-lg:order-1 group-hover:text-[#64A70B] lg:order-2 lg:mb-3 lg:text-3xl">
+                  {featuredProject.title}
+                </h3>
+                <div className="mb-5 grid w-full grid-cols-1 gap-3 border-y border-slate-200 py-5 max-lg:order-2 sm:grid-cols-3 lg:order-1">
                   {featuredFacts.map((fact) => (
                     <div key={fact.label}>
                       <div className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-slate-400">{fact.label}</div>
@@ -81,12 +84,14 @@ export default function Projects() {
                     </div>
                   ))}
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-semibold text-[#0f172a] tracking-tight mb-3 group-hover:text-[#64A70B] transition-colors">
-                  {featuredProject.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">{featuredProject.description}</p>
+                <p className="mb-6 text-gray-600 leading-relaxed max-lg:order-3 lg:hidden">
+                  {featuredProject.fullDescription ?? featuredProject.description}
+                </p>
+                <p className="mb-6 hidden text-gray-600 leading-relaxed lg:order-3 lg:block">
+                  {featuredProject.description}
+                </p>
                 {featuredProject.details.products && (
-                  <ul className="mb-6 grid max-w-sm grid-cols-1 gap-2 sm:max-w-none sm:grid-cols-2">
+                  <ul className="mb-6 grid max-w-sm grid-cols-1 gap-2 max-lg:order-4 sm:max-w-none sm:grid-cols-2 lg:order-4">
                     {featuredProject.details.products.slice(0, 4).map((item) => (
                       <li
                         key={item}
@@ -98,7 +103,7 @@ export default function Projects() {
                     ))}
                   </ul>
                 )}
-                <div className="flex w-full items-center justify-start gap-2 text-sm font-medium text-[#64A70B] transition-all group-hover:gap-3">
+                <div className="flex w-full items-center justify-start gap-2 text-sm font-medium text-[#64A70B] transition-all max-lg:order-5 group-hover:gap-3 lg:order-5">
                   View project details
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

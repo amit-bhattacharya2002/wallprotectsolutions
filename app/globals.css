@@ -480,6 +480,16 @@ img {
   color: rgba(255, 255, 255, 0.94) !important;
 }
 
+/* White / light nested cards keep their own type. The rules above are for
+   copy sitting on the blue band, not result cards or search fields. */
+.brand-blue-surface :is(.bg-white, .surface-card) :where(h1, h2, h3, h4, p, li, a, span, button, label) {
+  text-shadow: none;
+}
+
+.brand-blue-surface :is(.bg-white, .surface-card) :where(h1, h2, h3, h4) {
+  color: #475569;
+}
+
 .surface-card {
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 0.5rem;

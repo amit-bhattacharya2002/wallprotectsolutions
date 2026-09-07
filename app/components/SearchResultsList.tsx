@@ -52,7 +52,7 @@ export default function SearchResultsList({
                       <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-medium ${badgeClass}`}>
                         {result.badge ?? getSearchGroupLabel(result.group)}
                       </span>
-                      <h3 className={`mt-3 font-semibold tracking-tight text-[#0f172a] group-hover:text-[#64A70B] ${
+                      <h3 className={`mt-3 font-semibold tracking-tight text-slate-600 group-hover:text-[#64A70B] ${
                         compact ? "text-[0.95rem] sm:text-base" : "text-lg"
                       }`}>
                         {result.title}
