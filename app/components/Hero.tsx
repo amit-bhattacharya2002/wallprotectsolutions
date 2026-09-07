@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ParallaxLayer } from "./ParallaxBackground";
 import VrcaBadge from "./VrcaBadge";
 
 /**
@@ -123,7 +124,7 @@ function HeroCarouselDots({
   activeIndex: number;
   onSelect: (index: number) => void;
   className?: string;
-  variant?: "pills" | "segments";
+  variant?: "pills" | "segments" | "dots";
   compact?: boolean;
 }) {
   return (
@@ -138,23 +139,27 @@ function HeroCarouselDots({
             aria-label={`Show slide ${idx + 1}: ${slide.alt}`}
             aria-current={isActive}
             className={`inline-flex items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 ${
-              compact ? "h-6 w-7" : "h-11"
+              compact ? (variant === "dots" ? "h-6 w-6" : "h-6 w-7") : "h-11"
             }`}
           >
             <span
               aria-hidden
               className={
-                variant === "segments"
-                  ? `block rounded-full transition-all duration-500 ease-out ${
-                      isActive
-                        ? "h-[4px] w-9 bg-white"
-                        : "h-[3px] w-7 bg-white/35 hover:bg-white/55"
+                variant === "dots"
+                  ? `block rounded-full transition-colors duration-300 ease-out ${
+                      isActive ? "h-1.5 w-1.5 bg-white" : "h-1.5 w-1.5 bg-white/40 hover:bg-white/60"
                     }`
-                  : `block rounded-full transition-[width,background-color,opacity] duration-500 ease-out ${
-                      isActive
-                        ? "h-1.5 w-7 bg-white/90 shadow-[0_0_14px_rgba(0,0,0,0.35)]"
-                        : "h-1.5 w-3.5 bg-white/45 hover:bg-white/65"
-                    }`
+                  : variant === "segments"
+                    ? `block rounded-full transition-all duration-500 ease-out ${
+                        isActive
+                          ? "h-[4px] w-9 bg-white"
+                          : "h-[3px] w-7 bg-white/35 hover:bg-white/55"
+                      }`
+                    : `block rounded-full transition-[width,background-color,opacity] duration-500 ease-out ${
+                        isActive
+                          ? "h-1.5 w-7 bg-white/90 shadow-[0_0_14px_rgba(0,0,0,0.35)]"
+                          : "h-1.5 w-3.5 bg-white/45 hover:bg-white/65"
+                      }`
               }
             />
           </button>
@@ -245,50 +250,52 @@ export default function Hero() {
       onFocus={() => setIsPaused(true)}
       onBlur={() => setIsPaused(false)}
     >
-      {/* ── Background layer: cross-fading slides with Ken Burns ── */}
-      {heroImages.map((slide, index) => {
-        const isActive = index === activeIndex;
-        return (
-          <div
-            key={index}
-            aria-hidden={!isActive}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              isActive ? "opacity-100" : "opacity-0"
-            }`}
-          >
+      {/* ── Background layer: cross-fading slides with Ken Burns + parallax ── */}
+      <ParallaxLayer desktopOnly>
+        {heroImages.map((slide, index) => {
+          const isActive = index === activeIndex;
+          return (
             <div
-              // `key={activeIndex}` re-mounts this inner div on each rotation
-              // so the Ken Burns animation restarts from 1.05× every time
-              // this slide becomes active. Only the active slide runs the
-              // animation; others stay neutral to avoid wasted GPU work.
-              key={isActive ? activeIndex : `idle-${index}`}
-              className="absolute inset-0"
-              style={
-                isActive && !reduceMotion
-                  ? {
-                      animation: `kenburns ${SLIDE_DURATION_MS + 1000}ms ease-out forwards`,
-                    }
-                  : undefined
-              }
+              key={index}
+              aria-hidden={!isActive}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-100" : "opacity-0"
+              }`}
             >
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                fill
-                // Slide 0 gets `priority` (preload + fetchpriority=high) for
-                // LCP. The remaining slides still need to load eagerly — they sit at
-                // opacity:0 inside fixed-position parents, where native
-                // `loading="lazy"` heuristics can defer the fetch and leave
-                // a blank slot when the carousel rotates onto them.
-                priority={index === 0}
-                loading={index === 0 ? undefined : "eager"}
-                className="object-cover filter-[saturate(0.85)_brightness(0.97)]"
-                sizes="100vw"
-              />
+              <div
+                // `key={activeIndex}` re-mounts this inner div on each rotation
+                // so the Ken Burns animation restarts from 1.05× every time
+                // this slide becomes active. Only the active slide runs the
+                // animation; others stay neutral to avoid wasted GPU work.
+                key={isActive ? activeIndex : `idle-${index}`}
+                className="absolute inset-0"
+                style={
+                  isActive && !reduceMotion
+                    ? {
+                        animation: `kenburns ${SLIDE_DURATION_MS + 1000}ms ease-out forwards`,
+                      }
+                    : undefined
+                }
+              >
+                <Image
+                  src={slide.src}
+                  alt={slide.alt}
+                  fill
+                  // Slide 0 gets `priority` (preload + fetchpriority=high) for
+                  // LCP. The remaining slides still need to load eagerly — they sit at
+                  // opacity:0 inside fixed-position parents, where native
+                  // `loading="lazy"` heuristics can defer the fetch and leave
+                  // a blank slot when the carousel rotates onto them.
+                  priority={index === 0}
+                  loading={index === 0 ? undefined : "eager"}
+                  className="object-cover filter-[saturate(0.85)_brightness(0.97)]"
+                  sizes="100vw"
+                />
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </ParallaxLayer>
 
       {/* Desktop wash — left-weighted navy so type stays readable. */}
       <div
@@ -325,7 +332,7 @@ export default function Hero() {
         {/* Heading — one slot, each slide supplies its own eyebrow + headline.
              All variants stack in a single grid cell and crossfade in sync
              with the background slideshow. */}
-        <div className="pointer-events-auto relative z-40 shrink-0 px-5 pt-[3.25rem] pb-0 md:absolute md:inset-x-0 md:top-[28dvh] md:px-8 md:pb-24 md:pt-0 lg:top-[30dvh] lg:pb-0 lg:pl-10 lg:pr-8">
+        <div className="pointer-events-none relative z-40 shrink-0 px-5 pt-[3.25rem] pb-0 md:absolute md:inset-x-0 md:top-[28dvh] md:px-8 md:pb-24 md:pt-0 lg:top-[30dvh] lg:pb-0 lg:pl-10 lg:pr-8">
           {/*
             Stacked in one grid cell. Do NOT crossfade outgoing + incoming copy
             with the same long opacity transition — both sit at ~50% opacity in
@@ -352,7 +359,7 @@ export default function Hero() {
                 <Link
                   href={slide.ctaHref}
                   tabIndex={idx === activeIndex ? 0 : -1}
-                  className="group mt-2 inline-flex items-center gap-2 text-[clamp(0.75rem,1.9svh,0.95rem)] font-normal text-white transition-colors hover:text-white/80 md:mt-9 md:gap-2 md:text-base md:font-medium md:hover:text-[#9BCB4A]"
+                  className="pointer-events-auto group mt-2 inline-flex items-center gap-2 text-[clamp(0.75rem,1.9svh,0.95rem)] font-normal text-white transition-colors hover:text-white/80 md:mt-9 md:gap-2 md:text-base md:font-medium md:hover:text-[#9BCB4A]"
                 >
                   <span className="md:border-b md:border-white/40 md:pb-0.5 md:transition-colors md:group-hover:border-[#9BCB4A]">
                     {slide.ctaLabel}
@@ -377,18 +384,20 @@ export default function Hero() {
           <HeroCarouselDots
             activeIndex={activeIndex}
             onSelect={setActiveIndex}
-            variant="segments"
+            variant="dots"
             compact
-            className="pointer-events-auto mt-1 flex w-fit items-center justify-start gap-0.5 md:hidden"
+            className="pointer-events-auto mt-1 flex w-fit items-center justify-start gap-0 md:hidden"
           />
         </div>
 
         {/* Bottom: mobile = dots → Procore + card column. md+ = dots, then partner + card in one row (items-end aligns bottoms). */}
-        <div className="pointer-events-none relative z-20 mt-auto flex w-full shrink-0 flex-col items-center px-4 pb-2 max-md:gap-2 md:absolute md:inset-0 md:bottom-3 md:mt-0 md:items-end md:justify-end md:gap-2 md:px-8 md:pb-8 md:pt-0 lg:px-10">
+        <div className="pointer-events-none relative z-50 mt-auto flex w-full shrink-0 flex-col items-center px-4 pb-2 max-md:gap-2 md:absolute md:inset-0 md:bottom-3 md:mt-0 md:items-end md:justify-end md:gap-2 md:px-8 md:pb-8 md:pt-0 lg:px-10">
           <HeroCarouselDots
             activeIndex={activeIndex}
             onSelect={setActiveIndex}
-            className="pointer-events-auto hidden w-full shrink-0 items-center justify-center gap-1.5 pb-0.5 opacity-90 md:flex md:w-auto md:shrink-0 md:justify-end md:pb-0 md:opacity-100 md:drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
+            variant="dots"
+            compact
+            className="pointer-events-auto hidden w-full shrink-0 items-center justify-center gap-0 pb-0.5 opacity-90 md:flex md:w-auto md:shrink-0 md:justify-end md:pb-0 md:opacity-100 md:drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
           />
           <div className="pointer-events-auto flex w-full max-w-full flex-col items-stretch justify-center md:flex-row md:items-end md:justify-between md:gap-10 md:px-0 md:pb-0 lg:gap-14">
             <div className="hidden min-w-0 flex-1 lg:block">

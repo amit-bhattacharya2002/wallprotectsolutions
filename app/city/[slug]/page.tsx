@@ -6,6 +6,7 @@ import { sitePhotos } from "@/app/data/site-photos";
 
 // Generate static params for all cities
 export function generateStaticParams() {
+  if (process.env.NODE_ENV === "development") return [];
   return getAllCitySlugs().map((slug) => ({
     slug: slug,
   }));

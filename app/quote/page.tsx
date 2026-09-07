@@ -404,20 +404,22 @@ export default function QuotePage() {
         </section>
 
         {/* Trust Indicators */}
-        <section className="section-shell section-shell-dark bg-[#2B7DCE]">
+        <section className="brand-blue-surface py-14 lg:py-20">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-5xl font-bold text-white mb-2">500+</div>
-                <div className="text-white/80">Projects Completed</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold text-white mb-2">12</div>
-                <div className="text-white/80">Month Warranty</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold text-white mb-2">Free</div>
-                <div className="text-white/80">Site Visits</div>
+            <div className="brand-glass overflow-hidden">
+              <div className="grid gap-px bg-white/20 md:grid-cols-3">
+                <div className="bg-white/5 px-6 py-8 text-center">
+                  <div className="mb-2 text-5xl font-bold text-white">500+</div>
+                  <div className="text-white/80">Projects Completed</div>
+                </div>
+                <div className="bg-white/5 px-6 py-8 text-center">
+                  <div className="mb-2 text-5xl font-bold text-white">12</div>
+                  <div className="text-white/80">Month Warranty</div>
+                </div>
+                <div className="bg-white/5 px-6 py-8 text-center">
+                  <div className="mb-2 text-5xl font-bold text-white">Free</div>
+                  <div className="text-white/80">Site Visits</div>
+                </div>
               </div>
             </div>
           </div>

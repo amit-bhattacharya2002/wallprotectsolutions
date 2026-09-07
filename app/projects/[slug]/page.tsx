@@ -43,6 +43,7 @@ function getProjectResourceSlugs(products: string[] = []) {
 }
 
 export function generateStaticParams() {
+  if (process.env.NODE_ENV === "development") return [];
   return getAllProjectSlugs().map((slug) => ({
     slug: slug,
   }));
@@ -127,6 +128,30 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                       <div>
                         <div className="text-xs text-gray-600 uppercase tracking-wider mb-1">Location</div>
                         <div className="text-[#0f172a] font-medium">{project.details.location}</div>
+                      </div>
+                    )}
+                    {project.details.year && (
+                      <div>
+                        <div className="text-xs text-gray-600 uppercase tracking-wider mb-1">Year</div>
+                        <div className="text-[#0f172a] font-medium">{project.details.year}</div>
+                      </div>
+                    )}
+                    {project.details.industry && (
+                      <div>
+                        <div className="text-xs text-gray-600 uppercase tracking-wider mb-1">Industry</div>
+                        <div className="text-[#0f172a] font-medium">{project.details.industry}</div>
+                      </div>
+                    )}
+                    {project.details.finish && (
+                      <div>
+                        <div className="text-xs text-gray-600 uppercase tracking-wider mb-1">Colour / Finish</div>
+                        <div className="text-[#0f172a] font-medium">{project.details.finish}</div>
+                      </div>
+                    )}
+                    {project.details.rooms && project.details.rooms.length > 0 && (
+                      <div>
+                        <div className="text-xs text-gray-600 uppercase tracking-wider mb-1">Rooms</div>
+                        <div className="text-[#0f172a] font-medium">{project.details.rooms.join(" · ")}</div>
                       </div>
                     )}
                     {project.details.squareFootage && (

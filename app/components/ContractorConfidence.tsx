@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import ParallaxBackground from "./ParallaxBackground";
 
 const deliveryPoints = [
   {
@@ -30,13 +30,9 @@ const workflow = [
 export default function ContractorConfidence() {
   return (
     <section className="section-shell-lg section-shell-dark grain-overlay relative isolate overflow-hidden border-t border-white/5 bg-[#10233F]">
-      <Image
+      <ParallaxBackground
         src="/actualphotos/5.jpg"
-        alt=""
-        aria-hidden="true"
-        fill
-        sizes="100vw"
-        className="pointer-events-none absolute inset-0 z-0 hidden object-cover object-center filter-[saturate(0.88)_brightness(0.82)] md:block"
+        imageClassName="filter-[saturate(0.88)_brightness(0.82)]"
       />
       <div className="pointer-events-none absolute inset-0 z-1 bg-linear-to-r from-[#005EB8]/84 via-[#0d6fc7]/66 to-[#64A70B]/58" />
       <div className="pointer-events-none absolute inset-0 z-1 bg-[linear-gradient(90deg,rgba(7,21,34,0.78)_0%,rgba(7,21,34,0.58)_48%,rgba(7,21,34,0.28)_100%)]" />

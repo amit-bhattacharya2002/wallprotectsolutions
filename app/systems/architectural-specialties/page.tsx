@@ -1,6 +1,7 @@
-import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
+import { Header, Footer, PageHero, SitePhoto, SystemOverview, SystemProjectsList } from "@/app/components";
 import Link from "next/link";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemOverviews } from "@/app/data/system-overviews";
 import { systemProjects } from "@/app/data/system-projects";
 
 const architecturalProjects = systemProjects["architectural-specialties"];
@@ -37,34 +38,7 @@ export default function ArchitecturalSpecialtiesPage() {
           ]}
         />
 
-        <section className="border-b border-slate-200/80 bg-[#f8fafc] py-12 lg:py-16">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
-              <SitePhoto
-                photo={sitePhotos.systems.architectural}
-                overlay="gradient"
-                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
-              />
-              <div>
-                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#64A70B]">
-                  Complete healthcare packages
-                </span>
-                <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
-                  Division 10 as part of a single accountable scope
-                </h2>
-                <p className="mb-6 text-base leading-relaxed text-gray-600">
-                  On major healthcare projects such as the Chilliwack Urgent and Primary Care Centre, architectural
-                  specialties — door and frame protection, cubicle tracks, expansion joints — are supplied and installed
-                  alongside wall protection and hygienic cladding as one coordinated subcontract.
-                </p>
-                <SystemProjectsList
-                  systemName={architecturalProjects.name}
-                  projectSlugs={architecturalProjects.slugs}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        <SystemOverview overview={systemOverviews["architectural-specialties"]} />
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -78,6 +52,11 @@ export default function ArchitecturalSpecialtiesPage() {
                   Door and frame protection, expansion joint covers, entrance mat systems, and cubicle curtain tracks
                   are commonly specified alongside wall protection on healthcare and institutional projects.
                 </p>
+                <SystemProjectsList
+                  systemName={architecturalProjects.name}
+                  projectSlugs={architecturalProjects.slugs}
+                  className="mt-8"
+                />
               </div>
               <SitePhoto photo={sitePhotos.systems.architecturalSecondary} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
             </div>

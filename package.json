@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "upload-photos": "tsx scripts/upload-project-photos.ts",
-    "upload-all-photos": "tsx scripts/upload-all-project-photos.ts"
+    "upload-all-photos": "tsx scripts/upload-all-project-photos.ts",
+    "import-legacy-photos": "tsx scripts/import-legacy-photos.ts"
   },
   "dependencies": {
     "@vercel/blob": "^2.4.0",

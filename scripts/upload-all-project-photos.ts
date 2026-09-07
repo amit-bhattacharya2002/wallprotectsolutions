@@ -11,7 +11,7 @@ async function main() {
 
   const entries = await readdir(parentDir, { withFileTypes: true });
   const folders = entries
-    .filter((e) => e.isDirectory() && !e.name.startsWith("."))
+    .filter((e) => e.isDirectory() && !e.name.startsWith(".") && !e.name.startsWith("_"))
     .map((e) => e.name)
     .sort((a, b) => a.localeCompare(b));
 

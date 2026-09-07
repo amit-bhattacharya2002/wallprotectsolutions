@@ -17,9 +17,10 @@ export default function PopularQuestionsAccordion({ items }: PopularQuestionsAcc
 
   return (
     <div className="space-y-3">
-      {items.map((item) => {
+      {items.map((item, index) => {
         const key = item.question;
         const isOpen = openItem === key;
+        const panelId = `popular-question-${index}`;
 
         return (
           <div
@@ -30,6 +31,7 @@ export default function PopularQuestionsAccordion({ items }: PopularQuestionsAcc
               type="button"
               onClick={() => setOpenItem(isOpen ? null : key)}
               aria-expanded={isOpen}
+              aria-controls={panelId}
               className="flex w-full items-start justify-between gap-4 px-5 py-5 text-left transition-colors hover:bg-[#f8fafc]"
             >
               <span className="min-w-0 flex-1">
@@ -41,7 +43,7 @@ export default function PopularQuestionsAccordion({ items }: PopularQuestionsAcc
                 </span>
               </span>
               <svg
-                className={`mt-1 h-5 w-5 shrink-0 text-gray-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                className={`mt-1 h-5 w-5 shrink-0 text-gray-400 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "rotate-180" : ""}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -50,11 +52,23 @@ export default function PopularQuestionsAccordion({ items }: PopularQuestionsAcc
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            {isOpen && (
-              <div className="border-t border-slate-100 bg-[#f8fafc] px-5 pb-5 pt-4">
-                <p className="text-sm leading-relaxed text-gray-600">{item.answer}</p>
+            <div
+              id={panelId}
+              role="region"
+              className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div
+                  className={`border-t border-slate-100 bg-[#f8fafc] px-5 pb-5 pt-4 transition-opacity duration-300 ${
+                    isOpen ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <p className="text-sm leading-relaxed text-gray-600">{item.answer}</p>
+                </div>
               </div>
-            )}
+            </div>
           </div>
         );
       })}

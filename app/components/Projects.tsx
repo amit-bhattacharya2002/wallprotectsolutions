@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import FrostWash from "@/app/components/FrostWash";
 import ProjectImage from "@/app/components/ProjectImage";
 import {
   getHomepageFeaturedProject,
@@ -46,7 +47,7 @@ export default function Projects() {
         <div className="mb-12">
           <Link href={`/projects/${featuredProject.slug}`} className="group block">
             <div className="grid overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_24px_70px_-42px_rgba(15,23,42,0.32)] transition-colors hover:border-[#64A70B]/35 lg:grid-cols-[1.08fr_0.92fr]">
-              <div className="relative aspect-16/10 overflow-hidden lg:aspect-auto lg:min-h-[420px]">
+              <div className="relative isolate aspect-16/10 overflow-hidden lg:aspect-auto lg:min-h-[420px]">
                 <ProjectImage
                   src={getProjectCoverImage(featuredProject)}
                   alt={featuredProject.title}
@@ -54,10 +55,21 @@ export default function Projects() {
                   priority
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[#07162c]/82 via-[#10233F]/24 to-transparent p-6">
+                <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-[#07162c]/82 via-[#10233F]/24 to-transparent p-6 transition duration-300 group-hover:translate-y-3 group-hover:opacity-0 [@media(hover:none)]:hidden">
                   <span className="inline-flex rounded-full bg-white/92 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#10233F]">
                     Featured case study
                   </span>
+                </div>
+                <div className="absolute inset-0 z-20 flex translate-y-full flex-col justify-end px-6 pb-6 pt-20 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-focus-within:translate-y-0 [@media(hover:none)]:translate-y-0 sm:px-7 sm:pb-7">
+                  <FrostWash />
+                  <div className="relative [text-shadow:0_1px_2px_rgba(7,22,44,0.65),0_8px_24px_rgba(7,22,44,0.4)]">
+                    <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-[#9BCB4A]">
+                      Featured case study
+                    </p>
+                    <p className="max-w-lg text-sm font-medium leading-relaxed text-white lg:text-[0.9375rem] lg:leading-[1.65]">
+                      {featuredProject.fullDescription ?? featuredProject.description}
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col items-start justify-center bg-linear-to-br from-white to-slate-50 p-8 text-left lg:p-12">
@@ -116,15 +128,22 @@ export default function Projects() {
                     variant="card"
                     className="object-cover transition-transform duration-700 group-hover:scale-105 filter-[saturate(0.85)_brightness(0.97)]"
                   />
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <span className="text-xs text-[#4f8f16] font-medium mb-2 block">{project.category}</span>
-                  <h3 className="text-base font-semibold text-[#0f172a] mb-1 group-hover:text-[#64A70B] transition-colors tracking-tight">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 font-normal leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
+                  <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-[#07162c]/80 via-[#07162c]/20 to-transparent px-5 pb-5 pt-16 transition duration-300 group-hover:translate-y-3 group-hover:opacity-0 [@media(hover:none)]:hidden">
+                    <span className="mb-1.5 block text-xs font-medium text-[#9BCB4A]">{project.category}</span>
+                    <h3 className="text-base font-semibold tracking-tight text-white">{project.title}</h3>
+                  </div>
+                  <div className="absolute inset-0 z-20 flex translate-y-full flex-col justify-end px-5 pb-5 pt-16 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-focus-within:translate-y-0 [@media(hover:none)]:translate-y-0">
+                    <FrostWash />
+                    <div className="relative [text-shadow:0_1px_2px_rgba(7,22,44,0.65),0_8px_24px_rgba(7,22,44,0.4)]">
+                      <span className="mb-1.5 block text-xs font-medium text-[#9BCB4A]">{project.category}</span>
+                      <p className="text-base font-semibold tracking-tight text-white" aria-hidden>
+                        {project.title}
+                      </p>
+                      <p className="mt-2 line-clamp-3 text-sm font-medium leading-relaxed text-white">
+                        {project.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </Link>
             ))}

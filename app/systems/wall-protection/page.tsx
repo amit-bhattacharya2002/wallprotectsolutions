@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { Header, Footer, PageHero, RelatedHealthcareResources, SitePhoto, SystemProjectsList } from "@/app/components";
+import { Header, Footer, PageHero, RelatedHealthcareResources, SitePhoto, SystemOverview, SystemProjectsList } from "@/app/components";
 import Link from "next/link";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemOverviews } from "@/app/data/system-overviews";
 import { systemProjects } from "@/app/data/system-projects";
 
 const wallProtectionProjects = systemProjects["wall-protection"];
@@ -82,35 +83,7 @@ export default function WallProtectionSystemsPage() {
           ]}
         />
 
-        {/* Featured project */}
-        <section className="scroll-mt-28 border-b border-slate-200/80 bg-[#f8fafc] py-12 lg:py-16">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
-              <SitePhoto
-                photo={sitePhotos.systems.wallProtection}
-                overlay="gradient"
-                className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]"
-              />
-              <div>
-                <span className="mb-3 block text-sm font-medium uppercase tracking-[0.16em] text-[#64A70B]">
-                  Project reference
-                </span>
-                <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[#0f172a] md:text-3xl">
-                  Full wall protection scope at Chilliwack UPCC
-                </h2>
-                <p className="mb-6 text-base leading-relaxed text-gray-600">
-                  At the Chilliwack Urgent and Primary Care Centre we supplied and installed wall protection
-                  systems, hygienic cladding, and FRP across examination rooms, corridors, and high-traffic
-                  clinical areas — coordinated with Fraser Health requirements and phased construction.
-                </p>
-                <SystemProjectsList
-                  systemName={wallProtectionProjects.name}
-                  projectSlugs={wallProtectionProjects.slugs}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        <SystemOverview overview={systemOverviews["wall-protection"]} />
 
         {/* Products */}
         <section className="scroll-mt-28 bg-white py-20 lg:py-28">
@@ -189,6 +162,11 @@ export default function WallProtectionSystemsPage() {
                 </div>
               ))}
             </div>
+            <SystemProjectsList
+              systemName={wallProtectionProjects.name}
+              projectSlugs={wallProtectionProjects.slugs}
+              className="mt-12"
+            />
           </div>
         </section>
 

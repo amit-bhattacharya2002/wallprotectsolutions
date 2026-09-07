@@ -1,6 +1,7 @@
-import { Header, Footer, PageHero, SitePhoto, SystemProjectsList } from "@/app/components";
+import { Header, Footer, PageHero, SystemOverview, SystemProjectsList } from "@/app/components";
 import Link from "next/link";
 import { sitePhotos } from "@/app/data/site-photos";
+import { systemOverviews } from "@/app/data/system-overviews";
 import { systemProjects } from "@/app/data/system-projects";
 
 const stainlessProjects = systemProjects["stainless-protection"];
@@ -33,6 +34,8 @@ export default function StainlessProtectionPage() {
           ]}
         />
 
+        <SystemOverview overview={systemOverviews["stainless-protection"]} />
+
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -57,7 +60,6 @@ export default function StainlessProtectionPage() {
                 />
               </div>
               <div>
-                <SitePhoto photo={sitePhotos.systems.stainless} overlay="gradient" className="mb-8 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
                 <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Applications</span>
                 <h2 className="text-3xl font-semibold text-[#0f172a] tracking-tight mb-6">When stainless is the right choice</h2>
                 <div className="space-y-3">

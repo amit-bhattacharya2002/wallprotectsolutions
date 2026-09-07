@@ -12,6 +12,10 @@ export interface Project {
   signature?: boolean;
   details: {
     location?: string;
+    year?: string;
+    finish?: string;
+    industry?: string;
+    rooms?: string[];
     squareFootage?: string;
     duration?: string;
     products?: string[];
@@ -40,19 +44,6 @@ export const projects: Project[] = [
     details: {
       location: "Langley, BC",
       products: ["FRP Panels", "Wall Protection Systems", "Division Bars"],
-    },
-  },
-  {
-    slug: "bc-cancer-agency",
-    title: "BC Cancer Agency",
-    category: "Healthcare",
-    description: "Healthcare-grade wall protection for a BC Cancer Agency facility.",
-    fullDescription:
-      "Supply and installation of hygienic wall protection and FRP systems for BC Cancer Agency. Materials and detailing selected to meet healthcare facility standards for cleanability, durability, and infection control in clinical environments.",
-    image: "https://2u8xhjuusb19t6ck.public.blob.vercel-storage.com/projects/bc-cancer-agency/002.webp",
-    details: {
-      location: "British Columbia",
-      products: ["Healthcare-Grade FRP", "Hygienic Wall Cladding", "Wall Protection Systems"],
     },
   },
   {
@@ -197,6 +188,19 @@ export const projects: Project[] = [
     details: {
       location: "Vancouver, BC",
       products: ["Healthcare-Grade FRP", "Hygienic Wall Cladding", "Sealed Systems"],
+    },
+  },
+  {
+    slug: "peace-arch",
+    title: "Peace Arch Hospital",
+    category: "Healthcare",
+    description: "FRP and wet-area wall systems for patient showers and clinical interiors at Peace Arch Hospital.",
+    fullDescription:
+      "Supply and installation of hygienic wall panels, wet-area finishes, and stainless door protection for patient showers and adjacent clinical spaces at Peace Arch Hospital in White Rock. The work supports accessible, washdown-capable rooms in an active hospital environment.",
+    image: "https://2u8xhjuusb19t6ck.public.blob.vercel-storage.com/projects/peace-arch/cover.webp",
+    details: {
+      location: "White Rock, BC",
+      products: ["FRP Panels", "Wet Wall Systems", "Stainless Door Protection"],
     },
   },
   ...legacyProjects as Project[],

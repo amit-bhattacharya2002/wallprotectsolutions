@@ -1,7 +1,6 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element -- parallax requires plain img per spec */
-
+import Image from "next/image";
 import Link from "next/link";
 import { useLayoutEffect, useRef, useState, type RefObject } from "react";
 import type { MotionValue } from "framer-motion";
@@ -99,12 +98,15 @@ function FullBleedImage({
       style={{ opacity, zIndex: index + 1 }}
     >
       <motion.div className="absolute inset-0" style={{ scale, transformOrigin }}>
-        <img
+        <Image
           src={sys.imageSrc}
           alt={sys.imageAlt}
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          fill
+          sizes="100vw"
+          priority={index === 0}
+          quality={75}
+          className="object-cover object-center"
           draggable={false}
-          loading={index === 0 ? "eager" : "lazy"}
         />
       </motion.div>
     </motion.div>

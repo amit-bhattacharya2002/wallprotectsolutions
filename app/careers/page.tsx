@@ -76,43 +76,47 @@ export default function CareersPage() {
 
         {/* Why work here */}
         <section className="section-shell-lg bg-[#f8fafc]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
               <div>
-                <span className="text-sm font-medium text-[#64A70B] tracking-wider uppercase mb-4 block">Why Join Us</span>
-                <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a] tracking-tight mb-6">Serious work. Long-term growth.</h2>
-                <p className="text-gray-600 leading-relaxed font-normal mb-8">
+                <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-[#64A70B]">Why Join Us</span>
+                <h2 className="mb-6 text-3xl font-semibold tracking-tight text-[#0f172a] md:text-4xl">
+                  Serious work. Long-term growth.
+                </h2>
+                <p className="max-w-xl text-base font-normal leading-relaxed text-gray-600">
                   We are not a generalist contractor that does some wall panels on the side. Wall protection and hygienic systems are all we do — and healthcare is the core of our business. That means the work is consistent, the projects are significant, and the people we hire have a real opportunity to grow with the business.
                 </p>
-                <ul className="space-y-4">
-                  {whyUs.map((point) => (
-                    <li key={point} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-[#64A70B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-gray-600">{point}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
-              <div className="space-y-6 sticky-side">
-                <SitePhoto photo={sitePhotos.careers} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
-                <div className="surface-card-muted p-10">
-                <h3 className="text-xl font-semibold text-[#0f172a] mb-4">Get in touch</h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
+              <SitePhoto photo={sitePhotos.careers} overlay="gradient" className="shadow-[0_22px_60px_-36px_rgba(15,23,42,0.28)]" />
+            </div>
+
+            <ul className="mt-12 grid gap-x-10 gap-y-5 sm:grid-cols-2">
+              {whyUs.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <svg className="mt-0.5 h-5 w-5 shrink-0 text-[#64A70B]" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-600">{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-12 flex flex-col gap-6 bg-white px-8 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-10 lg:py-9">
+              <div className="max-w-2xl">
+                <h3 className="text-xl font-semibold tracking-tight text-[#0f172a]">Get in touch</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
                   Send us your resume and a brief note about your background. We respond to every application and are always open to conversations with the right people — whether or not we have an active posting that matches.
                 </p>
-                <a
-                  href="mailto:info@frpinstallations.com?subject=Career Inquiry"
-                  className="inline-flex items-center gap-2 bg-[#005EB8] text-white px-6 py-3 rounded-full font-medium hover:bg-[#64A70B] transition-colors"
-                >
-                  Send Your Resume
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-                </div>
               </div>
+              <a
+                href="mailto:info@frpinstallations.com?subject=Career Inquiry"
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#005EB8] px-6 py-3 font-medium text-white transition-colors hover:bg-[#64A70B]"
+              >
+                Send Your Resume
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
             </div>
           </div>
         </section>

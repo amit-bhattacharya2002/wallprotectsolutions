@@ -168,7 +168,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${redHatDisplay.variable}`}>
+    <html lang="en" className={redHatDisplay.variable}>
       <head>
         <script
           type="application/ld+json"

@@ -1,41 +1,7 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
-import Link from "next/link";
-import { SYSTEMS, type ShowcaseSystem } from "./SystemsShowcase.data";
-
-function SystemListCard({ sys, eager }: { sys: ShowcaseSystem; eager?: boolean }) {
-  return (
-    <article className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm">
-      <div className="relative aspect-4/5 w-full sm:aspect-3/4">
-        <img
-          src={sys.imageSrc}
-          alt={sys.imageAlt}
-          className="absolute inset-0 h-full w-full object-cover"
-          loading={eager ? "eager" : "lazy"}
-          draggable={false}
-        />
-      </div>
-      <div className="space-y-4 px-6 py-8 sm:px-8 sm:py-9">
-        <h3 className="min-w-0 text-balance text-2xl font-semibold tracking-tight text-[#0B1D3A] sm:text-[1.65rem]">
-          {sys.name}
-        </h3>
-        <p className="text-[0.9375rem] italic leading-relaxed text-[#6B7280] sm:text-base">{sys.manufacturer}</p>
-        <p className="text-base leading-relaxed text-[#6B7280] sm:text-[1.0625rem] sm:leading-[1.65]">
-          {sys.description}
-        </p>
-        <Link
-          href={sys.href}
-          className="inline-flex items-center gap-1.5 text-base font-semibold text-[#64A70B] transition-colors hover:text-[#4f8f16]"
-        >
-          Learn more
-          <span aria-hidden>→</span>
-        </Link>
-      </div>
-    </article>
-  );
-}
+import { SYSTEMS } from "./SystemsShowcase.data";
+import SystemPhotoCard from "./SystemsShowcase.card";
 
 export default function SystemsShowcaseMobile() {
   return (
@@ -49,9 +15,14 @@ export default function SystemsShowcaseMobile() {
         ))}
       </div>
 
-      <div className="mx-auto mt-6 max-w-3xl space-y-14">
+      <div className="mx-auto mt-6 max-w-3xl space-y-6">
         {SYSTEMS.map((sys, index) => (
-          <SystemListCard key={sys.id} sys={sys} eager={index === 0} />
+          <SystemPhotoCard
+            key={sys.id}
+            sys={sys}
+            priority={index === 0}
+            sizes="(max-width: 768px) 100vw, 768px"
+          />
         ))}
       </div>
     </div>

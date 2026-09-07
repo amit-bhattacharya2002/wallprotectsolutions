@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FrostWash from "./FrostWash";
 import ManufacturerLogoStrip from "./ManufacturerLogoStrip";
 
 const manufacturers = [
@@ -70,20 +71,23 @@ export default function ManufacturerStrip() {
           />
         </div>
 
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-start">
-          <div>
-            <div className="mb-6 overflow-hidden rounded-[1.25rem] bg-white shadow-[0_22px_60px_-38px_rgba(15,23,42,0.35)]">
+        <div className="grid items-stretch gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div className="min-h-[28rem] lg:min-h-0">
+            <div className="relative h-full overflow-hidden rounded-[1.25rem] shadow-[0_22px_60px_-38px_rgba(15,23,42,0.35)]">
               <Image
                 src="/actualphotos/3.jpg"
                 alt="Healthcare corridor prepared for coordinated wall protection scope"
-                width={900}
-                height={1125}
-                className="aspect-4/3 w-full object-cover"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
               />
+              <div className="absolute inset-x-0 bottom-0 px-5 pb-8 pt-24 sm:px-6 sm:pb-10 sm:pt-28">
+                <FrostWash />
+                <p className="relative text-[17px] font-semibold leading-relaxed text-white [text-shadow:0_1px_2px_rgba(7,22,44,0.7),0_8px_24px_rgba(7,22,44,0.5)] md:text-[19px] md:leading-[1.65]">
+                  We regularly work with products from leading manufacturers including Construction Specialties, Altro, Inpro, Panolam, Marlite, and others. The goal is not to push one brand everywhere. It is to choose the right system for the application, specification, budget, and maintenance conditions.
+                </p>
+              </div>
             </div>
-            <p className="section-lead mb-6">
-              We regularly work with products from leading manufacturers including Construction Specialties, Altro, Inpro, Panolam, Marlite, and others. The goal is not to push one brand everywhere. It is to choose the right system for the application, specification, budget, and maintenance conditions.
-            </p>
           </div>
           <div className="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white shadow-[0_22px_60px_-42px_rgba(15,23,42,0.28)]">
             <div className="grid border-b border-slate-200 bg-[#f8fafc] px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 md:grid-cols-[0.85fr_0.8fr_1.35fr] lg:px-6">

@@ -7,15 +7,17 @@ export const systemProjects = {
       "chilliwack-urgent-and-primary-care-center",
       "langley-urgent-and-primary-care-center",
       "lions-gate-hospital-angiography-upgrade",
+      "bc-cancer-agency-x-ray-room",
     ],
   },
   "hygienic-wall-cladding": {
     name: "Hygienic Wall Cladding",
     slugs: [
       "chilliwack-urgent-and-primary-care-center",
-      "bc-cancer-agency",
+      "port-moody-urgent-and-primary-care-center",
       "csn-pharma",
       "vgh-endoscopy",
+      "peace-arch",
     ],
   },
   "frp-wall-systems": {
@@ -52,6 +54,7 @@ export const systemProjects = {
       "port-moody-urgent-and-primary-care-center",
       "langley-urgent-and-primary-care-center",
       "surrey-newton-urgent-and-primary-care-centre",
+      "peace-arch",
     ],
   },
   "architectural-specialties": {
@@ -60,7 +63,7 @@ export const systemProjects = {
       "chilliwack-urgent-and-primary-care-center",
       "port-moody-urgent-and-primary-care-center",
       "lions-gate-hospital-angiography-upgrade",
-      "bc-cancer-agency",
+      "bc-cancer-agency-x-ray-room",
     ],
   },
   "stainless-protection": {
