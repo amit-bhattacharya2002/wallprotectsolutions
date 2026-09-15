@@ -5,9 +5,12 @@ import type { NextConfig } from "next";
 const appDir = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
-  // Parent folder has a stub package-lock.json; pin the app root so webpack
-  // does not scan that tree and hang on startup.
+  // Pin the app directory. A stub package-lock.json in the parent folder
+  // otherwise makes Next treat that folder as the workspace root and hang.
   outputFileTracingRoot: appDir,
+  turbopack: {
+    root: appDir,
+  },
   images: {
     qualities: [75, 100],
     remotePatterns: [
