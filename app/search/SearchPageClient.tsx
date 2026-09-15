@@ -31,26 +31,27 @@ export default function SearchPageClient({ initialQuery }: SearchPageClientProps
 
   return (
     <main>
-      <section className="brand-blue-surface relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-20">
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }}
-        />
-        <div className="absolute top-1/4 right-0 h-[360px] w-[360px] rounded-full bg-[#005EB8]/10 blur-[120px]" />
+      <section className="brand-blue-surface relative overflow-hidden pt-6 pb-8 md:pt-8 md:pb-10">
+        <div className="relative">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.03]"
+            style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }}
+          />
+          <div className="pointer-events-none absolute top-0 right-0 h-[220px] w-[220px] rounded-full bg-[#005EB8]/10 blur-[100px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-4xl">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#64A70B]">Search</p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
               Find the right system, product, or service faster
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/74">
+            <p className="mt-3 max-w-3xl text-base leading-relaxed text-white/74 md:text-lg">
               Search across wall protection systems, hygienic cladding, FRP products, manufacturer partners, services, and representative project work.
             </p>
           </div>
 
-          <div className="mt-10 max-w-4xl rounded-[1.75rem] border border-white/10 bg-white/6 p-3 backdrop-blur-sm">
-            <div className="flex flex-col gap-3 rounded-[1.25rem] bg-white p-4 shadow-[0_24px_80px_-48px_rgba(2,6,23,0.7)] sm:flex-row sm:items-center">
+          <div className="mt-6 max-w-4xl rounded-[1.75rem] border border-white/10 bg-white/6 p-2.5 backdrop-blur-sm sm:p-3">
+            <div className="flex flex-col gap-3 rounded-[1.25rem] bg-white p-3 shadow-[0_24px_80px_-48px_rgba(2,6,23,0.7)] sm:flex-row sm:items-center sm:p-4">
               <div className="flex min-w-0 flex-1 items-center gap-3">
                 <svg className="h-5 w-5 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="m21 21-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0Z" />
@@ -75,6 +76,7 @@ export default function SearchPageClient({ initialQuery }: SearchPageClientProps
                 </span>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>
